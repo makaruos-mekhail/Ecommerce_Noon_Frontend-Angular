@@ -1,0 +1,61 @@
+.head-links a{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.smartphone-rate .rounded-pill,
+.desktop .rounded-pill{
+  background-color:#38AE04;
+  color: white;
+}
+#fixed-cart-section{
+  position:fixed; z-index: 3;
+   background-color: white;
+   bottom: 0;
+}
+.cart-button{
+  background-color: #2B4CD7;
+   color: white;
+}
+.savings-percentage{
+  background-color:#e3eccd;
+   color: #38AE04;
+}
+.ad-descibed{
+  color:#38AE04 ;font-size: 1.5em;
+}
+.right-row2-text{
+  font-size: 0.75em; font-weight: bold; text-align: center;
+}
+.right-row2-img{
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown-item:hover{
+  background-color: #2B4CD7 !important;
+  color: white !important;
+}
+.Favoite-button{
+  background-color:#F1F1F4;
+  width: 4em;
+   border-radius: 50%;
+}
+.dd-button{
+  border-radius: 0.25em;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: transparent;
+}
+.dropdown-toggle{
+  border-radius: 0.25em;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: transparent;
+}
+/* .Favoite-button i{
+color: #AAB8C2; font-size: 2em;
+} */
+*{
+  margin: 0 !important;
+}

@@ -7,6 +7,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { AllCategoryComponent } from './components/all-category/all-category.component';
 import { SlidbarAllcategoryComponent } from './components/slidbar-allcategory/slidbar-allcategory.component';
+import { CartComponent } from './components/cart/cart.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { SlidbarAllcategoryComponent } from './components/slidbar-allcategory/sl
     FooterComponent,
     HomeComponent,
     AllCategoryComponent,
-    SlidbarAllcategoryComponent
+    SlidbarAllcategoryComponent,
+    CartComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule
