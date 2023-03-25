@@ -17,12 +17,11 @@ export interface IProduct {
     ImagePath: string;
     Rate?: number;
     ProductCategoryId: number;
-    Brand?: IBrand;
-    Category?: ICategory;
-    Orders?: IOrder[];
+    BrandId: number;
+    CategoryID: number;
+    OrdersID: number
     WishListId: number;
-    WishList?: IWishList;
-    ProductColors?: IProductColor[];
-    ProductImages?: IProductImage[];
-    ProductReview?: IReview[];
+    ProductColorsID: number;
+    ProductImagesURL: string[];
+    ProductReviewID: string;
 }
