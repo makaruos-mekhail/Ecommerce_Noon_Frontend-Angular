@@ -7,7 +7,7 @@ import { IReview } from "./ireview";
 import { IWishList } from "./iwish-list";
 
 export interface IProduct {
-    Id: number;
+    id: number;
     Name: string;
     NameAr: string;
     Description: string;
@@ -17,12 +17,12 @@ export interface IProduct {
     ImagePath: string;
     Rate?: number;
     ProductCategoryId: number;
-    Brand: IBrand;
-    Category: ICategory;
-    Orders: IOrder[];
+    Brand?: IBrand;
+    Category?: ICategory;
+    Orders?: IOrder[];
     WishListId: number;
-    WishList: IWishList;
-    ProductColors: IProductColor[];
-    ProductImages: IProductImage[];
-    ProductReview: IReview[];
+    WishList?: IWishList;
+    ProductColors?: IProductColor[];
+    ProductImages?: IProductImage[];
+    ProductReview?: IReview[];
 }
