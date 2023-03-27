@@ -34,3 +34,11 @@ ol, ul {
        text-align: center;
        }
 }
+
+.a {
+  text-decoration: none;
+  cursor: pointer !important;
+  color: inherit ;
+  display:flex;
+
+}

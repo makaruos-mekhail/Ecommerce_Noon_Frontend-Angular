@@ -9,20 +9,20 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductService {
 
-  httpHeader={};
+  // httpHeader={};
 
 
-  constructor(private httpClient:HttpClient) {
-    this.httpHeader={
-      header:new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-  }
+  // constructor(private httpClient:HttpClient) {
+  //   this.httpHeader={
+  //     header:new HttpHeaders({
+  //       'Content-Type': 'application/json'
+  //     })
+  //   };
+  // }
 
-  getAllProducts(): Observable<IProduct[]> {
-    return this.httpClient.get<IProduct[]>(`${environment.APIURLProduct}/Product`);
-  }
+  // getAllProducts(): Observable<IProduct[]> {
+  //   return this.httpClient.get<IProduct[]>(`${environment.APIURLProduct}/Product`);
+  // }
 
 
 

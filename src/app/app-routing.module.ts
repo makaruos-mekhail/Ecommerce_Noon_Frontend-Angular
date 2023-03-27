@@ -8,6 +8,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 // import { SlidbarAllcategoryComponent } from './components/slidbar-allcategory/slidbar-allcategory.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { HelppComponent } from './components/helpp/helpp.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'Details', component: DetailsComponent,title:'Noon Details'},
   {path:'WishList', component: WishListComponent,title:'Noon WishList'},
   {path:'AllCategory', component: MainPageComponent,title:'Noon AllCategory'},
+  {path:'Help', component: HelppComponent,title:'Noon Help'},
   {path:'**', component: NotfoundComponent }, //Widcard path
 ];
 @NgModule({
