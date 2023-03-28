@@ -17,6 +17,8 @@ const routes: Routes = [
   {path:'Details', component: DetailsComponent,title:'Noon Details'},
   {path:'WishList', component: WishListComponent,title:'Noon WishList'},
   {path:'AllCategory', component: MainPageComponent,title:'Noon AllCategory'},
+  {path:'AllCategory/:str', component: MainPageComponent,title:'Noon AllCategory'},
+  {path:'AllCategory/:fromPrice/:toPrice', component: MainPageComponent,title:'Noon AllCategory'},
   {path:'**', component: NotfoundComponent }, //Widcard path
 ];
 @NgModule({

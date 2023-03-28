@@ -604,10 +604,13 @@
       <div id="body-id4" class="accordion-collapse collapse " aria-labelledby="header-id4">
         <div class="accordion-body bg-light ">
           <div class="row1 justify-content-center">
-            <input type="number" id="#" name="#" min="1" max="10000" style="width: 35%;padding: 5px;">
-            &nbsp; Go &nbsp;
-            <input type="number" id="#" name="#" min="1" max="100000" style="width:35%;padding: 5px;">
-            &nbsp; TO &nbsp;
+            <input type="number" id="#" #fromPrice name="#" value="{{fPrice}}" min="1" max="10000" style="width: 35%;padding: 5px;">
+            &nbsp;  &nbsp;
+            <input type="number" id="#" #toPrice name="#" value="{{tPrice}}" min="1" max="10000" style="width: 35%;padding: 5px;">
+            
+            <button class="btn btn-danger" (click)="getprobyprice(fromPrice.value,toPrice.value)">Go</button>
+            <!-- <input type="number" id="#" name="#" min="1" max="100000" style="width:35%;padding: 5px;">
+            &nbsp; TO &nbsp; -->
 
           </div>
         </div>

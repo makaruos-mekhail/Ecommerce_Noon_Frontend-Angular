@@ -25,4 +25,13 @@ export class ProductService {
     return this.httpClient.get<IProduct[]>(`${environment.APIURLProduct}/Product`);
   }
 
+  filterproductbyName(name:any):Observable<IProduct[]>{
+     return this.httpClient.get<IProduct[]>(`${environment.APIURLProduct}/Product?name=${name}`)
+
+  }
+  getbyprice(fromprice:number,toprice:number):Observable<IProduct[]>
+  {
+    return this.httpClient.get<IProduct[]>(`${environment.APIURLProduct}/Product?fromPrice=${fromprice}&toPrice=${toprice}`)
+  }
+
 }
