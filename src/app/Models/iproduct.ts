@@ -16,7 +16,7 @@ export interface IProduct {
     imagePath: string;
     rate: number;
     category: number;
-    brand?: number;
+    brand?: IBrand;
     orderItems?: number;
     productColors: IProductColor[];
     productImages: IProductImage[];

@@ -193,8 +193,10 @@ input {
   font-size: 15px;
 }
 
+ 
 .prod-rate {
-  background-color: rgb(34, 255, 0);
+  background-color:#38AE04;
+  color: white;
   padding: 2px 7px;
   border-radius: 20px;
   font-size: 15px;

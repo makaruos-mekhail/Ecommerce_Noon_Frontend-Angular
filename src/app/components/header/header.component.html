@@ -171,18 +171,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" routerLink="/AllCategory" >All CATAGORIES</a></li>
-            <li><a class="dropdown-item" href="#">Electronics</a></li>
-            <li><a class="dropdown-item" href="#">Mobiles</a></li>
-            <li><a class="dropdown-item" href="#">Grocery</a></li>
-            <li><a class="dropdown-item" href="#">Beauty & Health</a></li>
-            <li><a class="dropdown-item" href="#">Fashion</a></li>
-            <li><a class="dropdown-item" href="#">Home & Kitchen</a></li>
-            <li><a class="dropdown-item" href="#">Sport & Fitness</a></li>
-            <li><a class="dropdown-item" href="#">Baby Products</a></li>
-            <li><a class="dropdown-item" href="#">Automotive</a></li>
-            <li><a class="dropdown-item" href="#">Books</a></li>
-            <li><a class="dropdown-item" href="#">Stationery</a></li>
-            <li><a class="dropdown-item" href="#">Music</a></li>
+            <li *ngFor="let cat of categoriesList" ><a class="dropdown-item" href="#" *ngIf="cat.parentCategory==undefined">{{cat.name}}</a></li>
           </ul>
         </li>
       </ul>

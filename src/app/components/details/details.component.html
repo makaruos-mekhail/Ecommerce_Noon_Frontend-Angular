@@ -9,20 +9,14 @@
   </div>
   <!-- //product images large screens -->
   <aside class="col-4 d-none d-md-block container-fluid " style="background-color: #F7F7FA;">
-    <div class="row ">
-      <div class="col-4">
-        <div class="col-12" (click)="displayImg('0')"> <img id="0" src="assets/products/sams_small1.avif" alt="" height="100"
+    <div class="row " >
+      <div class="col-4" >
+        <div *ngFor="let img of product?.productImages" class="col-12" (click)="displayImg('0')"> <img id="0" [src]="img.imagePath" alt="" height="100"
             width="100"></div>
-        <div class="col-12" (click)="displayImg('1')"> <img id="1" src="assets/products/sams-smaal2.avif" alt="" height="100"
-            width="100"></div>
-        <div class="col-12" (click)="displayImg('2')"> <img id="2" src="assets/products/sams_small3.avif" alt="" height="100"
-            width="100"></div>
-        <div class="col-12" (click)="displayImg('3')"> <img id="3" src="assets/products/sams-small4.avif" alt="" height="100"
-            width="100"> </div>
       </div>
       <div class="col-8 d-flex">
         <div class="row justify-content-center align-content-center"> <img id="main-product-img" class="img-fluid"
-            src="assets/products/Galaxy A13 Black 64GB 4GB 4G LTE - Egypt Version-basic.jpg" height="100" width="100">
+            [src]="product?.imagePath" height="100" width="100">
         </div>
       </div>
     </div>
@@ -168,22 +162,22 @@
   </section>
   <!--DESKTOP -->
   <section class="  mt-2 container-fluid col-sm-12 col-md-5">
-    <div class="col-12 d-md-block d-none text-muted">Samsung</div>
+    <div class="col-12 d-md-block d-none text-muted">{{product?.brand?.name}}</div>
     <div class="col-12 d-md-block d-none">
-      <h3>Galaxy A13 Black 64GB 4GB 4G LTE - Egypt Version</h3>
+      <h3>{{product?.name}}</h3>
     </div>
     <div class="col-12 d-md-block d-none desktop">
       <p class="d-inline-block text-muted">Model Number : Galaxy A13 1 <span>|</span></p>
       <!-- rating icon  -->
-      <a href="" class="text-decoration-none px-1  rounded-pill"><span>4.5</span>
+      <a href="" class="text-decoration-none px-1  rounded-pill"><span>{{product?.rate}}</span>
         <span><i class="fa-solid fa-star"></i></span>
       </a>
-      <a href="" class="d-inline-block text-underline-hover text-muted"> 42 Rating</a>
     </div>
-    <div class="col-12 d-md-block d-none">
+    <!-- product discount details -->
+    <!-- <div class="col-12 d-md-block d-none" *ngIf="">
       <div class="row">
         <div class="col-4">Was : </div>
-        <div class="col-8 text-muted"> <del>EGP 5350.00</del> </div>
+        <div class="col-8 text-muted"> <del></del> </div>
       </div>
       <div class="row">
         <div class="col-4">Now : </div>
@@ -195,6 +189,9 @@
         <div class="col-4">Saving :</div>
         <div class="col-8">EGP 795.00 <span class="profit"> 14%off </span></div>
       </div>
+    </div> -->
+    <div class="col-12 d-md-block d-none">
+      <h4 class="d-inline-block"> {{product?.price |currency:'EGP'}}</h4> <span class="text-muted"></span>
     </div>
     <div class="col-12  d-md-block d-none">
       <div class="card border-0 " style="border-radius:0%;">
@@ -240,7 +237,7 @@
       <div class="row">
         <div class="col-2">
           <div class="col-12 fw-bold text-center">Quantity</div>
-          <div class="btn-group m-2 border-opacity-25 ">
+          <!-- <div class="btn-group m-2 border-opacity-25 ">
             <button type="button" class="btn btn-secondary bg-light text-dark dd-button ">1 </button>
             <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split bg-light text-dark "
               data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent">
@@ -252,7 +249,13 @@
               <li><a class="dropdown-item" href="#">3</a></li>
               <li><a class="dropdown-item" href="#">4</a></li>
             </ul>
-          </div>
+          </div> -->
+        <select class="form-select" aria-label="Default select example">
+          <option selected>1</option>
+          <option value="1" *ngFor="let item of  Productquantity;let i =index">{{i+2}}</option>
+          <!-- <option value="2">3</option>
+          <option value="3">4</option> -->
+        </select>
         </div>
         <div class="col-8">
           <button type="button" class="btn  col-12 m-3 p-3 cart-button "><b>Add To Cart</b></button>
