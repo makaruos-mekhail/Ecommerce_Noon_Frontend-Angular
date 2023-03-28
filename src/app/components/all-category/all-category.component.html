@@ -1,0 +1,740 @@
+   <button class=" btn btn-warning d-block d-sm-none d-md-none col-12 col-sm-4 col-md-3
+      warning.bg-gradient" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+      aria-controls="offcanvasRight">
+      Filter By Product
+    </button>
+    <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div>
+        <button type="button" class="btn-close " style="margin-right: 1px;" data-bs-dismiss="offcanvas"
+          aria-label="Close">
+        </button>
+        <section>
+          <div class="accordion accordion-flush" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="header-id">
+                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#body-id" aria-expanded="true" aria-controls="body-id">
+                  Fulfillment
+                </button>
+              </h2>
+              <div id="body-id" class="accordion-collapse collapse show" aria-labelledby="header-id">
+                <div class="accordion-body bg-light">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <span class="express">express</span>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header " id="header-id2">
+                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#body-id2" aria-expanded="true" aria-controls="body-id2">
+                  Category
+                </button>
+              </h2>
+              <div id="body-id2" class="accordion-collapse collapse " aria-labelledby="header-id2">
+                <div class="accordion-body bg-light">
+                  <div class="accordion-item "  *ngFor="let cat of categoriesList ;let i = index">
+                    <h2 class="accordion-header" id="header-id33">
+                      <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+
+                        data-bs-target="#body-id33" aria-expanded="true" aria-controls="body-id33" *ngIf="cat.parentCategory==undefined">
+                        {{cat.name}}
+                      </button>
+                    </h2>
+                    <div id="body-id33" class="accordion-collapse collapse " aria-labelledby="header-id33">
+                      <div class="accordion-body bg-light text-muted" *ngFor="let subcat of cat.subCategories">
+                        <div>{{cat.name}}</div>
+                        <div><i class="fa-solid fa-plus"></i>{{subcat.name}}
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="header-id3">
+                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#body-id3" aria-expanded="true" aria-controls="body-id3">
+                  Brand
+                </button>
+              </h2>
+              <div id="body-id3" class="accordion-collapse collapse " aria-labelledby="header-id3">
+                <div class="accordion-body bg-light">
+                  <div class="m-2">
+                    <div class="constrain">
+                      <input class="input-elevated" type="text" placeholder="Search">
+                    </div>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>TOMMY HILFIGER</span>
+                      <span style="float: right;">(1429)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>CASIO</span>
+                      <span style="float: right;">(1762)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>adidas</span>
+                      <span style="float: right;">(1486)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>GUESS</span>
+                      <span style="float: right;">(1481)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>Michael Kors</span>
+                      <span style="float: right;">(1370)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>Nike</span>
+                      <span style="float: right;">(1361)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>Generic</span>
+                      <span style="float: right;">(321258)</span>
+                    </span>
+                  </div>
+
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>Fast Print</span>
+                      <span style="float: right;">(110880)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <a href="#" class="link-primary">See All</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="header-id4">
+                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#body-id4" aria-expanded="true" aria-controls="body-id4">
+                  Price (EGP)
+                </button>
+              </h2>
+              <div id="body-id4" class="accordion-collapse collapse " aria-labelledby="header-id4">
+                <div class="accordion-body bg-light ">
+                  <div class="row1 justify-content-center">
+                    <input type="number" id="#" name="#" min="1" max="10000" style="width: 35%;padding: 5px;">
+                    &nbsp; Go &nbsp;
+                    <input type="number" id="#" name="#" min="1" max="100000" style="width:35%;padding: 5px;">
+                    &nbsp; TO &nbsp;
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="header-id5">
+                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#body-id5" aria-expanded="true" aria-controls="body-id5">
+                  Product Rating
+                </button>
+              </h2>
+              <div id="body-id5" class="accordion-collapse collapse " aria-labelledby="header-id5">
+                <div class="accordion-body bg-light">
+                  <div class="range bg-light ">
+                    <div style=" font-size: 15px; color: rgb(76, 76, 213);">1 Star or more
+                    </div>
+                    <div class="field m-3">
+                      <div class="value left" style=" font-size: small;">1(Star)</div>
+                      <input type="range" min="1" max="5" value="100" steps="1" class="m-3">
+                      <div class="value right" style=" font-size: small;">5(Star)</div>
+                    </div>
+                  </div>
+                  <script>
+
+                    const slideValue1 = document.querySelector("span");
+                    const inputSlider1 = document.querySelector("input");
+                    inputSlider.oninput = (() => {
+                      let value = inputSlider.value;
+                      slideValue.textContent = value;
+                      slideValue.style.left = (value / 2) + "%";
+                      slideValue.classList.add("show");
+
+                    });
+                    inputSlider.onblur = (() => {
+                      slideValue.classList.remove("show");
+                    });
+                  </script>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="header-id6">
+                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#body-id6" aria-expanded="true" aria-controls="body-id6">
+                  New Arrivals
+                </button>
+              </h2>
+              <div id="body-id6" class="accordion-collapse collapse " aria-labelledby="header-id6">
+                <div class="accordion-body bg-light">
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>Last 7 Days</span>
+                      <span style="float: right;">(5158)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>Last 30 Days</span>
+                      <span style="float: right;">(33175)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>Last 60 Days</span>
+                      <span style="float: right;">(49459)</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="header-id7">
+                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#body-id7" aria-expanded="true" aria-controls="body-id7">
+                  Colour
+                </button>
+              </h2>
+              <div id="body-id7" class="accordion-collapse collapse " aria-labelledby="header-id7">
+                <div class="accordion-body bg-light">
+                  <div class="container">
+                    <div class="row g-2">
+                      <div class="col-6 bg-white">
+                        <div>
+                          <img src="img/img_Category/black.svg">
+                          BLACK
+                          (86211)
+                        </div>
+                      </div>
+                      <div class="col-6 bg-white">
+                        <div style="font-size: 12px;">
+                          <img src="img/img_Category/multicolour.svg">
+                          MULTICOLOUR
+                          (413642)
+                        </div>
+                      </div>
+                      <div class="col-6 bg-white">
+                        <div>
+                          <img src="img/img_Category/white.svg">
+                          WHITE
+                          (57347)
+                        </div>
+                      </div>
+                      <div class="col-6 bg-white">
+                        <div>
+                          <img src="img/img_Category/blue.svg">
+                          BLUE
+                          (42308)
+                        </div>
+                      </div>
+                      <div class="col-6 bg-white">
+                        <div>
+                          <img src="img/img_Category/grey.svg">
+                          GREY
+                          (23514)
+                        </div>
+                      </div>
+                      <div class="col-6 bg-white">
+                        <div>
+                          <img src="img/img_Category/red.svg">
+                          RED
+                          (21689)
+                        </div>
+                      </div>
+                      <div class="col-6 bg-white">
+                        <div>
+                          <img src="img/img_Category/pink.svg">
+                          PINK
+                          (20932)
+                        </div>
+                      </div>
+                      <div class="col-6 bg-white">
+                        <div>
+                          <img src="img/img_Category/clear.svg">
+                          CLEAR
+                          (20126)
+                        </div>
+                      </div>
+                      <div class="col-6 bg-white">
+                        <div>
+                          <img src="img/img_Category/green.svg">
+                          GREEN
+                          (18905)
+                        </div>
+                      </div>
+
+                    </div>
+                    <a href="#" class="link-primary">See All</a>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="header-id8">
+                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#body-id8" aria-expanded="true" aria-controls="body-id8">
+                  Seller
+                </button>
+              </h2>
+              <div id="body-id8" class="accordion-collapse collapse " aria-labelledby="header-id8">
+                <div class="accordion-body bg-light">
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>Genius</span>
+                      <span style="float: right;">(254976)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>Covers line</span>
+                      <span style="float: right;">(146694)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>Photo Block</span>
+                      <span style="float: right;">(58707)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>Homey</span>
+                      <span style="float: right;">(54308)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>Souqegypt</span>
+                      <span style="float: right;">(52301)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>Lynks</span>
+                      <span style="float: right;">(40346)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>noon Fashion</span>
+                      <span style="float: right;">(32890)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                    <span>
+                      <span>noon</span>
+                      <span style="float: right;">(23745)</span>
+                    </span>
+                  </div>
+                  <div class="m-2">
+                    <a href="#" class="link-primary">See All</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="row1 d-none  d-sm-none  d-md-none d-lg-none d-xl-inline-flex  col-sm-8 col-md-10 col-lg-12">
+      <div class="p-3 mt-1">914166 Results for <b>"Deals"</b></div>
+      <div class="p-3 mt-1" style="margin-left: 20%;">Sort By</div>
+      <div class="p-3">
+        <div class="dropdown">
+          <button class="btn text-bg-light shadow border dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            ByRecommended</button>
+
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Recommended</a></li>
+            <li><a class="dropdown-item" href="#">Price: High to Low</a></li>
+            <li><a class="dropdown-item" href="#">Price: Low to High</a></li>
+            <li><a class="dropdown-item" href="#">New Arrivals</a></li>
+            <li><a class="dropdown-item" href="#">Rating: High to Low</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-3 mt-1">Display</div>
+      <div class="p-3">
+        <div class="dropdown">
+          <button class="btn text-bg-light shadow border dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            50 Per Page</button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">50 Per Page</a></li>
+            <li><a class="dropdown-item" href="#">100 Per Page</a></li>
+            <li><a class="dropdown-item" href="#">150 Per Page</a></li>
+          </ul>
+
+
+        </div>
+      </div>
+      <div class="p-3 mt-1">Grid</div>
+      <div class="p-3">
+        <div class="dropdown">
+          <button class="btn text-bg-light shadow border" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class=" row1" style="padding: 5px;">
+      <div class="col-1 tabss">
+        <div class="tabs mx-2 bg-white shadow  opacity-50 p-2 text-white rounded-circle"><a
+            href="#first-tab">&lt;&lt;</a></div>
+      </div>
+      <div class="col-10 tabss">
+        <div class="tabs mx-2 bg-white p-2  shadow rounded-pill" id="first-tab"><i
+            class="fa-solid fa-money-check-dollar"></i> Price (EGP)</div>
+        <div class="tabs mx-2 bg-white p-2  shadow rounded-pill"><i class="fa-solid fa-shekel-sign"></i> New
+          Arrivals
+        </div>
+        <div class="tabs mx-2 bg-white p-2 shadow  rounded-pill"><i class="fa-solid fa-shop"></i> Seller
+        </div>
+        <div class="tabs mx-2 bg-white p-2 shadow  rounded-pill">Colour:Black</div>
+        <div class="tabs mx-2 bg-white p-2 shadow  rounded-pill">Colour:Blue</div>
+        <div class="tabs mx-2 bg-white p-2 shadow  rounded-pill">New Arrivals : Last 7 Days</div>
+        <div class="tabs mx-2 bg-white p-2 shadow  rounded-pill">Home Decor</div>
+        <div class="tabs mx-2 bg-white p-2 shadow  rounded-pill">Kitchen & Dining</div>
+        <div class="tabs mx-2 bg-white p-2 shadow  rounded-pill">Bedding</div>
+        <div class="tabs mx-2 bg-white p-2 shadow  rounded-pill">Furniture</div>
+        <div class="tabs mx-2 bg-white p-2 shadow  rounded-pill">Kitchen & Home Appliances</div>
+        <div class="tabs mx-2 bg-white p-2 shadow  rounded-pill" id="end-tab">Storage & Organisation</div>
+      </div>
+      <div class="col-1 tabss ">
+        <div class="tabs mx-2 bg-swhite shadow opacity-50 p-2 text-white rounded-circle"><a href="#end-tab">&gt;&gt;</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- ////////////////////////////////////////////////////// -->
+    <div class=" container-fluid">
+      <div class="row">
+        <div class="col-12 py-3">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" id="products-list">
+            <div class="col product-card p-2"  *ngFor="let Prod of prodList">
+              <div class="p-2 bg-white h-100">
+                <div class="div-center col-12"  (click)="getProductDetails(Prod.id)">
+                  <div>
+                    <img  [src]="Prod.imagePath" width="200" height="200">
+                  </div>
+                  <h6 class="prod-card-title"> {{Prod.name}}
+                  </h6>
+                </div>
+
+                <div class="d-flex flex-row">
+                  <p>EGP</p>
+                  <h6 class="px-2 fw-bold">{{Prod.price}}</h6>
+                </div>
+                <div class="d-flex flex-row flex-wrap justify-content-between">
+                  <div class="express-badge my-2">express</div>
+                  <div class="d-flex flex-row my-2 ">
+                    <div class="prod-rate ">
+                     {{Prod.rate}}
+                      <i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col product-card p-2">
+              <div class="p-2 bg-white h-100">
+
+
+                <div class="div-center col-12">
+                  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" data-bs-touch="true">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                        aria-label="Slide 6"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="assets\ImgAllcategory\edb53d8f-df9a-4eb5-b932-639ab9cd5603.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\edb53d8f-df9a-4eb5-b932-639ab9cd5603.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\edb53d8f-df9a-4eb5-b932-639ab9cd5603.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\edb53d8f-df9a-4eb5-b932-639ab9cd5603.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\76570405-973c-4b74-a599-56debce329a8.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\4c87c26d-195c-4c04-8026-bea4625167bb.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+
+                <h6 class="prod-card-title">
+                  PlayStation 5 Console (Disc Version) With Controller
+                </h6>
+                <div class="d-flex flex-row">
+                  <p>EGP</p>
+                  <h6 class="px-2 fw-bold">25055.00</h6>
+                </div>
+                <div class="d-flex flex-row flex-wrap justify-content-between">
+                  <div class="express-badge my-2">express</div>
+                  <div class="d-flex flex-row my-2">
+                    <div class="prod-rate">
+                      4.8
+                      <i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="p-1 text-secondary">(435)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col product-card p-2">
+              <div class="p-2 bg-white h-100">
+
+
+                <div class="div-center col-12">
+                  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" data-bs-touch="true">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                        aria-label="Slide 6"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="assets\ImgAllcategory\edb53d8f-df9a-4eb5-b932-639ab9cd5603.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\edb53d8f-df9a-4eb5-b932-639ab9cd5603.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\edb53d8f-df9a-4eb5-b932-639ab9cd5603.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\edb53d8f-df9a-4eb5-b932-639ab9cd5603.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\76570405-973c-4b74-a599-56debce329a8.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\4c87c26d-195c-4c04-8026-bea4625167bb.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" style="fill: black;" type="button"
+                      data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+
+                <h6 class="prod-card-title">
+                  PlayStation 5 Console (Disc Version) With Controller
+                </h6>
+                <div class="d-flex flex-row">
+                  <p>EGP</p>
+                  <h6 class="px-2 fw-bold">25055.00</h6>
+                </div>
+                <div class="d-flex flex-row flex-wrap justify-content-between">
+                  <div class="express-badge my-2">express</div>
+                  <div class="d-flex flex-row my-2">
+                    <div class="prod-rate">
+                      4.8
+                      <i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="p-1 text-secondary">(435)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col product-card p-2">
+              <div class="p-2 bg-white h-100">
+
+
+                <div class="div-center col-12">
+                  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" data-bs-touch="true">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                        aria-label="Slide 6"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="assets\ImgAllcategory\edb53d8f-df9a-4eb5-b932-639ab9cd5603.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\edb53d8f-df9a-4eb5-b932-639ab9cd5603.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\edb53d8f-df9a-4eb5-b932-639ab9cd5603.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\edb53d8f-df9a-4eb5-b932-639ab9cd5603.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\76570405-973c-4b74-a599-56debce329a8.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets\ImgAllcategory\4c87c26d-195c-4c04-8026-bea4625167bb.avif" class="img-fluid"
+                          alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" style="fill: black;" type="button"
+                      data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+
+                <h6 class="prod-card-title">
+                  PlayStation 5 Console (Disc Version) With Controller
+                </h6>
+                <div class="d-flex flex-row">
+                  <p>EGP</p>
+                  <h6 class="px-2 fw-bold">25055.00</h6>
+                </div>
+                <div class="d-flex flex-row flex-wrap justify-content-between">
+                  <div class="express-badge my-2">express</div>
+                  <div class="d-flex flex-row my-2">
+                    <div class="prod-rate">
+                      4.8
+                      <i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="p-1 text-secondary">(435)</div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav aria-label="Page navigation example ">
+      <ul class="pagination justify-content-center ">
+        <li class="page-item">
+          <a class="page-link text-secondary" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link text-secondary" href="#">1</a></li>
+        <li class="page-item"><a class="page-link text-secondary" href="#">2</a></li>
+        <li class="page-item"><a class="page-link text-secondary" href="#">3</a></li>
+        <li class="page-item"><a class="page-link text-secondary" href="#">.......</a></li>
+        <li class="page-item"><a class="page-link text-secondary" href="#">4567</a></li>
+        <li class="page-item">
+          <a class="page-link text-secondary" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+

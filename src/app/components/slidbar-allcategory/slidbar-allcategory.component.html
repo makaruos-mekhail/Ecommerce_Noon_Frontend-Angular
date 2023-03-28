@@ -1,0 +1,256 @@
+  <div class="accordion accordion-flush" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="header-id">
+        <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+          data-bs-target="#body-id" aria-expanded="true" aria-controls="body-id">
+          Fulfillment
+        </button>
+      </h2>
+      <div id="body-id" class="accordion-collapse collapse show" aria-labelledby="header-id">
+        <div class="accordion-body bg-light">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <span class="express">express</span>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header " id="header-id2">
+        <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+          data-bs-target="#body-id2" aria-expanded="true" aria-controls="body-id2">
+          Category
+        </button>
+      </h2>
+      <div id="body-id2" class="accordion-collapse collapse " aria-labelledby="header-id2">
+        <div class="accordion-body bg-light">
+          <div class="accordion-item " *ngFor="let cat of categorylist">
+            <h2 class="accordion-header" id="header-id33">
+              <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#body-id33" aria-expanded="true" aria-controls="body-id33" *ngIf="cat.parentCategory==undefined">
+                {{cat.name}}
+              </button>
+            </h2>
+            <div id="body-id33" class="accordion-collapse collapse " aria-labelledby="header-id33">
+              <div class="accordion-body bg-light text-muted" *ngFor="let subcat of cat.subCategories">
+                <div>{{cat.name}}</div>
+                <div><i class="fa-solid fa-plus"></i> {{subcat.name}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="header-id3">
+        <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+          data-bs-target="#body-id3" aria-expanded="true" aria-controls="body-id3">
+          Brand
+        </button>
+      </h2>
+      <div id="body-id3" class="accordion-collapse collapse " aria-labelledby="header-id3">
+        <div class="accordion-body bg-light">
+          <div class="m-2">
+            <div class="constrain">
+              <input class="input-elevated" type="text" placeholder="Search">
+            </div>
+          </div>
+          <div class="m-2" *ngFor="let brand of brandsList">
+            <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            <span>
+              <span>{{brand.name}}</span>
+              <!-- <span style="float: right;">(1429)</span> -->
+            </span>
+          </div>
+          <div class="m-2">
+            <a href="#" class="link-primary">See All</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="header-id4">
+        <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+          data-bs-target="#body-id4" aria-expanded="true" aria-controls="body-id4">
+          Price (EGP)
+        </button>
+      </h2>
+      <div id="body-id4" class="accordion-collapse collapse " aria-labelledby="header-id4">
+        <div class="accordion-body bg-light ">
+          <div class="row1 justify-content-center">
+            From
+            <input type="number" id="#" #fromPrice name="#" value="{{fPrice}}" min="1" max="10000" style="width: 35%;padding: 5px;">
+             To
+            <input type="number" id="#" #toPrice name="#" value="{{tPrice}}" min="1" max="10000" style="width: 35%;padding: 5px;">
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-outline-warning"  (click)="getprobyprice(fromPrice.value,toPrice.value)">Go</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="header-id5">
+        <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+          data-bs-target="#body-id5" aria-expanded="true" aria-controls="body-id5">
+          Product Rating
+        </button>
+      </h2>
+      <div id="body-id5" class="accordion-collapse collapse " aria-labelledby="header-id5">
+        <div class="accordion-body bg-light">
+          <div class="range bg-light ">
+            <div style=" font-size: 15px; color: rgb(76, 76, 213);">1 Star or more</div>
+            <div class="field m-3">
+              <div class="value left" style=" font-size: small;">1(Star)</div>
+              <input type="range" min="1" max="5" value="100" steps="1" class="m-3">
+              <div class="value right" style=" font-size: small;">5(Star)</div>
+            </div>
+          </div>
+          <script>
+
+            const slideValue = document.querySelector("span");
+            const inputSlider = document.querySelector("input");
+            inputSlider.oninput = (() => {
+              let value = inputSlider.value;
+              slideValue.textContent = value;
+              slideValue.style.left = (value / 2) + "%";
+              slideValue.classList.add("show");
+
+            });
+            inputSlider.onblur = (() => {
+              slideValue.classList.remove("show");
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="header-id6">
+        <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+          data-bs-target="#body-id6" aria-expanded="true" aria-controls="body-id6">
+          New Arrivals
+        </button>
+      </h2>
+      <div id="body-id6" class="accordion-collapse collapse " aria-labelledby="header-id6">
+        <div class="accordion-body bg-light">
+          <div class="m-2">
+            <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            <span>
+              <span>Last 7 Days</span>
+              <span style="float: right;">(5158)</span>
+            </span>
+          </div>
+          <div class="m-2">
+
+            <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            <span>
+              <span>Last 30 Days</span>
+              <span style="float: right;">(33175)</span>
+            </span>
+          </div>
+          <div class="m-2">
+            <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            <span>
+              <span>Last 60 Days</span>
+              <span style="float: right;">(49459)</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="header-id7">
+        <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+          data-bs-target="#body-id7" aria-expanded="true" aria-controls="body-id7">
+          Colour
+        </button>
+      </h2>
+      <div  id="body-id7" class="accordion-collapse collapse " aria-labelledby="header-id7">
+        <div class="accordion-body bg-light">
+          <div class="container">
+            <div class="row g-2">
+              <div class="col-6 bg-white">
+                <div *ngFor="let color of productColors">
+                  <img src="img/img_Category/black.svg">
+                  {{color.name}}
+                </div>
+              </div>
+            </div>
+            <a href="#" class="link-primary">See All</a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="header-id8">
+        <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+          data-bs-target="#body-id8" aria-expanded="true" aria-controls="body-id8">
+          Seller
+        </button>
+      </h2>
+      <div id="body-id8" class="accordion-collapse collapse " aria-labelledby="header-id8">
+        <div class="accordion-body bg-light">
+          <div class="m-2">
+            <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            <span>
+              <span>Genius</span>
+              <span style="float: right;">(254976)</span>
+            </span>
+          </div>
+          <div class="m-2">
+            <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            <span>
+              <span>Covers line</span>
+              <span style="float: right;">(146694)</span>
+            </span>
+          </div>
+          <div class="m-2">
+            <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            <span>
+              <span>Photo Block</span>
+              <span style="float: right;">(58707)</span>
+            </span>
+          </div>
+          <div class="m-2">
+            <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            <span>
+              <span>Homey</span>
+              <span style="float: right;">(54308)</span>
+            </span>
+          </div>
+          <div class="m-2">
+            <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            <span>
+              <span>Souqegypt</span>
+              <span style="float: right;">(52301)</span>
+            </span>
+          </div>
+          <div class="m-2">
+            <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            <span>
+              <span>Lynks</span>
+              <span style="float: right;">(40346)</span>
+            </span>
+          </div>
+          <div class="m-2">
+            <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            <span>
+              <span>noon Fashion</span>
+              <span style="float: right;">(32890)</span>
+            </span>
+          </div>
+          <div class="m-2">
+            <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+            <span>
+              <span>noon</span>
+              <span style="float: right;">(23745)</span>
+            </span>
+          </div>
+          <div class="m-2">
+            <a href="#" class="link-primary">See All</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

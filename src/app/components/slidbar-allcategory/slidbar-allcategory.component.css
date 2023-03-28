@@ -1,0 +1,139 @@
+* {
+  margin: 0px important;
+  padding: 0px important;
+
+}
+
+
+
+.express {
+  background-color: rgb(234, 214, 38);
+  padding: 4px;
+  border-radius: 15px 0px 10px 15px;
+  ;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+/* ///////////////////////////  progress*/
+.range {
+  background: #fff;
+  border-radius: 10px;
+  padding: 0 5px 0 5px;
+}
+
+.range .sliderValue {
+  position: relative;
+  width: 100%;
+}
+
+.range .sliderValue span {
+  position: absolute;
+  height: 45px;
+  width: 45px;
+  color: #fff;
+  font-weight: 500;
+  top: -40px;
+  transform: translateX(-50%) scale(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease-in-out;
+  line-height: 55px;
+  z-index: 2;
+}
+
+.range .sliderValue span.show {
+  transform: translateX(-50%) scale(1);
+}
+
+.range .sliderValue span::after {
+  content: "";
+  position: absolute;
+  height: 45px;
+  width: 45px;
+  background: #664AFF;
+  border: 2px solid #fff;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: -1;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.range .field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.range .field .value {
+  /* position:absolute; */
+  font-size: 18px;
+  font-weight: 600;
+  color: #757575;
+}
+
+.range .field .value.left {
+  left: -22px;
+}
+
+.range .field .value.right {
+  right: -43px;
+}
+
+.range .field input {
+  /* //-webkit-appearance: none; */
+  height: 4px;
+  width: 100%;
+  background: #ddd;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.range .field input::-webkit-slider-thumb,
+.range .field input::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background: #664AFF;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.range .field input::-moz-range-progress {
+  background: #664AFF;
+}
+
+/* /////////////////////  progress*/
+/* ///////////////////// search input */
+input {
+  margin-bottom: 40px;
+}
+
+.input-elevated {
+  font-size: 16px;
+  line-height: 1.5;
+  border: none;
+  background: #FFFFFF;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><path fill='%23838D99' d='M13.22 14.63a8 8 0 1 1 1.41-1.41l4.29 4.29a1 1 0 1 1-1.41 1.41l-4.29-4.29zm-.66-2.07a6 6 0 1 0-8.49-8.49 6 6 0 0 0 8.49 8.49z'></path></svg>");
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+  background-size: 20px 20px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+  width: 100%;
+  padding: .5em 1em .5em 2.5em;
+}
+
+.input-elevated::placeholder {
+  color: #838D99;
+}
+
+/* ///////////////////// search input */
+

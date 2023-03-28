@@ -9,10 +9,12 @@ import { IProductColor } from '../Models/iproduct-color';
 })
 export class ColorService {
 
-  constructor(private httpclient: HttpClient) {
-  
-  }
+  constructor(private httpclient: HttpClient) { }
+
+
+  // Get All Colors 
   getAllColors(): Observable<IProductColor[]>{
     return this.httpclient.get<IProductColor[]>(`${environment.APIURLProduct}/ProductColor/Filter`)
   }
+
 }

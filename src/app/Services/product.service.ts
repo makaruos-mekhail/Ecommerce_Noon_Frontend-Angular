@@ -21,13 +21,29 @@ export class ProductService {
     };
   }
 
+
+   // Get All products
   getAllProducts(): Observable<IProduct[]> {
     return this.httpClient.get<IProduct[]>(`${environment.APIURLProduct}/Product`);
   }
+
+  //Filter Products By ID => ( page Details )
   getProductById(prdId: number): Observable<IProduct | undefined> {
-    return this.getAllProducts()
-      .pipe(
+    return this.getAllProducts().pipe(
         map((products: IProduct[]) => products.find(p => p.id === prdId))
       );
   }
+
+  // Filter By name  search By name Product
+  filterproductbyName(name:any):Observable<IProduct[]>{
+    return this.httpClient.get<IProduct[]>(`${environment.APIURLProduct}/Product?name=${name}`)
+  }
+
+  // Filter By FromPrice & ToPrice By Product
+  getbyprice(fromprice:number,toprice:number):Observable<IProduct[]>
+  {
+   return this.httpClient.get<IProduct[]>(`${environment.APIURLProduct}/Product?fromPrice=${fromprice}&toPrice=${toprice}`)
+  }
+
+
 }

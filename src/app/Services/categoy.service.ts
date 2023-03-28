@@ -10,7 +10,11 @@ import { ICategory } from '../Models/icategory';
 export class CategoyService {
 
   constructor(private httpclient: HttpClient) { }
+
+
+  // Get All Category
   getAllCategories(): Observable<ICategory[]> {
     return this.httpclient.get<ICategory[]>(`${environment.APIURLProduct}/Category/Filter`);
   }
+
 }

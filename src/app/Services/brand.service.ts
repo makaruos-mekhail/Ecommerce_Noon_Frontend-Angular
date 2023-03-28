@@ -9,11 +9,12 @@ import { IBrand } from '../Models/ibrand';
 })
 export class BrandService {
 
-  constructor(private httpclient: HttpClient)
-  {
+  constructor(private httpclient: HttpClient) { }
 
-  }
+
+  // Get All Brands
   getAllBrands():Observable<IBrand[]> {
     return this.httpclient.get<IBrand[]>(`${environment.APIURLProduct}/Brand/Filter`);
   }
+
 }
