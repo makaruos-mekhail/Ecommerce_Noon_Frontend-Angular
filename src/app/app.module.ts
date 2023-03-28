@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AllCategoryComponent } from './components/all-category/all-category.component';
 import { CartComponent } from './components/cart/cart.component';
-import { DetailsComponent } from './components/details/details.component';
+import DetailsComponent from './components/details/details.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
