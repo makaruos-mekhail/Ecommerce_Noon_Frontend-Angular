@@ -38,8 +38,10 @@ export default class DetailsComponent implements OnInit {
   ngOnInit(): void {
 
     //get product by id
-      this.currentProductId = (this.activateroute.snapshot.paramMap.get('pid')) ? Number(this.activateroute.snapshot.paramMap.get('pid')) : 0;
-      this.productservice.getProductById(this.currentProductId).subscribe(data => {
+     
+    this.currentProductId = (this.activateroute.snapshot.paramMap.get('pid')) ? Number(this.activateroute.snapshot.paramMap.get('pid')) : 0;
+
+    this.productservice.getProductById(this.currentProductId).subscribe(data => {
         this.product = data;
         console.log(data);
         console.log(this.product?.brand?.nameAr);

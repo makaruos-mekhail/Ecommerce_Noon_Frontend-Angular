@@ -28,10 +28,12 @@ export class ProductService {
   }
 
   //Filter Products By ID => ( page Details )
+  
   getProductById(prdId: number): Observable<IProduct | undefined> {
-    return this.getAllProducts().pipe(
-        map((products: IProduct[]) => products.find(p => p.id === prdId))
-      );
+    // return this.getAllProducts().pipe(
+    //     map((products: IProduct[]) => products.find(p => p.id === prdId))
+    //   );
+    return this.httpClient.get<IProduct>(`${environment.APIURLProduct}/Product/${prdId}`)
   }
 
   // Filter By name  search By name Product

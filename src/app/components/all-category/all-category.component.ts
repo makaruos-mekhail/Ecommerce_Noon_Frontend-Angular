@@ -48,6 +48,7 @@ export class AllCategoryComponent implements OnChanges, OnInit {
   //ORODUCT DETAILS
   getProductDetails(prdid : number) {
     this.router.navigate(['products', prdid])
+    window.scrollTo(0, 0);
   }
 
 

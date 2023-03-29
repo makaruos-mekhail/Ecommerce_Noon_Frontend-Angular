@@ -201,26 +201,25 @@
           <div class="carousel-item active container row item text-center ">
             <div class="row mx-2">
 
-              <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="card col-12">
-                  <a routerLink="/Details">
-                    <img src="assets\products\Galaxy A13 Black 64GB 4GB 4G LTE - Egypt Version-basic.jpg"  class="card-img-top  filter-gray img" alt="...">
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let product of hotDealsProduct|slice:0:6">
+                <div class="card col-12" >
+                  <a>
+                    <img [src]="product.imagePath"  class="card-img-top  filter-gray img-fluid" alt="..." width="100" height="100" (click)="getproductDetails(product.id)">
                     <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2">
-                        Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
+                      <p class="card-text product-font txtFont2" style="height:2em; overflow: hidden;" (click)="getproductDetails(product.id)">
+                       {{product.name}}
                       </p>
                       <span>
-                        EGP
-                        <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                        <span class="fw-bold txtFont2"> 4,499.00</span>
+                        <span class="fw-bold txtFont2"> {{product.price |currency:'EGP'}}</span>
                       </span>
+                      <!-- discount offer -->
                       <div>
                         <span class="text-decoration-line-through txtFont2">5.999.00</span>
                         <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
                           OFF</span>
                       </div>
                     </div>
-                    <div class="row col-12 m-0 p-0 ">
+                    <div class="row col-12 m-0 p-2 ">
                       <div class="d-inline-block col-4 m-0 p-0">
                         <img src="assets/icons/express.svg" alt="" class="col-12">
                       </div>
@@ -228,256 +227,46 @@
                         <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
                           style="width: 3rem !important; height: 1.5rem !important;">
                           <span class="fs-6 col m-0 p-0 ">
-                            4.6
+                            {{product.rate}}
                           </span>
                           <span class="col">
                             <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
                               style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
                           </span>
                         </div>
-                        <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                          (231)
-                        </div>
+    
                       </div>
                     </div>
                   </a>
                 </div>
               </div>
-              <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <a href="#">
-                  <div class="card col-12">
-                    <img src="assets/products/N53363056A_1.avif" class="card-img-top img filter-gray" alt="...">
-                    <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2">
-                        Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                      </p>
-                      <span>
-                        EGP
-                        <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                        <span class="fw-bold txtFont2"> 4,499.00</span>
-                      </span>
-                      <div>
-                        <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                        <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                          OFF</span>
-                      </div>
-                    </div>
-                    <div class="row col-12 m-0 p-0 ">
-                      <div class="d-inline-block col-4 m-0 p-0">
-                        <img src="assets/icons/express.svg" alt="" class="col-12">
-                      </div>
-                      <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                        <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                          style="width: 3rem !important; height: 1.5rem !important;">
-                          <span class="fs-6 col m-0 p-0 ">
-                            4.6
-                          </span>
-                          <span class="col">
-                            <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                              style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                          </span>
-                        </div>
-                        <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                          (231)
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="d-none d-sm-inline d-md-inline  col-6 col-sm-4 col-md-3 col-lg-2">
-                <a href="#">
-                  <div class="card col-12">
-                    <img src="assets/products/N53363056A_1.avif" class="card-img-top img  filter-gray" alt="...">
-                    <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2">
-                        Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                      </p>
-                      <span>
-                        EGP
-                        <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                        <span class="fw-bold txtFont2"> 4,499.00</span>
-                      </span>
-                      <div>
-                        <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                        <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                          OFF</span>
-                      </div>
-                    </div>
-                    <div class="row col-12 m-0 p-0 ">
-                      <div class="d-inline-block col-4 m-0 p-0">
-                        <img src="assets/icons/express.svg" alt="" class="col-12">
-                      </div>
-                      <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                        <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                          style="width: 3rem !important; height: 1.5rem !important;">
-                          <span class="fs-6 col m-0 p-0 ">
-                            4.6
-                          </span>
-                          <span class="col">
-                            <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                              style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                          </span>
-                        </div>
-                        <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                          (231)
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="d-none d-sm-none d-md-inline col-6 col-sm-3 col-md-3 col-lg-2">
-                <a href="#">
-                  <div class="card col-12">
-                    <img src="assets/products/N53363056A_1.avif" class="card-img-top img filter-gray" alt="...">
-                    <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2">
-                        Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                      </p>
-                      <span>
-                        EGP
-                        <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                        <span class="fw-bold txtFont2"> 4,499.00</span>
-                      </span>
-                      <div>
-                        <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                        <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                          OFF</span>
-                      </div>
-                    </div>
-                    <div class="row col-12 m-0 p-0 ">
-                      <div class="d-inline-block col-4 m-0 p-0">
-                        <img src="assets/icons/express.svg" alt="" class="col-12">
-                      </div>
-                      <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                        <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                          style="width: 3rem !important; height: 1.5rem !important;">
-                          <span class="fs-6 col m-0 p-0 ">
-                            4.6
-                          </span>
-                          <span class="col">
-                            <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                              style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                          </span>
-                        </div>
-                        <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                          (231)
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="d-none d-sm-none d-md-none d-lg-inline  col-6 col-sm-4 col-md-2">
-                <a href="#">
-                  <div class="card col-12">
-                    <img src="assets/products/N53363056A_1.avif" class="card-img-top img filter-gray" alt="...">
-                    <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2">
-                        Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                      </p>
-                      <span>
-                        EGP
-                        <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                        <span class="fw-bold txtFont2"> 4,499.00</span>
-                      </span>
-                      <div>
-                        <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                        <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                          OFF</span>
-                      </div>
-                    </div>
-                    <div class="row col-12 m-0 p-0 ">
-                      <div class="d-inline-block col-4 m-0 p-0">
-                        <img src="assets/icons/express.svg" alt="" class="col-12">
-                      </div>
-                      <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                        <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                          style="width: 3rem !important; height: 1.5rem !important;">
-                          <span class="fs-6 col m-0 p-0 ">
-                            4.6
-                          </span>
-                          <span class="col">
-                            <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                              style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                          </span>
-                        </div>
-                        <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                          (231)
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="d-none d-sm-none d-md-none d-lg-inline col-6 col-sm-4 col-md-2">
-                <a href="#">
-                  <div class="card col-12">
-                    <img src="assets/products/N53363056A_1.avif" class="card-img-top img filter-gray" alt="...">
-                    <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2">
-                        Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                      </p>
-                      <span>
-                        EGP
-                        <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                        <span class="fw-bold txtFont2"> 4,499.00</span>
-                      </span>
-                      <div>
-                        <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                        <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                          OFF</span>
-                      </div>
-                    </div>
-                    <div class="row col-12 m-0 p-0 ">
-                      <div class="d-inline-block col-4 m-0 p-0">
-                        <img src="assets/icons/express.svg" alt="" class="col-12">
-                      </div>
-                      <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                        <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                          style="width: 3rem !important; height: 1.5rem !important;">
-                          <span class="fs-6 col m-0 p-0 ">
-                            4.6
-                          </span>
-                          <span class="col">
-                            <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                              style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                          </span>
-                        </div>
-                        <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                          (231)
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
+              
             </div>
           </div>
           <div class="carousel-item container row text-center ">
             <div class="row mx-2">
 
-              <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let product of hotDealsProduct|slice:6:12">
                 <a href="#">
                   <div class="card col-12">
-                    <img src="assets/products/N53363056A_1.avif" class="card-img-top  filter-gray" alt="...">
+                    <img [src]="product.imagePath" class="card-img-top  filter-gray img-fluid " alt="..." width="100" height="100" (click)="getproductDetails(product.id)">
                     <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2">
-                        Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
+                      <p class="card-text product-font txtFont2"  style="height:2em; overflow: hidden;" (click)="getproductDetails(product.id)">
+                       {{product.name}}
                       </p>
                       <span>
-                        EGP
+                       
                         <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                        <span class="fw-bold txtFont2"> 4,499.00</span>
+                        <span class="fw-bold txtFont2">{{product.price |currency:'EGP'}}</span>
                       </span>
+                      <!-- discount offer -->
                       <div>
                         <span class="text-decoration-line-through txtFont2">5.999.00</span>
                         <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
                           OFF</span>
                       </div>
                     </div>
-                    <div class="row col-12 m-0 p-0 ">
+                    <div class="row col-12 m-0 p-2 ">
                       <div class="d-inline-block col-4 m-0 p-0">
                         <img src="assets/icons/express.svg" alt="" class="col-12">
                       </div>
@@ -485,231 +274,20 @@
                         <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
                           style="width: 3rem !important; height: 1.5rem !important;">
                           <span class="fs-6 col m-0 p-0 ">
-                            4.6
+                         {{product.rate}}
                           </span>
                           <span class="col">
                             <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
                               style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
                           </span>
                         </div>
-                        <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                          (231)
-                        </div>
+              
                       </div>
                     </div>
                   </div>
                 </a>
               </div>
-              <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <a href="#">
-                  <div class="card col-12">
-                    <img src="assets/products/N53363056A_1.avif" class="card-img-top  filter-gray" alt="...">
-                    <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2">
-                        Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                      </p>
-                      <span>
-                        EGP
-                        <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                        <span class="fw-bold txtFont2"> 4,499.00</span>
-                      </span>
-                      <div>
-                        <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                        <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                          OFF</span>
-                      </div>
-                    </div>
-                    <div class="row col-12 m-0 p-0 ">
-                      <div class="d-inline-block col-4 m-0 p-0">
-                        <img src="assets/icons/express.svg" alt="" class="col-12">
-                      </div>
-                      <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                        <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                          style="width: 3rem !important; height: 1.5rem !important;">
-                          <span class="fs-6 col m-0 p-0 ">
-                            4.6
-                          </span>
-                          <span class="col">
-                            <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                              style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                          </span>
-                        </div>
-                        <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                          (231)
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="d-none d-sm-inline d-md-inline  col-6 col-sm-4 col-md-3 col-lg-2">
-                <a href="#">
-                  <div class="card col-12">
-                    <img src="assets/products/N53363056A_1.avif" class="card-img-top  filter-gray" alt="...">
-                    <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2">
-                        Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                      </p>
-                      <span>
-                        EGP
-                        <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                        <span class="fw-bold txtFont2"> 4,499.00</span>
-                      </span>
-                      <div>
-                        <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                        <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                          OFF</span>
-                      </div>
-                    </div>
-                    <div class="row col-12 m-0 p-0 ">
-                      <div class="d-inline-block col-4 m-0 p-0">
-                        <img src="assets/icons/express.svg" alt="" class="col-12">
-                      </div>
-                      <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                        <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                          style="width: 3rem !important; height: 1.5rem !important;">
-                          <span class="fs-6 col m-0 p-0 ">
-                            4.6
-                          </span>
-                          <span class="col">
-                            <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                              style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                          </span>
-                        </div>
-                        <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                          (231)
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="d-none d-sm-none d-md-inline col-6 col-sm-3 col-md-3 col-lg-2">
-                <a href="#">
-                  <div class="card col-12">
-                    <img src="assets/products/N53363056A_1.avif" class="card-img-top  filter-gray" alt="...">
-                    <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2">
-                        Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                      </p>
-                      <span>
-                        EGP
-                        <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                        <span class="fw-bold txtFont2"> 4,499.00</span>
-                      </span>
-                      <div>
-                        <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                        <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                          OFF</span>
-                      </div>
-                    </div>
-                    <div class="row col-12 m-0 p-0 ">
-                      <div class="d-inline-block col-4 m-0 p-0">
-                        <img src="assets/icons/express.svg" alt="" class="col-12">
-                      </div>
-                      <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                        <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                          style="width: 3rem !important; height: 1.5rem !important;">
-                          <span class="fs-6 col m-0 p-0 ">
-                            4.6
-                          </span>
-                          <span class="col">
-                            <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                              style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                          </span>
-                        </div>
-                        <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                          (231)
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="d-none d-sm-none d-md-none d-lg-inline  col-6 col-sm-4 col-md-2">
-                <a href="#">
-                  <div class="card col-12">
-                    <img src="assets/products/N53363056A_1.avif" class="card-img-top  filter-gray" alt="...">
-                    <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2">
-                        Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                      </p>
-                      <span>
-                        EGP
-                        <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                        <span class="fw-bold txtFont2"> 4,499.00</span>
-                      </span>
-                      <div>
-                        <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                        <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                          OFF</span>
-                      </div>
-                    </div>
-                    <div class="row col-12 m-0 p-0 ">
-                      <div class="d-inline-block col-4 m-0 p-0">
-                        <img src="assets/icons/express.svg" alt="" class="col-12">
-                      </div>
-                      <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                        <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                          style="width: 3rem !important; height: 1.5rem !important;">
-                          <span class="fs-6 col m-0 p-0 ">
-                            4.6
-                          </span>
-                          <span class="col">
-                            <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                              style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                          </span>
-                        </div>
-                        <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                          (231)
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="d-none d-sm-none d-md-none d-lg-inline col-6 col-sm-4 col-md-2">
-                <a href="#">
-                  <div class="card col-12">
-                    <img src="assets/products/N53363056A_1.avif" class="card-img-top  filter-gray" alt="...">
-                    <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2">
-                        Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                      </p>
-                      <span>
-                        EGP
-                        <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                        <span class="fw-bold txtFont2"> 4,499.00</span>
-                      </span>
-                      <div>
-                        <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                        <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                          OFF</span>
-                      </div>
-                    </div>
-                    <div class="row col-12 m-0 p-0 ">
-                      <div class="d-inline-block col-4 m-0 p-0">
-                        <img src="assets/icons/express.svg" alt="" class="col-12">
-                      </div>
-                      <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                        <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                          style="width: 3rem !important; height: 1.5rem !important;">
-                          <span class="fs-6 col m-0 p-0 ">
-                            4.6
-                          </span>
-                          <span class="col">
-                            <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                              style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                          </span>
-                        </div>
-                        <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                          (231)
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
+            
             </div>
           </div>
 
@@ -740,13 +318,24 @@
       <div class="card">
         <h5 class="card-title px-3 py-1 fw-bold">Mega deals of the day</h5>
         <div class="card-body row g-4">
-          <div class="col-6">
-            <img src="assets/footerImg/en_dk_eg-explore-02.png" class="w-100" alt="...">
-            <img src="assets/footerImg/en_dk_eg-explore-01.png" class="w-100" alt="...">
+        <div class="col-6" *ngFor="let product of hotDealsProduct|slice:0:2">
+          <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200" (click)="getproductDetails(product.id)">
+        </div>
+        <div class="col-6" *ngFor="let product of hotDealsProduct|slice:2:4">
+          <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200" (click)="getproductDetails(product.id)">
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4  col-sm-12">
+      <div class="card">
+        <h5 class="card-title px-3 py-1 fw-bold">Mega deals of the day</h5>
+        <div class="card-body row g-4">
+          <div class="col-6" *ngFor="let product of hotDealsProduct|slice:4:6">
+            <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200" (click)="getproductDetails(product.id)">
           </div>
-          <div class="col-6">
-            <img src="assets/footerImg/en_dk_eg-explore-03.png" class="w-100" alt="...">
-            <img src="assets/footerImg/en_dk_eg-explore-04.png" class="w-100" alt="...">
+          <div class="col-6" *ngFor="let product of hotDealsProduct|slice:6:8" (click)="getproductDetails(product.id)">
+            <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200">
           </div>
         </div>
       </div>
@@ -755,53 +344,20 @@
       <div class="card">
         <h5 class="card-title px-3 py-1 fw-bold">Mega deals of the day</h5>
         <div class="card-body row g-4">
-          <div class="col-6">
-            <img src="assets/footerImg/en_dk_eg-explore-02.png" class="w-100" alt="...">
-            <img src="assets/footerImg/en_dk_eg-explore-01.png" class="w-100" alt="...">
-          </div>
-          <div class="col-6">
-            <img src="assets/footerImg/en_dk_eg-explore-03.png" class="w-100" alt="...">
-            <img src="assets/footerImg/en_dk_eg-explore-04.png" class="w-100" alt="...">
-          </div>
+        <div class="col-6" *ngFor="let product of hotDealsProduct|slice:8:10">
+          <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200" (click)="getproductDetails(product.id)">
         </div>
-      </div>
-    </div>
-    <div class="col-xl-4  col-sm-12">
-      <div class="card">
-        <h5 class="card-title px-3 py-1 fw-bold">Mega deals of the day</h5>
-        <div class="card-body row g-4">
-          <div class="col-6">
-            <img src="assets/footerImg/en_dk_eg-explore-02.png" class="w-100" alt="...">
-            <img src="assets/footerImg/en_dk_eg-explore-01.png" class="w-100" alt="...">
-          </div>
-          <div class="col-6">
-            <img src="assets/footerImg/en_dk_eg-explore-03.png" class="w-100" alt="...">
-            <img src="assets/footerImg/en_dk_eg-explore-04.png" class="w-100" alt="...">
-          </div>
+        <div class="col-6" *ngFor="let product of hotDealsProduct|slice:10:12">
+          <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200" (click)="getproductDetails(product.id)">
+        </div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="row p-0 m-0 col-12 ">
-    <div class="col-6 col-md-4 col-xl-2  p-0">
-      <img src="assets/footerImg/6.webp" class="img-fluid" alt="...">
-    </div>
-    <div class="col-6 col-md-4 col-xl-2  p-0">
-      <img src="assets/footerImg/6.webp" class="img-fluid" alt="...">
-    </div>
-    <div class="col-6 col-md-4 col-xl-2  p-0 ">
-      <img src="assets/footerImg/6.webp" class="img-fluid" alt="...">
-    </div>
-    <div class="col-6 col-md-4 col-xl-2 p-0 ">
-      <img src="assets/footerImg/6.webp" class="img-fluid" alt="...">
-    </div>
-    <div class="col-6 col-md-4 col-xl-2  p-0 ">
-      <img src="assets/footerImg/6.webp" class="img-fluid" alt="...">
-
-    </div>
-    <div class="col-6 col-md-4 col-xl-2  p-0 ">
-      <img src="assets/footerImg/6.webp" class="img-fluid" alt="...">
+    <div class="col-6 col-md-4 col-xl-2  p-0 " *ngFor="let produtc of  hotDealsProduct|slice:0:6">
+      <img [src]="produtc.imagePath" class="img-fluid" alt="...">
     </div>
   </div>
 
@@ -817,19 +373,18 @@
         <div class="carousel-item active container row item text-center ">
           <div class="row mx-2">
 
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let product of hotDealsProduct|slice:6:12">
               <a href="#">
                 <div class="card col-12">
-                  <img src="assets/products/N25.avif" class="card-img-top  filter-gray" alt="...">
+                  <img [src]="product.imagePath" class="card-img-top  filter-gray" alt="..." (click)="getproductDetails(product.id)">
                   <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2">
-                      SKYLINE 32-Inch HD LED TV...
+                    <p class="card-text product-font txtFont2" style="height: 2em; overflow: hidden;" (click)="getproductDetails(product.id)">
+                    {{product.name}}
                     </p>
                     <span>
-                      EGP
-                      <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                      <span class="fw-bold txtFont2"> 8,999.00</span>
+                      <span class="fw-bold txtFont2">{{product.price|currency:'EGP'}}</span>
                     </span>
+                    <!-- discount offer -->
                     <div>
                       <span class="text-decoration-line-through txtFont2">9.999.00</span>
                       <span class="fw-bold txtFont2" style="color: #3bbd04;">10%
@@ -844,233 +399,14 @@
                       <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
                         style="width: 3rem !important; height: 1.5rem !important;">
                         <span class="fs-6 col m-0 p-0 ">
-                          4.7
+                      {{product.rate}}
                         </span>
                         <span class="col">
                           <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
                             style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
                         </span>
                       </div>
-                      <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                        (267)
-                      </div>
                     </div>
-
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-              <a href="detail.html">
-                <div class="card col-12">
-                  <img src="assets/products/N25.avif" class="card-img-top  filter-gray" alt="...">
-                  <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2">
-                      SKYLINE 32-Inch HD LED TV......
-                    </p>
-                    <span>
-                      EGP
-                      <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                      <span class="fw-bold txtFont2"> 7999.00</span>
-                    </span>
-                    <div>
-                      <span class="text-decoration-line-through txtFont2">8.999.00</span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">15%
-                        OFF</span>
-                    </div>
-                  </div>
-                  <div class="row col-12 m-0 p-0 ">
-                    <div class="d-inline-block col-4 m-0 p-0">
-                      <img src="assets/icons/express.svg" alt="" class="col-12">
-                    </div>
-                    <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                      <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                        style="width: 3rem !important; height: 1.5rem !important;">
-                        <span class="fs-6 col m-0 p-0 ">
-                          4.5
-                        </span>
-                        <span class="col">
-                          <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                            style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                        </span>
-                      </div>
-                      <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                        (289)
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="d-none d-sm-inline d-md-inline  col-6 col-sm-4 col-md-3 col-lg-2">
-              <a href="#">
-                <div class="card col-12">
-                  <img src="assets/products/N25.avif" class="card-img-top  filter-gray" alt="...">
-                  <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2">
-                      SKYLINE 32-Inch HD LED TV......
-                    </p>
-                    <span>
-                      EGP
-                      <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                      <span class="fw-bold txtFont2"> 8,499.00</span>
-                    </span>
-                    <div>
-                      <span class="text-decoration-line-through txtFont2">8.999.00</span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">10%
-                        OFF</span>
-                    </div>
-                  </div>
-                  <div class="row col-12 m-0 p-0 ">
-                    <div class="d-inline-block col-4 m-0 p-0">
-                      <img src="assets/icons/express.svg" alt="" class="col-12">
-                    </div>
-                    <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                      <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                        style="width: 3rem !important; height: 1.5rem !important;">
-                        <span class="fs-6 col m-0 p-0 ">
-                          4.6
-                        </span>
-                        <span class="col">
-                          <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                            style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                        </span>
-                      </div>
-                      <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                        (238)
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="d-none d-sm-none d-md-inline col-6 col-sm-3 col-md-3 col-lg-2">
-              <a href="#">
-                <div class="card col-12">
-                  <img src="assets/products/N25.avif" class="card-img-top  filter-gray" alt="...">
-                  <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2">
-                      SKYLINE 32-Inch HD LED TV......
-                    </p>
-                    <span>
-                      EGP
-                      <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                      <span class="fw-bold txtFont2"> 9,499.00</span>
-                    </span>
-                    <div>
-                      <span class="text-decoration-line-through txtFont2">9.999.00</span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">5%
-                        OFF</span>
-                    </div>
-                  </div>
-                  <div class="row col-12 m-0 p-0 ">
-                    <div class="d-inline-block col-4 m-0 p-0">
-                      <img src="assets/icons/express.svg" alt="" class="col-12">
-                    </div>
-                    <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                      <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                        style="width: 3rem !important; height: 1.5rem !important;">
-                        <span class="fs-6 col m-0 p-0 ">
-                          4.5
-                        </span>
-                        <span class="col">
-                          <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                            style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                        </span>
-                      </div>
-                      <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                        (239)
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="d-none d-sm-none d-md-none d-lg-inline  col-6 col-sm-4 col-md-2">
-              <a href="#">
-                <div class="card col-12">
-                  <img src="assets/products/N25.avif" class="card-img-top  filter-gray" alt="...">
-                  <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2">
-                      SKYLINE 32-Inch HD LED TV...
-                    </p>
-                    <span>
-                      EGP
-                      <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                      <span class="fw-bold txtFont2"> 4,499.00</span>
-                    </span>
-                    <div>
-                      <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">5%
-                        OFF</span>
-                    </div>
-                  </div>
-                  <div class="row col-12 m-0 p-0 ">
-                    <div class="d-inline-block col-4 m-0 p-0">
-                      <img src="assets/icons/express.svg" alt="" class="col-12">
-                    </div>
-                    <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                      <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                        style="width: 3rem !important; height: 1.5rem !important;">
-                        <span class="fs-6 col m-0 p-0 ">
-                          4.4
-                        </span>
-                        <span class="col">
-                          <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                            style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                        </span>
-                      </div>
-                      <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                        (290)
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="d-none d-sm-none d-md-none d-lg-inline col-6 col-sm-4 col-md-2">
-              <a href="#">
-                <div class="card col-12">
-                  <img src="assets/products/N25.avif" class="card-img-top  filter-gray" alt="...">
-                  <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2">
-                      SKYLINE 32-Inch HD LED TV...
-                    </p>
-                    <span>
-                      EGP
-                      <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                      <span class="fw-bold txtFont2"> 8,499.00</span>
-                    </span>
-                    <div>
-                      <span class="text-decoration-line-through txtFont2">9.999.00</span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                        OFF</span>
-                    </div>
-                  </div>
-                  <div class="row col-12 m-0 p-0 ">
-                    <div class="d-inline-block col-4 m-0 p-0">
-                      <img src="assets/icons/express.svg" alt="" class="col-12">
-                    </div>
-                    <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                      <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                        style="width: 3rem !important; height: 1.5rem !important;">
-                        <span class="fs-6 col m-0 p-0 ">
-                          4.6
-                        </span>
-                        <span class="col">
-                          <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                            style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                        </span>
-                      </div>
-                      <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                        (231)
-                      </div>
-                    </div>
-
                   </div>
                 </div>
               </a>
@@ -1080,19 +416,20 @@
         <div class="carousel-item container row text-center">
           <div class="row mx-2">
 
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let product of hotDealsProduct|slice:0:6">
               <a href="#">
                 <div class="card col-12">
-                  <img src="assets/products/N25.avif" class="card-img-top  filter-gray" alt="...">
+                  <img [src]="product.imagePath" class="card-img-top  filter-gray" alt="..." (click)="getproductDetails(product.id)">
                   <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2">
-                      Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
+                    <p class="card-text product-font txtFont2" style="height: 2em; overflow: hidden;" (click)="getproductDetails(product.id)">
+                          {{product.name}}
                     </p>
                     <span>
-                      EGP
+                    
                       <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                      <span class="fw-bold txtFont2"> 4,499.00</span>
+                      <span class="fw-bold txtFont2">{{product.price}}</span>
                     </span>
+                    <!-- discount offer -->
                     <div>
                       <span class="text-decoration-line-through txtFont2">5.999.00</span>
                       <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
@@ -1107,237 +444,21 @@
                       <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
                         style="width: 3rem !important; height: 1.5rem !important;">
                         <span class="fs-6 col m-0 p-0 ">
-                          4.6
+                         {{product.rate}}
                         </span>
                         <span class="col">
                           <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
                             style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
                         </span>
                       </div>
-                      <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                        (231)
-                      </div>
+
                     </div>
 
                   </div>
                 </div>
               </a>
             </div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-              <a href="#">
-                <div class="card col-12">
-                  <img src="assets/products/N25.avif" class="card-img-top  filter-gray" alt="...">
-                  <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2">
-                      Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                    </p>
-                    <span>
-                      EGP
-                      <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                      <span class="fw-bold txtFont2"> 4,499.00</span>
-                    </span>
-                    <div>
-                      <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                        OFF</span>
-                    </div>
-                  </div>
-                  <div class="row col-12 m-0 p-0 ">
-                    <div class="d-inline-block col-4 m-0 p-0">
-                      <img src="assets/icons/express.svg" alt="" class="col-12">
-                    </div>
-                    <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                      <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                        style="width: 3rem !important; height: 1.5rem !important;">
-                        <span class="fs-6 col m-0 p-0 ">
-                          4.6
-                        </span>
-                        <span class="col">
-                          <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                            style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                        </span>
-                      </div>
-                      <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                        (231)
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="d-none d-sm-inline d-md-inline  col-6 col-sm-4 col-md-3 col-lg-2">
-              <a href="#">
-                <div class="card col-12">
-                  <img src="assets/products/N25.avif" class="card-img-top  filter-gray" alt="...">
-                  <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2">
-                      Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                    </p>
-                    <span>
-                      EGP
-                      <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                      <span class="fw-bold txtFont2"> 4,499.00</span>
-                    </span>
-                    <div>
-                      <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                        OFF</span>
-                    </div>
-                  </div>
-                  <div class="row col-12 m-0 p-0 ">
-                    <div class="d-inline-block col-4 m-0 p-0">
-                      <img src="assets/icons/express.svg" alt="" class="col-12">
-                    </div>
-                    <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                      <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                        style="width: 3rem !important; height: 1.5rem !important;">
-                        <span class="fs-6 col m-0 p-0 ">
-                          4.6
-                        </span>
-                        <span class="col">
-                          <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                            style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                        </span>
-                      </div>
-                      <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                        (231)
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="d-none d-sm-none d-md-inline col-6 col-sm-3 col-md-3 col-lg-2">
-              <a href="#">
-                <div class="card col-12">
-                  <img src="assets/products/N25.avif" class="card-img-top  filter-gray" alt="...">
-                  <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2">
-                      Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                    </p>
-                    <span>
-                      EGP
-                      <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                      <span class="fw-bold txtFont2"> 4,499.00</span>
-                    </span>
-                    <div>
-                      <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                        OFF</span>
-                    </div>
-                  </div>
-                  <div class="row col-12 m-0 p-0 ">
-                    <div class="d-inline-block col-4 m-0 p-0">
-                      <img src="assets/icons/express.svg" alt="" class="col-12">
-                    </div>
-                    <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                      <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                        style="width: 3rem !important; height: 1.5rem !important;">
-                        <span class="fs-6 col m-0 p-0 ">
-                          4.6
-                        </span>
-                        <span class="col">
-                          <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                            style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                        </span>
-                      </div>
-                      <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                        (231)
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="d-none d-sm-none d-md-none d-lg-inline  col-6 col-sm-4 col-md-2">
-              <a href="#">
-                <div class="card col-12">
-                  <img src="assets/products/N25.avif" class="card-img-top  filter-gray" alt="...">
-                  <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2">
-                      Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                    </p>
-                    <span>
-                      EGP
-                      <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                      <span class="fw-bold txtFont2"> 4,499.00</span>
-                    </span>
-                    <div>
-                      <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                        OFF</span>
-                    </div>
-                  </div>
-                  <div class="row col-12 m-0 p-0 ">
-                    <div class="d-inline-block col-4 m-0 p-0">
-                      <img src="assets/icons/express.svg" alt="" class="col-12">
-                    </div>
-                    <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                      <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                        style="width: 3rem !important; height: 1.5rem !important;">
-                        <span class="fs-6 col m-0 p-0 ">
-                          4.6
-                        </span>
-                        <span class="col">
-                          <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                            style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                        </span>
-                      </div>
-                      <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                        (231)
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="d-none d-sm-none d-md-none d-lg-inline col-6 col-sm-4 col-md-2">
-              <a href="#">
-                <div class="card col-12">
-                  <img src="assets/products/N25.avif" class="card-img-top  filter-gray" alt="...">
-                  <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2">
-                      Samsung Galaxy A13 Blue 64GB 4GB 4G LTE- Egypt Ve...
-                    </p>
-                    <span>
-                      EGP
-                      <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                      <span class="fw-bold txtFont2"> 4,499.00</span>
-                    </span>
-                    <div>
-                      <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                        OFF</span>
-                    </div>
-                  </div>
-                  <div class="row col-12 m-0 p-0 ">
-                    <div class="d-inline-block col-4 m-0 p-0">
-                      <img src="assets/icons/express.svg" alt="" class="col-12">
-                    </div>
-                    <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                      <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
-                        style="width: 3rem !important; height: 1.5rem !important;">
-                        <span class="fs-6 col m-0 p-0 ">
-                          4.6
-                        </span>
-                        <span class="col">
-                          <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
-                            style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
-                        </span>
-                      </div>
-                      <div class="col-6 fs-6 m-0 p-0 d-inline-block">
-                        (231)
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </a>
-            </div>
+   
           </div>
         </div>
       </div>
