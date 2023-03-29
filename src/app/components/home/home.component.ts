@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { IProduct } from 'src/app/Models/iproduct';
+import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +9,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  /**
+   *
+   */
+  hotDealsProduct: IProduct[] = [];
+  // selectedProduct: IProduct[] = [];
+  constructor(private productservice:ProductService,private router:Router) {
+    this.productservice.getAllProducts().subscribe(data => {
+      this.hotDealsProduct = data;
+    })
+    
+  }
+  getproductDetails(prdid: number) {
+    this.router.navigate(['products', prdid])
+    window.scrollTo(0,0);
+  }
 
 }

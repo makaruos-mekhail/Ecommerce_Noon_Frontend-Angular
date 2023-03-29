@@ -9,10 +9,10 @@
   </div>
   <!-- //product images large screens -->
   <aside class="col-4 d-none d-md-block container-fluid " style="background-color: #F7F7FA;">
-    <div class="row " >
-      <div class="col-4" >
-        <div *ngFor="let img of product?.productImages , let i = index" class="col-12" (click)="displayImg('{{i+1}}')"> <img id="0" [src]="img.imagePath" alt="" height="100"
-            width="100"></div>
+    <div class="row ">
+      <div class="col-4">
+        <div *ngFor="let img of product?.productImages , let i = index" class="col-12" (click)="displayImg('{{i+1}}')">
+          <img id="0" [src]="img.imagePath" alt="" height="100" width="100"></div>
       </div>
       <div class="col-8 d-flex">
         <div class="row justify-content-center align-content-center"> <img id="main-product-img" class="img-fluid"
@@ -147,7 +147,8 @@
               </div>
             </div>
             <div class="col-4 " style="border-right: 1px solid #dee2e6;">
-              <div class="col-12 right-row2-img "><img src="assets/products/grating.png" alt="" style=" width:25px"></div>
+              <div class="col-12 right-row2-img "><img src="assets/products/grating.png" alt="" style=" width:25px">
+              </div>
               <div class="col-12 right-row2-text">Great Recent Rating</div>
             </div>
             <div class="col-4">
@@ -173,23 +174,7 @@
         <span><i class="fa-solid fa-star"></i></span>
       </a>
     </div>
-    <!-- product discount details -->
-    <!-- <div class="col-12 d-md-block d-none" *ngIf="">
-      <div class="row">
-        <div class="col-4">Was : </div>
-        <div class="col-8 text-muted"> <del></del> </div>
-      </div>
-      <div class="row">
-        <div class="col-4">Now : </div>
-        <div class="col-8">
-          <h4 class="d-inline-block"> EGP 4555.00 </h4> <span class="text-muted">Inclusive of VAT</span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4">Saving :</div>
-        <div class="col-8">EGP 795.00 <span class="profit"> 14%off </span></div>
-      </div>
-    </div> -->
+
     <div class="col-12 d-md-block d-none">
       <h4 class="d-inline-block"> {{product?.price |currency:'EGP'}}</h4> <span class="text-muted"></span>
     </div>
@@ -237,25 +222,11 @@
       <div class="row">
         <div class="col-2">
           <div class="col-12 fw-bold text-center">Quantity</div>
-          <!-- <div class="btn-group m-2 border-opacity-25 ">
-            <button type="button" class="btn btn-secondary bg-light text-dark dd-button ">1 </button>
-            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split bg-light text-dark "
-              data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent">
-              <span class="visually-hidden">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu " style="min-width: 3.5rem;">
-              <li><a class="dropdown-item" href="#">1</a></li>
-              <li><a class="dropdown-item" href="#">2</a></li>
-              <li><a class="dropdown-item" href="#">3</a></li>
-              <li><a class="dropdown-item" href="#">4</a></li>
-            </ul>
-          </div> -->
-        <select class="form-select" aria-label="Default select example">
-          <option selected>1</option>
-          <option value="1" *ngFor="let item of  Productquantity;let i =index">{{i+2}}</option>
-          <!-- <option value="2">3</option>
-          <option value="3">4</option> -->
-        </select>
+
+          <select class="form-select" aria-label="Default select example">
+            <option selected>1</option>
+            <option value="1" *ngFor="let item of  Productquantity;let i =index">{{i+2}}</option>
+          </select>
         </div>
         <div class="col-8">
           <button type="button" class="btn  col-12 m-3 p-3 cart-button "><b>Add To Cart</b></button>
@@ -274,7 +245,8 @@
         </div>
         <div class="row container-fluid">
           <div class="col"><img id="0" src="assets/products/sams_small1.avif" alt="" height="100" width="100"></div>
-          <div class="col"><img id="1" src="assets/products/samsung-GalaxyBlue1.jpg" alt="" height="100" width="100"></div>
+          <div class="col"><img id="1" src="assets/products/samsung-GalaxyBlue1.jpg" alt="" height="100" width="100">
+          </div>
           <div class="col"> <img id="2" src="assets/products/samsung-Galaxywhite1.jpg" alt="" height="100" width="100">
           </div>
         </div>
@@ -372,205 +344,4 @@
       </div>
     </div>
   </aside>
-  <section class="row container-fluid">
-    <div class="card border-0">
-      <div class="card-header">
-        <ul class="nav card-header-tabs fw-bold">
-          <li class="nav-item border-bottom border-primary border-3">
-            <a class="nav-link fw-bold " aria-current="true" href="#">OVERVIEW</a>
-          </li>
-          <li class="nav-item" onclick="document.getElementById('over').classList.add('d-none')">
-            <a class="nav-link fw-bold" href="#specific">SPECIFICATION</a>
-          </li>
-          <li class="nav-item fw-bold">
-            <a class="nav-link">REVIEWS</a>
-          </li>
-        </ul>
-      </div>
-      <div class="card-body hilight" id="over">
-        <h5 class="card-title">Highlights</h5>
-        <ul>
-          <p class="card-text">
-          <li>Gorilla Glass 5 finish on the front.</li>
-          <li>Great all-around battery life</li>
-          <li>The daylight camera quality is solid. ...</li>
-          <li>Latest Android 12 and solid One UI Core with lots of features</li>
-        </p>
-        </ul>
-      </div>
-      <!-- SPECIFICATION TABLE  -->
-      <div class="row" id="specific">
-        <h5 class="row container-xl m-2 p-3">Specification</h5>
-        <div class="col-lg-6 col-sm-12 ">
-
-          <table class="table table-secondary table-light ">
-            <tbody>
-              <tr>
-                <td scope="col">Audio Jack</td>
-                <td scope="col">3.5 mm</td>
-              <tr>
-                <td scope="col">Battery Size</td>
-                <td scope="col">5000 mAh</td>
-              </tr>
-              <tr>
-                <td scope="col">Battery Type</td>
-                <td scope="col">Lithium Polymer</td>
-              </tr>
-              <tr>
-                <td scope="col">Camera Type</td>
-                <td scope="col">Primary Camera + Secondary Camera</td>
-              </tr>
-              <tr>
-                <td scope="col">Charging Type</td>
-                <td scope="col">Type-C</td>
-              </tr>
-              <tr>
-                <td scope="col">Colour Name</td>
-                <td scope="col">Black</td>
-              </tr>
-              <tr>
-                <td scope="col">Country of Origin</td>
-                <td scope="col">Egypt</td>
-              </tr>
-              <tr>
-                <td scope="col">Display Resolution</td>
-                <td scope="col">1080x2400</td>
-              </tr>
-              <tr>
-                <td scope="col">Network</td>
-                <td scope="col">4G</td>
-              </tr>
-              <tr>
-                <td scope="col">Expandable Memory Type</td>
-                <td scope="col">MicroSD</td>
-              </tr>
-              <tr>
-                <td scope="col">Fast Charging</td>
-                <td scope="col">Yes</td>
-              </tr>
-              <tr>
-                <td scope="col">Flash</td>
-                <td scope="col">LED</td>
-              </tr>
-              <tr>
-                <td scope="col">Glass Technology</td>
-                <td scope="col">Gorilla Glass</td>
-              </tr>
-              <tr>
-                <td scope="col">Internal Memory</td>
-                <td scope="col">64 GB</td>
-              </tr>
-              <tr>
-                <td scope="col">Finish</td>
-                <td scope="col">Plastic</td>
-              </tr>
-              <tr>
-                <td scope="col">Maximum Expandable Memory</td>
-                <td scope="col">1 TB</td>
-              </tr>
-              <tr>
-                <td scope="col">Model Name</td>
-                <td scope="col">Galaxy A13 1</td>
-              </tr>
-              <tr>
-                <td scope="col">Model Number</td>
-                <td scope="col">Galaxy A13 1</td>
-              </tr>
-              <tr>
-                <td scope="col">Model Year</td>
-                <td scope="col">2022</td>
-              </tr>
-              <tr>
-                <td scope="col">Network Frequency Band</td>
-                <td scope="col">GSM/LTE</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-lg-6 col-sm-12">
-          <table class="table table-secondary table-light">
-            <tbody>
-              <tr>
-                <td scope="col">Number of Cores</td>
-                <td scope="col">Octal Core</td>
-              </tr>
-              <tr>
-                <td scope="col">Operating System</td>
-                <td scope="col">Android</td>
-              </tr>
-              <tr>
-                <td scope="col">Operating System Number</td>
-                <td scope="col">4.1</td>
-              </tr>
-              <tr>
-                <td scope="col">Primary Camera Feature</td>
-                <td scope="col">Quad</td>
-              </tr>
-              <tr>
-                <td scope="col">Primary Camera (MP)</td>
-                <td scope="col">50+5+2+2 MP</td>
-              </tr>
-              <tr>
-                <td scope="col">Primary Camera Resolution</td>
-                <td scope="col">50 MP</td>
-              </tr>
-              <tr>
-                <td scope="col">Processor Number</td>
-                <td scope="col">Exynos 850</td>
-              </tr>
-              <tr>
-                <td scope="col">Processor Speed</td>
-                <td scope="col">2 GHz</td>
-              </tr>
-              <tr>
-                <td scope="col">Product Height</td>
-                <td scope="col">8.8 cm</td>
-              </tr>
-              <tr>
-                <td scope="col">Product Length</td>
-                <td scope="col">165.1 cm</td>
-              </tr>
-              <tr>
-                <td scope="col">Product Weight</td>
-                <td scope="col">195 g</td>
-              </tr>
-              <tr>
-                <td scope="col">Product Width/Depth</td>
-                <td scope="col">76.4 cm</td>
-              </tr>
-              <tr>
-                <td scope="col">RAM Size</td>
-                <td scope="col">4 GB</td>
-              </tr>
-              <tr>
-                <td scope="col">Screen Size</td>
-                <td scope="col">6.6 inch</td>
-              </tr>
-              <tr>
-                <td scope="col">Secondary Camera Resolution</td>
-                <td scope="col">8 MP</td>
-              </tr>
-              <tr>
-                <td scope="col">SIM Count</td>
-                <td scope="col">Dual SIM</td>
-              </tr>
-              <tr>
-                <td scope="col">SIM Type</td>
-                <td scope="col">Nano SIM</td>
-              </tr>
-              <tr>
-                <td scope="col">Version</td>
-                <td scope="col">Egypt Version</td>
-              </tr>
-              <tr>
-                <td scope="col">Video Recording Resolution Type</td>
-                <td scope="col">1080p</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-    </div>
-  </section>
 </section>

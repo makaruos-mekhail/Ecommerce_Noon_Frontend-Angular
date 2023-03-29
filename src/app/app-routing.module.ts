@@ -16,7 +16,6 @@ const routes: Routes = [
   { path: 'WishList', component: WishListComponent, title: 'Noon WishList' },
   { path: 'AllCategory', component: MainPageComponent, title: 'Noon AllCategory' },
   { path: 'Help', component: HelppComponent, title: 'Noon Help' },
-  { path: 'Details', component: DetailsComponent, title: 'Noon Help' },
   { path: 'products/:pid', component: DetailsComponent, title: 'Noon Details' },
   { path: 'AllCategory/:str', component: MainPageComponent,title:'Noon AllCategory'},
   { path: 'AllCategory/:fromPrice/:toPrice', component: MainPageComponent,title:'Noon AllCategory'},
