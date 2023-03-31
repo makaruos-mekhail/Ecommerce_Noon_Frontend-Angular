@@ -1,8 +1,12 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IBrand } from 'src/app/Models/ibrand';
 import { ICategory } from 'src/app/Models/icategory';
 import { IProduct } from 'src/app/Models/iproduct';
+import { IProductColor } from 'src/app/Models/iproduct-color';
+import { BrandService } from 'src/app/Services/brand.service';
 import { CategoyService } from 'src/app/Services/categoy.service';
+import { ColorService } from 'src/app/Services/color.service';
 import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
@@ -14,12 +18,19 @@ export class AllCategoryComponent implements OnChanges, OnInit {
 
   prodList: IProduct[] = [];
   categoriesList: ICategory[] = [];
+  brandList: IBrand[] = [];
+  colorsList: IProductColor[] = [];
 
   filter: any = '';
   fromPrice: number = 0;
   toPrice: number = 0;
 
-  constructor(private productservice: ProductService,private categoryservice: CategoyService,private router:Router,private activerouter: ActivatedRoute)
+  constructor(private productservice: ProductService
+    , private categoryservice: CategoyService,
+    private router: Router,
+    private activerouter: ActivatedRoute
+    , private brandservice: BrandService,
+    private clorservice:ColorService)
    {
        //Get all Product
        this.productservice.getAllProducts().subscribe(data1 => {
@@ -30,7 +41,14 @@ export class AllCategoryComponent implements OnChanges, OnInit {
         this.categoryservice.getAllCategories().subscribe(data => {
           this.categoriesList = data;
         })
-
+        //all brands
+    this.brandservice.getAllBrands().subscribe(data => {
+      this.brandList = data;
+    })
+    //all colors
+    this.clorservice.getAllColors().subscribe(data => {
+      this.colorsList = data;
+    })
         // Get  Name From URl
         this.filter = this.activerouter.snapshot.paramMap.get('str')
            ? this.activerouter.snapshot.paramMap.get('str'): '';

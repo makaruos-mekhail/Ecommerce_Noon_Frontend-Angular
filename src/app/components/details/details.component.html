@@ -1,112 +1,133 @@
-<section class="row container-fluid  p-0 mx-0">
+<section class="row container-fluid p-0 mx-0">
   <!-- ////bk -->
-  <div class="col-12 d-md-block d-none head-links container-xl">
+  <!-- <div class="col-12 d-md-block d-none head-links container-xl">
     <a href=""> Home &gt;</a>
     <a href=""> Electronics & Mobiles &gt;</a>
     <a href=""> Mobiles & Accessories &gt;</a>
     <a href=""> Mobile Phones &gt;</a>
     <a href=""> Smartphones </a>
-  </div>
+  </div> -->
   <!-- //product images large screens -->
-  <aside class="col-4 d-none d-md-block container-fluid " style="background-color: #F7F7FA;">
-    <div class="row ">
+  <aside class="col-4 d-none d-md-block container-fluid" style="background-color: #f7f7fa;">
+    <div class="row">
       <div class="col-4">
         <div *ngFor="let img of product?.productImages , let i = index" class="col-12" (click)="displayImg('{{i+1}}')">
-          <img id="0" [src]="img.imagePath" alt="" height="100" width="100"></div>
+          <img id="0" [src]="img.imagePath" alt="" height="100" width="100" />
+        </div>
       </div>
       <div class="col-8 d-flex">
-        <div class="row justify-content-center align-content-center"> <img id="main-product-img" class="img-fluid"
-            [src]="product?.imagePath" height="100" width="100">
+        <div class="row justify-content-center align-content-center">
+          <img id="main-product-img" class="img-fluid" [src]="product?.imagePath" height="100" width="100" />
         </div>
       </div>
     </div>
   </aside>
   <!-- smartphones -->
-  <section class="col-12 d-sm-block d-md-none m-0 p-0 container-fluid ">
+  <section class="col-12 d-sm-block d-md-none m-0 p-0 container-fluid">
     <div class="row">
-      <div class="col-6">Samsung</div>
-      <div class="col-6  smartphone-rate">
-        <a href="" class="text-decoration-none px-1  rounded-pill col-5 ">4.5 <i class="fa-solid fa-star"></i></a>
-        <a href="" class="text-underline-hover text-muted col-7"> 42Ratings</a>
+      <div class="col-6">{{product?.brand?.name}}</div>
+      <div class="col-6 smartphone-rate">
+        <a href="" class="text-decoration-none px-1 rounded-pill col-5">{{product?.rate}} <i
+            class="fa-solid fa-star"></i></a>
       </div>
     </div>
     <!-- images slider phone -->
-    <div class="  container-fluid ">
-      <div id="carouselExampleSlidesOnly col-8" class="carousel " data-bs-ride="carousel" Wrap="true">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="2000">
-            <img src="assets/products/sams_small1.avif" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="assets/products/sams-smaal2.avif" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="assets/products/sams_small3.avif" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item " data-bs-interval="2000">
-            <img src="assets/products/sams-small4.avif" class="d-block w-100" alt="...">
+    <div class="container-fluid">
+      <div id="carouselExampleSlidesOnly col-8" class="carousel" data-bs-ride="carousel" Wrap="true">
+        <div class="carousel-inner" *ngFor="let image of product?.productImages">
+          <div class="carousel-item active" data-bs-interval="1000">
+            <img [src]="image?.imagePath" class="d-block w-100" alt="..." />
           </div>
         </div>
       </div>
     </div>
 
     <!-- </div> -->
-    <div class="row container-fluid m-0 my-1 p-0  align-items-center border" id="fixed-cart-section">
-      <div class="col-2 p-0 ">
-        <div class="btn-group p-2 ">
-          <button type="button" class="btn btn-secondary bg-light text-dark dd-button">1</button>
-          <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split bg-light text-dark"
-            data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent">
+    <div class="row container-fluid m-0 my-1 p-0 align-items-center border" id="fixed-cart-section">
+      <!-- <div class="col-2 p-0">
+        <div class="btn-group p-2">
+          <button
+            type="button"
+            class="btn btn-secondary bg-light text-dark dd-button"
+          >
+            1
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary dropdown-toggle dropdown-toggle-split bg-light text-dark"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            data-bs-reference="parent"
+          >
+         
             <span class="visually-hidden">Toggle Dropdown</span>
           </button>
-          <ul class="dropdown-menu " style="min-width: 3.5rem;">
-            <li><a class="dropdown-item" href="#">1</a></li>
-            <li><a class="dropdown-item" href="#">2</a></li>
-            <li><a class="dropdown-item" href="#">3</a></li>
-            <li><a class="dropdown-item" href="#">4</a></li>
+          <ul class="dropdown-menu" style="min-width: 3.5rem;" *ngIf=" product!=null && product.quantity >= 5">
+            <li *ngFor="let item of Productquantity"><a class="dropdown-item" href="#">{{item}}</a></li>
+    
           </ul>
         </div>
+      </div> -->
+      <div class="col-2">
+        <select class="form-select" aria-label="Default select example" *ngIf="product!=null &&product.quantity>=5">
+          <option selected>1</option>
+          <option value="1" *ngFor="let item of  Productquantity;let i =index">{{i+2}}</option>
+        </select>
+        <select class="form-select" aria-label="Default select example" *ngIf="product!=null &&product.quantity<5">
+          <option selected>1</option>
+          <option 
+          *ngFor="let item of  Productquantity 
+          let i =index"><span *ngIf="product.quantity-1 > i">{{i+2}}</span></option>
+        </select>
       </div>
-      <div class="col-10 ">
-        <button type="button" class="btn col-12 p-6 cart-button"><b>Add To Cart</b></button>
+      <div class="col-10">
+        <button type="button" class="btn col-12 p-6 cart-button">
+          <b>Add To Cart</b>
+        </button>
       </div>
     </div>
 
-    <div class="row  container-xl">
+    <div class="row container-xl">
       <div class="col-6">
-        <h4 class="d-inline-block"> EGP 4555.00 </h4> <span class="text-muted" style="font-size: 0.75em;">Inclusive of
-          VAT</span>
+        <h4 class="d-inline-block">{{product?.price}}</h4>
+        <span class="text-muted" style="font-size: 0.75em;" [translate]="'vat'"></span>
       </div>
       <div class="col-2"></div>
-      <div class="col-2"> <img src="assets/products/express.svg" alt=""></div>
+      <div class="col-2"><img src="assets/products/express.svg" alt="" /></div>
+    </div>
+    <!-- discount offer smartphone -->
+    <div class="row container-xl" *ngIf="product!= undefined && product.discount >0">
+      <div class="col-4 text-muted"><del>{{product.price|discountpipe:product.discount}}</del></div>
+      <div class="col-2 p-0 savings-percentage">{{product.discount}}% off</div>
     </div>
     <div class="row container-xl">
-      <div class="col-4 text-muted"> <del>EGP 5350.00</del> </div>
-      <div class="col-2 p-0 savings-percentage">13% off</div>
-    </div>
-    <div class="row container-xl">
-      <div class="card border-0 " style="border-radius:0%;">
-        <div class="card-body" style="background-color:#FCFBF5;">
-          <span><img src="assets/products/emi.svg" alt=""></span>
-          <span>Monthly payment plans from EGP 127 <span style="color: rgb(255, 174, 0); float: right;">
+      <div class="card border-0" style="border-radius: 0%;">
+        <div class="card-body" style="background-color: #fcfbf5;">
+          <span><img src="assets/products/emi.svg" alt="" /></span>
+          <span [translate]="'month-plan'">
+            <span style="color: rgb(255, 174, 0); float: right;">
               <i class="fa-solid fa-greater-than"></i></span></span>
         </div>
       </div>
     </div>
     <div class="row container-xl">
-      <div class="card-group p-0" style="display: inline-flex; ">
-        <div class="card col-6 border-0">
+      <div class="card-group p-0" style="display: inline-flex;">
+        <!-- delivery card -->
+        <!-- <div class="card col-6 border-0">
           <div class="card-body">
-            <p class="card-tex"> Delivery Between <b class="text-decoration-underline">Sun, 5 March -
-                Mon, 6 March.</b></p>
-            <p class="card-text text-muted"> Order in 23 hrs 12 mins</p>
+            <p class="card-tex">
+              Delivery Between
+              <b class="text-decoration-underline">Sun, 5 March - Mon, 6 March.</b>
+            </p>
+            <p class="card-text text-muted">Order in 23 hrs 12 mins</p>
           </div>
-        </div>
+        </div> -->
         <div class="card col-6 border-0">
           <div class="card-body">
-            <p class="card-text"> <b>Want It In Two Days?</b></p>
-            <p class="card-text">Select <b>Two Days Delivery</b> on Checkout The next 1 hours 20
-              minutes.</p>
+            <p class="card-text"><b [translate]="'deliver-2days'"></b></p>
+            <p class="card-text"  [translate]="'select'">
+               <b [translate]="'2daysd'"></b>
+            </p>
           </div>
         </div>
       </div>
@@ -114,106 +135,127 @@
     <!-- frequently bought to gether  -->
     <div class="row container-xl">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item ">
+        <li class="list-group-item">
           <div class="row">
-            <div class="col-1 gx-2 "> <img src="assets/products/warrantly.svg" alt=""></div>
-            <div class="col-11 ">
-              <p class="mb-0 ">1 year warranty</p>
+            <div class="col-1 gx-2">
+              <img src="assets/products/warrantly.svg" alt="" />
+            </div>
+            <div class="col-11">
+              <p class="mb-0"[translate]="'1-y-waeantrly'"></p>
             </div>
           </div>
         </li>
         <li class="list-group-item">
           <div class="row">
-            <div class="col-1 gx-2 "> <img src="assets/products/return.svg" alt=""></div>
-            <div class="col-11 ">
-              <p class="mb-0 ">this item is eligible for <strong> free Return</strong></p>
+            <div class="col-1 gx-2">
+              <img src="assets/products/return.svg" alt="" />
+            </div>
+            <div class="col-11">
+              <p class="mb-0"[translate]="'elligble'">
+                 <strong [translate]="'free-Return'"> </strong>
+              </p>
             </div>
           </div>
         </li>
         <li class="list-group-item">
           <div class="row">
-            <div class="col-1 gx-2 "> <img src="assets/products/shipping.svg" alt=""></div>
-            <div class="col-11 ">
-              <p class="mb-0 ">Available for <strong>Noon lockers</strong> delivert</p>
+            <div class="col-1 gx-2">
+              <img src="assets/products/shipping.svg" alt="" />
+            </div>
+            <div class="col-11">
+              <p class="mb-0" [translate]="'available-in-noon'">
+              </p>
             </div>
           </div>
         </li>
         <li class="list-group-item">
-          <div class="row ">
+          <div class="row">
             <div class="col-4">
-              <div class="co-12 right-row2-img"> <img src="assets/products/return.svg" alt=""> </div>
+              <div class="co-12 right-row2-img">
+                <img src="assets/products/return.svg" alt="" />
+              </div>
               <div class="col-12 right-row2-text">
-                <p>Low Return Seller</p>
+                <p [translate]="'low-return'"></p>
               </div>
             </div>
-            <div class="col-4 " style="border-right: 1px solid #dee2e6;">
-              <div class="col-12 right-row2-img "><img src="assets/products/grating.png" alt="" style=" width:25px">
+            <div class="col-4" style="border-right: 1px solid #dee2e6;">
+              <div class="col-12 right-row2-img">
+                <img src="assets/products/grating.png" alt="" style="width: 25px;" />
               </div>
-              <div class="col-12 right-row2-text">Great Recent Rating</div>
+              <div class="col-12 right-row2-text" [translate]="'great-rating'"></div>
             </div>
             <div class="col-4">
               <div class="col-12 ad-descibed"><strong> 90% </strong></div>
-              <div class="col-12" style="font-size: 0.8em;">Product As Described</div>
+              <div class="col-12" style="font-size: 0.8em;" [translate]="'product-as-describe'">
+              </div>
             </div>
           </div>
         </li>
-
       </ul>
     </div>
   </section>
   <!--DESKTOP -->
-  <section class="  mt-2 container-fluid col-sm-12 col-md-5">
-    <div class="col-12 d-md-block d-none text-muted">{{product?.brand?.name}}</div>
+  <section class="mt-2 container-fluid col-sm-12 col-md-5">
+    <div class="col-12 d-md-block d-none text-muted">
+      {{product?.brand?.name}}
+    </div>
     <div class="col-12 d-md-block d-none">
       <h3>{{product?.name}}</h3>
     </div>
     <div class="col-12 d-md-block d-none desktop">
-      <p class="d-inline-block text-muted">Model Number : Galaxy A13 1 <span>|</span></p>
+      
       <!-- rating icon  -->
-      <a href="" class="text-decoration-none px-1  rounded-pill"><span>{{product?.rate}}</span>
+      <a href="" class="text-decoration-none px-1 rounded-pill"><span>{{product?.rate}}</span>
         <span><i class="fa-solid fa-star"></i></span>
       </a>
     </div>
 
     <div class="col-12 d-md-block d-none">
-      <h4 class="d-inline-block"> {{product?.price |currency:'EGP'}}</h4> <span class="text-muted"></span>
+      <h4 class="d-inline-block">{{product?.price |currency:'EGP'}}</h4>
+      <span class="text-muted"></span>
     </div>
-    <div class="col-12  d-md-block d-none">
-      <div class="card border-0 " style="border-radius:0%;">
-        <div class="card-body" style="background-color:#FCFBF5;">
-          <span><img src="assets/products/emi.svg" alt=""></span>
-          <span>Monthly payment plans from EGP 127</span>
-          <span><a href=""> View More Details </a></span>
+    <div class="row container-xl" *ngIf="product!= undefined && product.discount >0">
+      <div class="col-4 text-decoration-line-through">
+        <h4>{{product.price|discountpipe:product.discount}}</h4>
+      </div>
+      <div class="col-2 p-0 savings-percentage">{{product.discount}}% off</div>
+    </div>
+    <div class="col-12 d-md-block d-none">
+      <div class="card border-0" style="border-radius: 0%;">
+        <div class="card-body" style="background-color: #fcfbf5;">
+          <span><img src="assets/products/emi.svg" alt="" /></span>
+          <span [translate]="'month-plan'"></span>
         </div>
       </div>
     </div>
-    <div class="col-12 d-none d-md-block ">
-      <div class="card border-0 " style="border-radius:0%;">
-        <div class="card-body " style="background-color: #F5F7FE;">
+    <div class="col-12 d-none d-md-block">
+      <div class="card border-0" style="border-radius: 0%;">
+        <div class="card-body" style="background-color: #f5f7fe;">
           <div class="outside-card-content d-flex">
             <div class="col5">
-              <p class=" text-muted"> Order in 23 hrs 12 mins</p>
-              <h6 class="text-decoration-underline">FREE Two Days Delivery.</h6>
+              <p class="text-muted" [translate]="'towdaysd'"></p>
+              <h6 class="text-decoration-underline"[translate]="'free-delivey'"></h6>
             </div>
 
             <div class="col-4"></div>
-            <div class="col-3 align-content-end ">
-              <img src="assets/products/express.svg" alt="">
-              <img src="assets/products/help.svg" alt="">
+            <div class="col-3 align-content-end">
+              <img src="assets/products/express.svg" alt="" />
+              <img src="assets/products/help.svg" alt="" />
             </div>
           </div>
           <!-- //inside card  -->
-          <div class="card border-0" style="border-radius:0%;">
+          <div class="card border-0" style="border-radius: 0%;">
             <div class="card-body">
               <!-- //inline  -->
-              <span> <img src="assets/products/same_day_delivery.svg" alt=""></span>
               <span>
-                <p class="d-inline-block">Want it Today? Select <strong>Get It Today</strong> on
-                  checkout within the next <strong>8 hours 12 minutes</strong> .</p>
+                <img src="assets/products/same_day_delivery.svg" alt="" /></span>
+              <span>
+                <p class="d-inline-block"[translate]="'Want-it-Today?-Select'">
+                </p>
+                 <strong [translate]="'Get-It-Today'"></strong>
               </span>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -221,33 +263,27 @@
     <div class="row d-md-block d-none mb-5">
       <div class="row">
         <div class="col-2">
-          <div class="col-12 fw-bold text-center">Quantity</div>
+          <div class="col-12 fw-bold text-center" [translate]="'quantity'"></div>
 
-          <select class="form-select" aria-label="Default select example">
+          <select class="form-select" aria-label="Default select example" *ngIf="product!=null &&product.quantity>=5">
             <option selected>1</option>
             <option value="1" *ngFor="let item of  Productquantity;let i =index">{{i+2}}</option>
           </select>
+            <select class="form-select" aria-label="Default select example" *ngIf="product!=null &&product.quantity<5">
+              <option selected>1</option>
+              <option *ngFor="let item of  Productquantity 
+                      let i =index"><span *ngIf="product.quantity-1 > i">{{i+2}}</span></option>
+            </select>
         </div>
         <div class="col-8">
-          <button type="button" class="btn  col-12 m-3 p-3 cart-button "><b>Add To Cart</b></button>
+          <button type="button" class="btn col-12 m-3 p-3 cart-button">
+            <b [translate]="'Add-o-Cart'"></b>
+          </button>
         </div>
         <div class="col-2">
-          <div class="Favoite-button d-flex justify-content-center p-3 m-3 "><i class="fa-solid fa-heart " id="fav"
-              onclick="changefavButtobColor(this)" style="color: #AAB8C2; font-size: 2em;"></i></div>
-        </div>
-      </div>
-    </div>
-    <div class="row container-fluid">
-      <div class="row d-sm-block">
-        <div class="col-6 col-sm-12">
-          <span class="text-muted">Color Name: </span>
-          <span class="colorName "> Black</span>
-        </div>
-        <div class="row container-fluid">
-          <div class="col"><img id="0" src="assets/products/sams_small1.avif" alt="" height="100" width="100"></div>
-          <div class="col"><img id="1" src="assets/products/samsung-GalaxyBlue1.jpg" alt="" height="100" width="100">
-          </div>
-          <div class="col"> <img id="2" src="assets/products/samsung-Galaxywhite1.jpg" alt="" height="100" width="100">
+          <div class="Favoite-button d-flex justify-content-center p-3 m-3">
+            <i class="fa-solid fa-heart" id="fav" onclick="changefavButtobColor(this)"
+              style="color: #aab8c2; font-size: 2em;"></i>
           </div>
         </div>
       </div>
@@ -255,88 +291,124 @@
   </section>
   <aside class="col-3 d-md-block d-none container-fluid">
     <div class="row">
-      <div class="card"
-        style="width:100%; border-radius: 0%; border-right: transparent; border-bottom:transparent ;border-top: tra;">
+      <div class="card" style="
+          width: 100%;
+          border-radius: 0%;
+          border-right: transparent;
+          border-bottom: transparent;
+          border-top: tra;
+        ">
         <ul class="list-group list-group-flush border-0">
-          <li class="list-group-item ">
+          <li class="list-group-item">
             <div class="row">
-              <div class="col-1 gx-2"> <img src="assets/products/return.svg" alt=""></div>
+              <div class="col-1 gx-2">
+                <img src="assets/products/return.svg" alt="" />
+              </div>
               <div class="col-11">
-                <p class="mb-0 " style="font-size: 0.8em;">Enjoy hassle free returns with this
-                  offer.</p>
-                <a href="" class="text-decoration-underline"> Learn More</a>
+                <p class="mb-0" style="font-size: 0.8em;" [translate]="'hassle-free-returns'">
+                 
+                </p>
+                <a href="" class="text-decoration-underline" [translate]="'Learn-More'"> </a>
               </div>
             </div>
           </li>
           <li class="list-group-item">
             <div class="row">
-              <div class="col-1 gx-2"> <img src="assets/products/warrantly.svg" alt=""></div>
+              <div class="col-1 gx-2">
+                <img src="assets/products/warrantly.svg" alt="" />
+              </div>
               <div class="col-11">
-                <p class="mb-0 " style="font-size: 0.8em;">1 year warranty</p>
+                <p class="mb-0" style="font-size: 0.8em;" [translate]="'1-y-waeantrly'"></p>
               </div>
             </div>
           </li>
           <li class="list-group-item">
             <div class="row">
-              <div class="col-1 gx-2"> <img src="assets/products/sold.svg" alt=""></div>
-              <div class="col-11 ">
-                <p class="mb-0 " style="font-size: 0.8em;">&nbsp;Sold By&nbsp; <a href=""
-                    class="text-decoration-underline fw-bold"> noon </a></p>
-                <a href="" class="text-decoration-none px-1  rounded-pill"
-                  style="background-color: #82AE04;color: white;"><span>4.5</span>
+              <div class="col-1 gx-2">
+                <img src="assets/products/sold.svg" alt="" />
+              </div>
+              <div class="col-11">
+                <p class="mb-0" style="font-size: 0.8em;" [translate]="'Sold-By'">
+                  &nbsp;Sold By&nbsp;
+                  <a href="" class="text-decoration-underline fw-bold" [translate]="'noon'">
+                    noon
+                  </a>
+                </p>
+                <a href="" class="text-decoration-none px-1 rounded-pill"
+                  style="background-color: #82ae04; color: white;"><span>4.5</span>
                   <span><i class="fa-solid fa-star"></i></span>
                 </a>
-
               </div>
             </div>
           </li>
           <li class="list-group-item">
-            <div class="row ">
-              <div class="col-4 ">
-                <img src="assets/products/return.svg" alt="">
-                <div class="col-12" style="font-size: 0.75em; font-weight: bold; text-align: center;">
-                  <p>Low Return Seller</p>
+            <div class="row">
+              <div class="col-4">
+                <img src="assets/products/return.svg" alt="" />
+                <div class="col-12" style="
+                    font-size: 0.75em;
+                    font-weight: bold;
+                    text-align: center;
+                  ">
+                  <p [translate]="'low-return'"></p>
                 </div>
               </div>
-              <div class="col-4 " style="border-right: 1px solid #dee2e6;">
-                <div class="col-12 "><img src="assets/products/grating.png" alt="" style=" width:25px">
+              <div class="col-4" style="border-right: 1px solid #dee2e6;">
+                <div class="col-12">
+                  <img src="assets/products/grating.png" alt="" style="width: 25px;" />
                 </div>
-                <div class="col-12" style="font-size: 0.75em; font-weight: bold; text-align: center;">Great Recent
-                  Rating</div>
+                <div class="col-12" style="
+                    font-size: 0.75em;
+                    font-weight: bold;
+                    text-align: center;
+                  " [translate]="'great-rating'">
+               
+                </div>
               </div>
               <div class="col-4 NavFont">
-                <div class="col-12" style="color:#38AE04;"><strong> 90% </strong>
+                <div class="col-12" style="color: #38ae04;">
+                  <strong> 90% </strong>
                 </div>
-                <div class="col-12" style="font-size: 0.8em;">Product As Described</div>
+                <div class="col-12" style="font-size: 0.8em;" [translate]="'product-as-describe'">
+                </div>
               </div>
             </div>
           </li>
-          <li class="list-group-item ">
+          <li class="list-group-item">
             <div class="row">
-              <div class="col-2 gx-2"><span><img src="assets/products/free_returns_usp.svg" alt=""></span> </div>
+              <div class="col-2 gx-2">
+                <span><img src="assets/products/free_returns_usp.svg" alt="" /></span>
+              </div>
               <div class="col-10">
-                <p class="mb-0 " style="font-size: 0.7em; font-weight: bold;">FREE RETURNS</p>
-                <p class="text-muted">Get free returns on eligible items</p>
+                <p class="mb-0" style="font-size: 0.7em; font-weight: bold;" [translate]="'free-Return'">
+                  
+                </p>
+                <p class="text-muted"[translate]="'items-elligble'"></p>
               </div>
             </div>
           </li>
-          <li class="list-group-item ">
+          <li class="list-group-item">
             <div class="row">
-              <div class="col-2 gx-2"><span><img src="assets/products/shipping.svg" alt=""></span> </div>
+              <div class="col-2 gx-2">
+                <span><img src="assets/products/shipping.svg" alt="" /></span>
+              </div>
               <div class="col-10">
-                <p class="mb-0 " style="font-size: 0.7em; font-weight: bold;">TRUSTED SHIPPING</p>
-                <p class="text-muted">Free shipping when you spend EGP 200 and above on express
-                  items</p>
+                <p class="mb-0" style="font-size: 0.7em; font-weight: bold;"[translate]="'TRUSTED-SHIPPING'">
+                </p>
+                <p class="text-muted" [translate]="'Free-shipping'"> 
+                </p>
               </div>
             </div>
           </li>
-          <li class="list-group-item ">
+          <li class="list-group-item">
             <div class="row">
-              <div class="col-2 gx-2"><span><img src="assets/products/secure_usp.svg" alt=""></span>
+              <div class="col-2 gx-2">
+                <span><img src="assets/products/secure_usp.svg" alt="" /></span>
               </div>
               <div class="col-10">
-                <p class="mb-0  " style="font-size: 0.7em; font-weight: bold;">SECURE SHOPPING</p>
-                <p class="text-muted">Your data is always protected</p>
+                <p class="mb-0" style="font-size: 0.7em; font-weight: bold;"[translate]="'SECURE-SHOPPING'">
+                </p>
+                <p class="text-muted" [translate]="'data-protected'"></p>
               </div>
             </div>
           </li>
@@ -344,4 +416,101 @@
       </div>
     </div>
   </aside>
+  <!-- review and rating section -->
+  <section class="container-fluid" style="margin-top: 4em !important;">
+    <div class="row">
+      <div class="col-5 col-md-2">
+        <div class="d-flex justify-content-center">
+          <h3 [translate]="'Overall-Rating'"></h3>
+        </div>
+        <div class="d-flex justify-content-center reviewRating">
+          <h3 style="font-size: 2em;">{{product?.rate}}</h3>
+        </div>
+        <div class="d-flex justify-content-center">
+          <a>
+            <i class="fa-solid fa-star rateStars"></i>
+            <i class="fa-solid fa-star rateStars"></i>
+            <i class="fa-solid fa-star rateStars"></i>
+            <i class="fa-solid fa-star rateStars"></i>
+            <i class="fa-solid fa-star rateStars"></i>
+          </a>
+        </div>
+      </div>
+      <!-- progress -->
+      <div class="col-7 col-md-3">
+        <div>
+          <div class="progress rateProgress" role="progressbar" aria-label="Success example" aria-valuenow="25"
+            aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar bg-success" style="width: 70%;"></div>
+          </div>
+
+          <div class="progress rateProgress" role="progressbar" aria-label="Info example" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar bg-success" style="width: 50%;"></div>
+          </div>
+          <div class="progress rateProgress" role="progressbar" aria-label="Warning example" aria-valuenow="75"
+            aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar bg-warning" style="width: 25%;"></div>
+          </div>
+          <div class="progress rateProgress" role="progressbar" aria-label="Danger example" aria-valuenow="100"
+            aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar bg-danger" style="width: 10%;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 txtFont text-center">
+        <h5 [translate]="'review-question1'">
+          <img src="assets\products\help.svg" /> 
+        </h5>
+        <p class="text-muted" style="line-height: 1;" [translate]="'review-answer1'">
+       </p>
+      </div>
+      <div class="col-6 col-md-4 text-center txtFont">
+        <h5 [translate]="'review-question2'">
+          <img src="assets\products\help.svg" /> 
+        </h5>
+        <p class="text-muted" style="line-height: 1;" [translate]="'review-answer2'">
+     
+        </p>
+      </div>
+    </div>
+    <!-- customer review -->
+    <div class="row d-flex justify-content-center" style="padding: 2em; margin: 2em;">
+      <h3>
+        <button class="btn btn-success" (click)="getReviws()" [translate]="'Customer-Reviews'">
+        
+        </button>
+      </h3>
+    </div>
+    <div class="row p-3" *ngFor="let review of productReviews">
+      <div class="col-2 d-flex justify-content-center align-items-center text-success fw-bold" style="
+          width: 4em;
+          height: 4em;
+          background-color: #e2f6e2;
+          border-radius: 50%;
+        ">
+        {{review?.user?.firstName?.slice(0,1)}}
+      </div>
+      <div class="col-10">
+        <h6 style="color: #38ae04;">{{review.user.firstName}}</h6>
+        {{review.review}}
+        
+        <div *ngIf="review.review =='Excellent '">
+          <a *ngFor="let item of excellent">
+            <i class="fa-solid fa-star rateStars" style="font-size: 0.7em;"></i>
+          </a>
+        </div>
+        <div *ngIf="review.review =='Very Good'">
+          <a *ngFor="let item of verygood">
+            <i class="fa-solid fa-star rateStars" style="font-size: 0.7em;"></i>
+          </a>
+        </div>
+        <div *ngIf="review.review =='Good'">
+          <a *ngFor="let item of good">
+            <i class="fa-solid fa-star rateStars" style="font-size: 0.7em;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </section>

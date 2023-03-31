@@ -14,8 +14,14 @@ import { SlidbarAllcategoryComponent } from './components/slidbar-allcategory/sl
 import { WishListComponent } from './components/wish-list/wish-list.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { DiscountPipe } from './Pipes/discount.pipe';
+//translate
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,13 +34,22 @@ import { HttpClientModule } from '@angular/common/http';
     DetailsComponent,
     AllCategoryComponent,
     CartComponent,
-    MainPageComponent
+    MainPageComponent,
+    DiscountPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

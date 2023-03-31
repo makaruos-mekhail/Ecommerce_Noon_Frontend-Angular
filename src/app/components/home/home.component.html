@@ -192,7 +192,7 @@
     <div class="col-12 bg-white">
       <div class="row">
         <a>
-          <img src="assets/products/hotdeals.png" alt="" class="img-fluid ">
+          <h1 class="p-3" [translate]="'hot-deals'"> </h1>
         </a>
       </div>
       <!-- <div class="row"> -->
@@ -202,21 +202,25 @@
             <div class="row mx-2">
 
               <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let product of hotDealsProduct|slice:0:6">
-                <div class="card col-12" >
+                <div class="card col-12">
                   <a>
-                    <img [src]="product.imagePath"  class="card-img-top  filter-gray img-fluid" alt="..." width="100" height="100" (click)="getproductDetails(product.id)">
+                    <img [src]="product.imagePath" class="card-img-top  filter-gray img-fluid" alt="..." width="100"
+                      height="100" (click)="getproductDetails(product.id)">
                     <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2" style="height:2em; overflow: hidden;" (click)="getproductDetails(product.id)">
-                       {{product.name}}
+                      <p class="card-text product-font txtFont2" style="height:2em; overflow: hidden;"
+                        (click)="getproductDetails(product.id)">
+                        {{product.name}}
                       </p>
                       <span>
                         <span class="fw-bold txtFont2"> {{product.price |currency:'EGP'}}</span>
                       </span>
-                      <!-- discount offer -->
-                      <div>
-                        <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                        <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                          OFF</span>
+                      <!-- discountpipe offer -->
+                      <div *ngIf="product!= undefined && product.discount >0">
+                        <span
+                          class="text-decoration-line-through txtFont2">{{product.price|discountpipe:product.discount|currency:'EGP'}}
+                          &nbsp;</span>
+                        <span class="fw-bold txtFont2" style="color: #3bbd04;">{{product?.discount}}%
+                        </span>
                       </div>
                     </div>
                     <div class="row col-12 m-0 p-2 ">
@@ -234,13 +238,13 @@
                               style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
                           </span>
                         </div>
-    
+
                       </div>
                     </div>
                   </a>
                 </div>
               </div>
-              
+
             </div>
           </div>
           <div class="carousel-item container row text-center ">
@@ -249,21 +253,25 @@
               <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let product of hotDealsProduct|slice:6:12">
                 <a href="#">
                   <div class="card col-12">
-                    <img [src]="product.imagePath" class="card-img-top  filter-gray img-fluid " alt="..." width="100" height="100" (click)="getproductDetails(product.id)">
+                    <img [src]="product.imagePath" class="card-img-top  filter-gray img-fluid " alt="..." width="100"
+                      height="100" (click)="getproductDetails(product.id)">
                     <div class="card-body col-12">
-                      <p class="card-text product-font txtFont2"  style="height:2em; overflow: hidden;" (click)="getproductDetails(product.id)">
-                       {{product.name}}
+                      <p class="card-text product-font txtFont2" style="height:2em; overflow: hidden;"
+                        (click)="getproductDetails(product.id)">
+                        {{product.name}}
                       </p>
                       <span>
-                       
+
                         <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
                         <span class="fw-bold txtFont2">{{product.price |currency:'EGP'}}</span>
                       </span>
-                      <!-- discount offer -->
-                      <div>
-                        <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                        <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                          OFF</span>
+                      <!-- discountpipe offer -->
+                      <div *ngIf="product!= undefined && product.discount >0">
+                        <span
+                          class="text-decoration-line-through txtFont2">{{product.price|discountpipe:product.discount|currency:'EGP'}}
+                          &nbsp;</span>
+                        <span class="fw-bold txtFont2" style="color: #3bbd04;">{{product?.discount}}%
+                        </span>
                       </div>
                     </div>
                     <div class="row col-12 m-0 p-2 ">
@@ -274,20 +282,20 @@
                         <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
                           style="width: 3rem !important; height: 1.5rem !important;">
                           <span class="fs-6 col m-0 p-0 ">
-                         {{product.rate}}
+                            {{product.rate}}
                           </span>
                           <span class="col">
                             <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
                               style="width: .8rem; margin-bottom: .2rem; color:#ffffff !important;">
                           </span>
                         </div>
-              
+
                       </div>
                     </div>
                   </div>
                 </a>
               </div>
-            
+
             </div>
           </div>
 
@@ -316,23 +324,26 @@
   <div class="row row-cols-1 row-cols-md-3 mt-5 bg-light">
     <div class="col-xl-4  col-sm-12">
       <div class="card">
-        <h5 class="card-title px-3 py-1 fw-bold">Mega deals of the day</h5>
+        <h5 class="card-title px-3 py-1 fw-bold"[translate]="'mega-deals'"></h5>
         <div class="card-body row g-4">
-        <div class="col-6" *ngFor="let product of hotDealsProduct|slice:0:2">
-          <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200" (click)="getproductDetails(product.id)">
-        </div>
-        <div class="col-6" *ngFor="let product of hotDealsProduct|slice:2:4">
-          <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200" (click)="getproductDetails(product.id)">
-        </div>
+          <div class="col-6" *ngFor="let product of hotDealsProduct|slice:0:2">
+            <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200"
+              (click)="getproductDetails(product.id)">
+          </div>
+          <div class="col-6" *ngFor="let product of hotDealsProduct|slice:2:4">
+            <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200"
+              (click)="getproductDetails(product.id)">
+          </div>
         </div>
       </div>
     </div>
     <div class="col-xl-4  col-sm-12">
       <div class="card">
-        <h5 class="card-title px-3 py-1 fw-bold">Mega deals of the day</h5>
+        <h5 class="card-title px-3 py-1 fw-bold" [translate]="'mega-deals'"></h5>
         <div class="card-body row g-4">
           <div class="col-6" *ngFor="let product of hotDealsProduct|slice:4:6">
-            <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200" (click)="getproductDetails(product.id)">
+            <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200"
+              (click)="getproductDetails(product.id)">
           </div>
           <div class="col-6" *ngFor="let product of hotDealsProduct|slice:6:8" (click)="getproductDetails(product.id)">
             <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200">
@@ -342,14 +353,16 @@
     </div>
     <div class="col-xl-4  col-sm-12">
       <div class="card">
-        <h5 class="card-title px-3 py-1 fw-bold">Mega deals of the day</h5>
+        <h5 class="card-title px-3 py-1 fw-bold" [translate]="'mega-deals'"></h5>
         <div class="card-body row g-4">
-        <div class="col-6" *ngFor="let product of hotDealsProduct|slice:8:10">
-          <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200" (click)="getproductDetails(product.id)">
-        </div>
-        <div class="col-6" *ngFor="let product of hotDealsProduct|slice:10:12">
-          <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200" (click)="getproductDetails(product.id)">
-        </div>
+          <div class="col-6" *ngFor="let product of hotDealsProduct|slice:8:10">
+            <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200"
+              (click)="getproductDetails(product.id)">
+          </div>
+          <div class="col-6" *ngFor="let product of hotDealsProduct|slice:10:12">
+            <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200"
+              (click)="getproductDetails(product.id)">
+          </div>
         </div>
       </div>
     </div>
@@ -376,19 +389,23 @@
             <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let product of hotDealsProduct|slice:6:12">
               <a href="#">
                 <div class="card col-12">
-                  <img [src]="product.imagePath" class="card-img-top  filter-gray" alt="..." (click)="getproductDetails(product.id)">
+                  <img [src]="product.imagePath" class="card-img-top  filter-gray" alt="..."
+                    (click)="getproductDetails(product.id)">
                   <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2" style="height: 2em; overflow: hidden;" (click)="getproductDetails(product.id)">
-                    {{product.name}}
+                    <p class="card-text product-font txtFont2" style="height: 2em; overflow: hidden;"
+                      (click)="getproductDetails(product.id)">
+                      {{product.name}}
                     </p>
                     <span>
                       <span class="fw-bold txtFont2">{{product.price|currency:'EGP'}}</span>
                     </span>
-                    <!-- discount offer -->
-                    <div>
-                      <span class="text-decoration-line-through txtFont2">9.999.00</span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">10%
-                        OFF</span>
+                    <!-- discountpipe offer -->
+                    <div *ngIf="product!= undefined && product.discount >0">
+                      <span
+                        class="text-decoration-line-through txtFont2">{{product.price|discountpipe:product.discount|currency:'EGP'}}
+                        &nbsp;</span>
+                      <span class="fw-bold txtFont2" style="color: #3bbd04;">{{product?.discount}}%
+                      </span>
                     </div>
                   </div>
                   <div class="row col-12 m-0 p-0 ">
@@ -399,7 +416,7 @@
                       <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
                         style="width: 3rem !important; height: 1.5rem !important;">
                         <span class="fs-6 col m-0 p-0 ">
-                      {{product.rate}}
+                          {{product.rate}}
                         </span>
                         <span class="col">
                           <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
@@ -419,21 +436,25 @@
             <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let product of hotDealsProduct|slice:0:6">
               <a href="#">
                 <div class="card col-12">
-                  <img [src]="product.imagePath" class="card-img-top  filter-gray" alt="..." (click)="getproductDetails(product.id)">
+                  <img [src]="product.imagePath" class="card-img-top  filter-gray" alt="..."
+                    (click)="getproductDetails(product.id)">
                   <div class="card-body col-12">
-                    <p class="card-text product-font txtFont2" style="height: 2em; overflow: hidden;" (click)="getproductDetails(product.id)">
-                          {{product.name}}
+                    <p class="card-text product-font txtFont2" style="height: 2em; overflow: hidden;"
+                      (click)="getproductDetails(product.id)">
+                      {{product.name}}
                     </p>
                     <span>
-                    
+
                       <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
                       <span class="fw-bold txtFont2">{{product.price}}</span>
                     </span>
-                    <!-- discount offer -->
-                    <div>
-                      <span class="text-decoration-line-through txtFont2">5.999.00</span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">25%
-                        OFF</span>
+                    <!-- discountpipe offer -->
+                    <div *ngIf="product!= undefined && product.discount >0">
+                      <span
+                        class="text-decoration-line-through txtFont2">{{product.price|discountpipe:product.discount |currency:'EGP'}}
+                      </span>
+                      <span class="fw-bold txtFont2" style="color: #3bbd04;">{{product?.discount}}%
+                      </span>
                     </div>
                   </div>
                   <div class="row col-12 m-0 p-0 ">
@@ -444,7 +465,7 @@
                       <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
                         style="width: 3rem !important; height: 1.5rem !important;">
                         <span class="fs-6 col m-0 p-0 ">
-                         {{product.rate}}
+                          {{product.rate}}
                         </span>
                         <span class="col">
                           <img src="assets/icons/star.svg" alt="" class="img-fluid filter-white"
@@ -458,7 +479,7 @@
                 </div>
               </a>
             </div>
-   
+
           </div>
         </div>
       </div>
@@ -492,7 +513,7 @@
   </div>
   <div>
     <div class="row justify-content-center my-4">
-      <h3 class="fw-bold fs-2 text-center">YOUR FAVORITE BRANDS</h3>
+      <h3 class="fw-bold fs-2 text-center"[translate]="'footer-brands'"></h3>
     </div>
 
     <div class="row gy-3 gx-3 my-1  ">
@@ -546,7 +567,7 @@
       <div class="col ">
         <img src="assets/footerImg/en_brand_16.png" alt="...">
       </div>
-      <div class="col ">
+      <div class="col">
         <img src="assets/footerImg/en_brand_17.png" alt="...">
       </div>
       <div class="col ">

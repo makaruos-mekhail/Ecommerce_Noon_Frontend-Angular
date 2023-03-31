@@ -12,6 +12,8 @@ export interface IProduct {
     description: string;
     descriptionAr: string;
     price: number;
+    discount: number;
+    quantity: number;
     sizes?: string;
     imagePath: string;
     rate: number;
