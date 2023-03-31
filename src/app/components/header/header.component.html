@@ -4,19 +4,19 @@
     <div class="bg-header-yollow row align-items-center text-center p-2 m-0">
       <!-- Noon Logo -->
       <div class="col-sm-2 col-2 col-md-1">
-        <a routerLink="/Home" >
+        <a routerLink="/Home">
           <img src="assets/header/noon-logo-en.svg" class="img-fluid mx-auto">
         </a>
       </div>
       <!--  Delivery To -->
-      <div class="row d-none col-md-2 d-md-inline-block p-0 m-0">
+      <div class="row d-none col-md-1 d-md-inline-block p-0 m-0">
         <button class="bg-header-yollow border-0 m-0 p-0 ">
           <div class="d-inline-block ">
             <img src="assets/header/eg.svg" class="img-fluid col-10 mx-auto txtFont">
           </div>
           <div class=" d-inline-block">
-            <span class="txtFont">
-              Delivery To
+            <span class="txtFont" [translate]="'header-deliver'">
+              
             </span>
 
           </div>
@@ -29,26 +29,29 @@
       <!-- Search Input -->
       <div class="col-md-6 col-sm-5 col-5 ">
         <div class="input-group ">
-          <input id="searchbar" #asd type="text" (keyup.enter)="searchpro(asd.value)" class="form-control rounded p-2" placeholder="What are you looking for?"
-            aria-label="What are you looking for?" aria-describedby="button-addon2">
+          <input id="searchbar" #asd type="text" (keyup.enter)="searchpro(asd.value)" class="form-control rounded p-2"
+            placeholder="What are you looking for?" aria-label="What are you looking for?"
+            aria-describedby="button-addon2">
         </div>
       </div>
 
       <!-- Language -->
       <div class="col-1">
-        <span class="col-10  txtFont element">
-          العربية
-        </span>
+        <select class="form-select form-select-sm language-switcher" (change)="handleLanguage($event)">
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+        </select>
       </div>
 
       <!-- Sign In -->
-      <div class="col-2 col-sm-2 col-md-1">
+      <div class="col-2 col-sm-2 col-md-2">
         <a type="button" class="btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-          <span class="fw-bold txtFont ">
-            SignIn
+          <span class="fw-bold txtFont">
+             <span [translate]="'sign-in'"></span>
+
             <img class="txtFont" src="assets/header/account-inactive.svg" alt=""
               style="width: 1rem !important; height: 1rem !important;" class="img-fluid">
-          </span>
+            </span>
         </a>
       </div>
       <!-- Popup Sign In and Sign Up -->
@@ -142,9 +145,8 @@
       </div>
       <!-- Cart -->
       <div class="col-2 col-sm-2 col-md-1 p-0 m-0">
-        <a routerLink="/Cart" >
-          <span class="fw-bold m-0 p-0 txtFont">
-            Cart
+        <a routerLink="/Cart">
+          <span class="fw-bold m-0 p-0 txtFont"[translate]="'cart'">
           </span>
           <span class="btn position-relative p-0 m-0">
             <img src="assets/header/cart.svg" alt="" style="width: 1.5rem !important; height: 1.5rem !important;"
@@ -166,12 +168,12 @@
       <ul class="m-0 p-0">
         <li class="navbar-brand dropdown m-0">
           <a class="nav-link dropdown-toggle text-primary" href="#" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            ALL CATAGORIES
+            aria-expanded="false" [translate]="'all-categories'">
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/AllCategory" style="font-size: 0.9;">All CATAGORIES</a></li>
-            <li *ngFor="let cat of categoriesList" ><a class="dropdown-item" href="#" *ngIf="cat.parentCategory==undefined">{{cat.name}}</a></li>
+            <li><a class="dropdown-item" routerLink="/AllCategory" style="font-size: 0.9;" [translate]="'all-categories'"></a></li>
+            <li *ngFor="let cat of categoriesList"><a class="dropdown-item" href="#"
+                *ngIf="cat.parentCategory==undefined">{{cat.name}}</a></li>
           </ul>
         </li>
       </ul>
@@ -182,9 +184,10 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ">
           <li class="nav-item" *ngFor="let cat of categoriesList" style="font-size: 0.9em;">
-            <a class="nav-link text-dark nav-font-size" aria-current="page" href="#"*ngIf="cat.parentCategory==undefined"  style="overflow:auto;">{{cat.name}}</a>
+            <a class="nav-link text-dark nav-font-size" aria-current="page" href="#"
+              *ngIf="cat.parentCategory==undefined" style="overflow:auto;">{{cat.name}}</a>
           </li>
-      
+
         </ul>
       </div>
     </div>

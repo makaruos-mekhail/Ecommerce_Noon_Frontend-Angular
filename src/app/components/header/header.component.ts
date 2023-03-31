@@ -4,6 +4,7 @@ import { ICategory } from "src/app/Models/icategory";
 import { CategoyService } from "src/app/Services/categoy.service";
 import { ProductService } from "src/app/Services/product.service";
 import { Location } from '@angular/common';
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-header",
@@ -12,10 +13,15 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent implements  OnInit{
 
+
   categoriesList: ICategory[] = [];
 
 
-  constructor(private categoryservice: CategoyService,private productservice: ProductService,private router :Router, private location :Location)
+  constructor(
+    private categoryservice: CategoyService,
+    private router: Router,
+    private translate: TranslateService
+  )
   {
        //Get Dropdown category
        this.categoryservice.getAllCategories().subscribe((data) => {
@@ -27,10 +33,24 @@ export class HeaderComponent implements  OnInit{
 
   ngOnInit(): void {
 
+    
+    // handleLanguage(event: any) {
+    //   this.translate.use(event.target.value);
+    //   console.log(this.translate.currentLang);
+    // }
   }
+//translata
+  handleLanguage(event: any) {
+    this.translate.use(event.target.value);
+  }
+
+ 
 
   searchpro(str :any){
     this.router.navigate(['AllCategory',str]);
 
   }
+
+
 }
+
