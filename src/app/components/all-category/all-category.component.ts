@@ -20,6 +20,7 @@ export class AllCategoryComponent implements OnChanges, OnInit {
   categoriesList: ICategory[] = [];
   brandList: IBrand[] = [];
   colorsList: IProductColor[] = [];
+  lang = localStorage.getItem('lang');
 
   filter: any = '';
   fromPrice: number = 0;
@@ -84,6 +85,7 @@ export class AllCategoryComponent implements OnChanges, OnInit {
         this.prodList = data1;
         console.log(this.prodList);
       });
+      
   }
 
   

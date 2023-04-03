@@ -34,13 +34,13 @@
                   <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
                     data-bs-target="#body-id33" aria-expanded="true" aria-controls="body-id33"
                     *ngIf="cat.parentCategory==undefined">
-                    {{cat.name}}
+                    {{lang == 'en'? cat.name : cat.nameAr}}
                   </button>
                 </h2>
                 <div id="body-id33" class="accordion-collapse collapse " aria-labelledby="header-id33">
                   <div class="accordion-body bg-light text-muted" *ngFor="let subcat of cat.subCategories">
-                    <div>{{cat.name}}</div>
-                    <div><i class="fa-solid fa-plus"></i>{{subcat.name}}
+                    <div>{{lang == 'en'? cat.name : cat.nameAr}}</div>
+                    <div><i class="fa-solid fa-plus"></i>{{lang == 'en'? subcat.name : subcat.nameAr}}
                     </div>
 
                   </div>
@@ -65,7 +65,7 @@
               <div class="m-2" *ngFor="let brand of brandList">
                 <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
                 <span>
-                  <span>{{brand.name}}</span>
+                  <span>{{lang == 'en'? brand.name : brand.nameAr}}</span>
                 </span>
               </div>
             </div>
@@ -163,7 +163,7 @@
               <div>
                 <img [src]="Prod.imagePath" width="200" height="200">
               </div>
-              <h6 class="prod-card-title"> {{Prod.name}}
+              <h6 class="prod-card-title"> {{lang == 'en'? Prod.name : Prod.nameAr}}
               </h6>
             </div>
 

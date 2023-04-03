@@ -1,6 +1,6 @@
 <section class="col-12 " style="background-color: #f7f7fa;">
   <div class="col-11 mx-auto">
-    <!-- Carousel -->
+    <!-- Carousel Slider-->
     <div class="div-center col-12">
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" data-bs-touch="true">
         <div class="carousel-indicators">
@@ -51,10 +51,10 @@
         </button>
       </div>
     </div>
-    <!-- Categories -->
+    <!-- Categories Slider-->
     <div class="bg-white cols-6 my-2">
       <div id="carouselExample" class="carousel slide row">
-        <div class="carousel-inner row">
+        <div dir="ltr" class="carousel-inner row">
           <div class="carousel-item active container row item text-center ">
             <img src="assets/categories/2d473238-4b7d-4109-8bd4-0ff2ccf1382d.gif" class=" col-2 col-sm-2 col-md-1"
               alt="...">
@@ -196,7 +196,7 @@
         </a>
       </div>
       <!-- <div class="row"> -->
-      <div id="carouselproducts" class="carousel slide row ">
+      <div dir="ltr" id="carouselproducts" class="carousel slide row ">
         <div class="carousel-inner row">
           <div class="carousel-item active container row item text-center ">
             <div class="row mx-2">
@@ -209,7 +209,7 @@
                     <div class="card-body col-12">
                       <p class="card-text product-font txtFont2" style="height:2em; overflow: hidden;"
                         (click)="getproductDetails(product.id)">
-                        {{product.name}}
+                        {{lang == 'en'? product.name : product.nameAr}}
                       </p>
                       <span>
                         <span class="fw-bold txtFont2"> {{product.price |currency:'EGP'}}</span>
@@ -258,7 +258,7 @@
                     <div class="card-body col-12">
                       <p class="card-text product-font txtFont2" style="height:2em; overflow: hidden;"
                         (click)="getproductDetails(product.id)">
-                        {{product.name}}
+                        {{lang == 'en'? product.name : product.nameAr}}
                       </p>
                       <span>
 
@@ -313,10 +313,8 @@
         </button>
       </div>
     </div>
-
   </div>
 </section>
-
 
 <div class="container-fluid">
 
@@ -324,7 +322,7 @@
   <div class="row row-cols-1 row-cols-md-3 mt-5 bg-light">
     <div class="col-xl-4  col-sm-12">
       <div class="card">
-        <h5 class="card-title px-3 py-1 fw-bold"[translate]="'mega-deals'"></h5>
+        <h5 class="card-title px-3 py-1 fw-bold" [translate]="'mega-deals'"></h5>
         <div class="card-body row g-4">
           <div class="col-6" *ngFor="let product of hotDealsProduct|slice:0:2">
             <img [src]="product.imagePath" class="w-100" alt="..." width="100" height="200"
@@ -381,7 +379,7 @@
       </a>
     </div>
     <!-- <div class="row"> -->
-    <div id="carouselproducts11" class="carousel slide row ">
+    <div dir="ltr" id="carouselproducts11" class="carousel slide row ">
       <div class="carousel-inner row">
         <div class="carousel-item active container row item text-center ">
           <div class="row mx-2">
@@ -394,7 +392,7 @@
                   <div class="card-body col-12">
                     <p class="card-text product-font txtFont2" style="height: 2em; overflow: hidden;"
                       (click)="getproductDetails(product.id)">
-                      {{product.name}}
+                      {{lang == 'en'? product.name : product.nameAr}}
                     </p>
                     <span>
                       <span class="fw-bold txtFont2">{{product.price|currency:'EGP'}}</span>
@@ -441,7 +439,7 @@
                   <div class="card-body col-12">
                     <p class="card-text product-font txtFont2" style="height: 2em; overflow: hidden;"
                       (click)="getproductDetails(product.id)">
-                      {{product.name}}
+                      {{lang == 'en'? product.name : product.nameAr}}
                     </p>
                     <span>
 
@@ -513,7 +511,7 @@
   </div>
   <div>
     <div class="row justify-content-center my-4">
-      <h3 class="fw-bold fs-2 text-center"[translate]="'footer-brands'"></h3>
+      <h3 class="fw-bold fs-2 text-center" [translate]="'footer-brands'"></h3>
     </div>
 
     <div class="row gy-3 gx-3 my-1  ">

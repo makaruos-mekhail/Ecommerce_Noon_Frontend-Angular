@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { TranslateService } from "@ngx-translate/core";
 import { IProduct } from "src/app/Models/iproduct";
 import { IReview } from "src/app/Models/ireview";
 import { ProductService } from "src/app/Services/product.service";
@@ -18,12 +19,15 @@ export default class DetailsComponent implements OnInit {
   product: IProduct | undefined;
   Productquantity: number[] = new Array(4);
   productReviews: IReview[] = [];
+  lang = localStorage.getItem('lang');
 
   constructor(
     private productservice: ProductService,
     private activateroute: ActivatedRoute,
-    private reviewService: ReviewsService
-  ) {}
+    private reviewService: ReviewsService,
+    private translate: TranslateService 
+  ) {
+}
 
   displayImg(idx: string): void {
     const mainImg = document.getElementById(

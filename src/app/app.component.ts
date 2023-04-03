@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Ecommerce_noon';
+
+  lang=localStorage.getItem('lang');
+  dir : string='ltr';
+  constructor(){
+    if(this.lang=='ar'){
+      this.dir='rtl';
+    }
+  }
 }
