@@ -25,7 +25,7 @@
   <!-- smartphones -->
   <section class="col-12 d-sm-block d-md-none m-0 p-0 container-fluid">
     <div class="row">
-      <div class="col-6">{{product?.brand?.name}}</div>
+      <div class="col-6">{{ lang==='en'? product?.brand?.name: product?.brand?.nameAr}}</div>
       <div class="col-6 smartphone-rate">
         <a href="" class="text-decoration-none px-1 rounded-pill col-5">{{product?.rate}} <i
             class="fa-solid fa-star"></i></a>
@@ -89,7 +89,7 @@
 
     <div class="row container-xl">
       <div class="col-6">
-        <h4 class="d-inline-block">{{product?.price}}</h4>
+        <h4 class="d-inline-block">{{product?.price | currency:'EGP' }}</h4>
         <span class="text-muted" style="font-size: 0.75em;" [translate]="'vat'"></span>
       </div>
       <div class="col-2"></div>
@@ -97,11 +97,11 @@
     </div>
     <!-- discount offer smartphone -->
     <div class="row container-xl" *ngIf="product!= undefined && product.discount >0">
-      <div class="col-4 text-muted"><del>{{product.price|discountpipe:product.discount}}</del></div>
-      <div class="col-2 p-0 savings-percentage">{{product.discount}}% off</div>
+      <div class="col-4 text-muted"><del>{{product.price|discountpipe:product.discount | currency:'EGP'}}</del></div>
+      <div class="col-2 p-0 savings-percentage">{{product.discount }}% off</div>
     </div>
     <div class="row container-xl">
-      <div class="card border-0" style="border-radius: 0%;">
+      <div class="card border-0" style="border-radius: 0%;"></div>
         <div class="card-body" style="background-color: #fcfbf5;">
           <span><img src="assets/products/emi.svg" alt="" /></span>
           <span [translate]="'month-plan'">
@@ -109,7 +109,7 @@
               <i class="fa-solid fa-greater-than"></i></span></span>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
     <div class="row container-xl">
       <div class="card-group p-0" style="display: inline-flex;">
         <!-- delivery card -->
@@ -197,10 +197,10 @@
   <!--DESKTOP -->
   <section class="mt-2 container-fluid col-sm-12 col-md-5">
     <div class="col-12 d-md-block d-none text-muted">
-      {{product?.brand?.name}}
+      {{lang == 'en'? product?.brand?.name : product?.brand?.nameAr}}
     </div>
     <div class="col-12 d-md-block d-none">
-      <h3>{{product?.name}}</h3>
+      <h3>{{lang == 'en'? product?.name : product?.nameAr}}</h3>
     </div>
     <div class="col-12 d-md-block d-none desktop">
       
@@ -215,8 +215,8 @@
       <span class="text-muted"></span>
     </div>
     <div class="row container-xl" *ngIf="product!= undefined && product.discount >0">
-      <div class="col-4 text-decoration-line-through">
-        <h4>{{product.price|discountpipe:product.discount}}</h4>
+      <div class="col-3 text-muted text-decoration-line-through">
+        <h5>{{product.price|discountpipe:product.discount | currency:'EGP'}}</h5>
       </div>
       <div class="col-2 p-0 savings-percentage">{{product.discount}}% off</div>
     </div>

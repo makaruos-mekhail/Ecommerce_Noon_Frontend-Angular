@@ -13,12 +13,12 @@ export class HomeComponent {
    *
    */
   hotDealsProduct: IProduct[] = [];
+  lang = localStorage.getItem('lang');
   // selectedProduct: IProduct[] = [];
   constructor(private productservice:ProductService,private router:Router) {
     this.productservice.getAllProducts().subscribe(data => {
       this.hotDealsProduct = data;
     })
-    
   }
   getproductDetails(prdid: number) {
     this.router.navigate(['products', prdid])

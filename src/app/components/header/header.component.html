@@ -1,11 +1,12 @@
-<header class="container-fluid col-12 row">
+<header  class="container-fluid col-12 row">
 
   <div class="col-12 row m-0 p-0 txtFont">
     <div class="bg-header-yollow row align-items-center text-center p-2 m-0">
       <!-- Noon Logo -->
       <div class="col-sm-2 col-2 col-md-1">
         <a routerLink="/Home">
-          <img src="assets/header/noon-logo-en.svg" class="img-fluid mx-auto">
+          <img src="assets/header/noon-logo-en.svg" class="img-fluid mx-auto"  *ngIf="lang=='en'" >
+          <img src="assets/header/noon-logo-ar.svg" class="img-fluid mx-auto" *ngIf="lang=='ar'">
         </a>
       </div>
       <!--  Delivery To -->
@@ -30,17 +31,33 @@
       <div class="col-md-6 col-sm-5 col-5 ">
         <div class="input-group ">
           <input id="searchbar" #asd type="text" (keyup.enter)="searchpro(asd.value)" class="form-control rounded p-2"
-            placeholder="What are you looking for?" aria-label="What are you looking for?"
+            placeholder="{{'what-are-you-looking-for' | translate}}" aria-label="What are you looking for?"
             aria-describedby="button-addon2">
         </div>
       </div>
 
       <!-- Language -->
       <div class="col-1">
-        <select class="form-select form-select-sm language-switcher" (change)="handleLanguage($event)">
-          <option value="en">English</option>
-          <option value="ar">العربية</option>
+        <select class="form-select form-select-sm language-switcher" 
+        (change)="selectedLanguage($event)" >
+          <!-- <option value="n" hidden >lish</option> -->
+          <!-- {{lang==='en' ? '<option value="en" selected>English </option>' :
+          '<option value="en" >English </option>'}}
+          {{lang==='ar' ? '<option value="ar" selected>العربيه </option>' :
+          '<option value="ar" >العربية </option>'}}  -->
+          <option value="en" *ngIf="lang=='en'" selected>English </option>
+          <option value="ar" *ngIf="lang=='en'" >العربية </option>
+          <option value="en" *ngIf="lang=='ar'" >English </option>
+          <option value="ar" *ngIf="lang=='ar'"selected >العربية </option>
+          
+          <!-- <ng-template #> -->
+            
+          <!-- </ng-template> -->
         </select>
+        <!-- <button value="en" (click)="selectedLanguage($event)" *ngIf="lang" >English</button>
+        <ng-template [ngTemplateOutlet]="outlet" [ngOutletContext]="context"></ng-template>
+        <button value="ar" (click)="selectedLanguage($event)" >English</button> -->
+
       </div>
 
       <!-- Sign In -->
@@ -173,7 +190,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" routerLink="/AllCategory" style="font-size: 0.9;" [translate]="'all-categories'"></a></li>
             <li *ngFor="let cat of categoriesList"><a class="dropdown-item" href="#"
-                *ngIf="cat.parentCategory==undefined">{{cat.name}}</a></li>
+                *ngIf="cat.parentCategory==undefined">{{ lang === 'en'? cat.name: cat.nameAr}}</a></li>
           </ul>
         </li>
       </ul>
@@ -185,7 +202,12 @@
         <ul class="navbar-nav ">
           <li class="nav-item" *ngFor="let cat of categoriesList" style="font-size: 0.9em;">
             <a class="nav-link text-dark nav-font-size" aria-current="page" href="#"
-              *ngIf="cat.parentCategory==undefined" style="overflow:auto;">{{cat.name}}</a>
+              *ngIf="cat.parentCategory==undefined" style="overflow:auto;" >
+              <!-- <span *ngIf="lang else ar"> -->
+                {{ lang === 'en'? cat.name: cat.nameAr}}
+                <!-- </span> -->
+                <!-- <ng-template #ar>{{cat.nameAr}}</ng-template> -->
+              </a>
           </li>
 
         </ul>
