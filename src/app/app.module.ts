@@ -13,11 +13,13 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { SlidbarAllcategoryComponent } from './components/slidbar-allcategory/slidbar-allcategory.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { DiscountPipe } from './Pipes/discount.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { NgxPayPalModule } from 'ngx-paypal';
 //translate
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -36,6 +38,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CartComponent,
     MainPageComponent,
     DiscountPipe
+    
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    // NgxPayPalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

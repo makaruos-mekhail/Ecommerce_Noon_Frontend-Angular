@@ -1,8 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { IProduct } from '../Models/iproduct';
+import { Filter } from '../Models/filter';
 
 @Injectable({
   providedIn: 'root',
@@ -35,17 +36,49 @@ export class ProductService {
     //   );
     return this.httpClient.get<IProduct>(`${environment.APIURLProduct}/Product/${prdId}`)
   }
-
-  // Filter By name  search By name Product
-  filterproductbyName(name:any):Observable<IProduct[]>{
-    return this.httpClient.get<IProduct[]>(`${environment.APIURLProduct}/Product?name=${name}`)
+  lang = localStorage.getItem('lang');
+  filter!: string;
+   nerparam = new HttpParams();
+  filterProducts(
+    name?: string,
+    category?: string,
+    brand?: string,
+    fromPrice?: number,
+    toPrice?: number,
+    colorName?: string
+  ): Observable<IProduct[]> {
+    let params = new HttpParams();
+    if (name) {
+       (this.lang == 'en')?
+        params = params.set('name', name) :
+        params = params.set('nameAr', name);
+    }
+    if (category) {
+      (this.lang == 'en') ?
+        params = params.set('category', category) :
+        params = params.set('CategoryAr', category);
+    }
+    if (brand) {
+      (this.lang == 'en') ?
+        params = params.set('brand', brand) :
+        params = params.set('brandAr', brand);
+        
+    }
+    if (fromPrice) {
+     params = params.set('fromPrice', fromPrice.toString());
+    }
+    if (toPrice) {
+     params = params.set('toPrice', toPrice.toString());
+    }
+    if (colorName) {
+      params = params.set('colorName', colorName);
+    }
+    
+    return this.httpClient.get<IProduct[]>(`${environment.APIURLProduct}/Product`, {params });
   }
+  
 
-  // Filter By FromPrice & ToPrice By Product
-  getbyprice(fromprice:number,toprice:number):Observable<IProduct[]>
-  {
-   return this.httpClient.get<IProduct[]>(`${environment.APIURLProduct}/Product?fromPrice=${fromprice}&toPrice=${toprice}`)
-  }
+
 
 
 }

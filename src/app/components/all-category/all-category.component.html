@@ -31,7 +31,7 @@
             <div class="accordion-body bg-light">
               <div class="accordion-item " *ngFor="let cat of categoriesList ;let i = index">
                 <h2 class="accordion-header" id="header-id33">
-                  <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                  <button  class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
                     data-bs-target="#body-id33" aria-expanded="true" aria-controls="body-id33"
                     *ngIf="cat.parentCategory==undefined">
                     {{lang == 'en'? cat.name : cat.nameAr}}
