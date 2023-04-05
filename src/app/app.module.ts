@@ -55,7 +55,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
     ReactiveFormsModule,
     Ng2SearchPipeModule,
-    // NgxPayPalModule
+     //NgxPayPalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
