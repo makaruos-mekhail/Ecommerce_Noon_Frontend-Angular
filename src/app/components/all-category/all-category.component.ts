@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IBrand } from 'src/app/Models/ibrand';
 import { ICategory } from 'src/app/Models/icategory';
@@ -8,13 +8,16 @@ import { BrandService } from 'src/app/Services/brand.service';
 import { CategoyService } from 'src/app/Services/categoy.service';
 import { ColorService } from 'src/app/Services/color.service';
 import { ProductService } from 'src/app/Services/product.service';
+import { HeaderComponent } from '../header/header.component';
+import { InteractionService } from 'src/app/Services/interaction.service';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-all-category',
   templateUrl: './all-category.component.html',
   styleUrls: ['./all-category.component.css']
 })
-export class AllCategoryComponent implements OnChanges, OnInit {
+export class AllCategoryComponent implements  OnInit  {
 
   prodList: IProduct[] = [];
   categoriesList: ICategory[] = [];
@@ -25,13 +28,17 @@ export class AllCategoryComponent implements OnChanges, OnInit {
   filter: any = '';
   fromPrice: number = 0;
   toPrice: number = 0;
+  brandname: string = "";
+  filterTerm!: string;
 
+  @ViewChild('asd') asd?: HeaderComponent;
   constructor(private productservice: ProductService
     , private categoryservice: CategoyService,
     private router: Router,
     private activerouter: ActivatedRoute
     , private brandservice: BrandService,
-    private clorservice:ColorService)
+    private clorservice: ColorService,
+    private interctionservice :InteractionService)
    {
        //Get all Product
        this.productservice.getAllProducts().subscribe(data1 => {
@@ -49,48 +56,26 @@ export class AllCategoryComponent implements OnChanges, OnInit {
     //all colors
     this.clorservice.getAllColors().subscribe(data => {
       this.colorsList = data;
-    })
-        // Get  Name From URl
-        this.filter = this.activerouter.snapshot.paramMap.get('str')
-           ? this.activerouter.snapshot.paramMap.get('str'): '';
-
-        // Get  fromPrice From URl
-        this.fromPrice = this.activerouter.snapshot.paramMap.get('fromPrice')
-           ? Number(this.activerouter.snapshot.paramMap.get('fromPrice')): 0;
-
-        // Get  ToPrice From URl
-        this.toPrice = this.activerouter.snapshot.paramMap.get('toPrice')
-           ? Number(this.activerouter.snapshot.paramMap.get('toPrice')) : 0;
+    });
   }
-
-
   //ORODUCT DETAILS
-  getProductDetails(prdid : number) {
+  getProductDetails(prdid: number) {
     this.router.navigate(['products', prdid])
     window.scrollTo(0, 0);
   }
-
-
-
   ngOnInit(): void {
-    //filter name
-    this.productservice.filterproductbyName(this.filter).subscribe((data1) => {
-      this.prodList = data1;
-    });
-
-    //filter price
-    this.productservice
-      .getbyprice(this.fromPrice, this.toPrice)
-      .subscribe((data1) => {
-        this.prodList = data1;
-        console.log(this.prodList);
-      });
+    this.interctionservice.filterAll$.subscribe(message => {
       
+      this.productservice
+        .filterProducts(message[0],message[1],message[2],message[3],message[4],message[5])
+        .subscribe(data => {
+          setTimeout(() => {
+            this.prodList = data;
+          }, 500);
+          
+        })
+    })
+
+ 
   }
-
-  
-  ngOnChanges(): void {}
-
-
-
 }
