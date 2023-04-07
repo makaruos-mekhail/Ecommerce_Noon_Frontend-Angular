@@ -142,7 +142,12 @@
   "Last-Name":"Last Name",
   "create-account":"CREATE AN ACCOUNT",
   "First-Name-is-Required":"First Name is Required",
-  "Last-Name-is-Required ":"Last Name is Required "
+  "Last-Name-is-Required ":"Last Name is Required ",
+  "Enter-dilivery-Data":"LOCATION INFORMATION",
+  "Address":" Additional Address Datails",
+  "Phone-Number":"Mobile Number",
+
+   "save-address":"SAVE ADDRESS "
 }
 
 
