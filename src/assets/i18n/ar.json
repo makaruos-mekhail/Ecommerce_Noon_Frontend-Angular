@@ -130,16 +130,21 @@
   "Email-address": "عنوان البريد الإلكتروني",
   "Password": "كلمة السر ",
   "Forgot-your-password?": "نسيت كلمة السر ؟",
-  "Email-is-Required":"البريد الالكتروني مطلوب",
-   "Password-is-Required":"كلمة المرور مطلوبة",
+  "Email-is-Required": "البريد الالكتروني مطلوب",
+  "Password-is-Required": "كلمة المرور مطلوبة",
 
   "Create-an-account": " إنشاء حساب",
   "Already-have-an-account?": "لديك حساب بالفعل ؟",
   "Sign-In": "تسجيل الدخول",
   "First-Name": "الاسم الأخير",
   "Last-Name": "الاسم الأول",
-  "create-account":"إنشاء حساب ",
-  "First-Name-is-Required":"الاسم الاول مطلوب",
-   "Last-Name-is-Required ":"الاسم الاخير مطلوب"
+  "create-account": "إنشاء حساب ",
+  "First-Name-is-Required": "الاسم الاول مطلوب",
+  "Last-Name-is-Required ": "الاسم الاخير مطلوب",
+  "Enter-dilivery-Data": "معلومات العنوان",
+  "Address": "العنوان بالتفصيل ",
+  "Phone-Number":"رقم التليفون المحمول",
+
+  "save-address":"حفظ العنوان"
 }
   
