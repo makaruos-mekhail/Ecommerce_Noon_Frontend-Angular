@@ -6,6 +6,7 @@ import { HttpBackend, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Login } from '../Models/login';
 import { Register } from '../Models/register';
+import { Checkoutdata } from '../Models/checkoutdata';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,12 @@ export class UserService {
   Registeruser(user: Register): Observable<any>{
     return this.httpclient
       .post<Register>(`${environment.APIURLProduct}/User/Registeration`, user);
- }
+  }
+  //update user
+
+  UpdateUser(checkoutdto:Checkoutdata):Observable<any> {
+    return this.httpclient
+      .patch<any>(`${environment.APIURLProduct}/User/updateUser`, checkoutdto)
+  }
+ 
 }
