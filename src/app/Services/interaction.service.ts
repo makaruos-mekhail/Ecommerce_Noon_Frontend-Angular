@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import {Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,9 @@ export class InteractionService {
   // add to cart
   private addToCart = new Subject<any[]>();
   addToCart$ = this.addToCart.asObservable();
+
+//changeImages in checkout
+ 
 
   constructor() { }
 
