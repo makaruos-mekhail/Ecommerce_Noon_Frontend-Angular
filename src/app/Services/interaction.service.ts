@@ -14,6 +14,9 @@ export class InteractionService {
   //filter all
   private filterALLSource = new Subject<any[]>();
   filterAll$ = this.filterALLSource.asObservable();
+  // add to cart
+  private addToCart = new Subject<any[]>();
+  addToCart$ = this.addToCart.asObservable();
 
   constructor() { }
 
@@ -34,7 +37,9 @@ export class InteractionService {
     this.filterALLSource.next(this.all);
   }
 
-
+  sendCart(quantity: number, totalPrice: number) {
+    this.addToCart.next([quantity, totalPrice]);
+  }
 
   // setData(x: string) {
   //   this.data = x;

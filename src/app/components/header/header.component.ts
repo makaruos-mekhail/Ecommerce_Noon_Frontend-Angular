@@ -12,13 +12,14 @@ import { Login } from "src/app/Models/login";
 import { UserService } from "src/app/Services/user.service";
 import { Register } from "src/app/Models/register";
 import { InteractionService } from "src/app/Services/interaction.service";
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.css"],
 })
-export class HeaderComponent  {
+export class HeaderComponent implements OnInit {
 
   categoriesList: ICategory[] = [];
 
@@ -35,7 +36,9 @@ export class HeaderComponent  {
     private translate: TranslateService,
     private formBulider: FormBuilder,
     private userservice: UserService,
-    private interactionservice:InteractionService)
+    private interactionservice:InteractionService,
+    private cookieService: CookieService
+    )
   {
        //Get Dropdown category
        this.categoryservice.getAllCategories().subscribe((data) => {
@@ -140,6 +143,29 @@ selectedLanguage(event: any) {
     }
     );
   }
+
+  // cart quantity
+  cartQuantity!: number;
+  ngOnInit(): void {
+    this.interactionservice.addToCart$.subscribe((data) => {
+      this.cartQuantity = data[0];
+    }
+    );
+    if(this.cookieService.get('cart')!=null){
+      this.cartQuantity = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.quantity, 0);
+    }
   }
+  
+  // ---------------- logout ---------------------
+
+  // logout() {
+  //   this.userservice.logout().subscribe({
+  //     next: (data) => {
+  //       window.location.reload();
+  //       //this.router.navigate(['/Home']);
+  //     }
+  //   });
+  // }
+}
 
 
