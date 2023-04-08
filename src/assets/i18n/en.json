@@ -141,6 +141,8 @@
   "Sign-In":"Sign In",
   "First-Name":"First Name",
   "Last-Name":"Last Name",
+  
+  
   "create-account":"CREATE AN ACCOUNT",
   "First-Name-is-Required":"First Name is Required",
   "Last-Name-is-Required ":"Last Name is Required ",
@@ -151,6 +153,47 @@
   "items":"items",
   "Coupon-Code": "Coupon Code"
 
+
+  "Enter-dilivery-Data":"LOCATION INFORMATION",
+  "Address":" Additional Address Datails",
+  "Phone-Number":"Mobile Number",
+   "save-address":"SAVE ADDRESS "
+  
+  
+  "Cart":"Cart",
+  
+  "For_assistance,call":"Secure Checkout | For assistance, call 16358",
+  "noon":"noon",
+  "Shipping_Address":"Shipping Address",
+  "Review_Your_Order":"Review Your Order",
+  "Change":"Change",
+  "Free_delivery":"Free delivery ",
+  "between":"between",
+  "Payment_Options":"Payment Options",
+  "Pay_With_PayPal":"Pay With PayPal",
+  "Cach_On_Delivery":"Cach On Delivery",
+  "Extra_changes":"Extra changes may be applied",
+  "Delivery_Options":"Delivery Options",
+  "Leave_At_My_Door":"Leave At My Door",
+  "Leave_disc":"Your delivery will be left at your door and a photo will be sent to you as confirmation.Valid on prepaid orders only",
+  "Subtotal":"Subtotal",
+  "Shipping_Fee":"Shipping Fee",
+  "Free":"Free",
+  "TOTAL":"TOTAL",
+  "Inclusive_of_VAT":"(Inclusive of VAT)",
+  "PLACE_ORDER":"PLACE ORDER",
+  "Security_and_Privacy":"Security and Privacy",
+  "Security_disc":"Our checkout is safe and secure. Your personal and payment information is securely transmitted via 128-bit encryption. We do not store any payment card information on our systems",
+  "All_Rights_Reserved":"© 2023 noon. All Rights Reserved",
+  "Select_Delivery_Address":"Select Delivery Address",
+  "Name":"Name :",
+  "Edit_your_Name":"Edit your Name",
+  "Address":"Address :",
+  "Edit_your_Address":"Edit your Address",
+  "Phone":"Phone :",
+  "Edit_your_Phone":"Edit your Phone",
+  "CANCEL":"CANCEL",
+  "CONFIRM":"CONFIRM"
 
 }
 

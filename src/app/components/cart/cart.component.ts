@@ -6,6 +6,9 @@ import { IOrderItem } from 'src/app/Models/iorder-item';
 import { IProduct } from 'src/app/Models/iproduct';
 import { CartService } from 'src/app/Services/cart.service';
 import { InteractionService } from 'src/app/Services/interaction.service';
+import { Checkoutdata } from 'src/app/Models/checkoutdata';
+import { UserService } from 'src/app/Services/user.service';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -13,6 +16,7 @@ import { InteractionService } from 'src/app/Services/interaction.service';
 })
 export class CartComponent implements OnInit {
   lang = localStorage.getItem('lang');
+
   productQuantity: number[] = new Array(4);
   productInCart :IProduct[] = [];
   cart: IOrderItem[] = [];
@@ -20,7 +24,8 @@ export class CartComponent implements OnInit {
   totalPrice : number = 0;
   farFutureDate = new Date(2030, 1, 1);
   constructor( private interactionservice: InteractionService,
-     private cookieService: CookieService, private cartService: CartService, private router : Router) {
+     private cookieService: CookieService, private cartService: CartService,
+     private router : Router, private userervice:UserService) {
 
       if(!cookieService.get('cart')){
         this.cookieService.set('cart', JSON.stringify(this.cart), this.farFutureDate);
@@ -34,6 +39,7 @@ export class CartComponent implements OnInit {
         this.totalQuantity = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.quantity, 0);
        });
       }
+      
   render({
     id: "#myPaypalButtons",
     currency: "EGP",
@@ -44,7 +50,8 @@ export class CartComponent implements OnInit {
     },
   })
   }
-  getProductDetails(prdid: number) {
+
+getProductDetails(prdid: number) {
     this.router.navigate(['products', prdid])
     window.scrollTo(0, 0);
   }
@@ -81,5 +88,12 @@ export class CartComponent implements OnInit {
     //     this.productInCart = data;
     //     console.log(this.productInCart);
     //    });
+  }
+}
+  
+  sendCheckOutData(addres: string, phone: string) {
+    var cdata = new Checkoutdata(addres, phone);
+    this.userervice.UpdateUser(cdata).subscribe(data => { console.log(data); }
+      );
   }
 }

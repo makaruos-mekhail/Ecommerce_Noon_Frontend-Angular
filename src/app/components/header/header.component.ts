@@ -19,7 +19,9 @@ import { CookieService } from "ngx-cookie-service";
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.css"],
 })
+
 export class HeaderComponent implements OnInit {
+
 
   categoriesList: ICategory[] = [];
 
@@ -67,6 +69,7 @@ export class HeaderComponent implements OnInit {
     this.userloginFormGroup = this.formBulider.group({
     });  
   }
+  
 
 //------------------ Translate --------------
 selectedLanguage(event: any) {
@@ -92,10 +95,17 @@ selectedLanguage(event: any) {
       this.interactionservice.sendAll(str);
     }, 100);
   
-
-    //this.interactionservice.sendMessage(str);
-   
   }
+  //navbar sub categories
+  SubCategory(cat: string) {
+    this.router.navigate(['/AllCategory']);
+    setTimeout(() => {
+      this.interactionservice.sendAll(undefined,cat);
+    }, 100);
+  }
+
+  //parent cat
+  
   //convert firstname to property
   get Fname() {
     return this.userFormGroup.get('ufirstName');
@@ -115,19 +125,21 @@ selectedLanguage(event: any) {
   get PassLogin() {
     return this.userFormGroup.get('Passwordlogin');
   }
+  UserEmail!: string;
   ///login user
   LogIn(email: string, pass: string) {
     var logiuser = new Login(email, pass);
     this.userservice.logIn(logiuser).subscribe({
       next: (data) => {
         window.location.reload();
-        //this.router.navigate(['/Cart']);
       }, error: (err) => {
         console.log(err.message);
       }
     }
     );
   }
+   
+
   //register 
   Registeration(email:string, pass:string, fname:string, lname:string) {
     var registeruser = new Register(email, pass, fname, lname);
@@ -142,6 +154,7 @@ selectedLanguage(event: any) {
       }
     }
     );
+   
   }
 
   // cart quantity
