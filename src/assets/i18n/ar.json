@@ -149,7 +149,7 @@
   "What-are-you-waiting-for?": "يلا نوّنها الحين",
   "START-SHOPPING":"ابدأ التسوق",
   "items":"منتجاً",
-  "Coupon-Code": "ادخل الكود"
+  "Coupon-Code": "ادخل الكود",
 
    "Enter-dilivery-Data": "معلومات العنوان",
    "Address": "العنوان بالتفصيل ",
@@ -191,6 +191,6 @@
    "Phone":": رقم الهاتف",
    "Edit_your_Phone":"تعديل رقم هاتفك",
    "CANCEL":"إلغاء",
-   "CONFIRM":"تأكيد",
+   "CONFIRM":"تأكيد"
 }
   

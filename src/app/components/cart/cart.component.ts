@@ -89,7 +89,7 @@ getProductDetails(prdid: number) {
     //     console.log(this.productInCart);
     //    });
   }
-}
+// }
   
   sendCheckOutData(addres: string, phone: string) {
     var cdata = new Checkoutdata(addres, phone);
