@@ -91,9 +91,10 @@ getProductDetails(prdid: number) {
   }
 // }
   
-  sendCheckOutData(addres: string, phone: string) {
-    var cdata = new Checkoutdata(addres, phone);
-    this.userervice.UpdateUser(cdata).subscribe(data => { console.log(data); }
-      );
+sendCheckOutData(addres: string, phone: string) {
+  var useremail=this.cookieService.get("useremail");
+  var cdata = new Checkoutdata(addres, phone,useremail);
+  this.userervice.UpdateUser(cdata).subscribe(data => { console.log(data); }
+    );
   }
 }
