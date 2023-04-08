@@ -10,16 +10,16 @@ export class CartComponent {
 /**
  *
  */
-constructor() {
-  render({
-    id: "#myPaypalButtons",
-    currency: "EGP",
-    value: "100.00",
-    onApprove: (details) => {
-      alert("Transaction Successfull");
-      console.log("Transaction Successfull");
-    },
-  })
-  }
+// constructor() {
+//   render({
+//     id: "#myPaypalButtons",
+//     currency: "EGP",
+//     value: "100.00",
+//     onApprove: (details) => {
+//       alert("Transaction Successfull");
+//       console.log("Transaction Successfull");
+//     },
+//   })
+//   }
 
 }
