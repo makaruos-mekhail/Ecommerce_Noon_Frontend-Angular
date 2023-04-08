@@ -90,18 +90,16 @@
                   {{ product.price }}
                 </b>
               </div>
-              
+
               <div class="col-4 ">
                 <!-- (change)="selectQuantity($event)" -->
                 <select class="form-select" aria-label="Default select example"
                   *ngIf="product != null && product.quantity >= 5">
                   <!-- <option>1</option> -->
-              <!-- <option *ngFor="let option of options; let i = index" 
+                  <!-- <option *ngFor="let option of options; let i = index" 
                 [value]="option.value" [selected]="i === selectedOptionIndex">{{ option.label }}</option> -->
 
-                  <option *ngFor="let item of productQuantity; let i = index"
-                  [value]="i+1"
-                  [selected]="i===3">
+                  <option *ngFor="let item of productQuantity; let i = index" [value]="i+1" [selected]="i===3">
                     {{ i + 1 }}
                   </option>
                 </select>
@@ -112,7 +110,7 @@
                     <span *ngIf="product.quantity - 1 > i">{{ i + 2 }}</span>
                   </option>
                 </select>
-                
+
               </div>
               <img src="assets/cart/express.svg" class="pt" />
             </div>
@@ -145,8 +143,8 @@
             <span [translate]="'Subtotal'" [translateParams]="{ NOitems: 1 }">
             </span>
             <span class="span2 fs-5" [translate]="'EGP'">
-             </span>
-             <span class="span2 fs-5 mx-1">
+            </span>
+            <span class="span2 fs-5 mx-1">
               {{ totalPrice }}</span>
           </div>
           <div class="m-3">
@@ -155,7 +153,7 @@
             <span style="color: #0d6efd" [translate]="'Free'"></span>
           </div>
         </div>
-        <hr/>
+        <hr />
         <div>
           <div class="m-3">
             <span>
@@ -225,23 +223,24 @@
                     <div class="row mb-3">
                       <label class="form-check-label col-5" for="flexSwitchCheckDefault">Set Default Address</label>
                       <div class="form-check form-switch col-2 d-inline">
-                        <input class="form-check-input border" 
-                        style="width: 4em; height: 1.5em;" type="checkbox" role="switch"
-                          id="flexSwitchCheckDefault">
+                        <input class="form-check-input border" style="width: 4em; height: 1.5em;" type="checkbox"
+                          role="switch" id="flexSwitchCheckDefault">
                       </div>
                     </div>
-                      <div class="row mb-3">
-                        <div class="col-2">
+                    <div class="row mb-3">
+                      <div class="col-2">
 
-                        <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+                        <input type="radio" class="btn-check" name="options-outlined" id="success-outlined"
+                          autocomplete="off" checked>
                         <label class="btn btn-outline-primary" for="success-outlined">Home</label>
-                        </div>
-                        <div class="col-2">
-                          <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
-                          <label class="btn btn-outline-primary" for="danger-outlined">Work</label>
-                        </div>
-
                       </div>
+                      <div class="col-2">
+                        <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined"
+                          autocomplete="off">
+                        <label class="btn btn-outline-primary" for="danger-outlined">Work</label>
+                      </div>
+
+                    </div>
                   </form>
                 </div>
                 <div class="modal-footer">
@@ -254,11 +253,14 @@
             </div>
 
           </div>
-          <div class="d-flex justify-content-center" id="myPaypalButtons"></div>
+          <div class="d-flex justify-content-center" id="myPaypalButtons">
+
+          </div>
 
 
         </div>
       </div>
-    </div>
+    </main>
   </div>
 </div>
+<!-- </div> -->
