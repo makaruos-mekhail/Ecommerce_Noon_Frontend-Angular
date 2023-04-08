@@ -132,6 +132,7 @@ selectedLanguage(event: any) {
     this.userservice.logIn(logiuser).subscribe({
       next: (data) => {
         window.location.reload();
+        this.cookieService.set("useremail",email)
       }, error: (err) => {
         console.log(err.message);
       }
