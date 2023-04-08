@@ -80,7 +80,7 @@
   "Want-it-Today?-Select": " هل تريدها اليوم؟ اختر",
   "Get-It-Today": "الحصول عليها اليوم",
   "quantity": "الكمية",
-  "Add-o-Cart": "أضف إلى عربة التسوق",
+  "Add-To-Cart": "أضف إلى عربة التسوق",
   "hassle-free-returns": "تمتع بعوائد خالية من المتاعب مع هذا العرض.",
   "Learn-More": "معرفة المزيد",
   "Sold-By": "   البائع",
@@ -113,7 +113,7 @@
   "select-2day": " عند انتهاء طلبك لتصلك خلال",
   "Remove": "حذف",
   "Continue-Shopping": "مواصلة التسوق",
-  "order-summary": "ملخص الطلب",
+  "order-summary": "ملخص الطلبية",
   "Apply": "تطبيق",
   "Subtotal": "المجموع الفرعي ( {{NOitems}} منتج)",
   "Shipping": "شحن",
@@ -122,6 +122,7 @@
   "Total": "المجموع ",
   "monthly-payment": "خطط سداد شهرية تبدأ من 500 جنيه مصري",
   "CHECKOUT": "إتمام الشراء",
+  "EGP": "جنيه",
 
   "Welcome-back": "مرحبا بك مرة أخري",
   "Sign-in-to-your-account": "سجل الدخول لحسابك",
@@ -143,6 +144,13 @@
   "create-account":"إنشاء حساب ",
   "First-Name-is-Required":"الاسم الاول مطلوب",
    "Last-Name-is-Required ":"الاسم الاخير مطلوب",
+
+   "Your-shopping-cart-looks-empty" :"عربة التسوق الخاصة بك فارغة",
+  "What-are-you-waiting-for?": "يلا نوّنها الحين",
+  "START-SHOPPING":"ابدأ التسوق",
+  "items":"منتجاً",
+  "Coupon-Code": "ادخل الكود"
+
    "Enter-dilivery-Data": "معلومات العنوان",
    "Address": "العنوان بالتفصيل ",
    "Phone-Number":"رقم التليفون المحمول",

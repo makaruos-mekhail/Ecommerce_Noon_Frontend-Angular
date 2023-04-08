@@ -204,13 +204,13 @@
         <a routerLink="/Cart">
           <span class="fw-bold m-0 p-0 txtFont"[translate]="'cart'">
           </span>
-          <span class="btn position-relative p-0 m-0">
+          <span class="position-relative p-0 m-0">
             <img src="assets/header/cart.svg" alt="" style="width: 1.5rem !important; height: 1.5rem !important;"
               class="img-fluid">
-            <span class="position-absolute top-0 start-100 translate-middle
+            <span *ngIf="cartQuantity" class="position-absolute top-0 start-100 translate-middle
                                        badge rounded-circle bg-primary">
-              <span class="visually-hidden">5 Product in your Cart</span>
-              5
+              <span class="visually-hidden"> {{cartQuantity}} Product in your Cart</span>
+               {{cartQuantity}}
             </span>
           </span>
         </a>

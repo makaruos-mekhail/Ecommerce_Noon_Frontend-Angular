@@ -11,17 +11,13 @@ import { Filter } from '../Models/filter';
 export class ProductService {
 
   httpHeader = {};
-
-
   constructor(private httpClient: HttpClient) {
     this.httpHeader = {
       header: new HttpHeaders({
         'Content-Type': 'application/json'
-
       })
     };
   }
-
 
    // Get All products
   getAllProducts(): Observable<IProduct[]> {
@@ -36,9 +32,9 @@ export class ProductService {
     //   );
     return this.httpClient.get<IProduct>(`${environment.APIURLProduct}/Product/${prdId}`)
   }
+
+  // Filter Products By Name, Category, Brand, Price, Color
   lang = localStorage.getItem('lang');
-  filter!: string;
-   nerparam = new HttpParams();
   filterProducts(
     name?: string,
     category?: string,

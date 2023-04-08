@@ -81,7 +81,7 @@
   "Want-it-Today?-Select": " Want it Today? Select ",
   "Get-It-Today": "Get It Today",
   "quantity": "Quantity",
-  "Add-o-Cart": "Add To Cart",
+  "Add-To-Cart": "Add To Cart",
   "hassle-free-returns": " Enjoy hassle free returns with this offer.",
   "Learn-More": "Learn More",
   "Sold-By": "Sold By  ",
@@ -123,6 +123,7 @@
   "Total":"Total",
   "monthly-payment":"  Monthly payment plans from EGP 500",
   "CHECKOUT":"CHECKOUT",
+  "EGP":"EGP",
 
   "Welcome-back":"Welcome back!",
   "Sign-in-to-your-account":"Sign in to your account",
@@ -145,13 +146,20 @@
   "create-account":"CREATE AN ACCOUNT",
   "First-Name-is-Required":"First Name is Required",
   "Last-Name-is-Required ":"Last Name is Required ",
+
+  "Your-shopping-cart-looks-empty" :"Your shopping cart looks empty",
+  "What-are-you-waiting-for?": "What are you waiting for?",
+  "START-SHOPPING":"START SHOPPING",
+  "items":"items",
+  "Coupon-Code": "Coupon Code"
+
+
   "Enter-dilivery-Data":"LOCATION INFORMATION",
   "Address":" Additional Address Datails",
   "Phone-Number":"Mobile Number",
    "save-address":"SAVE ADDRESS "
-   
- 
- 
+  
+  
   "Cart":"Cart",
   
   "For_assistance,call":"Secure Checkout | For assistance, call 16358",

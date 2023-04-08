@@ -4,9 +4,9 @@ import { IUser } from "./iuser";
 export interface IOrder {
     id: number;
     address: string;
-    addressAr: string;
+    // addressAr: string;
     totalPrice: number;
-    discount: number;
+    discount?: number;
     paymentMethod :string;
     orderItems:IOrderItem[];
     user:IUser;
