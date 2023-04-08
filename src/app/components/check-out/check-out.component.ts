@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { render } from 'creditcardpayments/creditCardPayments';
+import { HeaderComponent } from '../header/header.component';
 @Component({
   selector: 'app-check-out',
   templateUrl: './check-out.component.html',
@@ -40,5 +41,8 @@ removeDisabled(){
   
 }
    
+
+
+// lang:string=localStorage.getItem("lang");
 }
   
