@@ -1,0 +1,201 @@
+<div class="container-fluid">
+  <div class="container-fluid row chech-header pt-3 pb-2 ">
+    <div class="col-sm-3 col-md-3 cart"routerLink="/Cart">
+      <img
+        class="img-fluid ms-5"
+        src="assets/check-out/arrow-left.svg"
+        alt="just an arrow"
+      />
+      <span class="ms-1 cart-link"[translate]="'Cart'" >  </span>
+    </div>
+    <div class="col-sm-6 col-md-6 ms-5" >
+      <span [translate]="'Secure_Checkout'"></span>
+      <span class="cart-link ms-5"[translate]="'For_assistance,call'" ></span> 
+       
+    </div>
+    <div class="col-sm-1 col-md-1 ms-5">
+      <img
+        class="img-fluid noon ms-3"
+        src="assets/check-out/noon.svg"
+        alt="noon logo"
+      /><strong [translate]="'noon'"></strong>
+    </div>
+  </div>
+  <div class="rounded row container-fluid pt-3 pb-3" style="background-color: #f7f7fa">
+    <div class="col-sm-12 col-md-2"></div>
+    <div class="col-sm-12 col-md-6">
+    <div class="row me-4">
+      <strong class="title pb-2" [translate]="'Shipping_Address'"></strong>
+      <div class="bg-white container-fluid row mt-2 mb-3 rounded">
+        <div class="col-9 ms-4">
+          <strong class="row name pt-4">Fatma ElBastawy</strong>
+          <div class="row add">
+            16 tahreer st 3643941 - Nahia - Kerdasa - Giza Governorate EG
+          </div>
+          <div class="row tel">
+            +20-11-43750688
+            <img
+              class="img-fluid right pb-2"
+              src="assets/check-out/verified.svg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="col-1 mt-2">
+          <button data-bs-toggle="modal" [translate]="'Change'" data-bs-target="#exampleModal" class="ms-5" style="color: rgb(56, 102, 223)">Change</button>
+        </div>
+      </div>
+    </div>
+    <div class=" row me-4">
+      <strong class="title" [translate]="'Payment_Options'"></strong>
+
+
+
+        <div class="bg-white container-fluid row mt-2 mb-3 rounded ">
+            <div class="col-1">
+             
+                <div class="round ">
+                  <input  type="checkbox" (change)=" removeDisabled()" id="checkbox" />
+                  <label for="checkbox"></label>
+               
+                </div>
+         
+            </div>
+            <div class="col-5 pt-4 pb-4">
+             <strong class="title" [translate]="'Cach_On_Delivery'"></strong>
+             <div class="extra-charges " [translate]="'Extra_changes'"></div>
+            </div>
+            <div class="col-3"></div>
+            <div class="col-2 ms-5 mt-3"><img class="img-fluid ms-5"src="assets/check-out/cod.svg" alt=""></div>
+        </div>
+        <div class="bg-white container-fluid row mt-2 mb-3 rounded">
+            <strong class="title ms-5 mb-3 mt-4" [translate]="'Pay_With_PayPal'"></strong>
+           <div
+        class="d-flex justify-content-center mt-2 "
+        id="myPaypalButtons"
+           ></div>
+        </div>
+                 
+                   
+             
+    </div>
+    <div class="row me-4 ">
+        <strong class="title" [translate]="'Delivery_Options'">
+        </strong>
+        <div class="bg-white container-fluid row mt-2 mb-3 rounded ">
+        <div class="col-1">
+         
+          <div class="form-check form-switch mt-5 ">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+          </div>
+     
+        </div> 
+        <div class="col-8 pt-4 pb-4">
+         <strong class="title" [translate]="'Leave_At_My_Door'"></strong>
+         <div class="extra-charges " [translate]="'Leave_disc'"></div>
+        </div>
+        
+        <div class="col-2 ms-5 mt-5">
+            <img class="img-fluid ms-5 mb-2"src="assets/check-out/shipment_method.svg" alt="">
+        </div>
+        </div>
+    </div>
+     </div>
+      
+    
+    <div class="col-sm-12 col-md-3 ms-2">
+      <div class="row">
+      <strong class="title pb-2 col-7" [translate]="'Review_Your_Order'"> </strong>
+      <div class="col-3">(1 item)</div>
+       </div>
+       <div class="row bg-white pt-3 pb-3 rounded">
+        <div class="col-4">
+          <img class="img-fluid" src="assets\cart\Casio.avif" alt="">
+          <span class="unit ps-4">1 UNIT</span>
+        </div>
+        <div class="col-8 title">
+          <strong>Women's Baby-G Digital
+          Watch BGD-560-4DR</strong>
+          <div>
+            <span class="unit">EGP</span>
+            <strong>  3232.00</strong>
+            
+          </div>
+          <div>
+            <strong [translate]="'Free_delivery'"></strong>
+            <span class="unit" [translate]="'between'"></span>
+            <span class="date"> Apr 22 - Apr 23</span>
+          </div>
+          <div class="ms-5">
+            <img class="img-fluid market ms-5" src="assets/check-out/market.png" alt="">
+          </div>
+          </div>
+       </div>
+       <div class="row bg-white pt-3 pb-3 mt-3 rounded">
+        <div class="row">
+          <div class="col-7 unit ps-4" [translate]="'Subtotal'"></div>
+          <div class="col-5 unit ps-4">EGP 3232.00</div>
+        </div>
+        <div class="row">
+          <div class="col-9 unit ps-4" [translate]="'Shipping_Fee'"></div>
+          <div class="col-3 ps-4"><span class="date" [translate]="'Free'"></span></div>
+          <hr class=" ms-2 mt-3 mb-3 ">
+        </div>
+        <div class="row mb-3">
+          <div class="col-8 ps-4 title">
+            <strong [translate]="'TOTAL'"> </strong><pre></pre>
+            <span class="ps-1 unit" [translate]="'Inclusive_of_VAT'"></span>
+          </div>
+          <div class="col-4"><div class="title"><strong class="price">EGP 3232.00</strong></div></div>
+        </div>
+        <div class="row mb-2">
+          <button type="button" class="btn btn-primary order ms-5"id="order_btn" disabled  data-bs-toggle="button" [translate]="'PLACE_ORDER'"></button>
+        </div>
+       </div>
+       <div class="pt-3">
+        <div >
+          <img class="img-fluid" src="assets/check-out/lock_dark.svg" alt="">
+
+          <strong class="unit" [translate]="'Security_and_Privacy'"> </strong></div>
+          <div class="unit mt-2" [translate]="'Security_disc'"></div>
+         
+          <div class="unit mt-3" [translate]="'All_Rights_Reserved'"></div>
+       </div>
+    </div>
+  </div>
+  <!-- //modal// -->
+  <div class="modal fade m-0" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel" [translate]="'Select_Delivery_Address'"></h1>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label" [translate]="'Name'"> </label>
+              <input type="text" class="form-control" id="recipient-name"placeholder="Edit_your_Name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label" [translate]="'Address'"></label>
+              <input type="text" class="form-control" id="recipient-name"placeholder="Edit your Address">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label" [translate]="'Phone'"></label>
+              <input type="text" class="form-control" id="recipient-name" placeholder="Edit your Phone number">
+            </div>
+           
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary cancel me-2" data-bs-dismiss="modal" [translate]="'CANCEL'"></button>
+          <button type="button" class="btn btn-primary confirm" [translate]="'CONFIRM'"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

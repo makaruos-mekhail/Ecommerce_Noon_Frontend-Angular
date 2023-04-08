@@ -19,7 +19,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { DiscountPipe } from './Pipes/discount.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-// import { NgxPayPalModule } from 'ngx-paypal';
+import { CheckOutComponent } from './components/check-out/check-out.component';
+// import { MatDialogModule } from '@angular/material/dialog';
+
 //translate
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -37,7 +39,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AllCategoryComponent,
     CartComponent,
     MainPageComponent,
-    DiscountPipe
+    DiscountPipe,
+    CheckOutComponent,
+    
+    
     
   ],
   imports: [

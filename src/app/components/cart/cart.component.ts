@@ -9,9 +9,9 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class CartComponent {
   lang = localStorage.getItem('lang');
-/**
- *
- */
+
+
+
 constructor( private userervice:UserService) {
   render({
     id: "#myPaypalButtons",
@@ -23,6 +23,8 @@ constructor( private userervice:UserService) {
     },
   })
   }
+  
+  
   sendCheckOutData(addres: string, phone: string) {
     var cdata = new Checkoutdata(addres, phone);
     this.userervice.UpdateUser(cdata).subscribe(data => { console.log(data); }
