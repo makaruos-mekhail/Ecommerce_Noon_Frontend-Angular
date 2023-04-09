@@ -43,6 +43,5 @@ removeDisabled(){
    
 
 
-// lang:string=localStorage.getItem("lang");
 }
   

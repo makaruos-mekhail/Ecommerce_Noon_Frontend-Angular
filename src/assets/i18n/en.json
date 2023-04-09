@@ -193,8 +193,14 @@
   "Phone":"Phone :",
   "Edit_your_Phone":"Edit your Phone number",
   "CANCEL":"CANCEL",
-  "CONFIRM":"CONFIRM"
+  "CONFIRM":"CONFIRM",
 
+
+
+  "WishList":"Wishlist",
+  "Default":"Default",
+  "currancy":"EGP",
+  "add_to_cart":"ADD TO CART"
 }
 
 
