@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <div class="container-fluid row chech-header pt-3 pb-2 ">
-    <div class="col-sm-3 col-md-3 cart"routerLink="/Cart">
+    <div class="col-sm-3 col-md-3 ">
       <img
-        class="img-fluid " src="assets/check-out/arrow-left.svg" alt="just an arrow" *ngIf="lang=='en'"/>
+        class="img-fluid cart" src="assets/check-out/arrow-left.svg" alt="just an arrow" routerLink="/Cart"  *ngIf="lang=='en'"/>
       <img
-      class="img-fluid "src="assets/check-out/arrow-right.svg" alt="just an arrow" *ngIf="lang=='ar'"/>
-      <span class="mx-1 cart-link"[translate]="'Cart'" >  </span>
+      class="img-fluid cart"src="assets/check-out/arrow-right.svg" alt="just an arrow" routerLink="/Cart"  *ngIf="lang=='ar'"/>
+      <span class="mx-1 cart-link cart" [translate]="'Cart'" routerLink="/Cart" >  </span>
     </div>
     <div class="col-sm-6 col-md-6 mx-5" >
       
