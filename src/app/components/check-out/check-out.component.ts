@@ -3,6 +3,7 @@ import { render } from 'creditcardpayments/creditCardPayments';
 import { CookieService } from 'ngx-cookie-service';
 import { IOrder } from 'src/app/Models/iorder';
 import { OrderService } from 'src/app/Services/order.service';
+import { HeaderComponent } from '../header/header.component';
 @Component({
   selector: 'app-check-out',
   templateUrl: './check-out.component.html',
