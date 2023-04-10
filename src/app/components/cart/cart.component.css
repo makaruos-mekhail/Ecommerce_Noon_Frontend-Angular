@@ -194,3 +194,7 @@ padding: 10%;
   display: flex;
 justify-content: center;
 }
+
+.outline{
+  outline: none !important;
+}

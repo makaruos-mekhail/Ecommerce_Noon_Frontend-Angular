@@ -137,3 +137,6 @@ input {
 
 /* ///////////////////// search input */
 
+.outline{
+  outline: none !important;
+}

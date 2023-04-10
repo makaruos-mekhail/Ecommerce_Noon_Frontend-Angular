@@ -93,3 +93,6 @@
     width: 100%;
     height: 17em;
   }
+  .outline{
+    outline: none !important;
+  }

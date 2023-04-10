@@ -29,8 +29,8 @@
       </div>
       <!-- Search Input -->
       <div class="col-md-6 col-sm-5 col-5 ">
-        <div class="input-group ">
-          <input id="searchbar" #asd type="text" (change)="searchpro(asd.value)" class="form-control rounded p-2"
+        <div class="input-group">
+          <input id="searchbar" #asd type="text" (change)="searchpro(asd.value)" class="outline form-control rounded p-2"
             placeholder="{{'what-are-you-looking-for' | translate}}" aria-label="What are you looking for?"
             aria-describedby="button-addon2">
         </div>
@@ -38,26 +38,13 @@
 
       <!-- Language -->
       <div class="col-1">
-        <select class="form-select form-select-sm language-switcher" 
-        (change)="selectedLanguage($event)" >
-          <!-- <option value="n" hidden >lish</option> -->
-          <!-- {{lang==='en' ? '<option value="en" selected>English </option>' :
-          '<option value="en" >English </option>'}}
-          {{lang==='ar' ? '<option value="ar" selected>العربيه </option>' :
-          '<option value="ar" >العربية </option>'}}  -->
+        <select class="outline form-select-sm language-switcher" 
+        (change)="selectedLanguage($event)">
           <option value="en" *ngIf="lang=='en'" selected>English </option>
           <option value="ar" *ngIf="lang=='en'" >العربية </option>
           <option value="en" *ngIf="lang=='ar'" >English </option>
           <option value="ar" *ngIf="lang=='ar'"selected >العربية </option>
-          
-          <!-- <ng-template #> -->
-            
-          <!-- </ng-template> -->
         </select>
-        <!-- <button value="en" (click)="selectedLanguage($event)" *ngIf="lang" >English</button>
-        <ng-template [ngTemplateOutlet]="outlet" [ngOutletContext]="context"></ng-template>
-        <button value="ar" (click)="selectedLanguage($event)" >English</button> -->
-
       </div>
 
       <!-- Sign In -->
@@ -154,6 +141,7 @@
                       <small *ngIf="EmailU?.errors?.['pattern']">Email Must be pattern<br> ([a-zA-Z0-9](4,15)@(gmail |
                         yahoo).com)</small>
                     </div>
+                    <small *ngIf="emailIsExist" class="text-danger fs-4" >User Already Exist</small>
                   </div>
         
                   <div class="form-outline  mb-2 p-0">

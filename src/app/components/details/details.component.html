@@ -69,15 +69,10 @@
         </div>
       </div> -->
       <div class="col-2">
-        <select class="form-select" (change)="selectQuantity($event)" aria-label="Default select example" *ngIf="product!=null &&product.quantity>=5">
-          <option >1</option>
-          <option *ngFor="let item of  Productquantity;let i =index">{{i+2}}</option>
-        </select>
-        <select class="form-select" (change)="selectQuantity($event)" aria-label="Default select example" *ngIf="product!=null &&product.quantity<5">
-          <option>1</option>
-          <option 
-          *ngFor="let item of  Productquantity 
-          let i =index"><span *ngIf="product.quantity-1 > i">{{i+2}}</span></option>
+        <select class="form-select" (change)="selectQuantity($event)" aria-label="Default select example" *ngIf="product!=null ">
+          <ng-container *ngFor="let item of Productquantity let i=index">
+          <option *ngIf="product.quantity> i"> {{i+1}}</option>
+        </ng-container>
         </select>
       </div>
       <div class="col-10">
@@ -265,15 +260,11 @@
         <div class="col-2">
           <div class="col-12 fw-bold text-center" [translate]="'quantity'"></div>
 
-          <select class="form-select" (change)="selectQuantity($event)" aria-label="Default select example" *ngIf="product!=null &&product.quantity>=5">
-            <option>1</option>
-            <option *ngFor="let item of  Productquantity;let i =index">{{i+2}}</option>
+          <select class="form-select" (change)="selectQuantity($event)" aria-label="Default select example" *ngIf="product!=null ">
+            <ng-container *ngFor="let item of Productquantity let i=index">
+            <option *ngIf="product.quantity> i"> {{i+1}}</option>
+          </ng-container>
           </select>
-            <select class="form-select" (change)="selectQuantity($event)" aria-label="Default select example"  *ngIf="product!=null &&product.quantity<5">
-              <option >1</option>
-              <option *ngFor="let item of  Productquantity 
-                      let i =index"><span *ngIf="product.quantity-1 > i">{{i+2}}</span></option>
-            </select>
         </div>
         <div class="col-8">
           <button type="button" (click)="addToCart()" class="btn col-12 m-3 p-3 cart-button">

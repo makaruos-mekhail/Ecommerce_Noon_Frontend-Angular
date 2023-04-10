@@ -70,3 +70,6 @@ section{
 .bg-color{
     background-color:#e7e7e7 ;
 }
+.outline{
+    outline: none !important;
+  }
