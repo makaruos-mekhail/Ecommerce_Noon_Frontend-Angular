@@ -2,12 +2,9 @@ import { IOrderItem } from "./iorder-item";
 import { IUser } from "./iuser";
 
 export interface IOrder {
-    id: number;
-    address: string;
-    // addressAr: string;
+
+    username: string;
+    orderItemsDTO:IOrderItem[];
     totalPrice: number;
-    discount?: number;
     paymentMethod :string;
-    orderItems:IOrderItem[];
-    user:IUser;
 }

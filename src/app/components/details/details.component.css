@@ -100,3 +100,6 @@ color: #AAB8C2; font-size: 2em;
     font-size: 0.80em;
 }
 }
+.outline{
+  outline: none !important;
+}

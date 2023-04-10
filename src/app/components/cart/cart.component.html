@@ -37,6 +37,7 @@
   </div>
   <div class="row border" style="background: #f7f7fa">
     <div class="container-fluid col-12 col-sm-12 col-md-8">
+
       <!-- for loop on product in cart -->
       <ng-container *ngFor="let product of productInCart">
         <div class="border border-white bg-white text-dark rounded-end ms-5 mt-4"
@@ -93,21 +94,19 @@
 
               <div class="col-4 ">
                 <!-- (change)="selectQuantity($event)" -->
-                <select class="form-select" aria-label="Default select example"
+                <select class="outline form-select" aria-label="Default select example"
                   *ngIf="product != null && product.quantity >= 5">
-                  <!-- <option>1</option> -->
-                  <!-- <option *ngFor="let option of options; let i = index" 
-                [value]="option.value" [selected]="i === selectedOptionIndex">{{ option.label }}</option> -->
-
-                  <option *ngFor="let item of productQuantity; let i = index" [value]="i+1" [selected]="i===3">
+                
+                  <option *ngFor="let item of productQuantity; let i = index" 
+                  [value]="i+1" [selected]="i===getQuantityByproductId(product.id)">
                     {{ i + 1 }}
                   </option>
                 </select>
-                <select class="form-select" aria-label="Default select example"
+                <select class="outline form-select" aria-label="Default select example"
                   *ngIf="product != null && product.quantity < 5">
-                  <option>1</option>
-                  <option *ngFor="let item of productQuantity; let i = index">
-                    <span *ngIf="product.quantity - 1 > i">{{ i + 2 }}</span>
+                  <option *ngFor="let item of productQuantity; let i = index"
+                  [value]="i+1" [selected]="i === getQuantityByproductId(product.id)">
+                    {{ i + 1 }}
                   </option>
                 </select>
 
@@ -132,10 +131,15 @@
         <div class="m-2" [translate]="'order-summary'"><b></b></div>
         <div class="row1 m-3">
           <form>
-            <input size="12em" type="text" placeholder="{{ 'Coupon-Code' | translate }}" value="" class="input1" />
+            <input *ngIf="lang=='en'" size="12em" type="text" placeholder="{{ 'Coupon-Code' | translate }}" value="" class="input1" />
+            <input *ngIf="lang=='ar'" size="12em" type="text" placeholder="{{ 'Coupon-Code' | translate }}" 
+            value="" class="rounded-end-2" style="border:gray 1px solid;" />
           </form>
-          <button class="bg-primary button1">
-            <span class="span3" [translate]="'Apply'"></span>
+          <button *ngIf="lang=='en'" class="bg-primary button1">
+            <span  class="span3" [translate]="'Apply'"></span>
+          </button>
+          <button *ngIf="lang=='ar'" class="bg-primary rounded-start-2">
+            <span  class="span3" [translate]="'Apply'"></span>
           </button>
         </div>
         <div class="span1">
@@ -182,14 +186,15 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
+
                 <!-- check out modal -->
                 <div class="modal-body">
                   <form class="text-muted">
                     <div class="row mb-3">
                       <label for="Address" class="form-label fw-bold" [translate]="'Address'"></label>
-                      <input id="Address" #address class="form-control border-bottom"
+                      <input id="Address" #address class="border-bottom" 
                         placeholder="city,street,building number,floor no,flat no" type="text"
-                        style="border-radius: 0 !important;">
+                        style="border-radius: 0 !important; outline: none !important;">
                     </div>
                     <div class="row">
                       <label for="Phone" [translate]="'Phone-Number'" class="form-label fw-bold"></label>
@@ -203,7 +208,7 @@
                             <option value="3">15</option>
                           </select>
                         </div>
-                        <input id="Phone" maxlength="11" #phone class=" col-8 form-controlborder-bottom"
+                        <input id="Phone" maxlength="8" #phone class=" col-8 outline"
                           placeholder="i.e 12345678" type="text" style="border-radius: 0 !important;">
                       </div>
                     </div>
@@ -211,12 +216,12 @@
                     <div class="row mb-3">
                       <div class="col-5 m-2">
                         <label for="firstname" class="form-label fw-bold" [translate]="'First-Name'"></label>
-                        <input id="firstname" #address class="form-control border-bottom" placeholder="First Name"
+                        <input id="firstname" #address class="outline  border-bottom" placeholder="First Name"
                           type="text" style="border-radius: 0 !important;">
                       </div>
                       <div class="col-5 m-2 ">
                         <label for="lastname" class="form-label fw-bold" [translate]="'Last-Name'"></label>
-                        <input id="lastname" #address class="form-control border-bottom" placeholder="First Name"
+                        <input id="lastname" #address class="outline  border-bottom" placeholder="First Name"
                           type="text" style="border-radius: 0 !important;">
                       </div>
                     </div>
@@ -244,20 +249,16 @@
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-primary text-light fw-bold"
-                    (click)="sendCheckOutData(address.value,phone.value)" [translate]="'save-address'">
+                  <button type="button"  class="btn btn-primary text-light fw-bold"
+                    (click)="sendCheckOutData(address.value,phone.value)" [translate]="'save-address'"
+                    routerLink="/Checkout" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close">
                   </button>
-
                 </div>
               </div>
             </div>
-
           </div>
-          <div class="d-flex justify-content-center" id="myPaypalButtons">
-
-          </div>
-
-
+          <!-- <div class="d-flex justify-content-center" id="myPaypalButtons">
+          </div> -->
         </div>
       </div>
     </main>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { IOrderItem } from '../Models/iorder-item';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
+import { IOrder } from '../Models/iorder';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,7 @@ export class OrderService {
     };
   }
 // https://localhost:7006/api/Order/AddOrder
-  sendOrder(orderItems: IOrderItem[]): Observable<IOrderItem> {
-    return this.httpClient.post<IOrderItem>(`${environment.APIURLProduct}/Order/AddOrder`, orderItems);
+  sendOrder(order: IOrder): Observable<IOrder> {
+    return this.httpClient.post<IOrder>(`${environment.APIURLProduct}/Order/AddOrder`,order);
   }
-
 }

@@ -146,15 +146,22 @@
           <div class="col-4"><div class="title"><strong class="price">EGP 3232.00</strong></div></div>
         </div>
         <div class="row mb-2">
-          <button type="button" class="btn btn-primary order mx-5"id="order_btn" disabled  data-bs-toggle="button" [translate]="'PLACE_ORDER'"></button>
+
+        <button type="button" (click)="sendOrder()"  class="btn btn-primary order mx-5" id="order_btn" 
+          disabled  data-bs-toggle="button" [translate]="'PLACE_ORDER'">
+          </button>
+
         </div>
        </div>
        <div class="pt-3">
-        <div >
+        <div>
           <img class="img-fluid" src="assets/check-out/lock_dark.svg" alt="">
 
-          <strong class="unit" [translate]="'Security_and_Privacy'"> </strong></div>
-          <div class="unit mt-2" [translate]="'Security_disc'"></div>
+          <strong class="unit" [translate]="'Security_and_Privacy'"> 
+          </strong>
+        </div>
+          <div class="unit mt-2" [translate]="'Security_disc'">
+          </div>
          
           <div class="unit mt-3" [translate]="'All_Rights_Reserved'"></div>
        </div>

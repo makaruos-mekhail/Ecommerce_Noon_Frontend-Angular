@@ -13,6 +13,7 @@ import { UserService } from "src/app/Services/user.service";
 import { Register } from "src/app/Models/register";
 import { InteractionService } from "src/app/Services/interaction.service";
 import { CookieService } from "ngx-cookie-service";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Component({
   selector: "app-header",
@@ -28,7 +29,6 @@ export class HeaderComponent implements OnInit {
   lang = localStorage.getItem('lang');
 
   userFormGroup!: FormGroup;
-  userloginFormGroup!: FormGroup;
 
   filterTerm!: string;
 
@@ -54,58 +54,32 @@ export class HeaderComponent implements OnInit {
     
     
     //form
+    // this.userFormGroup = this.formBulider.group({
+    //   // create Account
+    //   firstName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{3,20}')]],
+    //   lastName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{3,20}')]],
+    //   email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{3,}@(gmail|yahoo)(.com)')]],
+    //   password: ['', [Validators.required, Validators.pattern("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$")]],
+
+
+    //   // login in
+    //   emailLogin: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{4,15}@(gmail|yahoo)(.com)')]],
+    //   Passwordlogin: ['', [Validators.required, Validators.pattern('[a-zA-Z]{4,10}[0-9]{2}@')]],
+    // }); 
     this.userFormGroup = this.formBulider.group({
       // create Account
       ufirstName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{4,10}')]],
       ulastName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{4,10}')]],
       Uemail: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{4,15}@(gmail|yahoo)(.com)')]],
-      Upassword: ['', [Validators.required, Validators.pattern('[a-zA-Z]{4,10}[0-9]{2}@')]],
+      Upassword: ['', [Validators.required, Validators.pattern("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+      )]],
 
 
       // login in
       Emaillogin: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{4,15}@(gmail|yahoo)(.com)')]],
-      Passwordlogin: ['', [Validators.required, Validators.pattern('[a-zA-Z]{4,10}[0-9]{2}@')]],
+      Passwordlogin: ['', [Validators.required, Validators.pattern("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$")]],
     });
-    this.userloginFormGroup = this.formBulider.group({
-    });  
   }
-  
-
-//------------------ Translate --------------
-selectedLanguage(event: any) {
-
-  // this.translate.use(event.target.value);
-    // ---------- set lang in local storage --------------
-  localStorage.setItem('lang', event.target.value);
-  this.translate.use(this.lang?this.lang:'en');
-
-    // setTimeout(()=>{
-    // }, 1000);
-    location.reload();
-    console.log(event.target.value);
-  }
-//   search2() {
-//     this.interactionservice.sendMessage(this.filterTerm);
-// }
-
-
-  searchpro(str: string) {
-    this.router.navigate(['/AllCategory'])
-    setTimeout(() => {
-      this.interactionservice.sendAll(str);
-    }, 100);
-  
-  }
-  //navbar sub categories
-  SubCategory(cat: string) {
-    this.router.navigate(['/AllCategory']);
-    setTimeout(() => {
-      this.interactionservice.sendAll(undefined,cat);
-    }, 100);
-  }
-
-  //parent cat
-  
   //convert firstname to property
   get Fname() {
     return this.userFormGroup.get('ufirstName');
@@ -125,14 +99,46 @@ selectedLanguage(event: any) {
   get PassLogin() {
     return this.userFormGroup.get('Passwordlogin');
   }
+//------------------ Translate --------------
+selectedLanguage(event: any) {
+
+  // this.translate.use(event.target.value);
+    // ---------- set lang in local storage --------------
+  localStorage.setItem('lang', event.target.value);
+  this.translate.use(this.lang?this.lang:'en');
+    location.reload();
+    
+  }
+
+
+  searchpro(str: string) {
+    this.router.navigate(['/AllCategory'])
+    setTimeout(() => {
+      this.interactionservice.sendAll(str);
+    }, 100);
+  
+  }
+  //navbar sub categories
+  SubCategory(cat: string) {
+    this.router.navigate(['/AllCategory']);
+    setTimeout(() => {
+      this.interactionservice.sendAll(undefined,cat);
+    }, 100);
+  }
+
+  //parent cat
+
   UserEmail!: string;
+
   ///login user
   LogIn(email: string, pass: string) {
     var logiuser = new Login(email, pass);
     this.userservice.logIn(logiuser).subscribe({
       next: (data) => {
         window.location.reload();
-        this.cookieService.set("useremail",email)
+        this.cookieService.set("useremail",email);
+        console.log("Login success");
+
       }, error: (err) => {
         console.log(err.message);
       }
@@ -141,6 +147,7 @@ selectedLanguage(event: any) {
   }
    
 
+  emailIsExist :boolean = false;
   //register 
   Registeration(email:string, pass:string, fname:string, lname:string) {
     var registeruser = new Register(email, pass, fname, lname);
@@ -148,11 +155,14 @@ selectedLanguage(event: any) {
       next: (data) => {
         this.LogIn(email, pass);
         window.location.reload();
+        console.log("registeration success");
+        
        // this.router.navigate(['/Home']);
       },
-      error: (err) => {
+      error: (err: HttpErrorResponse) => {
         console.log(err.message);
-      }
+        this.emailIsExist = true;
+      } 
     }
     );
    
@@ -163,15 +173,13 @@ selectedLanguage(event: any) {
   ngOnInit(): void {
     this.interactionservice.addToCart$.subscribe((data) => {
       this.cartQuantity = data[0];
-    }
-    );
+    });
     if(this.cookieService.get('cart')!=null){
       this.cartQuantity = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.quantity, 0);
     }
   }
   
   // ---------------- logout ---------------------
-
   // logout() {
   //   this.userservice.logout().subscribe({
   //     next: (data) => {

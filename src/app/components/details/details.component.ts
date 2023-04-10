@@ -20,8 +20,8 @@ export default class DetailsComponent implements OnInit {
   verygood: number[] = new Array(4);
   good: number[] = new Array(3);
   currentProductId: number = 0;
-  product: IProduct | undefined;
-  Productquantity: number[] = new Array(4);
+  product?: IProduct ;
+  Productquantity: number[] = new Array(5);
   productReviews: IReview[] = [];
   lang = localStorage.getItem('lang');
   cart: IOrderItem[] = [];
@@ -98,7 +98,7 @@ export default class DetailsComponent implements OnInit {
 
 
   addToCart() {
-    let cartItem = this.cart.find(item => item.id === this.currentProductId);
+    let cartItem = this.cart.find(item => item.productid === this.currentProductId);
     if (cartItem) {
       if((cartItem.quantity as number) + this.selectedQuantity <= this.product!.quantity)
       {
@@ -107,7 +107,7 @@ export default class DetailsComponent implements OnInit {
       }
     }
     else {
-      cartItem = { id: this.currentProductId, quantity: this.selectedQuantity, price: (this.product!.price *this.selectedQuantity)};
+      cartItem = { productid: this.currentProductId, quantity: this.selectedQuantity, price: (this.product!.price *this.selectedQuantity)};
       this.cart.push(cartItem);
     }
 
