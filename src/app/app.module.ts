@@ -20,6 +20,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { DiscountPipe } from './Pipes/discount.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CheckOutComponent } from './components/check-out/check-out.component';
+import { OrderStatusComponent } from './components/order-status/order-status.component';
 
 
 //translate
@@ -41,6 +42,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MainPageComponent,
     DiscountPipe,
     CheckOutComponent,
+    OrderStatusComponent,
     
     
     

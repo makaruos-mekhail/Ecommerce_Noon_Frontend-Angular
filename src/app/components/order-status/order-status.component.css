@@ -1,0 +1,21 @@
+.div-center
+{
+padding: 5% 10% 5% 10%;
+}
+.txt
+{
+  display: block;
+  padding: 2px;
+}
+.jest{
+  display: flex;
+justify-content: center;
+background-color: white;
+}
+
+.bg-header-yollow{
+  background-color: #feee00 !important;
+}
+.ele{
+  --bs-progress-bg: none
+}
