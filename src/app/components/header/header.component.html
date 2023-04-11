@@ -1,16 +1,15 @@
 <header  class="container-fluid col-12 row">
-
   <div class="col-12 row m-0 p-0 txtFont">
     <div class="bg-header-yollow row align-items-center text-center p-2 m-0">
       <!-- Noon Logo -->
-      <div class="col-sm-2 col-2 col-md-1">
+      <div class="col-2 col-sm-2 col-md-1 d-inline-block">
         <a routerLink="/Home">
           <img src="assets/header/noon-logo-en.svg" class="img-fluid mx-auto"  *ngIf="lang=='en'" >
           <img src="assets/header/noon-logo-ar.svg" class="img-fluid mx-auto" *ngIf="lang=='ar'">
         </a>
       </div>
       <!--  Delivery To -->
-      <div class="row d-none col-md-1 d-md-inline-block p-0 m-0">
+      <div class="row d-none d-md-inline-block col-md-1  p-0 m-0">
         <button class="bg-header-yollow border-0 m-0 p-0 ">
           <div class="d-inline-block ">
             <img src="assets/header/eg.svg" class="img-fluid col-10 mx-auto txtFont">
@@ -27,8 +26,10 @@
           </span>
         </button>
       </div>
+      <!-- media Default sm & md -->
+    <div class="row d-none d-sm-none d-md-inline col-sm-10 col-md-10" style="padding-left: 0px;padding-right: 0px;">
       <!-- Search Input -->
-      <div class="col-md-6 col-sm-5 col-5 ">
+      <div class=" col-sm-5 col-md-6 d-md-inline-block Searchh">
         <div class="input-group">
           <input id="searchbar" #asd type="text" (change)="searchpro(asd.value)" class="outline form-control rounded p-2"
             placeholder="{{'what-are-you-looking-for' | translate}}" aria-label="What are you looking for?"
@@ -37,8 +38,10 @@
       </div>
 
       <!-- Language -->
-      <div class="col-1">
-        <select class="outline form-select-sm language-switcher" 
+      <div class="col-sm-2  col-md-1  d-md-inline-block Dropdwon " 
+      style="padding-top: 0px;padding-bottom: 0px; border-radius: 7px;">
+        <select class="outline form-select-sm language-switcher form-select Trans" 
+        style="height: 40px;border-radius: 7px;"
         (change)="selectedLanguage($event)">
           <option value="en" *ngIf="lang=='en'" selected>English </option>
           <option value="ar" *ngIf="lang=='en'" >العربية </option>
@@ -48,9 +51,9 @@
       </div>
 
       <!-- Sign In -->
-      <div class="col-2 col-sm-2 col-md-2">
-        <a type="button" class="btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-          <span class="fw-bold txtFont">
+      <div class=" col-sm-3  col-md-2 d-md-inline-block element1 elementt elem">
+        <a type="button" class="btn aa"  data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+          <span class="fw-bold txtFont22 ">
              <span [translate]="'sign-in'"></span>
 
             <img class="txtFont" src="assets/header/account-inactive.svg" alt=""
@@ -59,8 +62,109 @@
         </a>
       </div>
 
-        <!-- Popup Sign In and Sign Up -->
-        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+      <!-- WishList -->
+      <div class=" col-sm-1 col-md-1  d-md-inline-block  element1 elementt elem ">
+          <a type="button" class="btn aaa element4">
+              <span class="fw-bold txtFont22" routerLink="/WishList">
+                <span [translate]="'WishLists'" ></span>
+                <i class="fa-regular fa-heart"></i>
+               </span>
+          </a>
+       </div>
+
+      <!-- Cart -->
+      <div class=" col-sm-1 col-md-2 d-md-inline-block p-0 m-0">
+        <a routerLink="/Cart">
+          <span class="fw-bold"[translate]="'cart'" >
+          </span>
+          <span class="m-0 p-0">
+            <img src="assets/header/cart.svg" alt="" style="width: 1.5rem !important; height: 1.5rem !important;"
+              class="img-fluid">
+            <span *ngIf="cartQuantity" style="top: 20px;"
+            class="position-absolute translate-middle badge rounded-circle bg-primary ">
+              <span class="visually-hidden"> {{cartQuantity}} Product in your Cart</span>
+               {{cartQuantity}}
+            </span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <!-- media Phone -->
+    <div class="row d-inline d-sm-inline d-md-none col-10 marFont">
+      <!-- Search Input -->
+      <div class="col-5 d-inline-block Searchh">
+        <div class="input-group">
+          <input id="searchbar" #asd type="text" (change)="searchpro(asd.value)" class="outline form-control rounded p-2"
+            placeholder="{{'what-are-you-looking-for' | translate}}" aria-label="What are you looking for?"
+            aria-describedby="button-addon2">
+        </div>
+      </div>
+
+      <!-- Language -->
+      <div class="col-2 d-inline-block Dropdwon " 
+      style="padding-top: 0px; padding-bottom: 0px;">
+        <select class="outline form-select-sm language-switcher form-select Trans"
+         style="height: 40px;border-radius: 7px;"
+        (change)="selectedLanguage($event)">
+          <option value="en" *ngIf="lang=='en'" selected>English </option>
+          <option value="ar" *ngIf="lang=='en'" >العربية </option>
+          <option value="en" *ngIf="lang=='ar'" >English </option>
+          <option value="ar" *ngIf="lang=='ar'"selected >العربية </option>
+        </select>
+      </div>
+
+      <!-- Sign In -->
+      <div class=" col-3 d-inline-block element1 elementt elem">
+        <a type="button" class="btn aa"  data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+          <span class="fw-bold txtFont22">
+             <span [translate]="'sign-in'"></span>
+
+            <img class="txtFont" src="assets/header/account-inactive.svg" alt=""
+              style="width: 1rem !important; height: 1rem !important;" class="img-fluid">
+            </span>
+        </a>
+      </div>
+
+       <!-- Dropdown wishList & Cart -->
+       <div class="col-2 dropdown d-inline-block " >
+        <button class="btn btn-light dropdown-toggle drop" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-bars" style="color: #000000;"></i> &nbsp;
+        </button>
+        <ul class="dropdown-menu" style="position: absolute; right:4px; text-align: start;">
+          <li>
+            <!-- WishList -->      
+            <div class="col-12 p-1 element1 elementt elem ">
+            <a type="button" class="btn aaa element4">
+              <span class="fw-bold m-0 p-0 txtFont22" routerLink="/WishList">
+                  <span [translate]="'WishLists'"  ></span>&nbsp;
+                  <i class="fa-regular fa-heart" style="width: 1.5rem !important; height: 1.5rem !important;"></i>
+                 </span>
+            </a>
+            </div>
+          </li>
+          <li>
+                  <!-- Cart -->
+      <div class="col-12 p-1 m-0">
+        <a routerLink="/Cart">
+          <span class="fw-bold m-0 p-0 txtFont" [translate]="'cart'">
+          </span>
+          <span class="position-relative p-0 m-0">
+            <img src="assets/header/cart.svg" alt="" style="width: 1.5rem !important; height: 1.5rem !important;"
+              class="img-fluid">
+            <span *ngIf="cartQuantity" class="position-absolute top-5 start-100 translate-middle
+                                       badge rounded-circle bg-primary">
+              <span class="visually-hidden"> {{cartQuantity}} Product in your Cart</span>
+               {{cartQuantity}}
+            </span>
+          </span>
+        </a>
+      </div>
+          </li>
+        </ul>
+       </div>
+    </div>
+     <!-- Popup Sign In and Sign Up -->
+     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
           tabindex="-1">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -114,9 +218,9 @@
               </div>
             </div>
           </div>
-        </div>
+     </div>
         
-        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+     <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
           tabindex="-1">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -185,43 +289,27 @@
               </div>
             </div>
           </div>
-        </div>
-     
-      <!-- Cart -->
-      <div class="col-2 col-sm-2 col-md-1 p-0 m-0">
-        <a routerLink="/Cart">
-          <span class="fw-bold m-0 p-0 txtFont"[translate]="'cart'">
-          </span>
-          <span class="position-relative p-0 m-0">
-            <img src="assets/header/cart.svg" alt="" style="width: 1.5rem !important; height: 1.5rem !important;"
-              class="img-fluid">
-            <span *ngIf="cartQuantity" class="position-absolute top-0 start-100 translate-middle
-                                       badge rounded-circle bg-primary">
-              <span class="visually-hidden"> {{cartQuantity}} Product in your Cart</span>
-               {{cartQuantity}}
-            </span>
-          </span>
-        </a>
-      </div>
-
+     </div>
     </div>
   </div>
+
 
   <nav class="navbar navbar-expand-lg navbar-expand-md  fw-bold bg-body-tertiary nav-font-size NavFont">
     <div class="container-fluid ">
       <ul class="m-0 p-0">
-        <li class="navbar-brand dropdown m-0">
+        <li class="navbar-brand dropdown m-0 ">
           <a class="nav-link text-primary" href="#" role="button" data-bs-toggle="dropdown"
             aria-expanded="false" [translate]="'all-categories'">
           </a>
-          <ul class="dropdown-menu " style="position: absolute; right:7px;">
+          <ul class="dropdown-menu  " style="position: absolute; right:4px; text-align: start;">
             <li><a class="dropdown-item" routerLink="/AllCategory" style="font-size: 0.9;" [translate]="'all-categories'"></a></li>
             <li *ngFor="let cat of categoriesList">
-              <a class="dropdown-item" href="#"
+              <a class="dropdown-item p-1" href="#"
                 *ngIf="cat.parentCategory==undefined"
                >
                  {{ lang === 'en'? cat.name: cat.nameAr}}</a></li>
           </ul>
+          
         </li>
       </ul>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"

@@ -1,74 +1,69 @@
 <div class="accordion accordion-flush" id="accordionPanelsStayOpenExample">
+ <div class="ex3">
+  <!-- Fulfillment اكسبريس -->
   <div class="accordion-item">
     <h2 class="accordion-header" id="header-id">
-      <button
-        class="accordion-button collapsed bg-light"
+      <button class="accordion-button collapsed bg-light"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#body-id"
         aria-expanded="true"
         aria-controls="body-id"
-        [translate]="'Fulfillment'"
-      ></button>
+        [translate]="'Fulfillment'">
+      </button>
     </h2>
     <div
       id="body-id"
       class="accordion-collapse collapse show"
-      aria-labelledby="header-id"
-    >
+      aria-labelledby="header-id">
       <div class="accordion-body bg-light">
         <input
           class="form-check-input"
           type="checkbox"
           value=""
-          id="flexCheckDefault"
-        />
+          id="flexCheckDefault"/>
         <span class="express" [translate]="'express'"></span>
       </div>
     </div>
   </div>
+  <!-- category -->
   <div class="accordion-item">
     <h2 class="accordion-header" id="header-id2">
-      <button
-        class="accordion-button collapsed bg-light"
+      <button class="accordion-button collapsed bg-light"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#body-id2"
         aria-expanded="true"
         aria-controls="body-id2"
-        [translate]="'Category'"
-      ></button>
+        [translate]="'Category'">
+      </button>
     </h2>
-    <div
-      id="body-id2"
+    <div id="body-id2"
       class="accordion-collapse collapse"
-      aria-labelledby="header-id2"
-    >
-      <div class="accordion-body bg-light">
-        <div class="accordion-item" *ngFor="let cat of categorylist">
-          <h2 class="accordion-header" id="header-id33">
-            <button
-              class="accordion-button collapsed bg-light"
+      aria-labelledby="header-id2">
+      <div class="accordion-body  bg-light">
+        <!-- Print a specific number (*ngFor="let cat of categorylist.slice(0,10)") -->
+        <div class="accordion-item" *ngFor="let cat of categorylist ; let i = index"> 
+          <h2 class="accordion-header" [id]="'header-id33'+(i + 1)">
+            <button class="accordion-button collapsed bg-light"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#body-id33"
+              [attr.data-bs-target]="'#body-id33'+(i + 1)"
               aria-expanded="true"
-              aria-controls="body-id33"
-              *ngIf="cat.parentCategory==undefined"
-            >
+              [attr.aria-controls]="'body-id33'+(i + 1)"
+              *ngIf="cat.parentCategory==undefined">
               {{(lang=='en')?cat.name:cat.nameAr}}
             </button>
           </h2>
-          <div
-            id="body-id33"
+          <div [id]="'body-id33'+(i + 1)"
             class="accordion-collapse collapse"
-            aria-labelledby="header-id33"
-          >
+            [attr.aria-labelledby]="'header-id33'+(i + 1)">
             <div class="accordion-body bg-light text-muted">
               <div>{{(lang=='en')?cat.name:cat.nameAr}}</div>
               <div *ngFor="let subcat of cat.subCategories">
                 <i class="fa-solid fa-plus"></i>
-                <p class="btn"  (click)="sendData((lang=='en')?subcat.name:subcat.nameAr)">
+                <p class="btn"  (click)="sendData((lang=='en')?subcat.name:subcat.nameAr)"
+                style="padding-bottom: 3px;margin-bottom: 0px;padding-top: 3px;">
                    {{(lang=='en')?subcat.name:subcat.nameAr}}
                   </p>
               </div>
@@ -78,45 +73,42 @@
       </div>
     </div>
   </div>
+   <!-- brand -->
   <div class="accordion-item">
     <h2 class="accordion-header" id="header-id3">
-      <button
-        class="accordion-button collapsed bg-light"
+      <button class="accordion-button collapsed bg-light"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#body-id3"
         aria-expanded="true"
         aria-controls="body-id3"
-        [translate]="'Brand'"
-      ></button>
+        [translate]="'Brand'" ></button>
     </h2>
-    <div
-      id="body-id3"
+    <div id="body-id3"
       class="accordion-collapse collapse"
-      aria-labelledby="header-id3"
-    >
+      aria-labelledby="header-id3"  >
       <div class="accordion-body bg-light">
-        <div class="m-2">
+        <div class="m-0">
           <div class="constrain">
             <input class="input-elevated" type="text" placeholder="Search" />
           </div>
         </div>
-        <div class="m-2" *ngFor="let brand of brandsList;let index=index">
-          <input
-            [ngModel]="selectedIndex === index"
+        <div class="col-6  d-inline-block" *ngFor="let brand of brandsList;let index=index">
+        <span class="col-12">
+          <input [ngModel]="selectedIndex === index"
           (change)=" send($event,index)"
             class="form-check-input"
-            type="checkbox"
-            [value]="(lang=='en')?brand.name:brand.nameAr"
-        
-          />
+            type="checkbox" style="margin-top: 6px;margin-bottom: 10px;"
+            [value]="(lang=='en')?brand.name:brand.nameAr"  />
           <span>
             <span>{{(lang=='en')?brand.name:brand.nameAr}}</span>
           </span>
+        </span>
         </div>
       </div>
     </div>
   </div>
+  <!-- price -->
   <div class="accordion-item">
     <h2 class="accordion-header" id="header-id4">
       <button
@@ -171,6 +163,7 @@
       </div>
     </div>
   </div>
+  <!-- prodcut Rate -->
   <div class="accordion-item">
     <h2 class="accordion-header" id="header-id5">
       <button
@@ -225,35 +218,35 @@
       </div>
     </div>
   </div>
+   <!-- Color -->
   <div class="accordion-item">
     <h2 class="accordion-header" id="header-id7">
-      <button
-        class="accordion-button collapsed bg-light"
+      <button class="accordion-button collapsed bg-light"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#body-id7"
         aria-expanded="true"
         aria-controls="body-id7"
-        [translate]="'Colour'"
-      ></button>
+        [translate]="'Colour'" >
+      </button>
     </h2>
-    <div
-      id="body-id7"
+    <div id="body-id7"
       class="accordion-collapse collapse"
-      aria-labelledby="header-id7"
-    >
+      aria-labelledby="header-id7" >
       <div class="accordion-body bg-light">
         <div class="container">
-          <div class="row g-2">
-            <div class="col-6 bg-white">
-              <div *ngFor="let color of productColors">
-                <img src="img/img_Category/black.svg" />
-               <span class="btn" (click)="sendcolor(color.name)"> {{color.name}}</span> 
-              </div>
+            <div class="row">
+              <span class="p-1 m-1 col-5 d-flex bg-white" *ngFor="let color of productColors">
+                <div class="col-3 d-flex">
+                  <img src="img/img_Category/black.svg"/>
+                  <span class="btn col-8" (click)="sendcolor(color.name)"> {{color.name}}</span>
+                </div>
+              </span>
             </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
+ </div>
 </div>
+

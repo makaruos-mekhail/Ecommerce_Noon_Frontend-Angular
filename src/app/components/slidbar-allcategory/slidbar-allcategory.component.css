@@ -140,3 +140,9 @@ input {
 .outline{
   outline: none !important;
 }
+
+div.ex3 {
+  width: 100%;
+  height: 700px;
+  overflow: auto;
+}

@@ -1,7 +1,8 @@
 <div class="containe-fluid">
   <div class="row">
     <hr/>
-    <div class="col-1 wish" [translate]="'WishList'"></div>
+    <div class="col-1 wish ms-4" *ngIf="lang=='en'"  [translate]="'WishList'"></div>
+    <div class="col-1 wish me-4" *ngIf="lang=='ar'"   [translate]="'WishList'"></div>
     <div class="col-9"></div>
     <!-- <div class="col-2">
       <button class="sc-2e397e34-3 eTCqUt">Create New Wishlist</button>
@@ -15,7 +16,7 @@
           <h6 class="ms-3 col-2" style="background-color: #e7e7e7;">default</h6>
           <span class="notbutton col-2" [translate]="'Default'"></span>
         </div>
-        <div class="row mt-2 Quantity_div ">
+        <div class="row mt-2 px-3 Quantity_div ">
           <p class="col-2 mx-1" style="background-color: #e7e7e7;">1 item</p>
           <img class="col-2 mt-1 im" src="assets/WishList/bag.svg" alt="" style="background-color: #e7e7e7;" />
         </div>
@@ -81,11 +82,11 @@
                       <img class="express-badge" src="assets/WishList/express_ar.svg" alt="" *ngIf="lang=='ar'">
                     </div>
                     <div class="d-flex flex-row my-2">
-                      <div class="prod-rate border rounded bg-warning text-light">
+                      <div class="prod-rate border rounded bg-success text-light">
                         4.8
-                        <i class="bi bi-star-fill bg-warning text-light"></i>
+                        <i class="bi bi-star-fill bg-success text-light"></i>
                       </div>
-                      <div class="p-1 text-secondary no">(35)</div>
+                      <div class="p-1 text-secondary no ">(35)</div>
                     </div>
                   </div>
                   <div class="row">

@@ -12,6 +12,31 @@
   "phone-support": "Phone Support",
   "what-are-you-looking-for": "What are you looking for?",
 
+  "CONTINUE SHOPPING": "CONTINUE SHOPPING",
+  "WishLists": "WishList",
+  "Secure Checkout": "Secure Checkout | For assistance, Call 16358",
+  "Order Item": "Order Item",
+  "Thank You For Order": "Thank You For Order",
+  "Youll receive": "You'll receive an email ",
+  "once your order": "once your order is confirmed.",
+  "OrderNum": "Order",
+  "DELIVERED": "DELIVERED",
+  "SHIPPED": "SHIPPED",
+  "ORDERED": "ORDERED",
+  "PROCESSING": "PROCESSING",
+  "Homee": "HOME",
+  "PAYMENT METHOD": "PAYMENT METHOD",
+  "Cashh": "Cash",
+  "Cash On Delivery": "Cash On Delivery",
+  "ORDER SUMMARY": "ORDER SUMMARY",
+  "Subtotall": "Subtotal",
+  "Shippingg Fee": "Shippingg Fee",
+  "Payment-fee": "Payment-fee",
+  "TOTAL (Inclusive of VAT)": "TOTAL (Inclusive of VAT)",
+
+
+
+
 
   "electronics": "ELECTRONICS",
   "mobiles": "Mobiles",
@@ -108,7 +133,7 @@
   "1Star-or-more": "1 Star or more",
   "1star": "1(Star)",
   "5star": "5(Star)",
-  "Colour": "Colour",
+  "Colour": "Color",
   "cat-free-delivery": "Free delivery",
   "2-days": "2 days",
   "select-2day": " on checkout to get it in",

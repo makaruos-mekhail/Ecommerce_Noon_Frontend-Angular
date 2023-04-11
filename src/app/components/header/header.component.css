@@ -40,6 +40,9 @@ a {
   .txtFont {
     font-size: 0.9em;
 }
+.txtFont22 {
+  font-size: 0.80em;
+}
 }
 
 @media screen and (min-width:400px )and (max-width:750px) {
@@ -48,6 +51,9 @@ a {
   }
   .txtFont {
     font-size: 0.80em;
+}
+ .txtFont22 {
+  font-size: 0.70em;
 }
 }
 .ng-valid[required], .ng-valid.required  {
@@ -59,4 +65,109 @@ a {
 }
 .outline{
   outline: none !important;
+}
+
+.element1 {
+  padding-left: 0px;
+  padding-bottom: 0px;
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-left-style: solid;
+  border-bottom-width: 0px;
+  border-top-width: 0px;
+  padding-top: 0px;
+  border-left-width: 0px;
+  }
+  
+  .Dropdwon {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  .Searchh {
+  
+      padding-left: 0px;
+      padding-right: 12px;
+  
+  }
+  .elementt {
+    padding-right: 0px;
+    border-right-width: 0px;
+    
+  }
+  .elem{
+    padding-left: 0px;
+  /* border-left-width: 15px; */
+  border-left-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-style: solid;
+  border-right-width: 0px;
+  border-right-style: solid;
+  padding-right: 0px;
+  padding-top: 0px;
+  border-top-width: 0px;
+  border-top-style: solid;
+  }
+  
+  .aa{
+    padding-left: 0px;
+  border-left-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-style: solid;
+  padding-top: 0px;
+  padding-bottom: 8px;
+  border-right-width: 0px;
+  border-right-style: solid;
+  padding-right: 0px;
+  border-top-width: 0px;
+  border-top-style: solid;
+  }
+  .aaa{
+    padding-left: 0px;
+  border-left-width: 24px;
+  border-left-style: solid;
+  border-bottom-width: 0px;
+  border-bottom-style: solid;
+  padding-top: 0px;
+  padding-bottom: 8px;
+  border-right-width: 0px;
+  border-right-style: solid;
+  padding-right: 0px;
+  border-top-width: 0px;
+  border-top-style: solid;
+  border-left-width: 0px;
+  
+  }
+  
+  .form-select {
+    --bs-form-select-bg-img: none
+      padding-top: .25rem;
+      width: 90%;
+      margin-left: 2px;
+      margin-right: 3px;
+  }
+  
+
+  
+.Trans{
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+.marFont{
+    margin-right: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.drop{
+    padding-left: 4px;
+    border-left-width: 0px;
+    border-left-style: solid;
+    padding-right: 4px;
+    border-right-width: 0px;
+    border-right-style: solid;
+  
 }
