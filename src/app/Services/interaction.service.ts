@@ -17,7 +17,9 @@ export class InteractionService {
   // add to cart
   private addToCart = new Subject<any[]>();
   addToCart$ = this.addToCart.asObservable();
-
+//checkout data
+private checkoutdata=new Subject<string[]>();
+checkoutdata$ =this.checkoutdata.asObservable();
 //changeImages in checkout
  
 
@@ -43,7 +45,12 @@ export class InteractionService {
   sendCart(quantity: number, totalPrice: number) {
     this.addToCart.next([quantity, totalPrice]);
   }
-
+  checkdata: string[] = [];
+  sendchseckoutdata(name:string , address:string,phone:string)
+  {
+    this.checkdata=[name,address,phone];
+    this.checkoutdata.next(this.checkdata);
+  }
   // setData(x: string) {
   //   this.data = x;
   // }
