@@ -6,6 +6,7 @@ import { IWishList } from "./iwish-list";
 export interface IUser {
     firstName: string;
     firstNameAr: string;
+    email:string
     lastName: string;
     lastNameAr: string;
     address: string;
