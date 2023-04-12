@@ -33,6 +33,8 @@
   "Shippingg Fee": "Shippingg Fee",
   "Payment-fee": "Payment-fee",
   "TOTAL (Inclusive of VAT)": "TOTAL (Inclusive of VAT)",
+   "item":"(item)",
+   "UNIT":"UNIT",
 
 
 
@@ -141,10 +143,9 @@
   "Continue-Shopping": "Continue Shopping",
   "order-summary": "Order Summary",
   "Apply": "Apply",
-  "Subtotal": "Subtotal ({{NOitems}} item)",
   "Shipping":"Shipping",
   "Details":"Details",
-  "Free":"Free",
+
   "Total":"Total",
   "monthly-payment":"  Monthly payment plans from EGP 500",
   "CHECKOUT":"CHECKOUT",
@@ -188,7 +189,7 @@
   "Cart":"Cart",
   
   "For_assistance,call":"Secure Checkout | For assistance, call 16358",
-  "noon":"noon",
+  
   "Shipping_Address":"Shipping Address",
   "Review_Your_Order":"Review Your Order",
   "Change":"Change",
@@ -213,19 +214,20 @@
   "Select_Delivery_Address":"Select Delivery Address",
   "Name":"Name :",
   "Edit_your_Name":"Edit your Name",
-  "Address":"Address :",
+  
   "Edit_your_Address":"Edit your Address",
   "Phone":"Phone :",
   "Edit_your_Phone":"Edit your Phone number",
   "CANCEL":"CANCEL",
   "CONFIRM":"CONFIRM",
 
-
-
+"Tomorrow":"Tomorrow , APr 17",
+  "Delivery-by":"Delivery by",
   "WishList":"Wishlist",
   "Default":"Default",
   "currancy":"EGP",
-  "add_to_cart":"ADD TO CART"
+  "add_to_cart":"ADD TO CART",
+  "This-item-cannot-be-exchanged-o-returned":"  This item cannot be exchanged or returned ."
 }
 
 
