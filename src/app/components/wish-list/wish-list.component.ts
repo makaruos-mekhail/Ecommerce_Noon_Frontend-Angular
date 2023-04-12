@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { IOrderItem } from 'src/app/Models/iorder-item';
 import { IProduct } from 'src/app/Models/iproduct';
 import { InteractionService } from "src/app/Services/interaction.service";
+import { WishlistService } from 'src/app/Services/wishlist.service';
 @Component({
   selector: 'app-wish-list',
   templateUrl: './wish-list.component.html',
@@ -14,9 +15,19 @@ export class WishListComponent {
   //   product: IProduct | undefined;
   //   Productquantity: number[] = new Array(4);
   //   cart: IOrderItem[] = [];
+    products :IProduct[]=[];
+  constructor(private cookieService: CookieService,  private interactionService: InteractionService,
+    private wishlistservics:WishlistService) {
+      var useremail=this.cookieService.get("useremail");
+    this.wishlistservics.getallproductinwishlist(useremail).subscribe(data=>{
+      this.products=data;
+      console.log(data);
+      console.log(this.products);
+      
+      
+    })
     
-  constructor(private cookieService: CookieService,    private interactionService: InteractionService,) {
-  
+
     // if(cookieService.get('cart')){
     //   this.cart = JSON.parse(cookieService.get('cart'));
     }

@@ -1,8 +1,8 @@
 <div class="containe-fluid">
   <div class="row">
-    <hr/>
-    <div class="col-1 wish ms-4" *ngIf="lang=='en'"  [translate]="'WishList'"></div>
-    <div class="col-1 wish me-4" *ngIf="lang=='ar'"   [translate]="'WishList'"></div>
+    <hr />
+    <div class="col-1 wish ms-4" *ngIf="lang=='en'" [translate]="'WishList'"></div>
+    <div class="col-1 wish me-4" *ngIf="lang=='ar'" [translate]="'WishList'"></div>
     <div class="col-9"></div>
     <!-- <div class="col-2">
       <button class="sc-2e397e34-3 eTCqUt">Create New Wishlist</button>
@@ -11,7 +11,7 @@
   <hr />
   <div class="row">
     <aside class="col-4 mb-5">
-      <div class="mt-5 pt-4 px-3 pb-3 col-10"style="background-color: #e7e7e7;">
+      <div class="mt-5 pt-4 px-3 pb-3 col-10" style="background-color: #e7e7e7;">
         <div class="row default_div ">
           <h6 class="ms-3 col-2" style="background-color: #e7e7e7;">default</h6>
           <span class="notbutton col-2" [translate]="'Default'"></span>
@@ -27,54 +27,19 @@
         <div class="row">
           <div class="col-12 py-3">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" id="products-list">
-              <div class="col-1 product-card mx-4">
+              <div *ngFor="let Prod of products" class="col-1 card col-m-4 mx-4">
                 <div class="p-2 bg-white h-100">
                   <div class="div-center col-12">
-                    <div id="carouselExampleIndicators" class="carousel" data-bs-ride="true" data-bs-touch="true">
-                      <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                          class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                          aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                          aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                          aria-label="Slide 4"></button>
-                      </div>
-                      <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="1000">
-                          <img src="assets/WishList/0.avif" class="img-fluid" alt="..." />
+                        <div>
+                          <img [src]="Prod.imagePath" class="img-fluid" width="100" height="100"/>
                         </div>
-                        <div class="carousel-item" data-bs-interval="1000">
-                          <img src="assets/WishList/1.avif" class="img-fluid" alt="..." />
-                        </div>
-                        <div class="carousel-item" data-bs-interval="1000">
-                          <img src="assets/WishList/2.avif" class="img-fluid" alt="..." />
-                        </div>
-                        <div class="carousel-item" data-bs-interval="1000">
-                          <img src="assets/WishList/3.avif" class="img-fluid" alt="..." />
-                        </div>
-                      </div>
-                      <button class="carousel-control-prev" style="fill: black" type="button"
-                        data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>
-                    </div>
-                  </div>
-
                   <h6 class="prod-card-title">
-                    Xiberia V20 Gaming Headset,Stereo Surrounding...
+                    {{lang == 'en'? Prod.name : Prod.nameAr}}
                   </h6>
                   <div class="d-flex flex-row extra_info">
                     <p [translate]="'currancy'"></p>
-                    <h6 class="px-2 fw-bold" style="display: block">299.00</h6>
-                    <h6 style="color: #38ae04">23% OFF</h6>
+                    <h6 class="px-2 fw-bold" style="display: block">{{Prod.price}}</h6>
+                    <h6 style="color: #38ae04">{{Prod.discount}}</h6>
                   </div>
                   <div class="d-flex flex-row flex-wrap justify-content-between extra_info2">
                     <div class="express-badge my-2">
@@ -83,15 +48,13 @@
                     </div>
                     <div class="d-flex flex-row my-2">
                       <div class="prod-rate border rounded bg-success text-light">
-                        4.8
+                       {{Prod.rate}}
                         <i class="bi bi-star-fill bg-success text-light"></i>
                       </div>
-                      <div class="p-1 text-secondary no ">(35)</div>
                     </div>
                   </div>
                   <div class="row">
                     <button class="add rounded col-9 px-1" [translate]="'add_to_cart'">
-                      
                     </button>
                     <button class="remove_btn col-3">
                       <span class="sc-33c21cfe-7 kvNvqX"><img src="assets/cart/trash.svg" alt="remove" width="30px"
