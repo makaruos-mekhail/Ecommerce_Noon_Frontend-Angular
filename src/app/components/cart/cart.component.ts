@@ -61,10 +61,9 @@ getProductDetails(prdid: number) {
     }
     event.target.parentElement.parentElement.parentElement.remove();
   }
- 
-sendCheckOutData(addres: string, phone: string,firstname:string,lastname:string) {
+  
+sendCheckOutData(addres: string, phone: string) {
   var useremail=this.cookieService.get("useremail");
-  this.interactionservice.sendchseckoutdata(firstname.concat(lastname),addres,phone);
   var cdata = new Checkoutdata(addres, phone,useremail);
   this.userervice.UpdateUser(cdata).subscribe(data => { console.log(data); }
     );

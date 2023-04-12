@@ -10,7 +10,7 @@ import { ProductService } from 'src/app/Services/product.service';
 })
 export class HomeComponent {
   /**
-   *
+   * 
    */
   hotDealsProduct: IProduct[] = [];
   lang = localStorage.getItem('lang');

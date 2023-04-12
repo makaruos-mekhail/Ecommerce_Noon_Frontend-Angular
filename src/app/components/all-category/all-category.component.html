@@ -11,7 +11,7 @@
   <div class="row">
     <div class="col-12 py-3">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" id="products-list">
-        <div class="col product-card p-2" *ngFor="let Prod of prodList.slice(products[currentProductIndex].num1,products[currentProductIndex].num2)" >
+        <div class="col product-card p-2" *ngFor="let Prod of prodList">
           <div class="p-2 bg-white h-100">
             <div class="div-center col-12" (click)="getProductDetails(Prod.id)">
               <div>
@@ -45,23 +45,22 @@
     </div>
   </div>
 </div>
-
 <nav aria-label="Page navigation example ">
   <ul class="pagination justify-content-center ">
-    <li class="page-item" (click)="previous()">
-      <span class="page-link text-secondary"  aria-label="Previous">
-        <span aria-hidden="true" >&laquo;</span>
-      </span>
+    <li class="page-item">
+      <a class="page-link text-secondary" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
     </li>
-    <li class="page-item"><a class="page-link text-secondary">1</a></li>
-    <li class="page-item"><a class="page-link text-secondary">.............</a></li>
-    <li class="page-item"><a class="page-link text-secondary">10</a></li>
-    <li class="page-item"  (click)="next()" >
-      <span class="page-link text-secondary"  aria-label="Next">
+    <li class="page-item"><a class="page-link text-secondary" href="#">1</a></li>
+    <li class="page-item"><a class="page-link text-secondary" href="#">2</a></li>
+    <li class="page-item"><a class="page-link text-secondary" href="#">3</a></li>
+    <li class="page-item"><a class="page-link text-secondary" href="#">.......</a></li>
+    <li class="page-item"><a class="page-link text-secondary" href="#">4567</a></li>
+    <li class="page-item">
+      <a class="page-link text-secondary" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
-      </span>
+      </a>
     </li>
   </ul>
 </nav>
-<!-- <button >Previous</button>
-<button >Next</button> -->
