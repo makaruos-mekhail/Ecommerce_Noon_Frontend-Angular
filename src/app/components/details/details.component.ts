@@ -10,12 +10,10 @@ import { InteractionService } from "src/app/Services/interaction.service";
 import { ProductService } from "src/app/Services/product.service";
 import { ReviewsService } from "src/app/Services/reviews.service";
 
-
 @Component({
   selector: "app-details",
   templateUrl: "./details.component.html",
   styleUrls: ["./details.component.css"],
-
 })
 export default class DetailsComponent implements OnInit {
   excellent: number[] = new Array(5);
@@ -50,25 +48,21 @@ export default class DetailsComponent implements OnInit {
   //   this.nativeHeight = image.naturalHeight;
   // }
 
-  displayImg(idx: number): void {
-    const mainImg = document.getElementById("main-product-imgggg") as HTMLImageElement;
-    const selectedImg = document.getElementById(`id${idx+1}`) as HTMLImageElement;
-  
-    if (selectedImg) {
-      mainImg.src = selectedImg.src;
-    }
+  displayImg(idx: string): void {
+    const mainImg = document.getElementById(
+      "main-product-img"
+    ) as HTMLImageElement;
+    const selectedImg = document.getElementById(idx) as HTMLImageElement;
+    mainImg.src = selectedImg.src;
   }
 
-
-  iconColor = 'grey';
-  toggleFavorite() {
-    if (this.iconColor === 'grey') {
-      this.iconColor = '#D53403';
+  changefavButtobColor(x: HTMLElement): void {
+    if (x.style.color == "rgb(170, 184, 194)") {
+      x.style.color = "rgb(226, 38, 77)";
     } else {
-      this.iconColor = 'grey';
+      x.style.color = "#AAB8C2";
     }
   }
-
  
   ngOnInit(): void {
     //get product by id

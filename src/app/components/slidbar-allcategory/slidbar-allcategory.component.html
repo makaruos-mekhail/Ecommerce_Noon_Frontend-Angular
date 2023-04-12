@@ -236,11 +236,10 @@
       <div class="accordion-body bg-light">
         <div class="container">
             <div class="row">
-              <span class="p-0 m-1 col-5 d-flex bg-white" *ngFor="let color of productColors">
-                <div class="col-3 d-flex p-1">
-                  <div class=" col-4 " [style.background-color]="color.name" (click)="sendcolor(color.name)"
-                    style="width: 37px;height: 37px;border: 1px grey solid;" ></div>
-                  <span class="btn col-8" (click)="sendcolor(color.name)" > {{color.name}}</span>
+              <span class="p-1 m-1 col-5 d-flex bg-white" *ngFor="let color of productColors">
+                <div class="col-3 d-flex">
+                  <img src="img/img_Category/black.svg"/>
+                  <span class="btn col-8" (click)="sendcolor(color.name)"> {{color.name}}</span>
                 </div>
               </span>
             </div>
