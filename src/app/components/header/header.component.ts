@@ -44,7 +44,6 @@ export class HeaderComponent implements OnInit {
   {
        //Get Dropdown category
        this.categoryservice.getAllCategories().subscribe((data) => {
-       console.log(data);
        this.categoriesList = data;
        });
        if (this.lang == null) {

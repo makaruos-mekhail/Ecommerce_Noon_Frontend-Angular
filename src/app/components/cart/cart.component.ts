@@ -61,13 +61,14 @@ getProductDetails(prdid: number) {
     }
     event.target.parentElement.parentElement.parentElement.remove();
   }
- 
+ //send data to checkout componenet
+  
 sendCheckOutData(addres: string, phone: string,firstname:string,lastname:string) {
   var useremail=this.cookieService.get("useremail");
-  this.interactionservice.sendchseckoutdata(firstname.concat(lastname),addres,phone);
+  this.interactionservice.sendchseckoutdata(firstname.concat(lastname), addres, phone);
   var cdata = new Checkoutdata(addres, phone,useremail);
-  this.userervice.UpdateUser(cdata).subscribe(data => { console.log(data); }
-    );
+  this.userervice.UpdateUser(cdata).subscribe();
+  this.router.navigate(['/Checkout']);
   }
 
   // ------------ get Quantity By product Id ------------

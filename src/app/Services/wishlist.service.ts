@@ -23,9 +23,9 @@ export class WishlistService {
 
   }
 
-  deleteproducttowishlist(wishlistpro:Wishlitproduct): Observable<Wishlitproduct> 
+  deleteproducttowishlist(useremail: string, productid:number): Observable<any> 
   {
-    return this.httpclient.post<Wishlitproduct>(`${environment.APIURLProduct}/Wishlist/DeleteProductFromWishList`,wishlistpro);
+    return this.httpclient.delete(`${environment.APIURLProduct}/Wishlist/DeleteProductFromWishList?useremail=${useremail}&productid=${productid}`);
 
   }
 }

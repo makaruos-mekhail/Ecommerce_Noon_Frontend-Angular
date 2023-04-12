@@ -6,6 +6,9 @@ import { IOrder } from 'src/app/Models/iorder';
 import { InteractionService } from 'src/app/Services/interaction.service';
 import { OrderService } from 'src/app/Services/order.service';
 import { HeaderComponent } from '../header/header.component';
+import { IProduct } from 'src/app/Models/iproduct';
+import { CategoyService } from 'src/app/Services/categoy.service';
+import { CartService } from 'src/app/Services/cart.service';
 @Component({
   selector: 'app-check-out',
   templateUrl: './check-out.component.html',
@@ -13,29 +16,25 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class CheckOutComponent implements OnInit{
   lang = localStorage.getItem('lang');
+  productInCart: IProduct[] = [];
+  totalQuantity: number = 0;
+  totalPrice: number = 0;
   paid! : boolean;
   email = this.cookieService.get("useremail");
-  totalPrice = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.price, 0);
+  //totalPrice = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.price, 0);
   cart = JSON.parse(this.cookieService.get('cart'));
-  usercheckoutdata:string[]=[];
-
-  name:string=""
-  address!:string
-  phone!:string
   constructor(private orderService: OrderService, private cookieService: CookieService,
-    private router:Router,private interactionService:InteractionService) { 
-      this.interactionService.checkoutdata$.subscribe(
-        data=>{this.usercheckoutdata=data;
-          this.name=this.usercheckoutdata[0];
-          console.log(this.name);
-          this.address=this.usercheckoutdata[1];
-          this.phone=this.usercheckoutdata[2];
-      //  console.log(name);
-      //  console.log(this.usercheckoutdata);
-        
-        }
-      );
-  
+    private router: Router,
+    private interactionService: InteractionService,
+    private cartService:CartService) {
+    //get data from cart 
+    this.cart = JSON.parse(cookieService.get('cart'));
+    let ids: number[] = JSON.parse(this.cookieService.get('cart')).map((item: any) => item.productid);
+    this.cartService.getCartItems(ids).subscribe((data) => {
+      this.productInCart = data;
+      this.totalPrice = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.price, 0);
+    });
+      this.totalQuantity = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.quantity, 0);
     render({
       id: "#myPaypalButtons",
       currency: "EGP",
@@ -49,30 +48,28 @@ export class CheckOutComponent implements OnInit{
       },
     }) 
   }
-  // name!:string
-  // address!:string
-  // phone!:string
+  name!:string
+  address!:string
+  phone!: string
+ 
   ngOnInit(): void {
-    // this.interactionService.checkoutdata$.subscribe(
-    //   data=>{this.usercheckoutdata=data;
-    //     this.name=this.usercheckoutdata[0];
-    //     console.log(this.name);
-    //     this.address=this.usercheckoutdata[1];
-    //     this.phone=this.usercheckoutdata[2];
-    //   console.log(name);
-    // //  console.log(this.usercheckoutdata);
+
+    this.interactionService.checkoutdata$.subscribe(
+      data => {
+        console.log(data);
+        
+        this.name = data[0]
+        console.log(this.name);
+        this.address= data[2]
+        this.phone=data[3]
       
-    //   }
-    // );
+      }
+    );
   }
-  //this.name=this.usercheckoutdata[0]
 
-
-//   removeDisabled
 removeDisabled(){
  let checkbox=document.getElementById("checkbox") as HTMLInputElement;
- let button=document.getElementById("order_btn") as HTMLButtonElement;
-// checkbox.checked || 
+ let button=document.getElementById("order_btn") as HTMLButtonElement; 
   if (checkbox.checked) {
     button.disabled = false;
     this.paymentmethod="cash"

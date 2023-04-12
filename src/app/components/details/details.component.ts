@@ -6,9 +6,11 @@ import { IOrderDetails } from "ngx-paypal";
 import { IOrderItem } from "src/app/Models/iorder-item";
 import { IProduct } from "src/app/Models/iproduct";
 import { IReview } from "src/app/Models/ireview";
+import { Wishlitproduct } from "src/app/Models/wishlitproduct";
 import { InteractionService } from "src/app/Services/interaction.service";
 import { ProductService } from "src/app/Services/product.service";
 import { ReviewsService } from "src/app/Services/reviews.service";
+import { WishlistService } from "src/app/Services/wishlist.service";
 
 
 @Component({
@@ -37,6 +39,7 @@ export default class DetailsComponent implements OnInit {
     private translate: TranslateService,
     private cookieService: CookieService,
     private interactionService: InteractionService,
+    private wishlistservice:WishlistService
   ) { 
     
     if(cookieService.get('cart')){
@@ -69,7 +72,12 @@ export default class DetailsComponent implements OnInit {
     }
   }
 
- 
+ //add to wishlist
+  addToWishlist() {
+    var useremail = this.cookieService.get("useremail");
+    var wishlistprod = new Wishlitproduct(useremail, this.currentProductId);
+    this.wishlistservice.addproducttowishlist(wishlistprod).subscribe();
+  }
   ngOnInit(): void {
     //get product by id
 

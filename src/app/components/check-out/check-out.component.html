@@ -20,7 +20,7 @@
   <div class="rounded row container-fluid pt-3 pb-3" style="background-color: #f7f7fa">
     <div class="col-sm-12 col-md-2"></div>
     <div class="col-sm-12 col-md-6">
-    <div class="row mx-4">
+      <div class="row mx-4">
       <strong class="title pb-2" [translate]="'Shipping_Address'"></strong>
       <div class="bg-white container-fluid row mt-2 mb-3 rounded">
         <div class="col-9 mx-4">
@@ -103,19 +103,20 @@
     <div class="col-sm-12 col-md-3 mx-2">
       <div class="row">
       <strong class="title pb-2 col-7" [translate]="'Review_Your_Order'"> </strong>
-      <div class="col-3">(1 item)</div>
+      <div class="col-3">{{totalQuantity}}
+        <span [translate]="'item'"></span>
+      </div>
        </div>
-       <div class="row bg-white pt-3 pb-3 rounded">
+       <div class="row bg-white pt-3 pb-3 rounded" *ngFor="let product of productInCart">
         <div class="col-4">
-          <img class="img-fluid" src="assets\cart\Casio.avif" alt="">
+          <img class="img-fluid" [src]="product.imagePath" alt="">
           <span class="unit ps-4">1 UNIT</span>
         </div>
         <div class="col-8 title">
-          <strong>Women's Baby-G Digital
-          Watch BGD-560-4DR</strong>
+          <strong>{{lang == 'en'? product.name : product.nameAr}}</strong>
           <div>
             <span class="unit">EGP</span>
-            <strong>  3232.00</strong>
+            <strong> {{product.price}}</strong>
             
           </div>
           <div>
@@ -131,7 +132,11 @@
        <div class="row bg-white pt-3 pb-3 mt-3 rounded">
         <div class="row">
           <div class="col-7 unit ps-4" [translate]="'Subtotal'"></div>
-          <div class="col-5 unit ps-4">EGP 3232.00</div>
+           
+          <div class="col-5 unit ps-4">
+            <span [translate]="'EGP'"></span>
+                {{totalPrice}}
+              </div>
         </div>
         <div class="row">
           <div class="col-9 unit px-4" [translate]="'Shipping_Fee'"></div>
@@ -143,7 +148,9 @@
             <strong [translate]="'TOTAL'"> </strong><pre></pre>
             <span class="px-1 unit" [translate]="'Inclusive_of_VAT'"></span>
           </div>
-          <div class="col-4"><div class="title"><strong class="price">EGP 3232.00</strong></div></div>
+          <div class="col-4"><div class="title">
+          <span  [translate]="'EGP'"></span>
+            <strong class="price">{{totalPrice}}</strong></div></div>
         </div>
         <div class="row mb-2">
 

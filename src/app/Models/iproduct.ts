@@ -11,6 +11,7 @@ export interface IProduct {
     nameAr: string;
     description: string;
     descriptionAr: string;
+    modelNumber: string;
     price: number;
     discount: number;
     quantity: number;

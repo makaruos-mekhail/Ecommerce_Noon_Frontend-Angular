@@ -50,11 +50,8 @@ checkoutdata$ =this.checkoutdata.asObservable();
   {
     this.checkdata=[name,address,phone];
     this.checkoutdata.next(this.checkdata);
+  
+    
   }
-  // setData(x: string) {
-  //   this.data = x;
-  // }
-  // getData() {
-  //   return this.data;
-  // }
+  
 }

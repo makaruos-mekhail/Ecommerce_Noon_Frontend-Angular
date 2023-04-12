@@ -9,8 +9,10 @@
         <div class="jest" style="background-color:#f7f7fa ;">
           <div class="col-9">
             <h4>
-          <span [translate]="'Thank You For Order'"></span><span> Makaruos!</span></h4>
-          <span [translate]="'Youll receive'"></span> makaruosmekhail@gmail.com <span [translate]="'once your order'"></span>
+          <span [translate]="'Thank You For Order'"></span><span> {{orders.user.firstName}}!</span></h4>
+          <span [translate]="'Youll receive'"> </span>
+          <span class="fw-bold"> {{orders.user.email}}</span>
+          <span [translate]="'once your order'"></span>
           </div>
           <div class="col-3 ">
             <button class="btn btn-primary col-12" type="button"  routerLink="/Home" [translate]="'CONTINUE SHOPPING'">
@@ -20,7 +22,7 @@
 
         <div class="mt-5 " style="background-color: white;">
           <div class="p-4">
-            <span [translate]="'OrderNum'"></span> NEGF40094387240
+            <!-- <span [translate]="'OrderNum'"></span> NEGF40094387240 -->
             <div class="row col-12 mt-3" style="text-align: center;">
               <span class="col-3 text-success"><i class="fa-solid fa-check" style="color: #2c902e;"></i>&nbsp;<span [translate]="'ORDERED'"></span></span>
               <span class="col-3 text-success"><i class="fa-solid fa-check" style="color: #2c902e;"></i>&nbsp;<span [translate]="'PROCESSING'"></span></span>
@@ -44,32 +46,32 @@
             <div class="mt-4">
               <i class="fa-solid fa-map-location-dot" style="color: #404040;"></i>&nbsp;<span [translate]="'Homee'"></span>
               <div class="mt-2">
-                makaruos mekhail
+              {{orders.user.firstName}} {{orders.user.lastName}}
               </div>
               <div class="mt-2">
-                Cairo,Ramsess - 4202020 cairo EG
+                {{orders.address}}
               </div>
               <div class="mt-2">
-                +20-12-02586577 <i class="fa-regular fa-circle-check" style="color: #589447;"></i>
+                {{orders.userPhone}}<i class="fa-regular fa-circle-check" style="color: #589447;"></i>
               </div>
               <hr>
               <div class="col-12 row">
                 <div class="col-8">
                   <h5 [translate]="'PAYMENT METHOD'"></h5>
                   <br>
-                  <button type="button" class="btn" style="background-color: #60b346;color: white;" [translate]="'Cashh'"></button>&nbsp;<span style="color: #60b346;" [translate]="'Cash On Delivery'"></span>
+                  <button type="button" class="btn" style="background-color: #60b346;color: white;" >{{orders.paymentMethod}}</button>&nbsp;<span style="color: #60b346;" >{{orders.paymentMethod}}</span>
                 </div>
                 <div class="col-4">
                   <h5 [translate]="'ORDER SUMMARY'"></h5>
-                  <div><span *ngIf="lang=='en'" [translate]="'Subtotall'"></span><span *ngIf="lang=='en'" style="float: right;">EGP 6.00</span></div>
-                  <div><span *ngIf="lang=='ar'" [translate]="'Subtotall'"></span><span *ngIf="lang=='ar'" style="float: left;">EGP 6.00</span></div>
-                  <div><span *ngIf="lang=='en'" [translate]="'Shippingg Fee'"></span><span *ngIf="lang=='en'" style="float: right;">EGP 20.00</span></div>
-                  <div><span *ngIf="lang=='ar'" [translate]="'Shippingg Fee'"></span><span *ngIf="lang=='ar'" style="float: left;">EGP 20.00</span></div>
-                  <div><span *ngIf="lang=='en'" [translate]="'Payment-fee'"></span><span *ngIf="lang=='en'" style="float: right;">EGP 9.00</span></div>
-                  <div><span *ngIf="lang=='ar'" [translate]="'Payment-fee'"></span><span *ngIf="lang=='ar'" style="float: left;">EGP 9.00</span></div>
+                  <div><span *ngIf="lang=='en'" [translate]="'Subtotall'"></span><span *ngIf="lang=='en'" style="float: right;">{{orders.totalPrice}} EGP</span></div>
+                  <div><span *ngIf="lang=='ar'" [translate]="'Subtotall'"></span><span *ngIf="lang=='ar'" style="float: left;">{{orders.totalPrice}}جنيه</span></div>
+                  <div><span *ngIf="lang=='en'" [translate]="'Shippingg Fee'"></span><span *ngIf="lang=='en'" style="float: right;">{{orders.totalPrice /20}} EGP</span></div>
+                  <div><span *ngIf="lang=='ar'" [translate]="'Shippingg Fee'"></span><span *ngIf="lang=='ar'" style="float: left;">{{orders.totalPrice /20}} جنيه</span></div>
+                  <!-- <div><span *ngIf="lang=='en'" [translate]="'Payment-fee'"></span><span *ngIf="lang=='en'" style="float: right;">EGP 9.00</span></div>
+                  <div><span *ngIf="lang=='ar'" [translate]="'Payment-fee'"></span><span *ngIf="lang=='ar'" style="float: left;">EGP 9.00</span></div> -->
                   <hr>
-                  <div><span *ngIf="lang=='en'" [translate]="'TOTAL (Inclusive of VAT)'">TOTAL (Inclusive of VAT)</span><span style="float: right;" *ngIf="lang=='en'">EGP 35.00</span></div>
-                  <div><span *ngIf="lang=='ar'" [translate]="'TOTAL (Inclusive of VAT)'">TOTAL (Inclusive of VAT)</span><span style="float: left;" *ngIf="lang=='ar'">EGP 35.00</span></div>
+                  <div><span *ngIf="lang=='en'" [translate]="'TOTAL (Inclusive of VAT)'">TOTAL (Inclusive of VAT)</span><span style="float: right;" *ngIf="lang=='en'">{{orders.totalPrice + orders.totalPrice /20}}EGP</span></div>
+                  <div><span *ngIf="lang=='ar'" [translate]="'TOTAL (Inclusive of VAT)'">TOTAL (Inclusive of VAT)</span><span style="float: left;" *ngIf="lang=='ar'">{{orders.totalPrice + orders.totalPrice /20}}جنيه</span></div>
                 </div>
               </div>
             </div>
@@ -80,34 +82,40 @@
         <div class="mt-5">
           <span [translate]="'Order Item'"></span>
         </div>
-        <div style="background-color: white;">
-          <div class="col-12 row m-2">
+        <div style="background-color: white;"*ngFor="let item of orders.orderItems">
+          <div class="col-12 row m-2" >
            <div class="col-2">
-           <img src="assets\products\N13090833A_1.avif" style="height: 250px;width: 100%;">
+           <img [src]="item.product.imagePath" style="height: 200px;width: 100%;">
            </div>
            <div class="col-8 mt-4">
-            <div>
+            <!-- <div>
             <span >Funday</span>
+            </div> -->
+            <div class="mt-2">
+              <span><b>{{lang == 'en'? item.product.name : item.product.nameAr}} </b></span>
             </div>
             <div class="mt-2">
-              <span><b>Samsung Galaxy A23 </b></span>
+            <span><b style="color: rgb(97, 103, 97);"[translate]="'Delivery-by'"> </b><b style="color: rgb(50, 165, 50);" [translate]="'Tomorrow'"></b>&nbsp;<img src="assets\cart\express.svg"></span>
             </div>
-            <div class="mt-2">
-            <span><b style="color: rgb(97, 103, 97);">Delivery by </b><b style="color: rgb(50, 165, 50);">Tomorrow, APr 11</b>&nbsp;<img src="assets\cart\express.svg"></span>
-            </div>
-            <div class="mt-3">
+            <div class="mt-3" >
               <i class="fa-solid fa-arrow-rotate-left" style="color: #666666;"></i>&nbsp;
-              This item cannot be exchanged or returned .
+             <span [translate]="'This-item-cannot-be-exchanged-o-returned'"></span>
             </div>
-            <div class="mt-3">
+            <!-- <div class="mt-3">
               <span>Sold by</span>&nbsp;<b>noon Grocery</b>
-            </div>
+            </div> -->
            </div>
            <div class="col-2 p-4">
-            <span *ngIf="lang=='en'" style="float: right;">EGP 20.00</span><br>
-            <span *ngIf="lang=='en'" style="float: right;">1 UNIT</span>
-            <span *ngIf="lang=='ar'" style="float: left;">EGP 20.00</span><br>
-            <span *ngIf="lang=='ar'" style="float: left;">1 UNIT</span>
+            <span *ngIf="lang=='en'" style="float: right;">
+              {{item.product.price * item.quantity}}
+              <span [translate]="'EGP'"></span>
+            </span><br>
+            <span *ngIf="lang=='en'" style="float: right;">{{item.quantity}}UNIT</span>
+            <span *ngIf="lang=='ar'" style="float: left;">
+              {{item.product.price}}
+              <span [translate]="'EGP'"></span>
+            </span><br>
+            <span *ngIf="lang=='ar'" style="float: left;">{{item.quantity}}وحدة</span>
            </div>
           </div>
          </div>
