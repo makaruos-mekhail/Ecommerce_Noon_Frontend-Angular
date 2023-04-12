@@ -368,8 +368,9 @@
   </div>
 
   <div class="row p-0 m-0 col-12 ">
-    <div class="col-6 col-md-4 col-xl-2  p-0 " *ngFor="let produt of  hotDealsProduct|slice:0:6">
-      <img [src]="produt.imagePath"  (click)="getproductDetails(produt.id)" class="img-fluid" alt="...">
+    <div class="col-6 col-md-4 col-xl-2 p-2 filter-light" *ngFor="let produt of  hotDealsProduct|slice:2:8">
+      <img [src]="produt.imagePath"  (click)="getproductDetails(produt.id)" class="img-fluid p-2" 
+      style="border-radius: 9px;border:1px grey solid;" alt="...">
     </div>
   </div>
 
@@ -403,16 +404,16 @@
                       <span
                         class="text-decoration-line-through txtFont2">{{product.price|discountpipe:product.discount|currency:'EGP'}}
                         &nbsp;</span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">{{product?.discount}}%
+                      <span class="fw-bold txtFont2" style="color: #326c19;">{{product?.discount}}%
                       </span>
                     </div>
                   </div>
                   <div class="row col-12 m-0 p-0 ">
-                    <div class="d-inline-block col-4 m-0 p-0">
-                      <img src="assets/icons/express.svg" alt="" class="col-12">
+                    <div class="d-inline-block col-4 m-0 p-1">
+                      <img src="assets/icons/express.svg" alt="" style="margin-top: -8px;" class="col-12">
                     </div>
-                    <div class=" col-6  position-absolute end-0 m-0 p-0" style="font-size: .2rem !important;">
-                      <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style "
+                    <div class=" col-6  position-absolute end-0 m-0 filter-light" style="font-size: .2rem !important;">
+                      <div class="d-inline-block col rounded-start-pill rounded-end-pill product-style X"
                         style="width: 3rem !important; height: 1.5rem !important;">
                         <span class="fs-6 col m-0 p-0 ">
                           {{product.rate}}
@@ -452,7 +453,7 @@
                       <span
                         class="text-decoration-line-through txtFont2">{{product.price|discountpipe:product.discount |currency:'EGP'}}
                       </span>
-                      <span class="fw-bold txtFont2" style="color: #3bbd04;">{{product?.discount}}%
+                      <span class="fw-bold txtFont2" style="color: #2d760d;">{{product?.discount}}%
                       </span>
                     </div>
                   </div>

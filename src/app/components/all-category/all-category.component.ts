@@ -18,6 +18,27 @@ import { ThisReceiver } from '@angular/compiler';
   styleUrls: ['./all-category.component.css']
 })
 export class AllCategoryComponent implements  OnInit  {
+  // Next & prev product
+  products = [
+    { id: 1, num1: 0, num2 : 4 },
+    { id: 2, num1: 5, num2 : 9 },
+    { id: 3, num1: 10, num2 : 14 },
+    { id: 4, num1: 15, num2 : 19 }
+  ];
+  currentProductIndex = 0;
+
+  previous() {
+    if (this.currentProductIndex >= 1) {
+      this.currentProductIndex -= 1;
+    }
+  }
+  
+  next() {
+    if (this.currentProductIndex <= this.products.length - 1) {
+      this.currentProductIndex += 1;
+    }
+  }
+
 
   prodList: IProduct[] = [];
   categoriesList: ICategory[] = [];

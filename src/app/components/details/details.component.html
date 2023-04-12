@@ -10,16 +10,21 @@
   <!-- //product images large screens -->
   <aside class="col-4 d-none d-md-block container-fluid" style="background-color: #f7f7fa;">
     <div class="row">
-      <div class="col-4">
-        <div *ngFor="let img of product?.productImages; let i = index" class="col-12" (click)="displayImg('id{{i+1}}')">
-          <img [id]="'id'+(i+1)" [src]="img.imagePath" alt="" height="100" width="100" />
+      <div class="col-3">
+        <div *ngFor="let img of product?.productImages; let i = index" class="col-12" (click)="displayImg(i)">
+          <div class="p-2">
+            <img [id]="'id'+(i+1)" [src]="img.imagePath" alt="" height="100" width="100"
+             style="border-radius: 20px; border: 1px solid aqua;" />
+          </div>
         </div>
       </div>
-      
-      <div class="col-8 d-flex">
-        <div class="row justify-content-center align-content-center">
-          <img id="main-product-img" class="img-fluid" [src]="product?.imagePath" height="100" width="100" />
+        
+      <div class="col-9 ">
+        <div class="row justify-content-center align-content-center p-2">
+          <img id="main-product-imgggg" class="img-fluid" [src]="product?.imagePath"
+          style="border-radius: 20px; border: 1px solid rgb(96, 96, 96);height: 28em;width: 100%;"/>
         </div>
+
       </div>
     </div>
   </aside>
@@ -45,30 +50,6 @@
 
     <!-- </div> -->
     <div class="row container-fluid m-0 my-1 p-0 align-items-center border" id="fixed-cart-section">
-      <!-- <div class="col-2 p-0">
-        <div class="btn-group p-2">
-          <button
-            type="button"
-            class="btn btn-secondary bg-light text-dark dd-button"
-          >
-            1
-          </button>
-          <button
-            type="button"
-            class="btn btn-secondary dropdown-toggle dropdown-toggle-split bg-light text-dark"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            data-bs-reference="parent"
-          >
-         
-            <span class="visually-hidden">Toggle Dropdown</span>
-          </button>
-          <ul class="dropdown-menu" style="min-width: 3.5rem;" *ngIf=" product!=null && product.quantity >= 5">
-            <li *ngFor="let item of Productquantity"><a class="dropdown-item" href="#">{{item}}</a></li>
-    add to cart
-          </ul>
-        </div>
-      </div> -->
       <div class="col-2">
         <select class="form-select" (change)="selectQuantity($event)" aria-label="Default select example" *ngIf="product!=null ">
           <ng-container *ngFor="let item of Productquantity let i=index">
@@ -201,9 +182,9 @@
     <div class="col-12 d-md-block d-none desktop">
       
       <!-- rating icon  -->
-      <a href="" class="text-decoration-none px-1 rounded-pill"><span>{{product?.rate}}</span>
-        <span><i class="fa-solid fa-star"></i></span>
-      </a>
+      <span class="text-decoration-none px-1 rounded-pill m-5 "><span>{{product?.rate}}</span>
+        <span><i class="fa-solid fa-star p-2"></i></span>
+      </span>
     </div>
 
     <div class="col-12 d-md-block d-none">
@@ -257,7 +238,7 @@
     </div>
     <!-- cart -->
     <div class="row d-md-block d-none mb-5">
-      <div class="row">
+      <div class="row m-3 p-2">
         <div class="col-2">
           <div class="col-12 fw-bold text-center" [translate]="'quantity'"></div>
 
@@ -274,8 +255,8 @@
         </div>
         <div class="col-2">
           <div class="Favoite-button d-flex justify-content-center p-3 m-3">
-            <i class="fa-solid fa-heart" id="fav" onclick="changefavButtobColor(this)"
-              style="color: #aab8c2; font-size: 2em;"></i>
+            <i class="fa-solid fa-heart" [ngStyle]="{'color': iconColor}" (click)="toggleFavorite()"
+              style="font-size: 2em;"></i>
           </div>
         </div>
       </div>
@@ -420,14 +401,13 @@
         </div>
         <div class="d-flex justify-content-center">
           <a>
-            <i class="fa-solid fa-star rateStars"></i>
-            <i class="fa-solid fa-star rateStars"></i>
-            <i class="fa-solid fa-star rateStars"></i>
-            <i class="fa-solid fa-star rateStars"></i>
-            <i class="fa-solid fa-star rateStars"></i>
+            <ng-container *ngFor="let i of [1, 2, 3, 4, 5]" >
+              <i class="fa-{{product?.rate! >= i ? 'solid' : 'regular'}} fa-star rateStars"></i>
+            </ng-container>
           </a>
         </div>
       </div>
+      
       <!-- progress -->
       <div class="col-7 col-md-3">
         <div>
@@ -469,7 +449,7 @@
     <!-- customer review -->
     <div class="row d-flex justify-content-center" style="padding: 2em; margin: 2em;">
       <h3>
-        <button class="btn btn-success" (click)="getReviws()" [translate]="'Customer-Reviews'">
+        <button class="btn btn-outline-success" (click)="getReviws()" [translate]="'Customer-Reviews'">
         
         </button>
       </h3>
