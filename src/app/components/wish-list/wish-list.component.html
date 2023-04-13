@@ -1,72 +1,121 @@
 <div class="containe-fluid">
   <div class="row">
     <hr />
-    <div class="col-1 wish ms-4" *ngIf="lang=='en'" [translate]="'WishList'"></div>
-    <div class="col-1 wish me-4" *ngIf="lang=='ar'" [translate]="'WishList'"></div>
+    <div
+      class="col-1 wish m-4"
+      *ngIf="lang == 'en'"
+      [translate]="'WishList'"
+      style="position: absolute;z-index:2"
+    >
+    ></div>
+  
     <div class="col-9"></div>
-    <!-- <div class="col-2">
-      <button class="sc-2e397e34-3 eTCqUt">Create New Wishlist</button>
-    </div> -->
+  
   </div>
-  <hr />
+  <hr class="mb-3" />
   <div class="row">
-    <aside class="col-4 mb-5">
-      <div class="mt-5 pt-4 px-3 pb-3 col-10" style="background-color: #e7e7e7;">
-        <div class="row default_div ">
-          <h6 class="ms-3 col-2" style="background-color: #e7e7e7;">default</h6>
-          <span class="notbutton col-2" [translate]="'Default'"></span>
+    <aside class="col-4 col-md-4 col-sm-4 mb-5">
+      <div class="mt-5 pt-4 px-3 pb-3 col-md-10 col-sm-10 col-10" style="background-color: #e7e7e7">
+        <div class="row default_div">
+          <h6 class="mx-3 col-6 col-md-6 col-sm-6" style="background-color: #e7e7e7">default</h6>
+          <div class=" col-1 col-md-1 col-sm-1 mx-2"  style="background-color: #e7e7e7">
+          <span class="notbutton "  [translate]="'Default'"></span></div>
         </div>
-        <div class="row mt-2 px-3 Quantity_div ">
-          <p class="col-2 mx-1" style="background-color: #e7e7e7;">{{count}} items</p>
-          <img class="col-2 mt-1 im" src="assets/WishList/bag.svg" alt="" style="background-color: #e7e7e7;" />
+        <div class="row mt-2 px-3 Quantity_div">
+          <p class="col-2 mx-1" style="background-color: #e7e7e7">
+            {{ count }} items
+          </p>
+          <img
+            class="col-2 mt-1 im"
+            src="assets/WishList/bag.svg"
+            alt=""
+            style="background-color: #e7e7e7"
+          />
         </div>
       </div>
     </aside>
     <div class="col-8">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12 py-3">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" id="products-list">
-              <div *ngFor="let Prod of products" class="col-1 card col-m-4 mx-4">
-                <div class="p-2 bg-white h-100">
-                  <div class="div-center col-12">
-                        <div>
-                          <img [src]="Prod.imagePath" class="img-fluid" width="100" height="100"/>
+                <div
+                  *ngFor="let Prod of products"
+                  class=" bg-white col-m-2  col- card m-3 rounded-1 border border-0"
+                  style="width: 14rem"
+                >
+                  <div class="bg-white">
+                    <div class="div-center col-12 bg-white">
+                      <div class="col-11 m-2">
+                        <img
+                          [src]="Prod.imagePath"
+                          class="img-fluid filter-gray card-img-top" 
+                        />
+                      </div>
+                      <div class="card-body bg-white">
+                        <div style="height:2em ;overflow: hidden;">
+                        <h6 class="prod-card-title p-2">
+                          {{ lang == "en" ? Prod.name : Prod.nameAr }}
+                        </h6></div>
+                        <div class="d-flex flex-row extra_info py-2 px-2">
+                          <p [translate]="'currancy'"></p>
+                          <h6 class="px-2 fw-bold" style="display: block">
+                            {{ Prod.price }}
+                          </h6>
+                          <h6 style="color: #38ae04">{{ Prod.discount }} %</h6>
                         </div>
-                  <h6 class="prod-card-title">
-                    {{lang == 'en'? Prod.name : Prod.nameAr}}
-                  </h6>
-                  <div class="d-flex flex-row extra_info">
-                    <p [translate]="'currancy'"></p>
-                    <h6 class="px-2 fw-bold" style="display: block">{{Prod.price}}</h6>
-                    <h6 style="color: #38ae04">{{Prod.discount}} %</h6>
-                  </div>
-                  <div class="d-flex flex-row flex-wrap justify-content-between extra_info2">
-                    <div class="express-badge my-2">
-                      <img class="express-badge" src="assets/WishList/ex.svg" alt="" *ngIf="lang=='en'">
-                      <img class="express-badge" src="assets/WishList/express_ar.svg" alt="" *ngIf="lang=='ar'">
-                    </div>
-                    <div class="d-flex flex-row my-2">
-                      <div class="prod-rate border rounded bg-success text-light">
-                       {{Prod.rate}}
-                        <i class="bi bi-star-fill bg-success text-light"></i>
+                        <div
+                          class="d-flex flex-row flex-wrap justify-content-between extra_info2"
+                        >
+                          <div class="express-badge my-2 px-2">
+                            <img
+                              class="express-badge"
+                              src="assets/WishList/ex.svg"
+                              alt=""
+                              *ngIf="lang == 'en'"
+                            />
+                            <img
+                              class="express-badge"
+                              src="assets/WishList/express_ar.svg"
+                              alt=""
+                              *ngIf="lang == 'ar'"
+                            />
+                          </div>
+                          <div class="d-flex flex-row my-2 px-2">
+                            <div
+                              class="prod-rate border rounded bg-success text-light px-2 rounded-4"
+                            >
+                              {{ Prod.rate }}
+                              <i
+                                class="bi bi-star-fill bg-success text-light"
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row px-2 py-2 bg-white">
+                          <button
+                            class="add rounded col-9"
+                            [translate]="'add_to_cart'"
+                          ></button>
+                          <button class="remove_btn col-2">
+                            <span class="sc-33c21cfe-7 kvNvqX px-2"
+                              ><img
+                                (click)="removeProduct(Prod.id)"
+                                src="assets/cart/trash.svg"
+                                alt="remove"
+                                width="30px"
+                                height="20px"
+                                class="sc-b51db3f-1 bwDhlu"
+                            /></span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <button class="add rounded col-9 px-1" [translate]="'add_to_cart'">
-                    </button>
-                    <button class="remove_btn col-3">
-                      <span class="sc-33c21cfe-7 kvNvqX"><img (click)="removeProduct(Prod.id)" src="assets/cart/trash.svg" alt="remove" width="30px"
-                          height="20px" class="sc-b51db3f-1 bwDhlu " /></span>
-                    </button>
-                  </div>
                 </div>
-              </div>
-            </div>
+        </div>
+            
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  <!-- </div> -->
+<!-- </div> -->
