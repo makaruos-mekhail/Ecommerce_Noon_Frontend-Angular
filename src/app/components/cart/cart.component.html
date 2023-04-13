@@ -213,7 +213,7 @@
                       <div class="col-12">
                         <div class="col-1 d-inline fw-bold">+20</div>
                         <div class="col- d-inline fw-bold">
-                          <select>
+                          <select #fnum>
                             <option selected>10</option>
                             <option value="1">11</option>
                             <option value="2">12</option>
@@ -256,21 +256,19 @@
                           autocomplete="off">
                         <label class="btn btn-outline-primary" for="danger-outlined">Work</label>
                       </div>
-
                     </div>
-                  </form>
-                </div>
                 <div class="modal-footer">
                   <button type="button"  class="btn btn-primary text-light fw-bold"
-                    (click)="sendCheckOutData(address.value,phone.value,firstname.value,lastname.value)" [translate]="'save-address'"
+                    (click)="sendCheckOutData(address.value,phone.value,fnum.value,firstname.value,lastname.value)" [translate]="'save-address'"
                     data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close">
                   </button>
                 </div>
+                  </form>
+                  </div>
               </div>
             </div>
           </div>
-          <!-- <div class="d-flex justify-content-center" id="myPaypalButtons">
-          </div> -->
+          
         </div>
       </div>
     </main>

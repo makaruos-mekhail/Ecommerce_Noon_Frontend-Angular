@@ -33,5 +33,8 @@ export class UserService {
     return this.httpclient
       .patch<any>(`${environment.APIURLProduct}/User/updateUser`, checkoutdto)
   }
- 
+  getUserName(useremail: string): Observable<string>{
+    return this.httpclient
+      .get<string>(`${environment.APIURLProduct}/User/getnameuser?useremail=${useremail}`);
+ }
 }
