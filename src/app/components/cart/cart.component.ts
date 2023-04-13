@@ -63,11 +63,13 @@ getProductDetails(prdid: number) {
   }
  //send data to checkout componenet
   
-sendCheckOutData(addres: string, phone: string,firstname:string,lastname:string) {
-  var useremail=this.cookieService.get("useremail");
-  this.interactionservice.sendchseckoutdata(firstname.concat(lastname), addres, phone);
-  var cdata = new Checkoutdata(addres, phone,useremail);
-  this.userervice.UpdateUser(cdata).subscribe();
+sendCheckOutData(addres: string, phone: string,fnum:string,firstname:string,lastname:string) {
+  var useremail = this.cookieService.get("useremail");
+  var ph = "+20".concat(fnum).concat(phone)
+  this.interactionservice.sendchseckoutdata(firstname.concat(lastname), addres, ph);
+  var cdata = new Checkoutdata(addres, ph,useremail);
+  this.userervice.UpdateUser(cdata).subscribe(
+  );
   this.router.navigate(['/Checkout']);
   }
 

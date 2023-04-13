@@ -2,12 +2,13 @@
   <div class="col-12 row m-0 p-0 txtFont">
     <div class="bg-header-yollow row align-items-center text-center p-2 m-0">
       <!-- Noon Logo -->
-      <div class="col-2 col-sm-2 col-md-1 d-inline-block">
+      <div class="col-2 col-sm-2 col-md-1 d-inline-block" >
         <a routerLink="/Home">
           <img src="assets/header/noon-logo-en.svg" class="img-fluid mx-auto"  *ngIf="lang=='en'" >
           <img src="assets/header/noon-logo-ar.svg" class="img-fluid mx-auto" *ngIf="lang=='ar'">
         </a>
       </div>
+      
       <!--  Delivery To -->
       <div class="row d-none d-md-inline-block col-md-1  p-0 m-0">
         <button class="bg-header-yollow border-0 m-0 p-0 ">
@@ -51,7 +52,7 @@
       </div>
 
       <!-- Sign In -->
-      <div class=" col-sm-3  col-md-2 d-md-inline-block element1 elementt elem">
+      <div class=" col-sm-3  col-md-2 d-md-inline-block element1 elementt elem" *ngIf="!checklogin">
         <a type="button" class="btn aa"  data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
           <span class="fw-bold txtFont22 ">
              <span [translate]="'sign-in'"></span>
@@ -61,9 +62,33 @@
             </span>
         </a>
       </div>
+      <div class=" col-sm-3 col-md-2 d-md-inline-block element1 elementt elem" *ngIf="checklogin">
+        <div class="dropdown ">
+          <button class="btn border-0 dropdown-toggle p-0 d-flex align-items-center
+        mx-auto" type="button"
+           data-bs-toggle="dropdown" aria-expanded="false">
+            <span>
+                <span [translate]="'Ahlan'" style="font-size:0.8em;"></span>
+                <span style="font-size:0.75em;">Fatmaa</span>
+                <div class="fw-bold" style="font-size:0.9em;" [translate]="'MyAccount'"></div>
+            </span>
+          </button>
+          <ul class="dropdown-menu border-0"  style="border-radius: 0; min-width: 5rem !important;">
+            <li><a class="dropdown-item text-center " routerLink="/Ordered">
+              <img src="assets\orders.svg">
+              Orders 
+            </a></li>
+            <li><a class="dropdown-item text-center" href="#">
+              <img src="assets\profile.svg">
+              Profile</a></li>
+            <li><a class="dropdown-item text-muted text-center fw-bold" href="#">Sign Out</a></li>
+          </ul>
+        </div>
+      </div>
+
 
       <!-- WishList -->
-      <div class=" col-sm-1 col-md-1  d-md-inline-block  element1 elementt elem ">
+      <div class=" col-sm-1 col-md-1  d-md-inline-block  element1 elementt elem "  *ngIf="checklogin">
           <a type="button" class="btn aaa element4">
               <span class="fw-bold txtFont22" routerLink="/WishList">
                 <span [translate]="'WishLists'" ></span>

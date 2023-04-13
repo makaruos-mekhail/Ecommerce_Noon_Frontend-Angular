@@ -22,8 +22,10 @@ import { HttpErrorResponse } from "@angular/common/http";
 })
 
 export class HeaderComponent implements OnInit {
-
-
+  
+ 
+  checklogin: boolean = false;
+  userName:string=""
   categoriesList: ICategory[] = [];
 
   lang = localStorage.getItem('lang');
@@ -39,7 +41,8 @@ export class HeaderComponent implements OnInit {
     private formBulider: FormBuilder,
     private userservice: UserService,
     private interactionservice:InteractionService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+
     )
   {
        //Get Dropdown category
@@ -51,6 +54,20 @@ export class HeaderComponent implements OnInit {
       }
     this.translate.use(this.lang);
     
+    this.checklogin = this.cookieService.check("useremail")
+
+    var useremail = this.cookieService.get("useremail");
+
+    this.userservice.getUserName(useremail).subscribe(
+      data => {
+        this.userName = data
+        console.log(data);
+        
+       }
+    );
+  
+    
+    console.log(this.userName);
     
     //form
     // this.userFormGroup = this.formBulider.group({
