@@ -2,6 +2,7 @@
     background-color:#F7F7FA ;
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 .wish{
     font-size: 24px;
@@ -74,18 +75,21 @@ section{
 .outline{
     outline: none !important;
   }
-.carousel-control-prev{
+/* .carousel-control-prev{
     opacity:10%;
 }
 .carousel-control-next{
     opacity:10%;
-}
+} */
 .default_div{
     background-color: #E7E7E7;
 }
 .Quantity_div{
     background-color: #E7E7E7;
 }
-.prod-card-title,.extra_info,.extra_info2,.carousel-indicators,.no,.express-badge{
+.prod-card-title,.extra_info,.extra_info2,.carousel-indicators,.no,.express-badge,.card{
     background-color: white;
+}
+.filter-gray{
+    filter: invert(2%) sepia(0%) saturate(310%) hue-rotate(10deg) brightness(99%) contrast(100%);
 }
