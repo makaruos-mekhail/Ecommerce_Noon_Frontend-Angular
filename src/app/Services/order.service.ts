@@ -25,7 +25,11 @@ export class OrderService {
   }
 
   //get user orders by status
-  getUserOrders(userEmail: string, status: string):Observable<Orders> {
+  getUserOrders(userEmail: string, status: string): Observable<Orders> {
     return this.httpClient.get<Orders>(`${environment.APIURLProduct}/Order/GetAllOrders?userEmail=${userEmail}&status=${status}`);
+  }
+  //ALL ORDERS 
+ getAllUserOrders(userEmail: string):Observable<Orders[]>{
+    return this.httpClient.get<Orders[]>(`${environment.APIURLProduct}/Order/GetAllUserOrders?userEmail=${userEmail}`)
   }
 }
