@@ -11,9 +11,11 @@ import { OrderService } from 'src/app/Services/order.service';
 })
 export class OrderedComponent implements OnInit {
   lang = localStorage.getItem('lang');
-  allorders: Orders[]|undefined;
+  allorders: Orders[] = [];
+  getAllOrders: any[] | undefined;
+  // orders: Orders[] | undefined;
+  // userEmail = this.cookieService.get("useremail");
 
-  userEmail = this.cookieService.get("useremail");
   constructor(private translate: TranslateService,
     private cookieService: CookieService,
     private orderservice: OrderService)
@@ -33,6 +35,7 @@ export class OrderedComponent implements OnInit {
    
     
   }
+
    ngOnInit(): void {
 //     setTimeout(() => {
 //       this.getorders();
@@ -50,5 +53,3 @@ export class OrderedComponent implements OnInit {
 //   })
 // }
   }
-
-  

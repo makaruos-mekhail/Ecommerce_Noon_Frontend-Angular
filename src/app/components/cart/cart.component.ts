@@ -18,7 +18,7 @@ import { ModalService } from 'src/app/Services/modal.service';
 export class CartComponent {
   lang = localStorage.getItem('lang');
 
-  productQuantity: number[] = new Array(4);
+  productQuantity: number[] = new Array(5);
   productInCart :IProduct[] = [];
   cart: IOrderItem[] = [];
   totalQuantity : number = 0;
@@ -88,6 +88,7 @@ sendCheckOutData(addres: string, phone: string,fnum:string,firstname:string,last
   getQuantityByproductId(id: number) {
     let cartItem = this.cart.find(item => item.productid === id);
     if (cartItem) {
+      console.log(id + ":  "+ cartItem.quantity);
       return cartItem.quantity;
     }
     return 0;
@@ -95,17 +96,15 @@ sendCheckOutData(addres: string, phone: string,fnum:string,firstname:string,last
     
   // ------------ update Item Quantity ------------
   updateItemQuantity(event: any, id: number) {
-    // console.log("update item quantity "+id);
+    console.log("update item quantity "+id);
     let cartItem = this.cart.find(item => item.productid === id);
-    // console.log(cartItem);
+    console.log(cartItem);
     if (cartItem) {
-      cartItem.quantity = event.target.value;
-      cartItem.price = (event.target.value * cartItem.price)/cartItem.quantity;
-      this.cookieService.set('cart', JSON.stringify(this.cart), this.farFutureDate);
-      // this.totalQuantity = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.quantity, 0);
-      // this.totalPrice = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.price, 0);
-      // this.interactionservice.sendCart(this.totalQuantity, this.totalPrice);
+      let newQuantity = Number(event.target.value);
+      cartItem.quantity = newQuantity;
+      cartItem.price = (newQuantity * cartItem.price);
     }
+    this.cookieService.set('cart', JSON.stringify(this.cart), this.farFutureDate);
   }
 
 }
