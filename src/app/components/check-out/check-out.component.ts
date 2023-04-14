@@ -37,16 +37,17 @@ export class CheckOutComponent implements OnInit{
       this.totalQuantity = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.quantity, 0);
     render({
       id: "#myPaypalButtons",
-      currency: "EGP",
-      value: this.totalPrice.toString(),
+      currency: "USA",
+      value: "100",
       
       onApprove: (details) => {
         let button=document.getElementById("order_btn") as HTMLButtonElement;
         button.disabled = false;
         this.paymentmethod="PayBal"
         this.paid = true;     
+        alert("Transaction Successful");
       },
-    }) 
+    })  
   }
   name!:string
   address!:string
