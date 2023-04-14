@@ -11,8 +11,8 @@ import { OrderService } from 'src/app/Services/order.service';
 })
 export class OrderedComponent implements OnInit {
   lang = localStorage.getItem('lang');
-  allorders: Orders[] = [];
-  orders: Orders[] | undefined;
+  allorders: Orders[]|undefined;
+
   userEmail = this.cookieService.get("useremail");
   constructor(private translate: TranslateService,
     private cookieService: CookieService,
@@ -22,29 +22,33 @@ export class OrderedComponent implements OnInit {
       this.lang = 'en';
     }
     this.translate.use(this.lang);
-
     //get all orders of user
-    // var userEmail = this.cookieService.get("useremail");
-    // this.orderservice.getAllUserOrders(userEmail).subscribe(data => {
-    //     this.allorders = data
-    //   console.log(this.allorders);
-    // });
-   //console.log(this.allorders);
+    var userEmail = this.cookieService.get("useremail");
+    this.orderservice.getAllUserOrders(userEmail).subscribe((data) => {
+      this.allorders = data
+      console.log(this.allorders);
+    });
+   console.log(this.allorders);
+  
    
     
   }
-  ngOnInit(): void {
-    this.getorders();
-    console.log(this.allorders);
+   ngOnInit(): void {
+//     setTimeout(() => {
+//       this.getorders();
+//       console.log(this.allorders);
+//     }, 5000);
+   
+   
   }
-  getorders(): void{
+//   getorders(): void{
     
-    this.orderservice.getAllUserOrders(this.userEmail).subscribe(data => {
-      this.allorders = data
-      console.log(this.allorders);
+//     this.orderservice.getAllUserOrders(this.userEmail).subscribe(data => {
+//       this.allorders = data
+//       console.log(this.allorders);
       
-  })
-}
+//   })
+// }
   }
 
   
