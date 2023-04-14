@@ -15,6 +15,7 @@ export class OrderedComponent implements OnInit {
   getAllOrders: any[] | undefined;
   // orders: Orders[] | undefined;
   // userEmail = this.cookieService.get("useremail");
+
   constructor(private translate: TranslateService,
     private cookieService: CookieService,
     private orderservice: OrderService)
@@ -23,30 +24,32 @@ export class OrderedComponent implements OnInit {
       this.lang = 'en';
     }
     this.translate.use(this.lang);
-
     //get all orders of user
-    // var userEmail = this.cookieService.get("useremail");
-    // this.orderservice.getAllUserOrders(userEmail).subscribe(data => {
-    //     this.allorders = data
-    //   console.log(this.allorders);
-    // });
-   //console.log(this.allorders);
+    var userEmail = this.cookieService.get("useremail");
+    this.orderservice.getAllUserOrders(userEmail).subscribe((data) => {
+      this.allorders = data
+      console.log(this.allorders);
+    });
+   console.log(this.allorders);
+  
    
     
   }
-  ngOnInit(): void {
-    //get all orders of user
-    var userEmail = this.cookieService.get("useremail");
-    this.orderservice.getAllUserOrders(userEmail).subscribe(data => {
-      // this.allorders.forEach(d => {
-      //   this.allorders.push(d.);
-        // data.forEach(d => {
-        //   this.allorders.push(d);
-        // });
-        this.allorders = data;
-      })
-    }
-  test(){
-    console.log(this.allorders);
+
+   ngOnInit(): void {
+//     setTimeout(() => {
+//       this.getorders();
+//       console.log(this.allorders);
+//     }, 5000);
+   
+   
   }
-}
+//   getorders(): void{
+    
+//     this.orderservice.getAllUserOrders(this.userEmail).subscribe(data => {
+//       this.allorders = data
+//       console.log(this.allorders);
+      
+//   })
+// }
+  }

@@ -19,7 +19,10 @@ export class CheckOutComponent implements OnInit{
   productInCart: IProduct[] = [];
   totalQuantity: number = 0;
   totalPrice: number = 0;
-  paid! : boolean;
+  paid!: boolean;
+  name!: string
+  address!: string
+  phone!: string
   email = this.cookieService.get("useremail");
   //totalPrice = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.price, 0);
   cart = JSON.parse(this.cookieService.get('cart'));
@@ -49,24 +52,24 @@ export class CheckOutComponent implements OnInit{
         this.paid = true;     
       },
     }) 
+
+    this.interactionService.checkoutdata$.subscribe(
+      (data) => {
+        debugger
+        console.log(data);
+
+        this.name = data[0]
+        console.log(this.name);
+        this.address = data[1]
+        this.phone = data[2]
+
+      }
+    );
   }
-  name!:string
-  address!:string
-  phone!: string
+ 
  
   ngOnInit(): void {
 
-    this.interactionService.checkoutdata$.subscribe(
-      data => {
-        console.log(data);
-        
-        this.name = data[0]
-        console.log(this.name);
-        this.address= data[2]
-        this.phone=data[3]
-      
-      }
-    );
   }
 
 removeDisabled(){
