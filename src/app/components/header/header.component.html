@@ -1,14 +1,14 @@
-<header  class="container-fluid col-12 row">
+<header class="container-fluid col-12 row">
   <div class="col-12 row m-0 p-0 txtFont">
     <div class="bg-header-yollow row align-items-center text-center p-2 m-0">
       <!-- Noon Logo -->
-      <div class="col-2 col-sm-2 col-md-1 d-inline-block" >
+      <div class="col-2 col-sm-2 col-md-1 d-inline-block">
         <a routerLink="/Home">
-          <img src="assets/header/noon-logo-en.svg" class="img-fluid mx-auto"  *ngIf="lang=='en'" >
+          <img src="assets/header/noon-logo-en.svg" class="img-fluid mx-auto" *ngIf="lang=='en'">
           <img src="assets/header/noon-logo-ar.svg" class="img-fluid mx-auto" *ngIf="lang=='ar'">
         </a>
       </div>
-      
+
       <!--  Delivery To -->
       <div class="d row d-none d-md-inline-block col-md-1  p-0 m-0">
         <button class="bg-header-yollow border-0 m-0 p-0 ">
@@ -17,7 +17,7 @@
           </div>
           <div class=" d-inline-block">
             <span class="txtFont" [translate]="'header-deliver'">
-              
+
             </span>
 
           </div>
@@ -28,42 +28,41 @@
         </button>
       </div>
       <!-- media Default sm & md -->
-    <div class="row d-none d-sm-none d-md-inline col-sm-10 col-md-10" style="padding-left: 0px;padding-right: 0px;">
-      <!-- Search Input -->
-      <div class=" col-sm-5 col-md-6 d-md-inline-block Searchh">
-        <div class="input-group">
-          <input id="searchbar" #asd type="text" (change)="searchpro(asd.value)" class="outline form-control rounded p-2"
-            placeholder="{{'what-are-you-looking-for' | translate}}" aria-label="What are you looking for?"
-            aria-describedby="button-addon2">
+      <div class="row d-none d-sm-none d-md-inline col-sm-10 col-md-10" style="padding-left: 0px;padding-right: 0px;">
+        <!-- Search Input -->
+        <div class=" col-sm-5 col-md-6 d-md-inline-block Searchh">
+          <div class="input-group">
+            <input id="searchbar" #asd type="text" (change)="searchpro(asd.value)"
+              class="outline form-control rounded p-2" placeholder="{{'what-are-you-looking-for' | translate}}"
+              aria-label="What are you looking for?" aria-describedby="button-addon2">
+          </div>
         </div>
-      </div>
 
-      <!-- Language -->
-      <div class="col-sm-2  col-md-1  d-md-inline-block Dropdwon " 
-      style="padding-top: 0px;padding-bottom: 0px; border-radius: 7px;">
-        <select class="outline form-select-sm language-switcher form-select Trans" 
-        style="height: 40px;border-radius: 7px;text-align: center;"
-        (change)="selectedLanguage($event)">
-          <option value="en" *ngIf="lang=='en'" selected>English </option>
-          <option value="ar" *ngIf="lang=='en'" >العربية </option>
-          <option value="en" *ngIf="lang=='ar'" >English </option>
-          <option value="ar" *ngIf="lang=='ar'"selected >العربية </option>
-        </select>
-      </div>
+        <!-- Language -->
+        <div class="col-sm-2  col-md-1  d-md-inline-block Dropdwon "
+          style="padding-top: 0px;padding-bottom: 0px; border-radius: 7px;">
+          <select class="outline form-select-sm language-switcher form-select Trans"
+            style="height: 40px;border-radius: 7px;text-align: center;" (change)="selectedLanguage($event)">
+            <option value="en" *ngIf="lang=='en'" selected>English </option>
+            <option value="ar" *ngIf="lang=='en'">العربية </option>
+            <option value="en" *ngIf="lang=='ar'">English </option>
+            <option value="ar" *ngIf="lang=='ar'" selected>العربية </option>
+          </select>
+        </div>
 
-      <!-- Sign In -->
-      <div class=" col-sm-3  col-md-2 d-md-inline-block element1 elementt elem" *ngIf="!checklogin">
-        <a type="button" class="btn aa"  data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-          <span class="fw-bold txtFont22 ">
-             <span [translate]="'sign-in'"></span>
+        <!-- Sign In -->
+        <div class=" col-sm-3  col-md-2 d-md-inline-block element1 elementt elem" *ngIf="!checklogin">
+          <a type="button" class="btn aa" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+            <span class="fw-bold txtFont22 ">
+              <span [translate]="'sign-in'"></span>
 
-            <img class="txtFont" src="assets/header/account-inactive.svg" alt=""
-              style="width: 1rem !important; height: 1rem !important;" class="img-fluid">
+              <img class="txtFont" src="assets/header/account-inactive.svg" alt=""
+                style="width: 1rem !important; height: 1rem !important;" class="img-fluid">
             </span>
-        </a>
-      </div>
-      <div class=" col-sm-3 col-md-2 d-md-inline-block element1 elementt elem" *ngIf="checklogin">
-        <div class="my-auto">
+          </a>
+        </div>
+        <div class=" col-sm-3 col-md-2 d-md-inline-block element1 elementt elem" *ngIf="checklogin">
+          <div class="my-auto">
             <div class="dropdown ">
               <button class="btn border-0 dropdown-toggle p-0 d-flex align-items-center
                     mx-auto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,248 +75,256 @@
               <ul class="dropdown-menu border-0" style="border-radius: 0; min-width: 5rem !important;">
                 <li><a class="dropdown-item text-center " routerLink="/Ordered">
                     <img src="assets\orders.svg">
-                    Orders
+                    <span [translate]="'Orders'"></span>
                   </a></li>
-                <li><a class="dropdown-item text-center" >
+                <li><a class="dropdown-item text-center">
                     <img src="assets\profile.svg">
-                    Profile</a></li>
-                <li><a class="dropdown-item text-muted text-center fw-bold" (click)="logOut()">Sign Out</a></li>
+                    <span [translate]="'Profile'">
+                    </span></a></li>
+                <li><a class="dropdown-item text-muted text-center fw-bold" (click)="logOut()">
+                    <SPan [translate]="'SignOut'"></SPan>
+                  </a></li>
               </ul>
             </div>
+          </div>
+
         </div>
-      
-      </div>
 
 
-      <!-- WishList -->
-      <div class=" col-sm-1 col-md-1  d-md-inline-block  element1 elementt elem "  *ngIf="checklogin">
+        <!-- WishList -->
+        <div class=" col-sm-1 col-md-1  d-md-inline-block  element1 elementt elem " *ngIf="checklogin">
           <a type="button" class="btn aaa element4">
-              <span class="fw-bold txtFont22" routerLink="/WishList">
-                <span [translate]="'WishLists'" ></span>
-                <i class="fa-regular fa-heart"></i>
-               </span>
-          </a>
-       </div>
-
-      <!-- Cart -->
-      <div class="m-auto col-sm-1 col-md-2 d-md-inline-block p-0 m-0">
-        <a routerLink="/Cart">
-          <span class="fw-bold"[translate]="'cart'" >
-          </span>
-          <span class="m-0 p-0">
-            <img src="assets/header/cart.svg" alt="" style="width: 1.5rem !important; height: 1.5rem !important;"
-              class="img-fluid">
-            <span *ngIf="cartQuantity" style="top: 20px;"
-            class="position-absolute translate-middle badge rounded-circle bg-primary ">
-              <span class="visually-hidden"> {{cartQuantity}} Product in your Cart</span>
-               {{cartQuantity}}
+            <span class="fw-bold txtFont22" routerLink="/WishList">
+              <span [translate]="'WishLists'"></span>
+              <i class="fa-regular fa-heart"></i>
             </span>
-          </span>
-        </a>
+          </a>
+        </div>
+
+        <!-- Cart -->
+        <div class="m-auto col-sm-1 col-md-2 d-md-inline-block p-0 m-0">
+          <a routerLink="/Cart">
+            <span class="fw-bold" [translate]="'cart'">
+            </span>
+            <span class="m-0 p-0">
+              <img src="assets/header/cart.svg" alt="" style="width: 1.5rem !important; height: 1.5rem !important;"
+                class="img-fluid">
+              <span *ngIf="cartQuantity" style="top: 20px;"
+                class="position-absolute translate-middle badge rounded-circle bg-primary ">
+                <span class="visually-hidden"> {{cartQuantity}} Product in your Cart</span>
+                {{cartQuantity}}
+              </span>
+            </span>
+          </a>
+        </div>
       </div>
-    </div>
-    <!-- media Phone -->
-    <div class="row d-inline d-sm-inline d-md-none col-10 marFont">
-      <!-- Search Input -->
-      <div class="col-5 d-inline-block Searchh">
-        <div class="input-group">
-          <input id="searchbar" #asd type="text" (change)="searchpro(asd.value)" class="outline form-control rounded p-2"
-            placeholder="{{'what-are-you-looking-for' | translate}}" aria-label="What are you looking for?"
-            aria-describedby="button-addon2">
+      <!-- media Phone -->
+      <div class="row d-inline d-sm-inline d-md-none col-10 marFont">
+        <!-- Search Input -->
+        <div class="col-5 d-inline-block Searchh">
+          <div class="input-group">
+            <input id="searchbar" #asd type="text" (change)="searchpro(asd.value)"
+              class="outline form-control rounded p-2" placeholder="{{'what-are-you-looking-for' | translate}}"
+              aria-label="What are you looking for?" aria-describedby="button-addon2">
+          </div>
+        </div>
+
+        <!-- Language -->
+        <div class="col-2 d-inline-block Dropdwon " style="padding-top: 0px; padding-bottom: 0px;">
+          <select class="outline form-select-sm language-switcher form-select Trans"
+            style="height: 40px;border-radius: 7px;text-align: center;" (change)="selectedLanguage($event)">
+            <option value="en" *ngIf="lang=='en'" selected>English </option>
+            <option value="ar" *ngIf="lang=='en'">العربية </option>
+            <option value="en" *ngIf="lang=='ar'">English </option>
+            <option value="ar" *ngIf="lang=='ar'" selected>العربية </option>
+          </select>
+        </div>
+
+        <!-- Sign In -->
+        <div class=" col-3 d-inline-block element1 elementt elem">
+          <a type="button" class="btn aa" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+            <span class="fw-bold txtFont22">
+              <span [translate]="'sign-in'"></span>
+
+              <img class="txtFont" src="assets/header/account-inactive.svg" alt=""
+                style="width: 1rem !important; height: 1rem !important;" class="img-fluid">
+            </span>
+          </a>
+        </div>
+
+        <!-- Dropdown wishList & Cart -->
+        <div class="col-2 dropdown d-inline-block ">
+          <button class="btn btn-light dropdown-toggle drop" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fa-solid fa-bars" style="color: #000000;"></i> &nbsp;
+          </button>
+          <ul class="dropdown-menu" style="position: absolute; right:4px; text-align: start;">
+            <li>
+              <!-- WishList -->
+              <div class=" m-auto col-12 p-1 element1 elementt elem ">
+                <a type="button" class="btn aaa element4">
+                  <span class="fw-bold m-0 p-0 txtFont22" routerLink="/WishList">
+                    <span [translate]="'WishLists'"></span>&nbsp;
+                    <i class="fa-regular fa-heart" style="width: 1.5rem !important; height: 1.5rem !important;"></i>
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li>
+              <!-- Cart -->
+              <div class="m-auto col-12 p-1 m-0">
+                <a routerLink="/Cart">
+                  <span class="fw-bold m-0 p-0 txtFont" [translate]="'cart'">
+                  </span>
+                  <span class="position-relative p-0 m-0">
+                    <img src="assets/header/cart.svg" alt=""
+                      style="width: 1.5rem !important; height: 1.5rem !important;" class="img-fluid">
+                    <span *ngIf="cartQuantity" class="position-absolute top-5 start-100 translate-middle
+                                       badge rounded-circle bg-primary">
+                      <span class="visually-hidden"> {{cartQuantity}} Product in your Cart</span>
+                      {{cartQuantity}}
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
 
-      <!-- Language -->
-      <div class="col-2 d-inline-block Dropdwon " 
-      style="padding-top: 0px; padding-bottom: 0px;">
-        <select class="outline form-select-sm language-switcher form-select Trans"
-         style="height: 40px;border-radius: 7px;text-align: center;"
-        (change)="selectedLanguage($event)">
-          <option value="en" *ngIf="lang=='en'" selected>English </option>
-          <option value="ar" *ngIf="lang=='en'" >العربية </option>
-          <option value="en" *ngIf="lang=='ar'" >English </option>
-          <option value="ar" *ngIf="lang=='ar'"selected >العربية </option>
-        </select>
-      </div>
-
-      <!-- Sign In -->
-      <div class=" col-3 d-inline-block element1 elementt elem">
-        <a type="button" class="btn aa"  data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-          <span class="fw-bold txtFont22">
-             <span [translate]="'sign-in'"></span>
-
-            <img class="txtFont" src="assets/header/account-inactive.svg" alt=""
-              style="width: 1rem !important; height: 1rem !important;" class="img-fluid">
-            </span>
-        </a>
-      </div>
-
-       <!-- Dropdown wishList & Cart -->
-       <div class="col-2 dropdown d-inline-block " >
-        <button class="btn btn-light dropdown-toggle drop" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa-solid fa-bars" style="color: #000000;"></i> &nbsp;
-        </button>
-        <ul class="dropdown-menu" style="position: absolute; right:4px; text-align: start;">
-          <li>
-            <!-- WishList -->      
-            <div class=" m-auto col-12 p-1 element1 elementt elem ">
-            <a type="button" class="btn aaa element4">
-              <span class="fw-bold m-0 p-0 txtFont22" routerLink="/WishList">
-                  <span [translate]="'WishLists'"  ></span>&nbsp;
-                  <i class="fa-regular fa-heart" style="width: 1.5rem !important; height: 1.5rem !important;"></i>
-                 </span>
-            </a>
+      <!-- Popup Sign In and Sign Up -->
+      <div [style.display]="showModal?'block':'none'" class="modal fade" id="exampleModalToggle" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-          </li>
-          <li>
-                  <!-- Cart -->
-      <div class="m-auto col-12 p-1 m-0">
-        <a routerLink="/Cart">
-          <span class="fw-bold m-0 p-0 txtFont" [translate]="'cart'">
-          </span>
-          <span class="position-relative p-0 m-0">
-            <img src="assets/header/cart.svg" alt="" style="width: 1.5rem !important; height: 1.5rem !important;"
-              class="img-fluid">
-            <span *ngIf="cartQuantity" class="position-absolute top-5 start-100 translate-middle
-                                       badge rounded-circle bg-primary">
-              <span class="visually-hidden"> {{cartQuantity}} Product in your Cart</span>
-               {{cartQuantity}}
-            </span>
-          </span>
-        </a>
-      </div>
-          </li>
-        </ul>
-       </div>
-    </div>
-    
-     <!-- Popup Sign In and Sign Up -->
-     <div [style.display]="showModal?'block':'none'" class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
-          tabindex="-1">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="row">
-                <form (ngSubmit)="LogIn(email.value,pass.value)" class="col-9 my-4 mx-auto" [formGroup]="userFormGroup" >
-                  <h3 class=" mt-3 col-12 fs-2 d-inline-block" [translate]="'Welcome-back'"></h3>
-                  <h4 class=" fs-4 d-inline-block text-center"[translate]="'Sign-in-to-your-account'"></h4>
-                  <div class=" col-12 d-inline-block text-center mb-3"[translate]="'Dont-have-an-account?'"> 
-                    <a href="#" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" class="link-info" [translate]="'Register-here'"></a>
+            <div class="row">
+              <form (ngSubmit)="LogIn(email.value,pass.value)" class="col-9 my-4 mx-auto" [formGroup]="userFormGroup">
+                <h3 class=" mt-3 col-12 fs-2 d-inline-block" [translate]="'Welcome-back'"></h3>
+                <h4 class=" fs-4 d-inline-block text-center" [translate]="'Sign-in-to-your-account'"></h4>
+                <div class=" col-12 d-inline-block text-center mb-3" [translate]="'Dont-have-an-account?'">
+                  <a href="#" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" class="link-info"
+                    [translate]="'Register-here'"></a>
+                </div>
+
+                <div class="form-outline mb-2 p-0">
+                  <label class="form-label fw-bold fs-5" for="Emailss" [translate]="'Email-address'"></label>
+                  <input #email type="string" id="Emailss" name="Emailss" class="form-control form-control-lg"
+                    formControlName="Emaillogin" [class.is-valid]="EmailLogin?.valid"
+                    [class.is-invalid]="EmailLogin?.invalid">
+
+                  <div class="alert alert-danger" [hidden]="EmailLogin?.valid || EmailLogin?.untouched">
+                    <small *ngIf="EmailLogin?.errors?.['required']" [translate]="'Email-is-Required'"></small>
+                    <small *ngIf="EmailLogin?.errors?.['pattern']">Email Must be pattern<br> ([a-zA-Z0-9](4,15)@(gmail |
+                      yahoo).com)</small>
                   </div>
-        
-                  <div class="form-outline mb-2 p-0">
-                    <label class="form-label fw-bold fs-5" for="Emailss"[translate]="'Email-address'"></label>
-                    <input #email type="string" id="Emailss" name="Emailss" class="form-control form-control-lg"
-                      formControlName="Emaillogin" [class.is-valid]="EmailLogin?.valid"
-                      [class.is-invalid]="EmailLogin?.invalid">
-        
-                    <div class="alert alert-danger" [hidden]="EmailLogin?.valid || EmailLogin?.untouched">
-                      <small *ngIf="EmailLogin?.errors?.['required']" [translate]="'Email-is-Required'"></small>
-                      <small *ngIf="EmailLogin?.errors?.['pattern']">Email Must be pattern<br> ([a-zA-Z0-9](4,15)@(gmail |
-                        yahoo).com)</small>
-                    </div>
+                </div>
+
+
+                <div class="form-outline  mb-2 p-0">
+                  <label class="form-label fw-bold fs-5 " for="Passs" [translate]="'Password'"></label>
+                  <input #pass type="password" id="Passs" name="Passs" class="form-control form-control-lg"
+                    formControlName="Passwordlogin" [class.is-valid]="PassLogin?.valid"
+                    [class.is-invalid]="PassLogin?.invalid">
+
+                  <div class="alert alert-danger" [hidden]="PassLogin?.valid || PassLogin?.untouched">
+                    <small *ngIf="PassLogin?.errors?.['required']" [translate]="'Password-is-Required'"> </small>
+                    <small *ngIf="PassLogin?.errors?.['pattern']">Password Must be pattern <br>
+                      ([a-zA-Z](4,10)[0-9](2)@)</small>
+
                   </div>
-        
-        
-                  <div class="form-outline  mb-2 p-0">
-                    <label class="form-label fw-bold fs-5 " for="Passs"[translate]="'Password'"></label>
-                    <input #pass type="password" id="Passs" name="Passs" class="form-control form-control-lg"
-                      formControlName="Passwordlogin" [class.is-valid]="PassLogin?.valid"
-                      [class.is-invalid]="PassLogin?.invalid">
-        
-                    <div class="alert alert-danger" [hidden]="PassLogin?.valid || PassLogin?.untouched">
-                      <small *ngIf="PassLogin?.errors?.['required']"[translate]="'Password-is-Required'"> </small>
-                      <small *ngIf="PassLogin?.errors?.['pattern']">Password Must be pattern <br>
-                        ([a-zA-Z](4,10)[0-9](2)@)</small>
-        
-                    </div>
+                </div>
+
+                <div class="my-3">
+                  <a href="#" class="link-info" [translate]="'Forgot-your-password?'"></a>
+                  <div class="col-12">
+                    <input class="my-2 btn border text-primary fw-bold fs-4 w-100" type="submit"
+                      [translate]="'Sign-In'">
                   </div>
-        
-                  <div class="my-3">
-                    <a href="#" class="link-info"[translate]="'Forgot-your-password?'"></a>
-                    <div class="col-12">
-                      <input class="my-2 btn border text-primary fw-bold fs-4 w-100" type="submit"[translate]="'Sign-In'">
-                    </div>
-        
-                  </div>
-                </form>
-              </div>
+
+                </div>
+              </form>
             </div>
           </div>
-     </div>
-        
-     <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
-          tabindex="-1">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="row">
-                <form (ngSubmit)="Registeration(email2.value,pass2.value,fname.value,lname.value )" class="col-9 my-4 mx-auto" [formGroup]="userFormGroup">
-        
-                  <h3 class=" mt-3 col-12 fs-2 d-inline-block"[translate]="'Create-an-account'"></h3>
-                  <div class=" col-12 d-inline-block text-center mb-3"[translate]="'Already-have-an-account?'">
-                  
-                    <a href="#" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class="link-info"[translate]="'Sign-In'"></a>
+        </div>
+      </div>
+
+      <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="row">
+              <form (ngSubmit)="Registeration(email2.value,pass2.value,fname.value,lname.value )"
+                class="col-9 my-4 mx-auto" [formGroup]="userFormGroup">
+
+                <h3 class=" mt-3 col-12 fs-2 d-inline-block" [translate]="'Create-an-account'"></h3>
+                <div class=" col-12 d-inline-block text-center mb-3" [translate]="'Already-have-an-account?'">
+
+                  <a href="#" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class="link-info"
+                    [translate]="'Sign-In'"></a>
+                </div>
+
+                <div class="form-outline mb-2 p-0">
+                  <label class="form-label fw-bold fs-5" for="Emails" [translate]="'Email-address'"></label>
+                  <input #email2 type="string" id="Emails" name="Emails" class="form-control form-control-lg"
+                    formControlName="Uemail" [class.is-valid]="EmailU?.valid" [class.is-invalid]="EmailU?.invalid">
+                  <div class="alert alert-danger" [hidden]="EmailU?.valid || EmailU?.untouched">
+                    <small *ngIf="EmailU?.errors?.['required']" [translate]="'Email-is-Required'"></small>
+                    <small *ngIf="EmailU?.errors?.['pattern']">Email Must be pattern<br> ([a-zA-Z0-9](4,15)@(gmail |
+                      yahoo).com)</small>
                   </div>
-        
-                  <div class="form-outline mb-2 p-0">
-                    <label class="form-label fw-bold fs-5" for="Emails" [translate]="'Email-address'"></label>
-                    <input #email2 type="string" id="Emails" name="Emails" class="form-control form-control-lg" formControlName="Uemail"
-                      [class.is-valid]="EmailU?.valid" [class.is-invalid]="EmailU?.invalid">
-                    <div class="alert alert-danger" [hidden]="EmailU?.valid || EmailU?.untouched">
-                      <small *ngIf="EmailU?.errors?.['required']"[translate]="'Email-is-Required'"></small>
-                      <small *ngIf="EmailU?.errors?.['pattern']">Email Must be pattern<br> ([a-zA-Z0-9](4,15)@(gmail |
-                        yahoo).com)</small>
-                    </div>
-                    <small *ngIf="emailIsExist" class="text-danger fs-4" >User Already Exist</small>
+                  <small *ngIf="emailIsExist" class="text-danger fs-4">User Already Exist</small>
+                </div>
+
+                <div class="form-outline  mb-2 p-0">
+                  <label class="form-label fw-bold fs-5 " for="Pass" [translate]="'Password'"></label>
+                  <input #pass2 type="password" id="Pass" name="Pass" class="form-control form-control-lg"
+                    formControlName="Upassword" [class.is-valid]="passwordU?.valid"
+                    [class.is-invalid]="passwordU?.invalid">
+                  <div class="alert alert-danger" [hidden]="passwordU?.valid || passwordU?.untouched">
+                    <small *ngIf="passwordU?.errors?.['required']" [translate]="'Password-is-Required'"></small>
+                    <small *ngIf="passwordU?.errors?.['pattern']">Password Must be pattern<br>
+                      ([a-zA-Z](4,10)[0-9](2)@)</small>
                   </div>
-        
-                  <div class="form-outline  mb-2 p-0">
-                    <label class="form-label fw-bold fs-5 " for="Pass"[translate]="'Password'"></label>
-                    <input #pass2 type="password" id="Pass" name="Pass" class="form-control form-control-lg"
-                      formControlName="Upassword" [class.is-valid]="passwordU?.valid" [class.is-invalid]="passwordU?.invalid">
-                    <div class="alert alert-danger" [hidden]="passwordU?.valid || passwordU?.untouched">
-                      <small *ngIf="passwordU?.errors?.['required']"[translate]="'Password-is-Required'"></small>
-                      <small *ngIf="passwordU?.errors?.['pattern']">Password Must be pattern<br>
-                        ([a-zA-Z](4,10)[0-9](2)@)</small>
-                    </div>
+                </div>
+
+                <div class="form-outline mb-2 p-0">
+                  <label class="form-label fw-bold fs-5" for="Fnamee" [translate]="'First-Name'"></label>
+                  <input #fname type="string" id="Fnamee" name="Fnamee" class="form-control form-control-lg"
+                    formControlName="ufirstName" [class.is-valid]="Fname?.valid" [class.is-invalid]="Fname?.invalid">
+                  <div class="alert alert-danger" [hidden]="Fname?.valid || Fname?.untouched">
+                    <small *ngIf="Fname?.errors?.['required']" [translate]="'First-Name-is-Required'"> </small>
+                    <small *ngIf="Fname?.errors?.['pattern']">First Name Must be pattern<br>([a-zA-Z0-9](4,10))</small>
                   </div>
-        
-                  <div class="form-outline mb-2 p-0">
-                    <label class="form-label fw-bold fs-5" for="Fnamee"[translate]="'First-Name'"></label>
-                    <input #fname type="string" id="Fnamee" name="Fnamee" class="form-control form-control-lg"
-                      formControlName="ufirstName" [class.is-valid]="Fname?.valid" [class.is-invalid]="Fname?.invalid">
-                    <div class="alert alert-danger" [hidden]="Fname?.valid || Fname?.untouched">
-                      <small *ngIf="Fname?.errors?.['required']"[translate]="'First-Name-is-Required'"> </small>
-                      <small *ngIf="Fname?.errors?.['pattern']">First Name Must be pattern<br>([a-zA-Z0-9](4,10))</small>
-                    </div>
+                </div>
+
+                <div class="form-outline mb-2 p-0">
+                  <label class="form-label fw-bold fs-5" for="Lnamee" [translate]="'Last-Name'"></label>
+                  <input #lname type="string" id="Lnamee" name="Lnamee" class="form-control form-control-lg"
+                    formControlName="ulastName" [class.is-valid]="Lname?.valid" [class.is-invalid]="Lname?.invalid">
+                  <div class="alert alert-danger" [hidden]="Lname?.valid || Fname?.untouched">
+                    <small *ngIf="Lname?.errors?.['required']" [translate]="'Last-Name-is-Required'"></small>
+                    <small *ngIf="Lname?.errors?.['pattern']">Last Name Must be pattern<br>([a-zA-Z0-9](4,10))</small>
                   </div>
-        
-                  <div class="form-outline mb-2 p-0">
-                    <label class="form-label fw-bold fs-5" for="Lnamee"[translate]="'Last-Name'"></label>
-                    <input #lname type="string" id="Lnamee" name="Lnamee" class="form-control form-control-lg"
-                      formControlName="ulastName" [class.is-valid]="Lname?.valid" [class.is-invalid]="Lname?.invalid">
-                    <div class="alert alert-danger" [hidden]="Lname?.valid || Fname?.untouched">
-                      <small *ngIf="Lname?.errors?.['required']"[translate]="'Last-Name-is-Required'"></small>
-                      <small *ngIf="Lname?.errors?.['pattern']">Last Name Must be pattern<br>([a-zA-Z0-9](4,10))</small>
-                    </div>
+                </div>
+
+                <div class="my-3">
+                  <div class="col-12">
+                    <input class="my-2 btn border text-primary fw-bold fs-4 w-100" type="submit"
+                      [translate]="'create-account'">
+
                   </div>
-        
-                  <div class="my-3">
-                    <div class="col-12">
-                      <input class="my-2 btn border text-primary fw-bold fs-4 w-100" type="submit" [translate]="'create-account'">
-      
-                    </div>
-                  </div>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
-     </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -326,18 +333,18 @@
     <div class="container-fluid ">
       <ul class="m-0 p-0">
         <li class="navbar-brand dropdown m-0 ">
-          <a class="nav-link text-primary" href="#" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false" [translate]="'all-categories'">
+          <a class="nav-link text-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+            [translate]="'all-categories'">
           </a>
           <ul class="dropdown-menu  " style="position: absolute; right:4px; text-align: start;">
-            <li><a class="dropdown-item" routerLink="/AllCategory" style="font-size: 0.9;" [translate]="'all-categories'"></a></li>
+            <li><a class="dropdown-item" routerLink="/AllCategory" style="font-size: 0.9;"
+                [translate]="'all-categories'"></a></li>
             <li *ngFor="let cat of categoriesList">
-              <a class="dropdown-item p-1" href="#"
-                *ngIf="cat.parentCategory==undefined"
-               >
-                 {{ lang === 'en'? cat.name: cat.nameAr}}</a></li>
+              <a class="dropdown-item p-1" href="#" *ngIf="cat.parentCategory==undefined">
+                {{ lang === 'en'? cat.name: cat.nameAr}}</a>
+            </li>
           </ul>
-          
+
         </li>
       </ul>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -347,17 +354,15 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ">
           <li class="nav-item dropdown" *ngFor="let cat of categoriesList" style="font-size: 0.9em;">
-            <a class="nav-link text-dark nav-font-size"
-             type="button" data-bs-toggle="dropdown" aria-expanded="false" 
-              aria-current="page" href="#" 
-              *ngIf="cat.parentCategory==undefined" 
-              style="overflow:auto;"
-                >
-                {{ lang === 'en'? cat.name: cat.nameAr}}
-              </a>
-              <ul class="dropdown-menu">
-                <li *ngFor="let sub of cat.subCategories"><a class="dropdown-item"  (click)="SubCategory((lang=='en')?sub.name:sub.nameAr )">{{ lang === 'en'? sub.name: sub.nameAr}}</a></li>
-              </ul>
+            <a class="nav-link text-dark nav-font-size" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+              aria-current="page" href="#" *ngIf="cat.parentCategory==undefined" style="overflow:auto;">
+              {{ lang === 'en'? cat.name: cat.nameAr}}
+            </a>
+            <ul class="dropdown-menu">
+              <li *ngFor="let sub of cat.subCategories"><a class="dropdown-item"
+                  (click)="SubCategory((lang=='en')?sub.name:sub.nameAr )">{{ lang === 'en'? sub.name: sub.nameAr}}</a>
+              </li>
+            </ul>
           </li>
 
         </ul>
