@@ -31,7 +31,7 @@ export default class DetailsComponent implements OnInit {
   cart: IOrderItem[] = [];
   // totalPrice: number = 0;
   // totalQuantity: number = 0;
-
+  isLoggedIn:boolean = false;
   constructor(
     private productservice: ProductService,
     private activateroute: ActivatedRoute,
@@ -41,7 +41,7 @@ export default class DetailsComponent implements OnInit {
     private interactionService: InteractionService,
     private wishlistservice:WishlistService
   ) { 
-    
+    this.isLoggedIn=(localStorage.getItem('token')?true:false)
     if(cookieService.get('cart')){
       this.cart = JSON.parse(cookieService.get('cart'));
     }

@@ -16,6 +16,8 @@ import { CookieService } from "ngx-cookie-service";
 import { HttpErrorResponse, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { AuthService } from "src/app/Services/auth.service";
 import { Token } from "@angular/compiler";
+import { ModalService } from "src/app/Services/modal.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-header",
@@ -25,7 +27,7 @@ import { Token } from "@angular/compiler";
 
 export class HeaderComponent implements OnInit {
   
- 
+  showModal = false 
   checklogin: boolean = false;
   userName:string=""
   categoriesList: ICategory[] = [];
@@ -34,8 +36,8 @@ export class HeaderComponent implements OnInit {
 
   userFormGroup!: FormGroup;
 
-  filterTerm!: string;
-
+  filterTerm!: string; 
+  supscribtion!:Subscription
   constructor(
     private categoryservice: CategoyService,
     private router: Router,
@@ -44,10 +46,16 @@ export class HeaderComponent implements OnInit {
     private userservice: UserService,
     private interactionservice:InteractionService,
     private cookieService: CookieService,
-    private authservice:AuthService
+    private authservice: AuthService,
+    private modalservice:ModalService
 
     )
   {
+    this.supscribtion = this.modalservice.showModal$.subscribe(show => {
+      this.showModal = show;
+      console.log(this.showModal);
+      
+    });
        //Get Dropdown category
        this.categoryservice.getAllCategories().subscribe((data) => {
        this.categoriesList = data;
@@ -86,19 +94,8 @@ export class HeaderComponent implements OnInit {
       Passwordlogin: ['', [Validators.required, Validators.pattern("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$")]],
     });
   }
-  // intercept(req: HttpRequest<any>, next: HttpHandler) {
-  //   const token = this.authservice.getToken();
-
-  //   if (token) {
-  //     const authReq = req.clone({
-  //       headers: req.headers.set('Authorization', `Bearer ${token}`)
-  //     });
-  //     return next.handle(authReq);
-  //   }
-
-  //   return next.handle(req);
-  // }
-
+  
+  //this.modalservice.showModal$;
   //convert firstname to property
   get Fname() {
     return this.userFormGroup.get('ufirstName');
@@ -158,16 +155,6 @@ selectedLanguage(event: any) {
       localStorage.setItem('token', res.data.toekn);
       window.location.reload();
   }));
-    //   next: (data) => {
-    //     window.location.reload();
-    //     this.cookieService.set("useremail",email);
-    //     console.log("Login success");
-
-    //   }, error: (err) => {
-    //     console.log(err.message);
-    //   }
-    // }
-    // );
   }
    
 
@@ -191,7 +178,14 @@ selectedLanguage(event: any) {
     );
    
   }
+//log out 
+  logOut() {
+    localStorage.removeItem('token');
+    this.cookieService.delete("useremail");
+    location.reload();
+    this.router.navigate(['/Home']);
 
+  }
   // cart quantity
   cartQuantity!: number;
   ngOnInit(): void {

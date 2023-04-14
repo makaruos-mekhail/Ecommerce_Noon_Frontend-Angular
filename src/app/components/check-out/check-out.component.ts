@@ -38,9 +38,11 @@ export class CheckOutComponent implements OnInit{
     render({
       id: "#myPaypalButtons",
       currency: "EGP",
-      value: this.totalPrice.toString(),
+      value:"1000",
+      //value: this.totalPrice.toString(),
       
       onApprove: (details) => {
+        alert("transaction successfull");
         let button=document.getElementById("order_btn") as HTMLButtonElement;
         button.disabled = false;
         this.paymentmethod="PayBal"

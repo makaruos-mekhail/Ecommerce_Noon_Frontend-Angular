@@ -36,7 +36,6 @@ export class OrderedComponent implements OnInit {
   ngOnInit(): void {
     this.getorders();
     console.log(this.allorders);
-    
   }
   getorders(): void{
     

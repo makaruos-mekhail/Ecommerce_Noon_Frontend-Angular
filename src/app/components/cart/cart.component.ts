@@ -8,6 +8,7 @@ import { CartService } from 'src/app/Services/cart.service';
 import { InteractionService } from 'src/app/Services/interaction.service';
 import { Checkoutdata } from 'src/app/Models/checkoutdata';
 import { UserService } from 'src/app/Services/user.service';
+import { ModalService } from 'src/app/Services/modal.service';
 
 @Component({
   selector: 'app-cart',
@@ -25,8 +26,9 @@ export class CartComponent {
   farFutureDate = new Date(2030, 1, 1);
   constructor( private interactionservice: InteractionService,
      private cookieService: CookieService, private cartService: CartService,
-     private router : Router, private userervice:UserService) {
-
+    private router: Router, private userervice: UserService,
+  private modalservice:ModalService) {
+    
       if(!cookieService.get('cart')){
         this.cookieService.set('cart', JSON.stringify(this.cart), this.farFutureDate);
       }
@@ -45,6 +47,15 @@ getProductDetails(prdid: number) {
     this.router.navigate(['products', prdid])
     window.scrollTo(0, 0);
   }
+  //open login modal
+  openModal() {
+    this.modalservice.show()
+    console.log(this.modalservice.show());
+  
+    console.log("test");
+    
+  }
+
   // ------------ remove Item From Cart ------------
   removeItemFromCart(event: any ,id: number) {
     console.log("remove item from cart "+id);

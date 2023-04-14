@@ -6,6 +6,7 @@ export interface Orders {
     id:number
     address: string
     user: IUser
+    discount: number;
     orderItems: Orderitems[]
     paymentMethod: string
     status: string
@@ -13,5 +14,8 @@ export interface Orders {
     createdAt: Date
     userPhone: string;
     totalPrice: number;
+    userId: number,
+
+
 
 }

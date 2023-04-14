@@ -10,7 +10,7 @@
       </div>
       
       <!--  Delivery To -->
-      <div class="row d-none d-md-inline-block col-md-1  p-0 m-0">
+      <div class="d row d-none d-md-inline-block col-md-1  p-0 m-0">
         <button class="bg-header-yollow border-0 m-0 p-0 ">
           <div class="d-inline-block ">
             <img src="assets/header/eg.svg" class="img-fluid col-10 mx-auto txtFont">
@@ -63,27 +63,29 @@
         </a>
       </div>
       <div class=" col-sm-3 col-md-2 d-md-inline-block element1 elementt elem" *ngIf="checklogin">
-        <div class="dropdown ">
-          <button class="btn border-0 dropdown-toggle p-0 d-flex align-items-center
-        mx-auto" type="button"
-           data-bs-toggle="dropdown" aria-expanded="false">
-            <span>
-                <span [translate]="'Ahlan'" style="font-size:0.8em;"></span>
-                <span style="font-size:0.75em;">Fatmaa</span>
-                <div class="fw-bold" style="font-size:0.9em;" [translate]="'MyAccount'"></div>
-            </span>
-          </button>
-          <ul class="dropdown-menu border-0"  style="border-radius: 0; min-width: 5rem !important;">
-            <li><a class="dropdown-item text-center " routerLink="/Ordered">
-              <img src="assets\orders.svg">
-              Orders 
-            </a></li>
-            <li><a class="dropdown-item text-center" href="#">
-              <img src="assets\profile.svg">
-              Profile</a></li>
-            <li><a class="dropdown-item text-muted text-center fw-bold" href="#">Sign Out</a></li>
-          </ul>
+        <div class="my-auto">
+            <div class="dropdown ">
+              <button class="btn border-0 dropdown-toggle p-0 d-flex align-items-center
+                    mx-auto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>
+                  <span [translate]="'Ahlan'" style="font-size:0.8em;"></span>
+                  <span style="font-size:0.75em;">Fatmaa</span>
+                  <div class="fw-bold" style="font-size:0.9em;" [translate]="'MyAccount'"></div>
+                </span>
+              </button>
+              <ul class="dropdown-menu border-0" style="border-radius: 0; min-width: 5rem !important;">
+                <li><a class="dropdown-item text-center " routerLink="/Ordered">
+                    <img src="assets\orders.svg">
+                    Orders
+                  </a></li>
+                <li><a class="dropdown-item text-center" >
+                    <img src="assets\profile.svg">
+                    Profile</a></li>
+                <li><a class="dropdown-item text-muted text-center fw-bold" (click)="logOut()">Sign Out</a></li>
+              </ul>
+            </div>
         </div>
+      
       </div>
 
 
@@ -98,7 +100,7 @@
        </div>
 
       <!-- Cart -->
-      <div class=" col-sm-1 col-md-2 d-md-inline-block p-0 m-0">
+      <div class="m-auto col-sm-1 col-md-2 d-md-inline-block p-0 m-0">
         <a routerLink="/Cart">
           <span class="fw-bold"[translate]="'cart'" >
           </span>
@@ -158,7 +160,7 @@
         <ul class="dropdown-menu" style="position: absolute; right:4px; text-align: start;">
           <li>
             <!-- WishList -->      
-            <div class="col-12 p-1 element1 elementt elem ">
+            <div class=" m-auto col-12 p-1 element1 elementt elem ">
             <a type="button" class="btn aaa element4">
               <span class="fw-bold m-0 p-0 txtFont22" routerLink="/WishList">
                   <span [translate]="'WishLists'"  ></span>&nbsp;
@@ -169,7 +171,7 @@
           </li>
           <li>
                   <!-- Cart -->
-      <div class="col-12 p-1 m-0">
+      <div class="m-auto col-12 p-1 m-0">
         <a routerLink="/Cart">
           <span class="fw-bold m-0 p-0 txtFont" [translate]="'cart'">
           </span>
@@ -188,8 +190,9 @@
         </ul>
        </div>
     </div>
+    
      <!-- Popup Sign In and Sign Up -->
-     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+     <div [style.display]="showModal?'block':'none'" class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
           tabindex="-1">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">

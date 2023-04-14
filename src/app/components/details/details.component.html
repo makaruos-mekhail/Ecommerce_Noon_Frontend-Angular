@@ -248,7 +248,7 @@
             <b [translate]="'Add-To-Cart'"></b>
           </button>
         </div>
-        <div class="col-2">
+        <div class="col-2" *ngIf="isLoggedIn">
           <div class="Favoite-button d-flex justify-content-center p-3 m-3">
             <i (click)="addToWishlist()" class="fa-solid fa-heart" [ngStyle]="{'color': iconColor}" (click)="toggleFavorite()"
               style="font-size: 2em;"></i>
