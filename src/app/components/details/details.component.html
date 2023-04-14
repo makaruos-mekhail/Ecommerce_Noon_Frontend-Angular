@@ -13,12 +13,15 @@
       </div>
         
       <div class="col-9 ">
-        <div class="row justify-content-center align-content-center p-2">
-          <img id="main-product-imgggg" class="img-fluid" [src]="product?.imagePath"
+        <div  class="row justify-content-center align-content-center p-2">
+          <img id="main-product-imgggg" class="img-fluid zoom" [src]="product?.imagePath"
           style="border-radius: 20px; border: 1px solid rgb(96, 96, 96);height: 28em;width: 100%;"/>
         </div>
-
       </div>
+
+      <!--  -->
+      <!--  -->
+    
     </div>
   </aside>
   <!-- smartphones -->
@@ -248,7 +251,7 @@
             <b [translate]="'Add-To-Cart'"></b>
           </button>
         </div>
-        <div class="col-2">
+        <div class="col-2" *ngIf="isLoggedIn">
           <div class="Favoite-button d-flex justify-content-center p-3 m-3">
             <i (click)="addToWishlist()" class="fa-solid fa-heart" [ngStyle]="{'color': iconColor}" (click)="toggleFavorite()"
               style="font-size: 2em;"></i>

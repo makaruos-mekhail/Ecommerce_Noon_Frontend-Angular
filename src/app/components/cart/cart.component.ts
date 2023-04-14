@@ -8,6 +8,7 @@ import { CartService } from 'src/app/Services/cart.service';
 import { InteractionService } from 'src/app/Services/interaction.service';
 import { Checkoutdata } from 'src/app/Models/checkoutdata';
 import { UserService } from 'src/app/Services/user.service';
+import { ModalService } from 'src/app/Services/modal.service';
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +18,7 @@ import { UserService } from 'src/app/Services/user.service';
 export class CartComponent {
   lang = localStorage.getItem('lang');
 
-  productQuantity: number[] = new Array(4);
+  productQuantity: number[] = new Array(5);
   productInCart :IProduct[] = [];
   cart: IOrderItem[] = [];
   totalQuantity : number = 0;
@@ -25,8 +26,9 @@ export class CartComponent {
   farFutureDate = new Date(2030, 1, 1);
   constructor( private interactionservice: InteractionService,
      private cookieService: CookieService, private cartService: CartService,
-     private router : Router, private userervice:UserService) {
-
+    private router: Router, private userervice: UserService,
+  private modalservice:ModalService) {
+    
       if(!cookieService.get('cart')){
         this.cookieService.set('cart', JSON.stringify(this.cart), this.farFutureDate);
       }
@@ -45,6 +47,15 @@ getProductDetails(prdid: number) {
     this.router.navigate(['products', prdid])
     window.scrollTo(0, 0);
   }
+  //open login modal
+  openModal() {
+    this.modalservice.show()
+    console.log(this.modalservice.show());
+  
+    console.log("test");
+    
+  }
+
   // ------------ remove Item From Cart ------------
   removeItemFromCart(event: any ,id: number) {
     console.log("remove item from cart "+id);
@@ -77,6 +88,7 @@ sendCheckOutData(addres: string, phone: string,fnum:string,firstname:string,last
   getQuantityByproductId(id: number) {
     let cartItem = this.cart.find(item => item.productid === id);
     if (cartItem) {
+      console.log(id + ":  "+ cartItem.quantity);
       return cartItem.quantity;
     }
     return 0;
@@ -84,17 +96,15 @@ sendCheckOutData(addres: string, phone: string,fnum:string,firstname:string,last
     
   // ------------ update Item Quantity ------------
   updateItemQuantity(event: any, id: number) {
-    // console.log("update item quantity "+id);
+    console.log("update item quantity "+id);
     let cartItem = this.cart.find(item => item.productid === id);
-    // console.log(cartItem);
+    console.log(cartItem);
     if (cartItem) {
-      cartItem.quantity = event.target.value;
-      cartItem.price = (event.target.value * cartItem.price)/cartItem.quantity;
-      this.cookieService.set('cart', JSON.stringify(this.cart), this.farFutureDate);
-      // this.totalQuantity = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.quantity, 0);
-      // this.totalPrice = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.price, 0);
-      // this.interactionservice.sendCart(this.totalQuantity, this.totalPrice);
+      let newQuantity = Number(event.target.value);
+      cartItem.quantity = newQuantity;
+      cartItem.price = (newQuantity * cartItem.price);
     }
+    this.cookieService.set('cart', JSON.stringify(this.cart), this.farFutureDate);
   }
 
 }

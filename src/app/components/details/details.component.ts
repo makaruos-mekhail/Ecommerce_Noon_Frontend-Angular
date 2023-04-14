@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, Output, ViewChild } from "@angular/core";
+import { Component, ElementRef, HostBinding, HostListener, OnInit, Output, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { CookieService } from "ngx-cookie-service";
@@ -31,7 +31,7 @@ export default class DetailsComponent implements OnInit {
   cart: IOrderItem[] = [];
   // totalPrice: number = 0;
   // totalQuantity: number = 0;
-
+  isLoggedIn:boolean = false;
   constructor(
     private productservice: ProductService,
     private activateroute: ActivatedRoute,
@@ -41,7 +41,7 @@ export default class DetailsComponent implements OnInit {
     private interactionService: InteractionService,
     private wishlistservice:WishlistService
   ) { 
-    
+    this.isLoggedIn=(localStorage.getItem('token')?true:false)
     if(cookieService.get('cart')){
       this.cart = JSON.parse(cookieService.get('cart'));
     }
@@ -89,7 +89,7 @@ export default class DetailsComponent implements OnInit {
       .subscribe((data) => {
         this.product = data;
       });
-  }
+    }
 
   getReviws() {
     this.reviewService
@@ -126,7 +126,6 @@ export default class DetailsComponent implements OnInit {
     }
 
     this.cookieService.set('cart', JSON.stringify(this.cart), this.farFutureDate);
-    console.log(JSON.parse(this.cookieService.get('cart')));
 
     let totalQuantity = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.quantity, 0);
     let totalPrice = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.price, 0);

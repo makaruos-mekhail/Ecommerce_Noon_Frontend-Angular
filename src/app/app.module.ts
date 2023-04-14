@@ -23,6 +23,9 @@ import { CheckOutComponent } from './components/check-out/check-out.component';
 import { OrderStatusComponent } from './components/order-status/order-status.component';
 import { AuthService } from './Services/auth.service';
 import { AuthIterceptorInterceptor } from './Services/auth-iterceptor.interceptor';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { LoadingInterceptor } from './Interceptors/loading.interceptor';
+import { ImgMagnifier } from 'ng-img-magnifier';
 //translate
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -43,6 +46,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     DiscountPipe,
     CheckOutComponent,
     OrderStatusComponent,
+    SpinnerComponent,
     
     
     
@@ -63,11 +67,15 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ReactiveFormsModule,
     Ng2SearchPipeModule,
      //NgxPayPalModule
+     ImgMagnifier,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthIterceptorInterceptor,
     multi:true
+  },
+  {
+    provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
   }],
   bootstrap: [AppComponent]
 })

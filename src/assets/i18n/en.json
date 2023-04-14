@@ -11,7 +11,8 @@
   "email_support": "email_support",
   "phone-support": "Phone Support",
   "what-are-you-looking-for": "What are you looking for?",
-
+  "Orders":"Orders",
+  "Profile":"Profile",
   "CONTINUE SHOPPING": "CONTINUE SHOPPING",
   "WishLists": "WishList",
   "Secure Checkout": "Secure Checkout | For assistance, Call 16358",
@@ -35,7 +36,7 @@
   "TOTAL (Inclusive of VAT)": "TOTAL (Inclusive of VAT)",
    "item":"(item)",
    "UNIT":"UNIT",
-
+  "SignOut":"Sign Out",
 
 
 
