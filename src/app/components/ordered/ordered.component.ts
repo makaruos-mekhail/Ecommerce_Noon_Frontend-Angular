@@ -12,8 +12,9 @@ import { OrderService } from 'src/app/Services/order.service';
 export class OrderedComponent implements OnInit {
   lang = localStorage.getItem('lang');
   allorders: Orders[] = [];
-  orders: Orders[] | undefined;
-  userEmail = this.cookieService.get("useremail");
+  getAllOrders: any[] | undefined;
+  // orders: Orders[] | undefined;
+  // userEmail = this.cookieService.get("useremail");
   constructor(private translate: TranslateService,
     private cookieService: CookieService,
     private orderservice: OrderService)
@@ -34,17 +35,18 @@ export class OrderedComponent implements OnInit {
     
   }
   ngOnInit(): void {
-    this.getorders();
+    //get all orders of user
+    var userEmail = this.cookieService.get("useremail");
+    this.orderservice.getAllUserOrders(userEmail).subscribe(data => {
+      // this.allorders.forEach(d => {
+      //   this.allorders.push(d.);
+        // data.forEach(d => {
+        //   this.allorders.push(d);
+        // });
+        this.allorders = data;
+      })
+    }
+  test(){
     console.log(this.allorders);
   }
-  getorders(): void{
-    
-    this.orderservice.getAllUserOrders(this.userEmail).subscribe(data => {
-      this.allorders = data
-      console.log(this.allorders);
-      
-  })
 }
-  }
-
-  

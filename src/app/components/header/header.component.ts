@@ -184,8 +184,9 @@ selectedLanguage(event: any) {
     this.cookieService.delete("useremail");
     location.reload();
     this.router.navigate(['/Home']);
-
   }
+  
+  // ------------------ cart ---------------------
   // cart quantity
   cartQuantity!: number;
   ngOnInit(): void {

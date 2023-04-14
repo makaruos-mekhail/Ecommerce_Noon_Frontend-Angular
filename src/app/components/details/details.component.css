@@ -106,3 +106,14 @@ color: #AAB8C2; font-size: 2em;
 .img-filter{
   filter: invert(2%) sepia(0%) saturate(310%) hue-rotate(10deg) brightness(100%) contrast(100%)
 }
+
+.zoom {
+  transition: transform .2s;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.2);
+}
