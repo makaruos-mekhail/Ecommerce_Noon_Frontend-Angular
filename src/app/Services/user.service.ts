@@ -36,5 +36,9 @@ export class UserService {
   getUserName(useremail: string): Observable<string>{
     return this.httpclient
       .get<string>(`${environment.APIURLProduct}/User/getnameuser?useremail=${useremail}`);
- }
+  }
+  logOut(): Observable<any>{
+    return this.httpclient
+      .post<any>(`${environment.APIURLProduct}/User/LogOut`, {});
+  }
 }
