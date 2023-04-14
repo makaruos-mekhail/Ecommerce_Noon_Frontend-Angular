@@ -14,15 +14,15 @@ import { SlidbarAllcategoryComponent } from './components/slidbar-allcategory/sl
 import { WishListComponent } from './components/wish-list/wish-list.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { DiscountPipe } from './Pipes/discount.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { OrderStatusComponent } from './components/order-status/order-status.component';
-
-
+import { AuthService } from './Services/auth.service';
+import { AuthIterceptorInterceptor } from './Services/auth-iterceptor.interceptor';
 //translate
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -64,7 +64,11 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     Ng2SearchPipeModule,
      //NgxPayPalModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthIterceptorInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

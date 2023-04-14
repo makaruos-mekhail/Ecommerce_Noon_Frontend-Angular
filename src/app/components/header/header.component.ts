@@ -13,7 +13,9 @@ import { UserService } from "src/app/Services/user.service";
 import { Register } from "src/app/Models/register";
 import { InteractionService } from "src/app/Services/interaction.service";
 import { CookieService } from "ngx-cookie-service";
-import { HttpErrorResponse } from "@angular/common/http";
+import { HttpErrorResponse, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { AuthService } from "src/app/Services/auth.service";
+import { Token } from "@angular/compiler";
 
 @Component({
   selector: "app-header",
@@ -42,6 +44,7 @@ export class HeaderComponent implements OnInit {
     private userservice: UserService,
     private interactionservice:InteractionService,
     private cookieService: CookieService,
+    private authservice:AuthService
 
     )
   {
@@ -69,20 +72,7 @@ export class HeaderComponent implements OnInit {
     
     console.log(this.userName);
     
-    //form
-    // this.userFormGroup = this.formBulider.group({
-    //   // create Account
-    //   firstName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{3,20}')]],
-    //   lastName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{3,20}')]],
-    //   email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{3,}@(gmail|yahoo)(.com)')]],
-    //   password: ['', [Validators.required, Validators.pattern("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$")]],
-
-
-    //   // login in
-    //   emailLogin: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{4,15}@(gmail|yahoo)(.com)')]],
-    //   Passwordlogin: ['', [Validators.required, Validators.pattern('[a-zA-Z]{4,10}[0-9]{2}@')]],
-    // }); 
-    this.userFormGroup = this.formBulider.group({
+        this.userFormGroup = this.formBulider.group({
       // create Account
       ufirstName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{4,10}')]],
       ulastName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{4,10}')]],
@@ -96,6 +86,19 @@ export class HeaderComponent implements OnInit {
       Passwordlogin: ['', [Validators.required, Validators.pattern("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$")]],
     });
   }
+  // intercept(req: HttpRequest<any>, next: HttpHandler) {
+  //   const token = this.authservice.getToken();
+
+  //   if (token) {
+  //     const authReq = req.clone({
+  //       headers: req.headers.set('Authorization', `Bearer ${token}`)
+  //     });
+  //     return next.handle(authReq);
+  //   }
+
+  //   return next.handle(req);
+  // }
+
   //convert firstname to property
   get Fname() {
     return this.userFormGroup.get('ufirstName');
@@ -149,17 +152,22 @@ selectedLanguage(event: any) {
   ///login user
   LogIn(email: string, pass: string) {
     var logiuser = new Login(email, pass);
-    this.userservice.logIn(logiuser).subscribe({
-      next: (data) => {
-        window.location.reload();
-        this.cookieService.set("useremail",email);
-        console.log("Login success");
+    this.userservice.logIn(logiuser).subscribe((res=> {
+      console.log('res', res);
+      this.cookieService.set("useremail", email);
+      localStorage.setItem('token', res.data.toekn);
+      window.location.reload();
+  }));
+    //   next: (data) => {
+    //     window.location.reload();
+    //     this.cookieService.set("useremail",email);
+    //     console.log("Login success");
 
-      }, error: (err) => {
-        console.log(err.message);
-      }
-    }
-    );
+    //   }, error: (err) => {
+    //     console.log(err.message);
+    //   }
+    // }
+    // );
   }
    
 
