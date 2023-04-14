@@ -40,6 +40,7 @@ export class CheckOutComponent implements OnInit{
       this.totalQuantity = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.quantity, 0);
     render({
       id: "#myPaypalButtons",
+
       currency: "EGP",
       value:"1000",
       //value: this.totalPrice.toString(),
@@ -50,8 +51,16 @@ export class CheckOutComponent implements OnInit{
         button.disabled = false;
         this.paymentmethod="PayBal"
         this.paid = true;     
+        alert("Transaction Successful");
       },
-    }) 
+    })  
+  }
+  
+  name!:string
+  address!:string
+  phone!: string
+ 
+  ngOnInit(): void {
 
     this.interactionService.checkoutdata$.subscribe(
       (data) => {
@@ -68,9 +77,9 @@ export class CheckOutComponent implements OnInit{
   }
  
  
-  ngOnInit(): void {
+  //ngOnInit(): void {
 
-  }
+  //}
 
 removeDisabled(){
  let checkbox=document.getElementById("checkbox") as HTMLInputElement;
