@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
   
   showModal = false 
   checklogin: boolean = false;
-  userName:string=""
+  userName:any=""
   categoriesList: ICategory[] = [];
 
   lang = localStorage.getItem('lang');
@@ -71,28 +71,24 @@ export class HeaderComponent implements OnInit {
 
     this.userservice.getUserName(useremail).subscribe(
       data => {
-        this.userName = data
-        console.log(data);
+        this.userName = data.firstName
+      //  console.log(data);
         
        }
-    );
-  
-    
+    ); 
     console.log(this.userName);
     
         this.userFormGroup = this.formBulider.group({
       // create Account
-      ufirstName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{4,10}')]],
-      ulastName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{4,10}')]],
+      ufirstName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{3,10}')]],
+      ulastName: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{3,10}')]],
       Uemail: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{4,15}@(gmail|yahoo)(.com)')]],
-      Upassword: ['', [Validators.required, Validators.pattern("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
-      )]],
+      Upassword: ['', [Validators.required, Validators.pattern("[a-zA-Z0-9](?=.*?[#?!@$%^&*-])(?=.*?[0-9]).{7,}")]],
 
 
       // login in
       Emaillogin: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]{4,15}@(gmail|yahoo)(.com)')]],
-      Passwordlogin: ['', [Validators.required, Validators.pattern("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$")]],
-    });
+      Passwordlogin: ['', [Validators.required, Validators.pattern("[a-zA-Z0-9](?=.*?[#?!@$%^&*-])(?=.*?[0-9]).{7,}")]], });
   }
   
   //this.modalservice.showModal$;
@@ -150,11 +146,20 @@ selectedLanguage(event: any) {
   LogIn(email: string, pass: string) {
     var logiuser = new Login(email, pass);
     this.userservice.logIn(logiuser).subscribe((res=> {
-      console.log('res', res);
       this.cookieService.set("useremail", email);
       localStorage.setItem('token', res.data.toekn);
       window.location.reload();
   }));
+  }
+
+  testlogreg(email:string, pass:string, fname:string, lname:string)
+  {
+     this.Registeration(email, pass, fname, lname);
+     setTimeout(() => {
+      this.LogIn(email, pass);
+     }, 3000);
+     
+
   }
    
 
@@ -164,7 +169,8 @@ selectedLanguage(event: any) {
     var registeruser = new Register(email, pass, fname, lname);
     this.userservice.Registeruser(registeruser).subscribe({
       next: (data) => {
-        this.LogIn(email, pass);
+      //  this.LogIn(email, pass);
+        //this.LogIn(email, pass);
         window.location.reload();
         console.log("registeration success");
         

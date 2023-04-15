@@ -20,6 +20,9 @@ import { WishlistService } from "src/app/Services/wishlist.service";
 
 })
 export default class DetailsComponent implements OnInit {
+  // name!: string
+  // address!: string
+  // phone!: string
   excellent: number[] = new Array(5);
   verygood: number[] = new Array(4);
   good: number[] = new Array(3);
@@ -74,7 +77,17 @@ export default class DetailsComponent implements OnInit {
   }
   ngOnInit(): void {
     //get product by id
+    // this.interactionService.checkoutdata$.subscribe(
+    //   (data) => {
+    //     //debugger
+    //     console.log(data);
+    //     this.name = data[0];
+    //     console.log(this.name);
+    //     this.address = data[1];
+    //     this.phone = data[2];
 
+    //   }
+    // );
     this.currentProductId = this.activateroute.snapshot.paramMap.get("pid")?
        Number(this.activateroute.snapshot.paramMap.get("pid")) : 0;
 

@@ -1,13 +1,13 @@
 <div class="container-fluid">
-  <div class="container-fluid row chech-header pt-3 pb-2 ">
-    <div class="col-sm-3 col-md-3 ">
+  <div class=" row chech-header pt-3 pb-2 d-none">
+    <div class=" col-sm-3 col-md-3 ">
       <img
         class="img-fluid cart" src="assets/check-out/arrow-left.svg" alt="just an arrow" routerLink="/Cart"  *ngIf="lang=='en'"/>
       <img
       class="img-fluid cart"src="assets/check-out/arrow-right.svg" alt="just an arrow" routerLink="/Cart"  *ngIf="lang=='ar'"/>
       <span class="mx-1 cart-link cart" [translate]="'Cart'" routerLink="/Cart" >  </span>
     </div>
-    <div class="col-sm-6 col-md-6 mx-5" >
+    <div class= "col-sm-6 col-md-6 mx-5" >
       
       <span class="cart-link mx-5"[translate]="'For_assistance,call'" ></span> 
        
@@ -17,19 +17,22 @@
       <img src="assets/header/noon-logo-ar.svg" class="img-fluid mx-auto" *ngIf="lang=='ar'">
     </div>
   </div>
-  <div class="rounded row container-fluid pt-3 pb-3" style="background-color: #f7f7fa">
-    <div class="col-sm-12 col-md-2"></div>
+  <!-- pt-3 pb-3 -->
+  <div class="rounded m-0 row container-fluid p-0 " style="background-color: #f7f7fa">
+    <div class="col-sm-12 col-md-12"></div>
     <div class="col-sm-12 col-md-6">
       <div class="row mx-4">
       <strong class="title pb-2" [translate]="'Shipping_Address'"></strong>
       <div class="bg-white container-fluid row mt-2 mb-3 rounded">
         <div class="col-9 mx-4">
+            <!-- <button class="btn btn-danger" (click)="logdata()">btn</button> -->
           <strong class="row name pt-4">{{name}}</strong>
           <div class="row add">
             {{address}}
           </div>
           <div class="row tel">
             {{phone}}
+            
             <img
               class="img-fluid right pb-2"
               src="assets/check-out/verified.svg"
@@ -37,6 +40,7 @@
             />
           </div>
         </div>
+   
         <div class="col-1 mt-2">
           <button data-bs-toggle="modal" [translate]="'Change'" data-bs-target="#exampleModal" class="ms-3" style="color: rgb(56, 102, 223)">Change</button>
         </div>
@@ -44,9 +48,6 @@
     </div>
     <div class=" row mx-4">
       <strong class="title" [translate]="'Payment_Options'"></strong>
-
-
-
         <div class="bg-white container-fluid row mt-2 mb-3 rounded ">
             <div class="col-1">
              
@@ -71,9 +72,6 @@
         id="myPaypalButtons"
            ></div>
         </div>
-                 
-                   
-             
     </div>
     <div class="row mx-4 ">
         <strong class="title" [translate]="'Delivery_Options'">
@@ -115,7 +113,7 @@
         <div class="col-8 title">
           <strong>{{lang == 'en'? product.name : product.nameAr}}</strong>
           <div>
-            <span class="unit">EGP</span>
+            <span class="unit" [translate]="'EGP'"></span>
             <strong> {{product.price}}</strong>
             
           </div>
@@ -185,7 +183,7 @@
         <div class="modal-body">
           <form>
             <div class="mb-3">
-              <label for="recipient-name" class="col-form-label" [translate]="'Name'"> </label>
+              <label for="recipient-name" class="col-form-label"[ngModel] [translate]="'Name'"> </label>
               <input type="text" class="form-control" id="recipient-name"placeholder="{{'Edit_your_Name'|translate}}">
             </div>
             <div class="mb-3">

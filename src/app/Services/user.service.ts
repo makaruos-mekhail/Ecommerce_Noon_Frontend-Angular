@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment.development';
 import { Login } from '../Models/login';
 import { Register } from '../Models/register';
 import { Checkoutdata } from '../Models/checkoutdata';
+import { IUser } from '../Models/iuser';
 
 @Injectable({
   providedIn: 'root'
@@ -33,9 +34,9 @@ export class UserService {
     return this.httpclient
       .patch<any>(`${environment.APIURLProduct}/User/updateUser`, checkoutdto)
   }
-  getUserName(useremail: string): Observable<string>{
+  getUserName(useremail: string): Observable<IUser>{
     return this.httpclient
-      .get<string>(`${environment.APIURLProduct}/User/getnameuser?useremail=${useremail}`);
+      .get<IUser>(`${environment.APIURLProduct}/User/getnameuser?useremail=${useremail}`);
   }
   logOut(): Observable<any>{
     return this.httpclient

@@ -11,7 +11,8 @@
   "email_support": "email_support",
   "phone-support": "Phone Support",
   "what-are-you-looking-for": "What are you looking for?",
-
+  "Orders":"Orders",
+  "Profile":"Profile",
   "CONTINUE SHOPPING": "CONTINUE SHOPPING",
   "WishLists": "WishList",
   "Secure Checkout": "Secure Checkout | For assistance, Call 16358",
@@ -34,7 +35,7 @@
   "Payment-fee": "Payment-fee",
    "item":"(item)",
    "UNIT":"UNIT",
-
+  "SignOut":"Sign Out",
 
 
 
@@ -227,7 +228,9 @@
   "add_to_cart":"ADD TO CART",
   "This-item-cannot-be-exchanged-o-returned":"  This item cannot be exchanged or returned .",
   "Ahlan":"Ahlan ",
-  "MyAccount":"My Account"
+  "MyAccount":"My Account",
+  "view-orders":"View your order history and check the delivery status for items",
+  "Cancel-Order":"Cancel Order"
 }
 
 
