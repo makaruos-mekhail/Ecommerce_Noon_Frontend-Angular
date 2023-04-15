@@ -51,7 +51,7 @@
         </div>
 
         <!-- Sign In -->
-        <div class=" col-sm-3  col-md-2 d-md-inline-block element1 elementt elem" *ngIf="!checklogin">
+        <div class=" col-sm-3  col-md-2 d-md-inline-block element1 elementt elem" *ngIf="!istoken">
           <a type="button" class="btn aa" data-bs-target="#logModal" data-bs-toggle="modal">
             <span class="fw-bold txtFont22 ">
               <span [translate]="'sign-in'"></span>
@@ -61,7 +61,7 @@
             </span>
           </a>
         </div>
-        <div class=" col-sm-3 col-md-2 d-md-inline-block element1 elementt elem" *ngIf="checklogin">
+        <div class=" col-sm-3 col-md-2 d-md-inline-block element1 elementt elem" *ngIf="istoken">
           <div class="my-auto">
             <div class="dropdown ">
               <button class="btn border-0 dropdown-toggle p-0 d-flex align-items-center
@@ -92,7 +92,7 @@
 
 
         <!-- WishList -->
-        <div class=" col-sm-1 col-md-1  d-md-inline-block  element1 elementt elem " *ngIf="checklogin">
+        <div class=" col-sm-1 col-md-1  d-md-inline-block  element1 elementt elem " *ngIf="istoken">
           <a type="button" class="btn aaa element4">
             <span class="fw-bold txtFont22" routerLink="/WishList">
               <span [translate]="'WishLists'"></span>
@@ -232,6 +232,7 @@
                     <small *ngIf="PassLogin?.errors?.['required']" [translate]="'Password-is-Required'"> </small>
                     <small *ngIf="PassLogin?.errors?.['pattern']">Must Contrain At Least One Number, Upper, Lower, Spicial Character
                      </small>
+                     <small *ngIf="invalidUser"> Invalid UserName or Password</small>
 
                   </div>
                 </div>
@@ -258,7 +259,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="row">
-              <form (ngSubmit)="testlogreg(email2.value,pass2.value,fname.value,lname.value )"
+              <form (ngSubmit)="Registeration(email2.value,pass2.value,fname.value,lname.value )"
           
                 class="col-9 my-4 mx-auto" [formGroup]="userFormGroup">
 
@@ -313,9 +314,8 @@
 
                 <div class="my-3">
                   <div class="col-12">
-                    <input class="my-2 btn border text-primary fw-bold fs-4 w-100" type="submit"
+                    <input data-bs-target="#logModal" data-bs-toggle="modal" class="my-2 btn border text-primary fw-bold fs-4 w-100" type="submit"
                        value= "{{'create-account' | translate}}">
-
                   </div>
                 </div>
               </form>

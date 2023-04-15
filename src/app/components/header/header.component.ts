@@ -6,7 +6,8 @@ import { ProductService } from "src/app/Services/product.service";
 import { Location } from '@angular/common';
 import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
 import DetailsComponent from "../details/details.component";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+//import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+
 import { IUserLogin } from "src/app/Models/iuser-login";
 import { Login } from "src/app/Models/login";
 import { UserService } from "src/app/Services/user.service";
@@ -18,6 +19,7 @@ import { AuthService } from "src/app/Services/auth.service";
 import { Token } from "@angular/compiler";
 import { ModalService } from "src/app/Services/modal.service";
 import { Subscription } from "rxjs";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-header",
@@ -29,6 +31,7 @@ export class HeaderComponent implements OnInit {
   
   showModal = false 
   checklogin: boolean = false;
+  istoken: boolean = false;
   userName:any=""
   categoriesList: ICategory[] = [];
 
@@ -51,6 +54,7 @@ export class HeaderComponent implements OnInit {
 
     )
   {
+    this.istoken = (localStorage.getItem('token') ? true : false);
     this.supscribtion = this.modalservice.showModal$.subscribe(show => {
       this.showModal = show;
       console.log(this.showModal);
@@ -141,40 +145,31 @@ selectedLanguage(event: any) {
   //parent cat
 
   UserEmail!: string;
-
+invalidUser: boolean = false;
   ///login user
   LogIn(email: string, pass: string) {
     var logiuser = new Login(email, pass);
-    this.userservice.logIn(logiuser).subscribe((res=> {
-      this.cookieService.set("useremail", email);
-      localStorage.setItem('token', res.data.toekn);
-      window.location.reload();
-  }));
-  }
-
-  testlogreg(email:string, pass:string, fname:string, lname:string)
-  {
-     this.Registeration(email, pass, fname, lname);
-     setTimeout(() => {
-      this.LogIn(email, pass);
-     }, 3000);
-     
-
+    this.userservice.logIn(logiuser).subscribe(
+      (res) => {
+        this.cookieService.set("useremail", res.data.user.email);
+        localStorage.setItem('token', res.data.toekn);
+        window.location.reload();
+      },
+      error => {
+      console.log("test error");
+      
+      }
+    );
   }
    
-
+  
   emailIsExist :boolean = false;
   //register 
   Registeration(email:string, pass:string, fname:string, lname:string) {
     var registeruser = new Register(email, pass, fname, lname);
     this.userservice.Registeruser(registeruser).subscribe({
       next: (data) => {
-      //  this.LogIn(email, pass);
-        //this.LogIn(email, pass);
-        window.location.reload();
-        console.log("registeration success");
-        
-       // this.router.navigate(['/Home']);
+      
       },
       error: (err: HttpErrorResponse) => {
         console.log(err.message);

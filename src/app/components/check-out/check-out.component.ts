@@ -53,7 +53,7 @@ export class CheckOutComponent implements OnInit{
       id: "#myPaypalButtons",
 
       currency: "EGP",
-      value:"1000",
+      value:"34655",
       //value: this.totalPrice.toString(),
       
       onApprove: (details) => {
@@ -66,26 +66,9 @@ export class CheckOutComponent implements OnInit{
       },
     })  
   }
-  name!:string
-  address!:string
-  phone!: string
+  
  
-  ngOnInit(): void {
-
-    // this.interactionService.checkoutdata$.subscribe(
-    //   (data) => {
-
-    //     debugger
-    //     console.log(data);
-
-    //     this.name = data[0]
-    //     console.log(this.name);
-    //     this.address = data[1]
-    //     this.phone = data[2]
-
-    //   }
-    // );
-  }
+  
 
  logdata()
  {
