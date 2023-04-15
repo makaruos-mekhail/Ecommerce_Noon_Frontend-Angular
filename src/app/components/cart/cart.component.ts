@@ -17,7 +17,7 @@ import { ModalService } from 'src/app/Services/modal.service';
 })
 export class CartComponent {
   lang = localStorage.getItem('lang');
-
+  checklogin: boolean = false;
   productQuantity: number[] = new Array(5);
   productInCart :IProduct[] = [];
   cart: IOrderItem[] = [];
@@ -28,7 +28,7 @@ export class CartComponent {
      private cookieService: CookieService, private cartService: CartService,
     private router: Router, private userervice: UserService,
   private modalservice:ModalService) {
-    
+    this.checklogin = this.cookieService.check("useremail")
       if(!cookieService.get('cart')){
         this.cookieService.set('cart', JSON.stringify(this.cart), this.farFutureDate);
       }

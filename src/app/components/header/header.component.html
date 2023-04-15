@@ -52,7 +52,7 @@
 
         <!-- Sign In -->
         <div class=" col-sm-3  col-md-2 d-md-inline-block element1 elementt elem" *ngIf="!checklogin">
-          <a type="button" class="btn aa" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+          <a type="button" class="btn aa" data-bs-target="#logModal" data-bs-toggle="modal">
             <span class="fw-bold txtFont22 ">
               <span [translate]="'sign-in'"></span>
 
@@ -142,7 +142,7 @@
 
         <!-- Sign In -->
         <div class=" col-3 d-inline-block element1 elementt elem">
-          <a type="button" class="btn aa" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+          <a type="button" class="btn aa" data-bs-target="#logModal" data-bs-toggle="modal">
             <span class="fw-bold txtFont22">
               <span [translate]="'sign-in'"></span>
 
@@ -193,7 +193,7 @@
       </div>
 
       <!-- Popup Sign In and Sign Up -->
-      <div [style.display]="showModal?'block':'none'" class="modal fade" id="exampleModalToggle" aria-hidden="true"
+      <div [style.display]="showModal?'block':'none'" class="modal fade" id="logModal" aria-hidden="true"
         aria-labelledby="exampleModalToggleLabel" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -240,7 +240,7 @@
                   <a href="#" class="link-info" [translate]="'Forgot-your-password?'"></a>
                   <div class="col-12">
                     <input class="my-2 btn border text-primary fw-bold fs-4 w-100" type="submit"
-                      [translate]="'Sign-In'">
+                    value= "{{'Sign-In' | translate}}">
                   </div>
 
                 </div>
@@ -314,7 +314,7 @@
                 <div class="my-3">
                   <div class="col-12">
                     <input class="my-2 btn border text-primary fw-bold fs-4 w-100" type="submit"
-                      [translate]="'create-account'">
+                       value= "{{'create-account' | translate}}">
 
                   </div>
                 </div>

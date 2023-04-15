@@ -1,3 +1,4 @@
+
 <section class="row container-fluid p-0 mx-0">
 
   <!-- //product images large screens -->
@@ -63,7 +64,9 @@
 
     <div class="row container-xl">
       <div class="col-6">
-        <h4 class="d-inline-block">{{product?.price | currency:'EGP' }}</h4>
+        <h4 class="d-inline-block">{{product?.price }}
+          <span [translate]="'EGP'"></span>
+        </h4>
         <span class="text-muted" style="font-size: 0.75em;" [translate]="'vat'"></span>
       </div>
       <div class="col-2"></div>
@@ -71,7 +74,8 @@
     </div>
     <!-- discount offer smartphone -->
     <div class="row container-xl" *ngIf="product!= undefined && product.discount >0">
-      <div class="col-4 text-muted"><del>{{product.price|discountpipe:product.discount | currency:'EGP'}}</del></div>
+      <div class="col-4 text-muted"><del>{{product.price|discountpipe:product.discount }}</del>
+      <span [translate]="'EGP'"></span></div>
       <div class="col-2 p-0 savings-percentage">{{product.discount }}% off</div>
     </div>
     <div class="row container-xl">
@@ -186,12 +190,16 @@
     </div>
 
     <div class="col-12 d-md-block d-none">
-      <h4 class="d-inline-block">{{product?.price |currency:'EGP'}}</h4>
+      <h4 class="d-inline-block">{{product?.price }}
+        <span [translate]="'EGP'"></span>
+      </h4>
       <span class="text-muted"></span>
     </div>
     <div class="row container-xl" *ngIf="product!= undefined && product.discount >0">
       <div class="col-3 text-muted text-decoration-line-through">
-        <h5>{{product.price|discountpipe:product.discount | currency:'EGP'}}</h5>
+        <h5>{{product.price|discountpipe:product.discount}}
+          <span [translate]="'EGP'"></span>
+        </h5>
       </div>
       <div class="col-2 p-0 savings-percentage">{{product.discount}}% off</div>
     </div>

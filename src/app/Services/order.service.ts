@@ -32,4 +32,9 @@ export class OrderService {
  getAllUserOrders(userEmail: string):Observable<Orders[]>{
     return this.httpClient.get<Orders[]>(`${environment.APIURLProduct}/Order/GetAllUserOrders?userEmail=${userEmail}`)
   }
+
+  //cancelOrder
+  cancelOrder(orderid: number): Observable<any>{
+    return this.httpClient.patch<any>(`${environment.APIURLProduct}/Order/CancelOrder`,orderid)
+  }
 }

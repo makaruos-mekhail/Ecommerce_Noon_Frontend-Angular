@@ -146,7 +146,6 @@ selectedLanguage(event: any) {
   LogIn(email: string, pass: string) {
     var logiuser = new Login(email, pass);
     this.userservice.logIn(logiuser).subscribe((res=> {
-      console.log('res', res);
       this.cookieService.set("useremail", email);
       localStorage.setItem('token', res.data.toekn);
       window.location.reload();
@@ -171,6 +170,7 @@ selectedLanguage(event: any) {
     this.userservice.Registeruser(registeruser).subscribe({
       next: (data) => {
       //  this.LogIn(email, pass);
+        //this.LogIn(email, pass);
         window.location.reload();
         console.log("registeration success");
         
