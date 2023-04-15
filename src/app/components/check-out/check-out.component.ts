@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { render } from 'creditcardpayments/creditCardPayments';
 import { CookieService } from 'ngx-cookie-service';
@@ -9,6 +9,8 @@ import { HeaderComponent } from '../header/header.component';
 import { IProduct } from 'src/app/Models/iproduct';
 import { CategoyService } from 'src/app/Services/categoy.service';
 import { CartService } from 'src/app/Services/cart.service';
+import { Orders } from 'src/app/Models/orders';
+import { IUser } from 'src/app/Models/iuser';
 @Component({
   selector: 'app-check-out',
   templateUrl: './check-out.component.html',
@@ -20,9 +22,11 @@ export class CheckOutComponent implements OnInit{
   totalQuantity: number = 0;
   totalPrice: number = 0;
   paid!: boolean;
-  name!: string
-  address!: string
-  phone!: string
+  @Input() name!: string
+  @Input() address!: string
+  @Input() phone!: string
+  // usr!: IUser
+  @Input() arr:any[]=[]
   email = this.cookieService.get("useremail");
   //totalPrice = JSON.parse(this.cookieService.get('cart')).reduce((acc: any, item: any) => acc + item.price, 0);
   cart = JSON.parse(this.cookieService.get('cart'));
@@ -30,6 +34,13 @@ export class CheckOutComponent implements OnInit{
     private router: Router,
     private interactionService: InteractionService,
     private cartService:CartService) {
+      var useremail = this.cookieService.get("useremail")
+      this.orderService.getAllUserOrders(useremail)
+      .subscribe(data => {
+       // this.name = data[0].user.firstName;;
+      //  this.address = data[0].address;
+      //  this.phone = data[0].userPhone;
+      });
     //get data from cart 
     this.cart = JSON.parse(cookieService.get('cart'));
     let ids: number[] = JSON.parse(this.cookieService.get('cart')).map((item: any) => item.productid);
@@ -64,6 +75,7 @@ export class CheckOutComponent implements OnInit{
 
     // this.interactionService.checkoutdata$.subscribe(
     //   (data) => {
+
     //     debugger
     //     console.log(data);
 
@@ -75,8 +87,27 @@ export class CheckOutComponent implements OnInit{
     //   }
     // );
   }
+
+ logdata()
+ {
+   console.log(this.arr);
+   
+ }
  
- 
+  ngOnInit(): void {
+    this.interactionService.checkoutdata$.subscribe(
+        (data) => {
+         // debugger
+         this.arr=data
+          console.log(this.arr);
+          this.name = data[0]
+          console.log(this.name);
+          this.address = data[1]
+          this.phone = data[2]
+        }
+      );
+      console.log(this.arr);
+  }
   //ngOnInit(): void {
 
   //}

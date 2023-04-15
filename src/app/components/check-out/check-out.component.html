@@ -25,12 +25,14 @@
       <strong class="title pb-2" [translate]="'Shipping_Address'"></strong>
       <div class="bg-white container-fluid row mt-2 mb-3 rounded">
         <div class="col-9 mx-4">
+            <!-- <button class="btn btn-danger" (click)="logdata()">btn</button> -->
           <strong class="row name pt-4">{{name}}</strong>
           <div class="row add">
             {{address}}
           </div>
           <div class="row tel">
             {{phone}}
+            
             <img
               class="img-fluid right pb-2"
               src="assets/check-out/verified.svg"
@@ -38,6 +40,7 @@
             />
           </div>
         </div>
+   
         <div class="col-1 mt-2">
           <button data-bs-toggle="modal" [translate]="'Change'" data-bs-target="#exampleModal" class="ms-3" style="color: rgb(56, 102, 223)">Change</button>
         </div>
@@ -45,9 +48,6 @@
     </div>
     <div class=" row mx-4">
       <strong class="title" [translate]="'Payment_Options'"></strong>
-
-
-
         <div class="bg-white container-fluid row mt-2 mb-3 rounded ">
             <div class="col-1">
              
@@ -183,7 +183,7 @@
         <div class="modal-body">
           <form>
             <div class="mb-3">
-              <label for="recipient-name" class="col-form-label" [translate]="'Name'"> </label>
+              <label for="recipient-name" class="col-form-label"[ngModel] [translate]="'Name'"> </label>
               <input type="text" class="form-control" id="recipient-name"placeholder="{{'Edit_your_Name'|translate}}">
             </div>
             <div class="mb-3">
