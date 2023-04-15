@@ -190,10 +190,10 @@
 
                 <!-- check out modal -->
                 <div class="modal-body">
-                  <form class="text-muted">
+                  <form #fref="ngForm" class="text-muted">
                     <div class="row mb-3">
                       <label for="Address" class="form-label fw-bold" [translate]="'Address'"></label>
-                      <input id="Address" #address class="border-bottom" 
+                      <input id="Address" required #address class="border-bottom" 
                         placeholder="city,street,building number,floor no,flat no" type="text"
                         style="border-radius: 0 !important; outline: none !important;">
                     </div>
@@ -202,14 +202,14 @@
                       <div class="col-12">
                         <div class="col-1 d-inline fw-bold">+20</div>
                         <div class="col- d-inline fw-bold">
-                          <select #fnum>
+                          <select required #fnum>
                             <option selected>10</option>
                             <option value="1">11</option>
                             <option value="2">12</option>
                             <option value="3">15</option>
                           </select>
                         </div>
-                        <input id="Phone" maxlength="8" #phone class=" col-8 outline"
+                        <input id="Phone" maxlength="8" required #phone class=" col-8 outline"
                           placeholder="i.e 12345678" type="text" style="border-radius: 0 !important;">
                       </div>
                     </div>
@@ -217,12 +217,12 @@
                     <div class="row mb-3">
                       <div class="col-5 m-2">
                         <label for="firstname"  class="form-label fw-bold" [translate]="'First-Name'"></label>
-                        <input id="firstname" #firstname class="outline  border-bottom" placeholder="First Name"
+                        <input id="firstname" required #firstname class="outline  border-bottom" placeholder="First Name"
                           type="text" style="border-radius: 0 !important;">
                       </div>
                       <div class="col-5 m-2 ">
                         <label for="lastname" class="form-label fw-bold" [translate]="'Last-Name'"></label>
-                        <input id="lastname" #lastname class="outline  border-bottom" placeholder="First Name"
+                        <input id="lastname" required #lastname class="outline  border-bottom" placeholder="First Name"
                           type="text" style="border-radius: 0 !important;">
                       </div>
                     </div>
@@ -249,9 +249,10 @@
                 <div class="modal-footer">
                   <button type="button"  class="btn btn-primary text-light fw-bold"
                     (click)="sendCheckOutData(address.value,phone.value,fnum.value,firstname.value,lastname.value)" [translate]="'save-address'"
-                    data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close">
+                    data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close" [disabled]="fref.invalid" >
                   </button>
                 </div>
+                
                   </form>
                   </div>
               </div>

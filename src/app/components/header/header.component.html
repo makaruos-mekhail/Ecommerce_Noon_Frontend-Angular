@@ -68,7 +68,7 @@
                     mx-auto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <span>
                   <span [translate]="'Ahlan'" style="font-size:0.8em;"></span>
-                  <span style="font-size:0.75em;">Fatmaa</span>
+                  <span style="font-size:0.75em;">{{userName}}</span>
                   <div class="fw-bold" style="font-size:0.9em;" [translate]="'MyAccount'"></div>
                 </span>
               </button>
@@ -217,8 +217,7 @@
 
                   <div class="alert alert-danger" [hidden]="EmailLogin?.valid || EmailLogin?.untouched">
                     <small *ngIf="EmailLogin?.errors?.['required']" [translate]="'Email-is-Required'"></small>
-                    <small *ngIf="EmailLogin?.errors?.['pattern']">Email Must be pattern<br> ([a-zA-Z0-9](4,15)@(gmail |
-                      yahoo).com)</small>
+                    <small *ngIf="EmailLogin?.errors?.['pattern']">Must Contrain Number, Character and (gmail or yahoo).com)</small>
                   </div>
                 </div>
 
@@ -231,8 +230,8 @@
 
                   <div class="alert alert-danger" [hidden]="PassLogin?.valid || PassLogin?.untouched">
                     <small *ngIf="PassLogin?.errors?.['required']" [translate]="'Password-is-Required'"> </small>
-                    <small *ngIf="PassLogin?.errors?.['pattern']">Password Must be pattern <br>
-                      ([a-zA-Z](4,10)[0-9](2)@)</small>
+                    <small *ngIf="PassLogin?.errors?.['pattern']">Must Contrain At Least One Number, Upper, Lower, Spicial Character
+                     </small>
 
                   </div>
                 </div>
@@ -259,7 +258,8 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="row">
-              <form (ngSubmit)="Registeration(email2.value,pass2.value,fname.value,lname.value )"
+              <form (ngSubmit)="testlogreg(email2.value,pass2.value,fname.value,lname.value )"
+          
                 class="col-9 my-4 mx-auto" [formGroup]="userFormGroup">
 
                 <h3 class=" mt-3 col-12 fs-2 d-inline-block" [translate]="'Create-an-account'"></h3>
@@ -275,8 +275,7 @@
                     formControlName="Uemail" [class.is-valid]="EmailU?.valid" [class.is-invalid]="EmailU?.invalid">
                   <div class="alert alert-danger" [hidden]="EmailU?.valid || EmailU?.untouched">
                     <small *ngIf="EmailU?.errors?.['required']" [translate]="'Email-is-Required'"></small>
-                    <small *ngIf="EmailU?.errors?.['pattern']">Email Must be pattern<br> ([a-zA-Z0-9](4,15)@(gmail |
-                      yahoo).com)</small>
+                    <small *ngIf="EmailU?.errors?.['pattern']">Must Contrain Number, Character and (gmail or yahoo).com)</small>
                   </div>
                   <small *ngIf="emailIsExist" class="text-danger fs-4">User Already Exist</small>
                 </div>
@@ -288,8 +287,7 @@
                     [class.is-invalid]="passwordU?.invalid">
                   <div class="alert alert-danger" [hidden]="passwordU?.valid || passwordU?.untouched">
                     <small *ngIf="passwordU?.errors?.['required']" [translate]="'Password-is-Required'"></small>
-                    <small *ngIf="passwordU?.errors?.['pattern']">Password Must be pattern<br>
-                      ([a-zA-Z](4,10)[0-9](2)@)</small>
+                    <small *ngIf="passwordU?.errors?.['pattern']">Must Contrain At Least One Number, Upper, Lower, Spicial Character</small>
                   </div>
                 </div>
 
@@ -299,7 +297,7 @@
                     formControlName="ufirstName" [class.is-valid]="Fname?.valid" [class.is-invalid]="Fname?.invalid">
                   <div class="alert alert-danger" [hidden]="Fname?.valid || Fname?.untouched">
                     <small *ngIf="Fname?.errors?.['required']" [translate]="'First-Name-is-Required'"> </small>
-                    <small *ngIf="Fname?.errors?.['pattern']">First Name Must be pattern<br>([a-zA-Z0-9](4,10))</small>
+                    <small *ngIf="Fname?.errors?.['pattern']">First Name Must At Least 4 letters</small>
                   </div>
                 </div>
 
@@ -309,7 +307,7 @@
                     formControlName="ulastName" [class.is-valid]="Lname?.valid" [class.is-invalid]="Lname?.invalid">
                   <div class="alert alert-danger" [hidden]="Lname?.valid || Fname?.untouched">
                     <small *ngIf="Lname?.errors?.['required']" [translate]="'Last-Name-is-Required'"></small>
-                    <small *ngIf="Lname?.errors?.['pattern']">Last Name Must be pattern<br>([a-zA-Z0-9](4,10))</small>
+                    <small *ngIf="Lname?.errors?.['pattern']">Last Name Must At Least 4 letters</small>
                   </div>
                 </div>
 
