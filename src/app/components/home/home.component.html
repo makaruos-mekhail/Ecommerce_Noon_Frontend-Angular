@@ -298,13 +298,20 @@
                         {{lang == 'en'? product.name : product.nameAr}}
                       </p>
                       <span>
-                        <span class="fw-bold txtFont2"> {{product.price |currency:'EGP'}}</span>
+                        <span class="fw-bold txtFont2"> 
+                          {{product.price }} 
+                          <span [translate]="'EGP'"></span>
+                        </span>
                       </span>
                       <!-- discountpipe offer -->
                       <div *ngIf="product!= undefined && product.discount >0">
                         <span
-                          class="text-decoration-line-through txtFont2">{{product.price|discountpipe:product.discount|currency:'EGP'}}
-                          &nbsp;</span>
+                          class="text-decoration-line-through txtFont2">
+                            <span [translate]="'EGP'"></span>
+                          {{product.price|discountpipe:product.discount}}
+                          &nbsp;
+                        </span>
+                        
                         <span class="fw-bold txtFont2" style="color: #3bbd04;">{{product?.discount}}%
                         </span>
                       </div>
@@ -346,14 +353,16 @@
                       </p>
                       <span>
 
-                        <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
-                        <span class="fw-bold txtFont2">{{product.price |currency:'EGP'}}</span>
+                        <span class="fw-bold txtFont2">{{product.price}}</span>
+                          <span [translate]="'EGP'"></span>
                       </span>
                       <!-- discountpipe offer -->
                       <div *ngIf="product!= undefined && product.discount >0">
                         <span
-                          class="text-decoration-line-through txtFont2">{{product.price|discountpipe:product.discount|currency:'EGP'}}
+                          class="text-decoration-line-through txtFont2">{{product.price|discountpipe:product.discount}}
                           &nbsp;</span>
+                          <span [translate]="'EGP'"></span>
+                         
                         <span class="fw-bold txtFont2" style="color: #3bbd04;">{{product?.discount}}%
                         </span>
                       </div>
@@ -479,13 +488,15 @@
                       {{lang == 'en'? product.name : product.nameAr}}
                     </p>
                     <span>
-                      <span class="fw-bold txtFont2">{{product.price|currency:'EGP'}}</span>
+                      <span class="fw-bold txtFont2">{{product.price}}</span>
+                      <span [translate]="'EGP'"></span>
                     </span>
                     <!-- discountpipe offer -->
                     <div *ngIf="product!= undefined && product.discount >0">
                       <span
-                        class="text-decoration-line-through txtFont2">{{product.price|discountpipe:product.discount|currency:'EGP'}}
+                        class="text-decoration-line-through txtFont2">{{product.price|discountpipe:product.discount}}
                         &nbsp;</span>
+                        <span [translate]="'EGP'"></span>
                       <span class="fw-bold txtFont2" style="color: #326c19;">{{product?.discount}}%
                       </span>
                     </div>
@@ -527,12 +538,14 @@
 
                       <!-- <span class="text-decoration-line-through"> 1,999.00</span> -->
                       <span class="fw-bold txtFont2">{{product.price}}</span>
+                      <span [translate]="'EGP'"></span>
                     </span>
                     <!-- discountpipe offer -->
                     <div *ngIf="product!= undefined && product.discount >0">
                       <span
-                        class="text-decoration-line-through txtFont2">{{product.price|discountpipe:product.discount |currency:'EGP'}}
+                        class="text-decoration-line-through txtFont2">{{product.price|discountpipe:product.discount }}
                       </span>
+                      <span [translate]="'EGP'"></span>
                       <span class="fw-bold txtFont2" style="color: #2d760d;">{{product?.discount}}%
                       </span>
                     </div>

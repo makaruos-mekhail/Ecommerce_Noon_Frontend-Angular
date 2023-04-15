@@ -26,6 +26,7 @@ import { AuthIterceptorInterceptor } from './Services/auth-iterceptor.intercepto
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { LoadingInterceptor } from './Interceptors/loading.interceptor';
 import { ImgMagnifier } from 'ng-img-magnifier';
+import { UserOrdersComponent } from './components/user-orders/user-orders.component';
 //translate
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -47,6 +48,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CheckOutComponent,
     OrderStatusComponent,
     SpinnerComponent,
+    UserOrdersComponent,
     
     
     

@@ -230,7 +230,9 @@
   "add_to_cart":"ADD TO CART",
   "This-item-cannot-be-exchanged-o-returned":"  This item cannot be exchanged or returned .",
   "Ahlan":"Ahlan ",
-  "MyAccount":"My Account"
+  "MyAccount":"My Account",
+  "view-orders":"View your order history and check the delivery status for items",
+  "Cancel-Order":"Cancel Order"
 }
 
 

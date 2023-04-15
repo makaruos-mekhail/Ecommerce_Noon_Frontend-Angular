@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <section class="col-3 col-sm-3 col-md-3 p-5" style="background-color: white;height: 100%;">
+            <h4>Hala makaruos!</h4>
+            <span>makaruosmekhail@gmail.com</span>
+            <hr>
+            <div class="mt-4">
+                <i class="fa-brands fa-gratipay" style="color: #fed400;font-size: xx-large;"></i>
+                <span class="p-3"[translate]="'WishLists'"></span>
+
+            </div>
+            <div class="mt-4">
+                <i class="fa-solid fa-shop" style="color: #fed400;font-size: x-large;"></i>
+                <span class="p-3"[translate]="'Order'"></span>
+            </div>
+        </section>
+        <section class="col-9 col-sm-9 col-md-9 p-5" style="background-color: #f3f4f8;">
+            <h3><b [translate]="'Orders'"></b></h3>
+            <span class="mt-2"[translate]="'view-orders'"></span>
+            <div class="row" *ngFor="let order of allorders">
+                <div class="col-4" *ngFor="let item of order.orderItems">
+                        <div style="background-color: white;" class="p-3 row divhover mt-5">
+                                    <img [src]="item.product.imagePath" *ngIf="order.status!='Cancled'" width="100" height="200">
+                                    <img [src]="item.product.imagePath"*ngIf="order.status=='Cancled'"  style="opacity: 50%;" width="100" height="200" >
+                                    <b>{{item.product.modelNumber}}</b><br>
+                                    <span>{{lang == 'en'? item.product.name : item.product.nameAr}}</span>
+                        </div>
+                 </div>
+                 <div class="col-2 my-auto">
+                  <h5> {{order.status}}</h5> 
+                </div>
+                <div *ngIf="order.status=='Processing'" class="col-2 my-auto">
+                    <a (click)="cancelOrder(order.id)" class="text-decration-underline " style="cursor: pointer;" [translate]="'Cancel-Order'"></a>
+
+                </div>
+                      
+                </div>
+              
+        </section>
+    </div>
+</div>
