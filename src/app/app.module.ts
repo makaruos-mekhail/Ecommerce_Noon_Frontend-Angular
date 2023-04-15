@@ -13,7 +13,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { SlidbarAllcategoryComponent } from './components/slidbar-allcategory/slidbar-allcategory.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -25,7 +26,7 @@ import { AuthService } from './Services/auth.service';
 import { AuthIterceptorInterceptor } from './Services/auth-iterceptor.interceptor';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { LoadingInterceptor } from './Interceptors/loading.interceptor';
-import { ImgMagnifier } from 'ng-img-magnifier';
+// import { ImgMagnifier } from 'ng-img-magnifier';
 import { UserOrdersComponent } from './components/user-orders/user-orders.component';
 //translate
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -69,7 +70,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ReactiveFormsModule,
     Ng2SearchPipeModule,
      //NgxPayPalModule
-     ImgMagnifier,
+    //  ImgMagnifier,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

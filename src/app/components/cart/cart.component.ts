@@ -22,12 +22,15 @@ export class CartComponent {
   productInCart :IProduct[] = [];
   cart: IOrderItem[] = [];
   totalQuantity : number = 0;
-  totalPrice : number = 0;
+  totalPrice: number = 0;
+  istoken: boolean = false;
   farFutureDate = new Date(2030, 1, 1);
   constructor( private interactionservice: InteractionService,
      private cookieService: CookieService, private cartService: CartService,
     private router: Router, private userervice: UserService,
-  private modalservice:ModalService) {
+    private modalservice: ModalService) {
+    
+    this.istoken = (localStorage.getItem('token') ? true : false);
     this.checklogin = this.cookieService.check("useremail")
       if(!cookieService.get('cart')){
         this.cookieService.set('cart', JSON.stringify(this.cart), this.farFutureDate);

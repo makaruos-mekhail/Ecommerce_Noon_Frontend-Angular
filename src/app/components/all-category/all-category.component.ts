@@ -20,10 +20,10 @@ import { ThisReceiver } from '@angular/compiler';
 export class AllCategoryComponent implements  OnInit  {
   // Next & prev product
   products = [
-    { id: 1, num1: 0, num2 : 4 },
-    { id: 2, num1: 5, num2 : 9 },
-    { id: 3, num1: 10, num2 : 14 },
-    { id: 4, num1: 15, num2 : 19 }
+    { id: 1, num1: 0, num2 : 16 },
+    { id: 2, num1: 17, num2 : 33 },
+    { id: 3, num1: 34, num2 : 50 },
+    { id: 4, num1: 51, num2 : 70 }
   ];
   currentProductIndex = 0;
 

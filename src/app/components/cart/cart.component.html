@@ -177,12 +177,12 @@
           <div class="col-11 span2" [translate]="'monthly-payment'"></div>
         </div>
         <div class="d-grid gap-2 m-3">
-          <button *ngIf="!checklogin" type="button" class="btn btn-primary text-light"
+          <button *ngIf="!istoken" type="button" class="btn btn-primary text-light"
           data-bs-target="#logModal"
             data-bs-toggle="modal"
            [translate]="'CHECKOUT'"
           ></button>
-          <button *ngIf="checklogin" class="btn btn-primary text-light" type="button" data-bs-target="#exampleModalToggl"
+          <button *ngIf="istoken" class="btn btn-primary text-light" type="button" data-bs-target="#exampleModalToggl"
             data-bs-toggle="modal" [translate]="'CHECKOUT'"></button>
           <div class="modal" tabindex="-1" role="dialog" id="exampleModalToggl" aria-hidden="true"
             aria-labelledby="exampleModalToggleLabel" tabindex="-1">

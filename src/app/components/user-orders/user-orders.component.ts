@@ -33,7 +33,7 @@ export class UserOrdersComponent {
 /// get current user
     this.userservice.getUserName(userEmail).subscribe(
       (data) => {
-        this.userName=  JSON.parse(data)
+        this.userName=data.firstName
         console.log(data);
         console.log(this.userName);
         
