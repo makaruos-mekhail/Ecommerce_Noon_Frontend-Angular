@@ -50,12 +50,6 @@ export default class DetailsComponent implements OnInit {
     }
     
   }
-  // ngOnInit() {
-  //   const image = document.querySelector('img') as HTMLImageElement;
-  //   this.nativeWidth = image.naturalWidth;
-  //   this.nativeHeight = image.naturalHeight;
-  // }
-
   displayImg(idx: number): void {
     const mainImg = document.getElementById("main-product-imgggg") as HTMLImageElement;
     const selectedImg = document.getElementById(`id${idx+1}`) as HTMLImageElement;

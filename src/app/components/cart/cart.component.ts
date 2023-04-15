@@ -105,6 +105,7 @@ sendCheckOutData(addres: string, phone: string,fnum:string,firstname:string,last
       cartItem.price = (newQuantity * cartItem.price);
     }
     this.cookieService.set('cart', JSON.stringify(this.cart), this.farFutureDate);
+    location.reload();
   }
 
 }

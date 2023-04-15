@@ -66,7 +66,6 @@ export class CheckOutComponent implements OnInit{
       },
     })  
   }
-  
   name!:string
   address!:string
   phone!: string
@@ -138,7 +137,13 @@ order : IOrder | undefined;
     this.orderService.sendOrder(this.order).subscribe((data) => {
       console.log(data);
       this.router.navigate(["/OrderStatus"]);
-
     })
+  }
+
+  // ----------------------delete items from cart-----------------------
+  deleteCart() {
+    this.cookieService.delete('cart');
+    this.interactionService.sendCart(0,0);
+      // .subscribe(arg => this.property = arg);
   }
 }  
