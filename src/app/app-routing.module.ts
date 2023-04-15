@@ -9,7 +9,8 @@ import { HelppComponent } from "./components/helpp/helpp.component";
 import DetailsComponent from "./components/details/details.component";
 import { CheckOutComponent } from "./components/check-out/check-out.component";
 import { OrderStatusComponent } from "./components/order-status/order-status.component";
-import { OrderedComponent } from "./components/ordered/ordered.component";
+import { UserOrdersComponent } from "./components/user-orders/user-orders.component";
+
 
 const routes: Routes = [
   { path: "", redirectTo: "/Home", pathMatch: "full" }, //default routes path
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: "WishList", component: WishListComponent, title: "Noon WishList" },
   { path: "Checkout", component: CheckOutComponent, title: "Noon Checout" },
   { path: "OrderStatus", component: OrderStatusComponent, title: "Noon OrderStatus" },
-  { path: "Ordered", component: OrderedComponent, title: "Noon Ordered" },
+  { path: "Ordered", component:UserOrdersComponent, title: "Noon Ordered" },
 
   {
     path: "AllCategory",

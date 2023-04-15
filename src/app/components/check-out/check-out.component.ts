@@ -53,18 +53,18 @@ export class CheckOutComponent implements OnInit{
       },
     }) 
 
-    this.interactionService.checkoutdata$.subscribe(
-      (data) => {
-        debugger
-        console.log(data);
+    // this.interactionService.checkoutdata$.subscribe(
+    //   (data) => {
+    //     debugger
+    //     console.log(data);
 
-        this.name = data[0]
-        console.log(this.name);
-        this.address = data[1]
-        this.phone = data[2]
+    //     this.name = data[0]
+    //     console.log(this.name);
+    //     this.address = data[1]
+    //     this.phone = data[2]
 
-      }
-    );
+    //   }
+    // );
   }
  
  

@@ -22,11 +22,12 @@
             </div>
 
             <div class="d-flex flex-row">
-              <p>EGP</p>
+              <p [translate]="'EGP'"></p>
               <h6 class="px-2 fw-bold">{{Prod.price}}</h6>
             </div>
             <div *ngIf="Prod!= undefined && Prod.discount >0">
-              <span class="text-decoration-line-through txtFont2">{{Prod.price|discountpipe:Prod.discount |currency:'EGP'}}
+              <span [translate]="'EGP'"></span>
+              <span class="text-decoration-line-through txtFont2">{{Prod.price|discountpipe:Prod.discount}}
                 &nbsp;</span>
               <span class="fw-bold txtFont2" style="color: #3bbd04;">{{Prod?.discount}}%</span>
             </div>
