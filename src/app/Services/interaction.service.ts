@@ -17,6 +17,7 @@ export class InteractionService {
   // add to cart
   private addToCart = new Subject<any[]>();
   addToCart$ = this.addToCart.asObservable();
+
 //checkout data
 private checkoutdata=new Subject<string[]>();
 checkoutdata$ =this.checkoutdata.asObservable();
@@ -50,8 +51,6 @@ checkoutdata$ =this.checkoutdata.asObservable();
   {
     this.checkdata=[name,address,phone];
     this.checkoutdata.next(this.checkdata);
-  
-    
-  }
+    }
   
 }

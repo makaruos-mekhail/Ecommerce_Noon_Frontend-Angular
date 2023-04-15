@@ -160,10 +160,14 @@
         <div>
           <div class="m-3">
             <span>
-              <span [translate]="'Total'" class="fw-bold"></span>
-              <span class="span1" [translate]="'vat'"></span></span>
-              <span class="span2" *ngIf="lang=='en'">EGP 177.95</span>
-              <span class="span2" style="float: left;" *ngIf="lang=='ar'">EGP 177.95</span>
+              <span [translate]="'Total'" class="fw-bold fs-5"></span>
+              <span class="span1" [translate]="'Inclusive_of_VAT'"></span></span>
+              <!-- <span class="span2" *ngIf="lang=='en'" [translate]="'EGP'">{{totalPrice}}</span> -->
+              <div class="d-inline-block">
+              <span class="fw-bold fs-5 ms-1">{{totalPrice}}</span>
+              <span class="fw-bold fs-5" style="float: left;" [translate]="'EGP'">
+              </span>
+            </div>
           </div>
         </div>
         <div class="bg-white m-3 p-2 row1">
